@@ -18,25 +18,25 @@ body {
 
 header {
 	padding: 30px 0 15px;
-	border-bottom: 2px solid #8a8a8a;
 }
 
 section {
-	padding: 40px;
+	/* border-top: 2px solid #8a8a8a; */
+	padding: 20px;
 	border: 1px solid #e0e0e0;
 	background-color: #fff;
 	margin-bottom: 80px;
 }
-
-.cart_title {
+/* 장바구니 단계 이미지 */
+/* .cart_title {
 	height: 45px;
 	background-image: url("../image/orderstep.gif");
 	background-repeat: no-repeat;
 	background-position: 0 -200px;
 	margin-bottom: 30px;
-}
+} */
 
-.car_table {
+.cartTable {
 	border-collapse: collapse;
     border-spacing: 0;
 }
@@ -66,25 +66,24 @@ section {
 	vertical-align: middle;
 	font-size: 12px;
 }
-.cartItem_product_name {
+.cartItem_product {
 	text-align: left;
-	border-bottom: 1px solid #e2e5e7;
+	/* border-bottom: 1px solid #e2e5e7; */
     font-size: 15px;
     padding: 13px 0;
 }
-.cartItem_product_name a {
+.cartItem_product a {
     color: #555;
     font-weight: bold;
 }
 
-.cartItem_product_option {
-	padding-top: 5px;
-	font-size: 13px;
-	color: #555;
+.cartItemOption {
+	/* text-align: left; */
+    font-size: 15px;
+    padding: 13px 0;
+    border-left: 1px solid #ddd;
 }
-.option_delivery_date_rocket {
-	color: #00891a;
-}
+
 .quantityChange {
     width: 52px;
     height: 21px;
@@ -102,16 +101,6 @@ section {
 	background-position: -114px 0; 
 	background-repeat: no-repeat;
 	vertical-align: text-top;
-}
-.max-cash {
-	display: inline-block;
-    padding: 0 8px;
-    border-radius: 10px;
-    border: solid 1px #ccc;
-    background-color: #fff;
-}
-.max-cash img {
-	vertical-align: text-bottom;
 }
 
 .cartItemPrice {
@@ -217,22 +206,22 @@ section {
 .shopping_btn {
 	display: inline-block;
 	width: 190px;
-	border: 2px solid #0073e9;
+	border: 2px solid #95CF59;
     border-radius: 4px;
 	text-align: center;
 	padding: 14px 0;
-	font-family: Dotum,\\B3CB\C6C0,sans-serif;
-	color: #0073e9;
+	/* font-family: Dotum,\\B3CB\C6C0,sans-serif; */
+	color: #95CF59;
 	font-size: 18px;
-	font-weight: 700;
+	font-weight: 600;
 	margin-right: 5px;
 }
 .buy_btn {
 	display: inline-block;
 	width: 190px;
-	border: 2px solid #0073e9;
+	border: 2px solid #A0DE5F;
     border-radius: 4px;
-	background-color: #0073e9;
+	background-color: #A0DE5F;
 	text-align: center;
 	padding: 14px 0;
 	font-family: Dotum,\\B3CB\C6C0,sans-serif;

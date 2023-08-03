@@ -77,7 +77,7 @@ function initCartTable() {
 						htmlRocket += '	<td class="cartItem_check"><input type="checkbox" class="cbox"/></td>';
 						htmlRocket += '	<td class="cartItem_img"><img src="./image/' + item.Pimg + '" width="75px"></td>';
 						htmlRocket += '	<td class="cartItem_product">';
-						htmlRocket += '		<div class="cartItem_product_name">';
+						htmlRocket += '		<div class="cartItem_product">';
 						htmlRocket += '			<a href="' + item.Plink + '">';
 						htmlRocket += 				item.Pname + ', ';
 						htmlRocket += '				<span class="product_option">' + item.Poption + '</span>';
@@ -117,7 +117,7 @@ function initCartTable() {
 						htmlNormal += '	<td class="cartItem_check"><input type="checkbox" class="cbox"/></td>';
 						htmlNormal += '	<td class="cartItem_img"><img src="../image/' + item.Pimg + '" width="75px"></td>';
 						htmlNormal += '	<td class="cartItem_product">';
-						htmlNormal += '		<div class="cartItem_product_name">';
+						htmlNormal += '		<div class="cartItem_product">';
 						htmlNormal += '			<a href="' + item.Plink + '">';
 						htmlNormal += 				item.Pname + ', ';
 						htmlNormal += '				<span class="product_option">' + item.Poption + '</span>';

@@ -5,7 +5,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="shortcut icon" href="//image9.coupangcdn.com/image/coupang/favicon/v2/favicon.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/images/favicon.ico" type="image/x-icon" />
 		<title>쿠팡! | 장바구니</title>
 		
 		<!-- Bootstrap을 사용하기 위한 외부 라이브러리 가져오기 -->
@@ -21,16 +21,17 @@
 	<body>
 		<div class="wrap">
 			<header>
-				<a href="https://www.coupang.com/"><img src="./image/coupang_logo.png" width="140px;"></a>
+				<a href="https://www.coupang.com/"><img src="${pageContext.request.contextPath}/resources/images/fruitlight_logo.png" width="300px;"></a>
 			</header>
-			<section>
-				<div class="cart_title"></div>
+			<section class="container">
+				<div class="cart_title"><h3 class="p-3">장바구니</h3></div>
 				<div class="cart_content">
 					<table class="table table-sm cartTable">
 						<colgroup>
 							<col width="50">
 							<col width="80">
 							<col width="*">
+							<col width="200">
 							<col width="90">
 							<col width="90">
 						</colgroup>
@@ -43,12 +44,48 @@
 	  								</label>
 								</th>
 								<th scope="colgroup" colspan="2">상품정보</th>
+								<th scope="col">상품옵션</th>
 								<th scope="col">상품금액</th>
 								<th scope="col">배송비</th>
 							</tr>
 						</thead>
 						<!-- 로켓배송 상품 -->
 						<tbody class="cartTableBodyRocket">
+							<tr class="cartItem">
+				            	<td class="cartItem_check"><input type="checkbox" class="cbox"/></td>
+				            	<td class="cartItem_img"><img src="${pageContext.request.contextPath}/resources/images/watermelon_cart.jpg" width="90%"></td>
+				            	<td class="cartItem_product">
+				            		<div class="cartItem_product">
+				            			<div class="text-left">
+				            				<a href="#">
+					             				고재승 꿀수박, 
+					            				<span class="product_option">4kg</span>
+					            			</a>
+				            			</div>
+				            		</div>
+				            	</td>
+				            	<td class="cartItemOption">
+		            				<span class="product_price">28000원</span>
+		            				<label class="product_quantity">
+	            						<input class="productQuantity" type="number" min="1" max="50" name="1" value="1">
+	            						<input class="quantityChange d-none" type="button" value="수량변경">
+		            				</label>
+		            				<button class="productDelete"></button>
+				            	</td>
+				            	<td class="cartItemPrice">
+				            		<div>28000원</div>
+				            	</td>
+				            	<td>3000원</td>
+				            </tr>
+				            <tr class="cart_total_price text-right">
+					        	<td colspan="6" class="p-3">
+					        		<span>상품가격 <span class="totalPriceRocket font-weight-bold">0</span>원 </span>
+					        		<span class="symbol_plus_r mx-2"></span>
+					        		<span>배송비 <strong class="totalDeliveryRocket">0</strong>원</span>
+					        		<span class="symbol_equal_r mx-2"></span>
+					        		<span>주문금액 <span class="totalOrderPriceRocket font-weight-bold">0</span>원</span>
+					        	</td>
+					        </tr>
 						</tbody>
 						<!-- 판매자배송 상품 -->
 						<tbody class="cartTableBodyNormal">
@@ -65,29 +102,19 @@
                     <!-- 할인쿠폰 -->
                     <div class="cartCoupon">
                     </div>
-					<!-- 캐시 적립 혜택 -->
-					<div class="cashPromotion mt-5">
-						<img src="//image6.coupangcdn.com/image/badges/sdp/cashback/web/cash-icon@2x.png"
-							width="23px">
-	                	<strong class="text-dark">캐시적립 혜택</strong>
-                       	<div class="pb-1">[로켓와우 + 쿠페이 계좌이체] 결제 시 2% 적립</div>
-                       	<div class="pb-1">[로켓와우 + 쿠페이 머니] 결제 시 4% 추가적립</div>
-                       	<div class="pb-1">쿠페이 머니 결제 시 1% 적립</div>
-                       	<button type="button" class="cashPromotion_btn">로켓와우 무료체험 신청하기</button>
-                    </div>
 					<!-- 총 구매가격 -->
 					<div class="cartFinalPrice">
 						<span>총 상품가격 <span class="finalProductPrice font-weight-bold">0</span>원</span>
 						<span class="cartFinalDiscount d-none">
-							<img src="./image/minus.gif" class="mx-2">
+							<img src="${pageContext.request.contextPath}/resources/images/minus.gif" class="mx-2">
 							<span>총 할인 <span class="finalDiscountPrice font-weight-bold text-danger">0</span>원</span>
 						</span>
 						<span class="cartFinalDelivery">
-							<img src="./image/plus.gif" class="mx-2">
+							<img src="${pageContext.request.contextPath}/resources/images/plus.gif" class="mx-2">
 							<span>총 배송비 <span class="finalDeliveryPrice font-weight-bold">0</span>원</span>
 						</span>
 						<span class="cartFinalTotal">
-							<img src="./image/equal.gif" class="mx-2">
+							<img src="${pageContext.request.contextPath}/resources/images/equal.gif" class="mx-2">
 							<span>총 주문금액 <span class="finalTotalPrice font-weight-bold text-danger">0원</span></span>
 						</span>
 					</div>
