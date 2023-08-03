@@ -50,6 +50,7 @@ section #loginform fieldset ul li .id_bg{
     border-right: 1px solid #ccc;
     padding: 20px;
     width: 10px;
+    background-color: #f5f5f5;
     position: relative;
 }
 section #loginform fieldset ul li .id_bg::after{
@@ -69,6 +70,7 @@ section #loginform fieldset ul li .pw_bg{
     border-right: 1px solid #ccc;
     padding: 20px;
     width: 10px;
+    background-color: #f5f5f5;
     position: relative;
 }
 section #loginform fieldset ul li .pw_bg::after{
@@ -131,25 +133,31 @@ section #loginform fieldset .btm p label input[name=login_y]:checked + span::bef
 }
 
 section #loginform fieldset .btm .idpw_search {
-    color:#95CF59;
+    color:#23BA60;
     font-weight: bold;
     text-decoration-line: none;
 }
-
+section #loginform fieldset .btm .idpw_search::after {
+    content:'';
+    display: inline-block;
+    width: 8px;
+    height: 15px;
+    background-image: url(../images/icon.svg);
+    background-position: -104px -21px;
+    margin-left: 5px;
+}
 section #loginform fieldset #login_btn {
     background: #A0DE5F;
     width: 100%;
     color: white;
     padding: 20px 0;
     border: 0;
-    /*box-shadow: 0 2px 0 #00478f;*/
+    box-shadow: 0 2px 0 #00478f;
     font-size: 1.2rem;
     font-weight: bold;
     cursor: pointer;
 }
-
 section .join_link {
-    color: #95CF59;
     border: 1px solid #aaa;
     color: #A0DE5F;
     padding:20px 0;
@@ -157,11 +165,13 @@ section .join_link {
     text-align: center;
     background: #fff;
     display: block;
-    border: 1px solid #95CF59;
+    border: 1px solid #ccc;
+    box-shadow: 0 1px 0 #ccc;
     text-decoration-line:none;
     font-size: 1.2rem;
     font-weight: bold;
 }
+
 
 footer {
     color: #333;
