@@ -15,8 +15,8 @@ function init() {
     var isPwValidation = false;
 
     // ID null 값 유효성 검사
-    $('input[name=user_id]').click(() => {
-        if($('input[name=user_id]').val() == ""){
+    $('input[name=userId]').click(() => {
+        if($('input[name=userId]').val() == ""){
             isIdNullValidation = false;
             $('.id_empty_error').css('display','block');
             $('.id_form_error').css('display','none');
@@ -27,9 +27,9 @@ function init() {
     });
 
     // ID 형식 유효성 검사
-    $('input[name=user_id]').keyup(() => {
+    $('input[name=userId]').keyup(() => {
         let email_pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        if(!email_pattern.test($('input[name=user_id]').val())){
+        if(!email_pattern.test($('input[name=userId]').val())){
             isIdPattenValidation = false;
             $('.id_empty_error').css('display','none');
             $('.id_form_error').css('display','block');
@@ -40,15 +40,15 @@ function init() {
     });
 
     // PW null 값 유효성 검사
-    $('input[name=user_pw]').click(() => {
+    $('input[name=userPw]').click(() => {
         isPwValidation = false;
-        if($('input[name=user_pw]').val() == ""){
+        if($('input[name=userPw]').val() == ""){
             $('.pw_error').css('display','block');
         }
     });
 
     // PW null 값 유효성 검사
-    $('input[name=user_pw]').keyup(() => {
+    $('input[name=userPw]').keyup(() => {
         isPwValidation = true;
         $('.pw_error').css('display','none');
     });
@@ -59,11 +59,11 @@ function init() {
         if(isVisualization == true) {
             isVisualization = false;
             $('.pw_show_hide').css('background-position','-126px 0');
-            $('input[name=user_pw]').prop("type","text");
+            $('input[name=userPw]').prop("type","text");
         } else {
             isVisualization = true;
             $('.pw_show_hide').css('background-position','-105px 0');
-            $('input[name=user_pw]').prop("type","password");
+            $('input[name=userPw]').prop("type","password");
         }
     });
 
@@ -74,8 +74,6 @@ function init() {
         if(isIdNullValidation && isIdPattenValidation && isPwValidation) {
             event.preventDefault();
             console.log(event.target);
-        } else {
-            //window.open('./main.html');
         }
     });
 }
