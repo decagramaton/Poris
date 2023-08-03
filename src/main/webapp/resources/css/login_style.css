@@ -15,7 +15,8 @@ h1 {
 }
 
 h1 a img {
-    width:400px;
+    width:300px;
+    margin-right: 50px;
 }
 
 section {
