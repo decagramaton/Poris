@@ -147,8 +147,11 @@ section #loginform fieldset #login_btn {
     font-weight: bold;
     cursor: pointer;
 }
+
 section .join_link {
     color: #95CF59;
+    border: 1px solid #aaa;
+    color: #A0DE5F;
     padding:20px 0;
     width:100%;
     text-align: center;
