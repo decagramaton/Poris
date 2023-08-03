@@ -14,6 +14,11 @@ public class MainPageController {
 		return "main";
 	}
 	
+	@RequestMapping("/main")
+	public String toMainPage() {
+		return "main";
+	}
+	
 	@GetMapping("/joinForm")
 	public String joinForm() {
 		return "joinForm";

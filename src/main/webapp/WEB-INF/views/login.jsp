@@ -16,7 +16,7 @@
 </head>
 <body>
     <header>
-        <h1><a href="main.html"><img src="${pageContext.request.contextPath}/resources/images/fruitlight_logo.png"></a></h1>
+        <h1><a href="main"><img src="${pageContext.request.contextPath}/resources/images/fruitlight_logo.png"></a></h1>
     </header>
     <section>
         <form action="login/askLogin" method="post" id="loginform">
