@@ -50,7 +50,6 @@ section #loginform fieldset ul li .id_bg{
     border-right: 1px solid #ccc;
     padding: 20px;
     width: 10px;
-    background-color: #f5f5f5;
     position: relative;
 }
 section #loginform fieldset ul li .id_bg::after{
@@ -70,7 +69,6 @@ section #loginform fieldset ul li .pw_bg{
     border-right: 1px solid #ccc;
     padding: 20px;
     width: 10px;
-    background-color: #f5f5f5;
     position: relative;
 }
 section #loginform fieldset ul li .pw_bg::after{
