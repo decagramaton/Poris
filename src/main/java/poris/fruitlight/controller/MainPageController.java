@@ -11,14 +11,12 @@ public class MainPageController {
 	
 	@GetMapping("/joinForm")
 	public String joinForm() {
-		log.info("실행");
 		
 		return "joinForm";
 	}
 
 	@GetMapping("/login")
 	public String login() {
-		log.info("실행");
 		
 		return "login";
 	}
