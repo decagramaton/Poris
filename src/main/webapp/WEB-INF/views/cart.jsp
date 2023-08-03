@@ -77,7 +77,7 @@
 				            	</td>
 				            	<td>3000원</td>
 				            </tr>
-				            <tr class="cart_total_price text-right">
+				            <!-- <tr class="cart_total_price text-right">
 					        	<td colspan="6" class="p-3">
 					        		<span>상품가격 <span class="totalPriceRocket font-weight-bold">0</span>원 </span>
 					        		<span class="symbol_plus_r mx-2"></span>
@@ -85,7 +85,7 @@
 					        		<span class="symbol_equal_r mx-2"></span>
 					        		<span>주문금액 <span class="totalOrderPriceRocket font-weight-bold">0</span>원</span>
 					        	</td>
-					        </tr>
+					        </tr> -->
 						</tbody>
 						<!-- 판매자배송 상품 -->
 						<tbody class="cartTableBodyNormal">

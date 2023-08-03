@@ -103,12 +103,51 @@ section {
 	vertical-align: text-top;
 }
 
+/* 
+.cartItem_product_option {
+	padding-top: 5px;
+	font-size: 13px;
+	color: #555;
+}
+.option_delivery_date_rocket {
+	color: #00891a;
+}
+.quantityChange {
+    width: 52px;
+    height: 21px;
+    font-size: 11px;
+    border: 1px solid #888;
+    color: #111;
+    background: #fff;
+    text-align: center;
+}
+.productDelete {
+	border: none;
+	width: 18px;
+	height: 18px;
+	background-image: url(//img1a.coupangcdn.com/image/cart/generalCart/cart_sprite_170201.png);
+	background-position: -114px 0; 
+	background-repeat: no-repeat;
+	vertical-align: text-top;
+}
+.max-cash {
+	display: inline-block;
+    padding: 0 8px;
+    border-radius: 10px;
+    border: solid 1px #ccc;
+    background-color: #fff;
+}
+.max-cash img {
+	vertical-align: text-bottom;
+} 
+*/
+
 .cartItemPrice {
 	border-left: 1px solid #ddd;
 	border-right: 1px solid #ddd;
 }
 
-.cart_total_price {
+/* .cart_total_price {
 	background-color: #f7f7f7;
 }
 .symbol_plus_r {
@@ -131,7 +170,7 @@ section {
 }
 .totalOrderPriceRocket, .totalOrderPriceNormal {
 	font-size: 16px;
-}
+} */
 
 /* 전체 선택 */
 .checkedAllDelete {
