@@ -133,7 +133,7 @@ section #loginform fieldset .btm p label input[name=login_y]:checked + span::bef
 }
 
 section #loginform fieldset .btm .idpw_search {
-    color:#23BA60;
+    color:#95CF59;
     font-weight: bold;
     text-decoration-line: none;
 }
@@ -152,21 +152,18 @@ section #loginform fieldset #login_btn {
     color: white;
     padding: 20px 0;
     border: 0;
-    box-shadow: 0 2px 0 #00478f;
     font-size: 1.2rem;
     font-weight: bold;
     cursor: pointer;
 }
 section .join_link {
-    border: 1px solid #aaa;
     color: #A0DE5F;
     padding:20px 0;
     width:100%;
     text-align: center;
     background: #fff;
     display: block;
-    border: 1px solid #ccc;
-    box-shadow: 0 1px 0 #ccc;
+    border: 1px solid #95CF59;
     text-decoration-line:none;
     font-size: 1.2rem;
     font-weight: bold;
