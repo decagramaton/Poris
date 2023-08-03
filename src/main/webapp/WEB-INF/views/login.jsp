@@ -69,7 +69,7 @@
 			                <button type="submit" id="login_btn">로그인</button>
 			            </fieldset>
 			        </form>
-			        <a href="joinForm.html" class="join_link">회원가입</a>
+			        <a href="joinForm" class="join_link">회원가입</a>
 			    </section>
 	    	
 	    	</div>
