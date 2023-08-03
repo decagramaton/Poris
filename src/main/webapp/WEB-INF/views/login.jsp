@@ -3,20 +3,19 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+    <title>쿠팡 로그인  폼</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=2.0">
     <link rel="icon" href="${pageContext.request.contextPath}/resources/images/title_logo.png"></link>
-    <title>쿠팡 로그인  폼</title>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/login_style.css">
     <script src="${pageContext.request.contextPath}/resources/javascript/login.js"></script>
-
 </head>
 <body>
     <header>
-        <h1><a href="main.html"><img src="./image/coupang.png"></a></h1>
+        <h1><a href="main.html"><img src="${pageContext.request.contextPath}/resources/images/fruitlight_logo.png"></a></h1>
     </header>
     <section>
         <form action="#" method="post" id="loginform">

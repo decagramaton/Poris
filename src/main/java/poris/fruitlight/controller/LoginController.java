@@ -8,10 +8,12 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
-public class MainPageController {
+@RequestMapping("/login")
+public class LoginController {
+	
 	@RequestMapping("/")
 	public String MainPage() {
-		return "main";
+		return "login";
 	}
 	
 	@GetMapping("/joinForm")
