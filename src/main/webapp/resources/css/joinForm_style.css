@@ -32,11 +32,11 @@ section {
     color: #666;
     position: relative;
 }
-section #loginform {
+section #joinform {
     margin-bottom: 20px;
     padding-bottom: 20px;
 }
-section #loginform .form_title {
+section #joinform .form_title {
     padding: 20px 0 30px 0;
     font-size: 14px;
     font-weight: bold;
@@ -44,13 +44,13 @@ section #loginform .form_title {
     letter-spacing: normal;
     color: #111;
 }
-section #loginform fieldset {
+section #joinform fieldset {
     border-width: 0px;
 }
-section #loginform fieldset ul {
+section #joinform fieldset ul {
     margin-bottom: 20px;
 }
-section #loginform fieldset ul li {
+section #joinform fieldset ul li {
     border: 1px solid #ccc;
     background: #fff;
     display: flex;
@@ -71,14 +71,14 @@ section #loginform fieldset ul li {
 }
 
 /* 회원가입 이메일 아이콘 */
-section #loginform fieldset ul li .id_bg{
+section #joinform fieldset ul li .id_bg{
     border-right: 1px solid #ccc;
     padding: 20px;
     width: 10px;
     background-color: #f5f5f5;
     position: relative;
 }
-section #loginform fieldset ul li .id_bg::after{
+section #joinform fieldset ul li .id_bg::after{
     content: '';
     display: block;
     background-image: url(../images/icon.svg);
@@ -91,14 +91,14 @@ section #loginform fieldset ul li .id_bg::after{
 }
 
 /* 회원가입 비밀번호 아이콘 */
-section #loginform fieldset ul li .pw_bg{
+section #joinform fieldset ul li .pw_bg{
     border-right: 1px solid #ccc;
     padding: 20px;
     width: 10px;
     background-color: #f5f5f5;
     position: relative;
 }
-section #loginform fieldset ul li .pw_bg::after{
+section #joinform fieldset ul li .pw_bg::after{
     content: '';
     display: block;
     background-image: url(../images/icon.svg);
@@ -111,14 +111,14 @@ section #loginform fieldset ul li .pw_bg::after{
 }
 
 /* 회원가입 비밀번호 확인 아이콘 */
-section #loginform fieldset ul li .pw_check_bg{
+section #joinform fieldset ul li .pw_check_bg{
     border-right: 1px solid #ccc;
     padding: 20px;
     width: 10px;
     background-color: #f5f5f5;
     position: relative;
 }
-section #loginform fieldset ul li .pw_check_bg::after{
+section #joinform fieldset ul li .pw_check_bg::after{
     content: '';
     display: block;
     background-image: url(../images/icon.svg);
@@ -131,14 +131,14 @@ section #loginform fieldset ul li .pw_check_bg::after{
 }
 
 /* 회원가입 이름 아이콘 */
-section #loginform fieldset ul li .name_bg{
+section #joinform fieldset ul li .name_bg{
     border-right: 1px solid #ccc;
     padding: 20px;
     width: 10px;
     background-color: #f5f5f5;
     position: relative;
 }
-section #loginform fieldset ul li .name_bg::after{
+section #joinform fieldset ul li .name_bg::after{
     content: '';
     display: block;
     background-image: url(../images/icon.svg);
@@ -151,14 +151,14 @@ section #loginform fieldset ul li .name_bg::after{
 }
 
 /* 회원가입 연락처 아이콘 */
-section #loginform fieldset ul li .tel_bg{
+section #joinform fieldset ul li .tel_bg{
     border-right: 1px solid #ccc;
     padding: 20px;
     width: 10px;
     background-color: #f5f5f5;
     position: relative;
 }
-section #loginform fieldset ul li .tel_bg::after{
+section #joinform fieldset ul li .tel_bg::after{
     content: '';
     display: block;
     background-image: url(../images/icon.svg);
@@ -170,7 +170,7 @@ section #loginform fieldset ul li .tel_bg::after{
     position: absolute;
 }
 
-section #loginform fieldset ul li span input {
+section #joinform fieldset ul li span input {
     width: 97.5%;
     height: 40px;
     border: 0;
@@ -178,13 +178,13 @@ section #loginform fieldset ul li span input {
 }
 
 /* 회원가입 모두 동의 폼 */
-section #loginform fieldset .agree_form .all_agree_form {
+section #joinform fieldset .agree_form .all_agree_form {
     padding-top: 20px;
     margin-bottom: 8px;
     border-top: 1px solid #f1f4f6
 }
 
-section #loginform fieldset .agree_form .wrapper{
+section #joinform fieldset .agree_form .wrapper{
     color: #111;
     box-sizing: border-box;
     display: flex;
@@ -194,7 +194,7 @@ section #loginform fieldset .agree_form .wrapper{
     padding-bottom: 12px;
 }
 
-section #loginform fieldset .agree_form .all_agree_content {
+section #joinform fieldset .agree_form .all_agree_content {
     font-size: 16px;
     font-weight: bold;
     line-height: 1.13;
@@ -202,14 +202,14 @@ section #loginform fieldset .agree_form .all_agree_content {
 }
 
 /* 회원가입 세부 동의 폼 */
-section #loginform fieldset .agree_form .detail_agree_form {
+section #joinform fieldset .agree_form .detail_agree_form {
     margin-top: 16px;
     padding: 18px 16px;
     border: 1px solid #ccc;
     overflow: hidden;
 }
 
-section #loginform fieldset .agree_form .detail_agree_form label {
+section #joinform fieldset .agree_form .detail_agree_form label {
     cursor: pointer;
     box-sizing: border-box;
     font-size: 14px;
@@ -223,7 +223,7 @@ section #loginform fieldset .agree_form .detail_agree_form label {
     margin-right: 25px;
 }
 
-section #loginform fieldset .agree_form .detail_agree_form .agree_btn{
+section #joinform fieldset .agree_form .detail_agree_form .agree_btn{
     background-image: url(../images/icon.svg);
     background-position: -104px -21px;
     cursor: pointer;
@@ -234,12 +234,12 @@ section #loginform fieldset .agree_form .detail_agree_form .agree_btn{
     display: inline-block;
 }
 
-section #loginform fieldset .agree_form .detail_agree_form .info_receive_style {
+section #joinform fieldset .agree_form .detail_agree_form .info_receive_style {
     padding-left: 22px;
 }
 
 
-section #loginform fieldset #join_btn {
+section #joinform fieldset #join_btn {
     background: #0074e9;
     width: 100%;
     color: white;

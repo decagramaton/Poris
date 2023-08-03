@@ -22,7 +22,7 @@
         <h1><a href="main"><img src="${pageContext.request.contextPath}/resources/images/fruitlight_logo.png"></a></h1>
     </header>
     <section>
-        <form action="#" method="get" id="loginform">
+        <form action="askJoinForm" method="get" id="joinform">
             <div class="form_title">회원정보를 입력해주세요</div>
             <fieldset>
                 <legend class="skip">회원가입 양식</legend>
