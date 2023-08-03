@@ -42,7 +42,7 @@ public class LoginController {
 		Member member = loginservice.getMemberInfo();
 		
 		// Step3. 회원 정보가 없으면 JSP에 에러 콘솔 출력 (에러 처리)
-		if(member != null) {
+		if(member == null) {
 			model.addAttribute("error", "정보가 잘못됨. 다시입력");
 			model.addAttribute("loginParam", loginParam);
 			return "login";
@@ -51,7 +51,7 @@ public class LoginController {
 			loginservice.setLastLoginDate(new Date());
 			
 			// Step4-2. 세션에 member 정보 저장
-			//session.setAttribute("memberInfo", member);
+			session.setAttribute("memberInfo", member);
 			
 			// Step4-3. 자동로그인이 체크되었다면, 클라이언트에게 쿠키 생성
 			if(loginParam.getAutoLogin() != null) {

@@ -65,7 +65,7 @@
         <a href="joinForm.html" class="join_link">회원가입</a>
     </section>
     <footer>
-        &copy; Coupang Corp. All rights reserved.
+        &copy; Fruitlight Corp. All rights reserved.
     </footer>
 </body>
 

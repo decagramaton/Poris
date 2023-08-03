@@ -147,7 +147,7 @@ section #loginform fieldset .btm .idpw_search::after {
     margin-left: 5px;
 }
 section #loginform fieldset #login_btn {
-    background: #0074e9;
+    background: #A0DE5F;
     width: 100%;
     color: white;
     padding: 20px 0;
@@ -159,7 +159,7 @@ section #loginform fieldset #login_btn {
 }
 section .join_link {
     border: 1px solid #aaa;
-    color: #0074e9;
+    color: #A0DE5F;
     padding:20px 0;
     width:100%;
     text-align: center;
