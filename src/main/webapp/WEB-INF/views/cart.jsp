@@ -32,8 +32,8 @@
 							<col width="80">
 							<col width="*">
 							<col width="200">
-							<col width="90">
-							<col width="90">
+							<col width="100">
+							<col width="100">
 						</colgroup>
 						<thead>
 							<tr>
@@ -75,7 +75,10 @@
 				            	<td class="cartItemPrice">
 				            		<div>28000원</div>
 				            	</td>
-				            	<td>3000원</td>
+				            	<td class="cartItemShipping">
+				            		<div class="shippingFreeRule font-weight-light"><div>30000원이상</div>무료배송</div>
+				            		<div class="shippingPrice">3000원</div>
+				            	</td>
 				            </tr>
 				            <!-- <tr class="cart_total_price text-right">
 					        	<td colspan="6" class="p-3">

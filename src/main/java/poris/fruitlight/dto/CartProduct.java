@@ -1,0 +1,12 @@
+package poris.fruitlight.dto;
+
+public class CartProduct {
+	int pid;
+	byte[] img;
+	String name;
+	String option;
+	int price;
+	int stock;
+	int shippingPrice;
+	int shippingFreeRule;
+}
