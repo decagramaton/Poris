@@ -1,0 +1,762 @@
+/* body css */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+label {
+    cursor: pointer;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    vertical-align: top;
+}
+
+button {
+    background: 0;
+    cursor: pointer;
+}
+
+/* header CSS */
+.header-frame {
+    height: 86px;
+    margin: 0 auto;
+    position: relative;
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.header-logo {
+    width: 1020px;
+    margin: 0 auto;
+    padding-top: 30px;
+}
+
+.header-logo a {
+    display: block;
+    float: left;
+    width: 174px;
+    height: 41px;
+}
+
+/* section CSS */
+section {
+    width: 1020px;
+    margin: 0 auto 20px;
+    position: relative;
+    clear: both;
+    font-size: 12px;
+    z-index: 20;
+}
+section::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+section .middle {
+    clear: both;
+    padding: 0 0 40px;
+    background: #fff;
+}
+
+/* 주문/결제 제목 */
+.orderTitle {
+    height: 70px;
+    overflow: hidden;
+    border-bottom: 3px solid #777;
+}
+
+.orderTitle .title{
+    float: left;
+    margin-top: 5px;
+    padding-left: 0;
+    line-height: 70px;
+    font-size: 30px;
+    color: #111;
+}
+
+.orderTitle .steps{
+    float: right;
+    margin-top: 20px;
+    padding-right: 5px;
+    line-height: 50px;
+    font-size: 15px;
+    color: #bbb;
+    font-weight: 700;
+}
+
+.orderTitle .steps em{
+    color: #346aff;
+    font-style: normal;
+}
+
+/* 구매자 정보 */
+.customer-root {
+    margin-top: 30px;
+}
+
+.customer-root .customer-title {
+    padding-left: 2px;
+    margin-bottom: 8px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #333;
+}
+
+.table-frame {
+    display: table;
+    width: 100%;
+    border-top: 2px solid #cecece;
+}
+
+.table-frame .table-row {
+    display: table-row;
+}
+
+.table-frame .table-row .table-colume{
+    display: table-cell;
+    vertical-align: middle;
+    width: 104px;
+    border: solid #e4e4e4;
+    border-width: 0 1px 1px 0;
+    padding: 7px 10px 7px 15px;
+    font-weight: bold;
+    text-align: right;
+    background: #f4f4f4;
+}
+
+.table-frame .table-row .table_content{
+    display: table-cell;
+    vertical-align: middle;
+    border-bottom: 1px solid #e4e4e4;
+    padding: 10px 16px;
+    width: 88%;
+}
+
+/* 받는사람정보(배송지 주소) */
+.delivery-address {
+    padding-left: 2px;
+    margin: 30px 0 8px;
+    text-align: left;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.delivery-address .delivery-address-list-btn {
+    padding: 4px 8px;
+    border: 1px solid #999;
+    color: #333;
+    border-radius: 2px;
+    background: #f8f8f8;
+    box-shadow: 0 -2px 0 rgba(0,0,0,.1) inset;
+    font-size: 11px;
+
+    margin-left: 5px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+/* 배송 요청사항 */
+.delivery-request-container {
+    border-bottom: 1px solid #e4e4e4;
+}
+
+.delivery-request-container .delivery-request-message {
+    padding: 0 0 0 10px;
+    background: url(//img1a.coupangcdn.com/image/www/common/icon_arrow.gif) no-repeat 0 100%;
+}
+
+.delivery-request-container .delivery-request-popup-button {
+    padding: 4px 8px;
+    border: 1px solid #999;
+    color: #333;
+    background: #f8f8f8;
+    border-radius: 2px;
+    box-shadow: 0 -2px 0 rgba(0,0,0,.1) inset;
+    font-size: 11px;
+
+    margin-left: 13px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+
+/* 택배 박스 정보 */
+.bundle-info-title {
+    margin-top: 20px;
+    margin-bottom: 9px;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 21px;
+}
+
+.bundle-info-box {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.bundle-info-box .delivery-date {
+    padding: 10px 15px 10px 20px!important;
+    line-height: 26px!important;
+    background-color: #eee;
+}
+
+.bundle-info-box .delivery-date .delivery-date-info {
+    display: inline-block;
+    color: #00891a;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.bundle-info-box .bundle-info-item-list {
+    overflow: hidden;
+    zoom: 1;
+    margin-left: 0!important;
+    margin-right: 0!important;
+    padding: 0 15px 0 20px;
+}
+
+.bundle-info-box .bundle-info-item-list .bundle-info-item-box {
+    padding-top: 10px!important;
+    padding-bottom: 10px!important;
+    position: relative;
+    zoom: 1;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+.bundle-info-box .bundle-info-item-list .bundle-info-item {
+    float: left;
+    width: 60%!important;
+    padding-right: 40px!important;
+
+}
+
+.bundle-info-box .bundle-info-item-list .bundle-info-item > p {
+    color: #111;
+    font-size: 16px;
+
+}
+
+.bundle-info-box .bundle-info-item-list .bundle-info-item-box .bundle-info-delivery-service {
+    font-size: 14px!important;
+    margin-left: 50px;
+    float: right;
+    text-align: right;
+}
+
+.bundle-info-box .bundle-info-item-list .bundle-info-item-box .bundle-info-delivery-service > img {
+    width: auto;
+    height: 16px;
+    vertical-align: bottom;
+}
+
+.bundle-info-box .bundle-info-item-list .bundle-info-item-box .bundle-info-item-descript {
+    position: absolute;
+    left: 64%;
+    width: 34%;
+    padding: 0;
+    border: 0;
+    font-size: 12px;
+}
+
+/* 결제정보 CSS */
+.order-section {
+    margin-bottom: 10px;
+    margin-top: 30px;
+}
+
+.pay-h2 {
+    padding-left: 2px;
+    margin-bottom: 8px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #333;
+}
+
+.type-selector-list-wrapper {
+    width: 845px;
+}
+
+.type-selector-list {
+    position: relative;
+    padding-top: 4px;
+}
+
+.type-selector-list .type-selector-li{
+    display: block;
+    float: left;
+    margin-right: 9px;
+    padding-left: 2px;
+    font-size: 12px;
+    line-height: 39px;
+    letter-spacing: -1px;
+}
+
+.pay-box-content {
+    display: none;
+}
+
+.selected-pay-type {
+    display: block;
+}
+
+.pay-box-content>h3.title {
+    display:none;
+    position: relative;
+}
+
+.pay-type-content {
+    clear: both;
+    margin-top: -2px;
+    padding: 10px;
+    border: 2px solid #c5c7cd;
+    background-color: #f4f6fa;
+}
+
+.pay-type-section .line-title {
+    display: inline-block;
+    width: 90px;
+    font-size: 12px;
+    font-weight: 700;
+    margin: 0;
+    vertical-align: middle;
+}
+
+.pay-type-section .line-data {
+    display: inline;
+}
+
+.pay-type-section select {
+    height: 23px;
+    font-size: 12px;
+    vertical-align: middle;
+}
+
+.pay-type-section {
+    padding: 10px 0;
+    margin: 0;
+    line-height: 21px;
+}
+
+.pay-type-section [class^=note-] {
+    display: inline-block;
+    margin-left: 26px;
+    vertical-align: middle;
+}
+
+.rocketpay-card__cardList {
+    min-width: 200px;
+}
+
+.rocketpay-card__quotaList {
+    min-width: 200px;
+}
+
+.payment-cellphone__line-title {
+    display: inline-block;
+    width: 90px;
+    font-size: 12px;
+    font-weight: 700;
+    margin: 0;
+    vertical-align: middle;
+}
+
+.payment-cellphone__line-data {
+    display: inline;
+}
+
+.virtual-account-payment-explain{
+    padding-top: 5px;
+    margin-bottom: 10px;
+}
+.virtual-account-payment-explain dt{
+    font-weight: bold;
+    margin: 5px 0 10px;
+}
+.virtual-account-payment-explain dd{
+    display: list-item;
+    list-style-type: disc;
+    list-style-position: inside;
+    margin-bottom: 5px;
+    color: #888;
+}
+
+.savePaymentOption {
+    padding: 10px 0;
+    font-size: 11px;
+}
+
+/* 현금영수증 */
+.cash-receipt__root {
+    margin-top: 30px;
+}
+
+.cash-receipt__title {
+    padding-left: 2px;
+    margin-bottom: 8px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #333;
+}
+
+.cash-receipt__wrap {
+    border: 1px solid #ddd;
+    padding: 22px 30px; 
+}
+
+.cash-receipt__checkbox-title__wrap {
+    padding-bottom: 13px;
+}
+
+.cash-receipt__checkbox {
+    padding: 7px 0 5px 30px;
+}
+
+.cash-receipt__checkbox__checked {
+    background: url(//img1g.coupangcdn.com/image/order/btn_checkbox_radio.png) no-repeat;
+    background-position: -48px -6px;
+}
+
+.cash-receipt__checkbox__unchecked {
+    background: url(//img1g.coupangcdn.com/image/order/btn_checkbox_radio.png) no-repeat;
+    background-position: -12px -6px;
+}
+
+.cash-receipt__checkbox-title {
+    font-weight: bold;
+    font-size: 15px;
+    color: #222;
+}
+
+.data-cash-receipt-content {
+    display: blcok;
+}
+
+.cash-receipt__request-type__root {
+    padding-top: 14px;
+    border-top: 1px solid #ddd;
+    font-size: 14px;
+    color: #222;
+}
+
+.cash-receipt__request-type__root:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.cash-receipt__request-type__root>span {
+    float: left;
+    line-height: 25px;
+}
+
+.cash-receipt__request-type__radio {
+    float: left;
+    width: 25px;
+    height: 25px;
+    margin-right: 3px;
+}
+
+.cash-receipt__request-type__radio__checked {
+    background: url(//img1g.coupangcdn.com/image/order/btn_checkbox_radio.png) no-repeat;
+    background-position: -47px -41px;
+}
+
+.cash-receipt__request-type__radio__unchecked {
+    background: url(//img1g.coupangcdn.com/image/order/btn_checkbox_radio.png) no-repeat;
+    background-position: -12px -41px;
+}
+
+.cash-receipt__request-type__desc {
+    display: inline-block;
+    line-height: 25px;
+    margin-right: 20px;
+}
+
+.cash-receipt__resiter-type__wrap {
+    padding-top: 12px;
+}
+
+.cash-receipt__resiter-type__select {
+    vertical-align: bottom;
+    font-size: 14px!important;
+    color: #222!important;
+    height: 30px!important;
+    margin-right: 5px;
+    line-height: 30px;
+}
+
+.cash-receipt__resiter-type__text {
+    font-size: 14px!important;
+    color: #222!important;
+    height: 30px!important;
+    margin-right: 5px;
+    line-height: 30px;
+}
+
+.cash-receipt__notification_wrap {
+    margin-top: 20px;
+}
+
+.cash-receipt__notification_li {
+    color: #555;
+    font-size: 12px;
+    margin-bottom: 2px;
+}
+/* 결제 버튼 */
+.orderBox {
+    margin-top: 30px;
+}
+.orderBox.wrap-order-agree {
+    margin-top: 20px;
+}
+
+.confirm-agreements-message {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.agreeBtn {
+    position: relative;
+    text-align: center;
+}
+
+.agreeBtn.hasRocketPayCheckoutButton {
+    margin-top: 40px;
+}
+
+#paymentRocketpayBtn{
+    overflow: visible;
+    position: relative;
+    margin-right: 10px;
+    border: 0;
+}
+
+.paymentRocketpayBtn__tooltip-2percent-cashback {
+    position: absolute;
+    top: -29px;
+    left: 50%;
+    margin-left: -48px;
+}
+
+#paymentBtn {
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* footer */
+.footer-frame {
+	position: relative;
+	border-top: #ddd solid 2px;
+    background: #fff;
+}
+
+.footer-layer1 {
+	border-bottom: #ddd solid 1px;
+    height: 34px;
+    text-align: center;
+    padding-top: 15px;
+    white-space: nowrap;
+}
+
+
+.footer-layer1 > a {
+	display: inline-block;
+    white-space: nowrap;
+    padding: 0 14px;
+    font-size: 12px;
+    color: #555;
+    height: 12px;
+    text-decoration: none;
+    border-right: 1px solid gray;
+}
+
+.footer-layer1 > a:first-child{
+	border-left: 0;
+}
+
+.footer-layer1 .site-picker {
+	position: relative;
+    font-size: 14px;
+    display: inline-block;
+    text-align: left;
+    vertical-align: top;
+    margin-top: -9px;
+    color: #212b36;
+    margin-left: 5px;
+}
+
+.footer-layer1 .site-picker .site-picker-arrow {
+	transition: .3s;
+	display: inline-block;
+    width: 14px;
+    height: 14px;
+    background-color: #333;
+}
+
+.footer-layer2 {
+	width: 1020px;
+    height: 100px;
+    margin: 30px auto;
+    font-size: 12px;
+    color: #555;
+    line-height: 150%;
+}
+
+.footer-layer2 h1 {
+	float: left;
+    width: 150px;
+    background-image: none;
+}
+
+.footer-layer2 h1 a {
+	display: block;
+	width: 117px;
+	height: 34px;
+    overflow: hidden;
+    background: url(//static.coupangcdn.com/image/coupang/common/footer_asset_v8.png) no-repeat;
+	background-position: -19px -34px;
+    text-indent: -99em;
+	margin-left: 10px;
+	text-decoration: none;
+}
+
+.footer-layer2 a {
+	color: #555;
+	text-decoration: none;
+}
+
+
+.footer-layer2 address {
+	float: left;
+    width: 260px;
+}
+
+.footer-layer2 .licensee {
+	text-decoration: underline;
+}
+
+.footer-layer2 .contact-info {
+	float: left;
+    width: 340px;
+    color: #555;
+}
+
+.footer-layer2 strong {
+	font-weight: bold;
+    font-size: 12px;
+}
+
+.footer-layer2 .contact-info em {
+	font-size: 24px;
+    font-family: Tahoma;
+    font-weight: bold;
+    display: block;
+    margin: 9px 0 11px 0;
+	font-style: normal;
+}
+
+.footer-layer2 .safe-service {
+	float: left;
+    width: 270px;
+    font-size: 11px;
+}
+
+.footer-layer3 {
+	width: 1020px;
+    height: 80px;
+    margin: 0 auto;
+    position: relative;
+    border-top: #ddd solid 1px;
+}
+
+.footer-layer3 .certification-list {
+	width: 968px;
+	height: 80px;
+	margin: 0 auto;
+	background: url(//static.coupangcdn.com/image/coupang/common/footer_asset_v12.png) no-repeat;
+	background-position: -44px -92px;
+	position: relative;
+}
+
+.footer-layer4 {
+	background: #333;
+    height: 80px;
+}
+
+.footer-layer4 .coupang-copyright {
+	width: 1020px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.footer-layer4 .coupang-copyright p {
+	color: #888;
+    font-size: 11px;
+}
+
+.footer-layer4 .coupang-copyright .info {
+	padding: 21px 0 3px 0;
+}
+
+.footer-layer4 .coupang-copyright .sns-link {
+	position: absolute;
+    top: 23px;
+    right: 0;
+    list-style: none;
+}
+
+.footer-layer4 .coupang-copyright .sns-link li {
+	float: left;
+}
+
+.footer-layer4 .coupang-copyright .sns-link a {
+	width: 34px;
+    height: 34px;
+    margin-right: 8px;
+	display: block;
+    overflow: hidden;
+    background: url(//static.coupangcdn.com/image/coupang/common/footer_asset_v8.png) no-repeat;
+    text-indent: -99em;
+    text-decoration: none;
+}
+
+.footer-layer4 .coupang-copyright .sns-link a.facebook {
+	background-position: -220px -30px;
+}
+
+.footer-layer4 .coupang-copyright .sns-link a.blog {
+	background-position: -348px -30px;
+}
+
+.footer-layer4 .coupang-copyright .sns-link a.instagram {
+	background-position: -390px -30px;
+}

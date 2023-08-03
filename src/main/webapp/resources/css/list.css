@@ -1,0 +1,916 @@
+@charset "UTF-8";
+
+body, div, dl, dt, dd, ul, ol, menu, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, blockquote, th, td, p {
+    margin: 0;
+    padding: 0;
+}
+#container{
+	margin : auto;
+	min-width : 980px;
+	overflow : hidden;
+	position : relative;
+}
+#top-bar {
+	position: absolute;
+	height: 32px;
+	top: 0;
+	right: 0;
+	left: 0;
+	background: #f0f0f0;
+}
+#header {
+	height : 115px;
+	margin-top : 32px;
+}
+#header1 {
+	width : 1300px;
+	height : 145px;
+	margin : auto;
+}
+#header-header {
+	width: 1300px;
+	margin: 0 auto;
+	font-size: 11px;
+}
+#header-header > span{
+	margin : 0 10px 0 10px;
+}
+#header-header1 {
+	font-size: 9pt;
+	position: relative;
+  	display: inline-block;
+  	text-align:left;
+  	float: left;
+  	margin : auto;
+  	width : 650px;
+	height : 30px;
+}
+#header-header1 > li{
+	padding-top: 8px;
+	float : left;
+	margin: 0 10px;
+	list-style: none;
+}
+#header-header1 > li > a{
+	text-decoration: none;
+	color : black;
+}
+#header-header1 > li > ul {
+	display: none;
+	position: absolute;
+	margin-top : 5px;
+	left : 62px;
+	list-style: none;;
+  	z-index : 1;
+  	font-weight: 400;
+  	background-color: #f9f9f9;
+  	width : 80px;
+  	padding-left: 15px;
+  	box-shadow : 0 4px 5px rgba(0,0,0,0.3);
+}
+#header-header1 > li:hover > ul{
+	display: block;
+}
+#header-header1 > li > ul > li{
+	padding : 5px;
+}
+#header-header1 > li > ul > li:hover{
+	color : #4285f4;
+	text-decoration: underline;
+}
+#header-header1 > li > ul > li > a{
+	text-decoration: none;
+	color : black;
+}
+#header-header1 > li > ul > li:hover > a{
+	color : #4285f4;
+	text-decoration: underline;
+}
+#header-header2 {
+	text-align : right;
+	flex : 1;
+	font-size: 9pt;
+	position: relative;
+  	display: inline-block;
+  	float: left;
+  	width : 650px;
+	height : 30px;
+}
+#header-header2  > li{
+	padding-top: 8px;
+	float : right;
+	margin: 0 10px;
+	list-style: none;
+}
+#header-header2 > li > a{
+	text-decoration: none;
+	color : black;
+}
+#header-header2 > li > ul {
+	display: none;
+	position: absolute;
+	margin-top : 5px;
+	left : 550px;
+	list-style: none;;
+  	z-index : 1;
+  	font-weight: 400;
+  	background-color: #f9f9f9;
+  	width : 130px;
+  	padding-left: 15px;
+  	box-shadow : 0 4px 5px rgba(0,0,0,0.3);
+  	text-align: left;
+}
+#header-header2 > li:hover > ul{
+	display: block;
+}
+#header-header2 > li > ul > li{
+	padding : 5px;
+}
+#header-header2 > li > ul > li:hover{
+	color : #4285f4;
+	text-decoration: underline;
+}
+#header-header2 > li > ul > li > a{
+	text-decoration: none;
+	color : black;
+}
+#header-header2 > li > ul > li:hover > a{
+	color : #4285f4;
+	text-decoration: underline;
+}
+#cate-search {
+	display : flex;
+}
+#category {
+	width : 110px;
+	height : 115px;
+}
+#category > ul > li{
+	float : left;
+	list-style: none;
+}
+#category > ul > li > a{
+	text-decoration: none;
+	color : black;
+}
+#category > ul > li > ul {
+	display: none;
+	position: relative;
+	left : 0px;
+	list-style: none;;
+  	z-index : 1;
+  	font-weight: 400;
+  	background-color: #f9f9f9;
+  	width : 150px;
+  	box-shadow : 0 4px 5px rgba(0,0,0,0.3);
+}
+#category > ul> li:hover > ul{
+	display: block;
+}
+#category > ul > li > ul > li{
+	text-align : left;
+	padding : 5px;
+	margin-left : 10px;
+}
+#category > ul > li > ul > li:hover{
+	color : #4285f4;
+	text-decoration: underline;
+}
+#category > ul > li > ul > li > a{
+	text-decoration: none;
+	color : black;
+}
+#category > ul > li > ul > li:hover > a{
+	color : #4285f4;
+	text-decoration: underline;
+}
+#cate-image {
+	width : 105px;
+	height : 110px;
+	overflow: hidden;
+}
+#bridge{
+	
+}
+#logo-search {
+	display : flex;
+}
+#logo{
+	width : 220px;
+	height : 77px;
+}
+#logoin{
+	width: 174px;
+	height: 48px;
+	margin: 15px 40px;
+	float: left;
+	}
+#search {
+	display : flex;
+	width : 830px;
+	height: 77px;
+}
+#searchform{
+	float : left;
+	width: 800px;
+	height: 37px;
+	border: 2px solid #4285f4;
+	margin: 10px 22px 10px 22px;
+}
+.sel-category{
+	position: absolute;
+    border: 0;
+    width: 134px;
+    height: 37px;
+    border-right: 1px solid #ddd;
+}
+.sear-category{
+	position: relative;
+    border: 0;
+    width: 550px;
+    height: 34px;
+    left: 137px;
+}
+/* .sel-category-button {
+	background: url(//img1a.coupangcdn.com/image/coupang/common/pc_header_img_sprite_180104.png)6px -165px no-repeat;
+	position: absolute;
+	right: 0;
+	width: 30px;
+	height: 30px;
+	outline: 0;
+	display: block;
+	}
+	 */
+.sel-category-content {
+	width: 134px;
+    height: 36px;
+    text-align: left;
+    border: 1px white solid;
+    outline : none;
+	}
+#headerSearchKeyword {
+	width: 570px;
+    left: 0px;
+    color: #333;
+    position: relative;
+    height: 34px;
+    margin: 0;
+    border: 0;
+    background: #fff;
+    text-indent: 10px;
+    line-height: 37px;
+    font-size: 14px;
+    outline: 0;
+}
+#headerMicBtn {
+	float: left;
+    position: relative;
+    left: 565px;
+    top: -30px;
+}
+#headerSearchBtn {
+	float: left;
+    position: relative;
+    left: 575px;
+    width: 40px;
+    height: 40px;
+    top: -33px;
+}
+#mymenu {
+	width : 140px;
+	height : 115px;
+}
+#mymenu > ul > li{
+	padding-top: 8px;
+	float : left;
+	margin: 0 8px;
+	list-style: none;
+}
+#mymenu > ul > li > a{
+	text-decoration: none;
+	color : black;
+}
+#mymenu > ul > li > #mymenu-ul1 {
+	display: none;
+	position: relative;
+	margin-top : 5px;
+	left : -30px;
+	list-style: none;;
+  	z-index : 1;
+  	background-color: #f9f9f9;
+  	width : 110px;
+  	padding-left: 15px;
+  	box-shadow : 0 4px 5px rgba(0,0,0,0.3);
+  	text-align: left;
+}
+#mymenu > ul > li > #mymenu-ul2 {
+	display: none;
+	position: relative;
+	margin-top : 5px;
+	left : -150px;
+	list-style: none;;
+  	z-index : 1;
+  	background-color: #f9f9f9;
+  	width : 300px;
+  	height : 100px;
+  	padding-left: 15px;
+  	box-shadow : 0 4px 5px rgba(0,0,0,0.3);
+  	text-align: left;
+}
+#mymenu > ul> li:hover > #mymenu-ul1{
+	display: block;
+}
+#mymenu > ul> li:hover > #mymenu-ul2{
+	display: block;
+}
+#mymenu > ul > li > #mymenu-ul1 > li{
+	padding : 5px;
+}
+#mymenu > ul > li > #mymenu-ul2 > li{
+	padding : 5px;
+}
+
+#mymenu > ul > li > #mymenu-ul1 > li:hover{
+	color : #4285f4;
+	text-decoration: underline;
+}
+#mymenu > ul > li > #mymenu-ul2 > li:hover{
+	color : #4285f4;
+	text-decoration: underline;
+}
+
+#mymenu > ul > li > #mymenu-ul1 > li > a{
+	text-decoration: none;
+	color : black;
+}
+#mymenu > ul > li > #mymenu-ul2 > li > a{
+	text-decoration: none;
+	color : black;
+}
+#mymenu > ul > li > #mymenu-ul1 > li:hover > a{
+	color : #4285f4;
+	text-decoration: underline;
+}
+#mymenu > ul > li > #mymenu-ul2 > li:hover > a{
+	color : #4285f4;
+	text-decoration: underline;
+}
+#menus {
+	width : 1050px;
+	height : 40px;
+}
+#menus > label > a {
+	margin-left : 13px;
+	text-decoration: none;
+	color : black;
+}
+#menus > label > a:hover {
+	color : #4285f4;
+	text-decoration: underline;
+}
+#main-cover{
+	background-color: #fafafa;
+	border : 0.5px solid #f0f0f0;
+}
+#main-start {
+	margin : auto;
+	width : 1300px;
+	height : 30px;
+	padding-top : 10px;
+}
+#main-start > a{
+	text-decoration: none;
+	color : black;
+	font-size : 14px;
+}
+#main-start > a:hover{
+	text-decoration: none;
+	color : #4285f4;
+}
+#side-main {
+	margin :auto;
+	display : flex;
+	width : 1300px;
+}
+
+#side {
+	flex-basis: 200px;
+	text-decoration: none;
+}
+#side-wrapper {
+	border: 1px solid #f0f0f0;
+}
+#side-wrapper > div{
+	width: 182px;
+	padding-left : 15px;
+	padding-bottom : 20px;
+	border-bottom : 1px solid #f0f0f0;
+	transition: transform .6s ease-in-out;
+}
+#side-wrapper > div > ul {
+	padding : 8px 0 10px 10px;
+	list-style: none;
+}
+#side-wrapper> div > ul > li{
+	list-style: none;
+}
+/* #side > div > ul > li > label > a > input[type=checkbox]:hover {
+    background: #327DFF;
+    border: 1px solid blue;
+} */
+#side-wrapper > div > ul > li > label > a{
+	color : black;
+	text-decoration: none;
+}
+#side-wrapper > div > ul > li > label > a:hover{
+	color : #4285f4;
+	text-decoration: none;
+	background-color : #f0f0f0;
+}
+#side-wrapper > div > h4 {
+	padding : 15px 0px 4px 0px;
+}
+#side-wrapper > div > button {
+	color : #4285f4;
+	text-decoration: none;
+	border : 1px solid transparent;
+	background-color : transparent;
+	cursor: pointer;
+}
+#side-price-search{
+    width: 36px;
+    height: 28px;
+    border-radius: 2px;
+    text-align: center;
+    line-height: 28px;
+    color: #fff;
+    background-color: #0073e9;
+    border : 1px solid #0073e9;
+    cursor: pointer;
+}
+#side-price-search:hover{
+	background-color: #4C9BEF;
+	border : 1px solid #4C9BEF;
+}
+.service-filter-subscribable {
+	display: inline-block;
+    background-repeat: no-repeat;
+    background-image: url(//img1a.coupangcdn.com/image/coupang/search/search_assets_160912.png);
+    background-position: 0 -178px;
+    overflow: hidden;
+    width: 63px;
+    height: 16px;
+    margin-top: -2px;
+    font-size: 0;
+    text-indent: -3000em;
+    vertical-align: middle;
+}
+#rocket-child{
+	/*margin: 6px -20px 6px -30px;*/
+    padding: 10px 20px;
+    background: #fafafa;
+}
+#rocket-child > ul {
+	list-style-type: none;
+}
+#rocket-child > ul >li{
+	list-style-type: none;
+	cursor: pointer;
+}
+#rocket-child > ul > li > label > a  {
+	color : black;
+	text-decoration: none;
+}
+#rocket-child > ul > li > label > a:hover{
+	color : #4285f4;
+	text-decoration: none;
+	background-color : #f0f0f0;
+}
+#main {
+	margin : 0 auto;
+	flex-basis: 1100px;
+}
+#main-serve {
+	margin-left : 20px;
+	background-color : #fafafa;
+	font-size : 20px;
+	padding : 5px;
+}
+#main-serve > span {
+	font-size : 13px;
+	color : black;
+	padding : 2px 15px 2px 10px;
+	border-right : 1px solid #f0f0f0;
+}
+#main-serve > span > a {
+	text-decoration: none;
+	color : black;
+}
+#main-serve > span > a:hover {
+	text-decoration: none;
+	color: #4285f4;
+}
+#main-serve > ul {
+	list-style : none;
+	position : relative;
+	float : right;
+	font-weight : bold;
+	font-size : 13px;
+	margin-right : 10px;
+	padding : 3px 5px;
+	width : 90px;
+	height : 30px;	
+}
+#main-serve > ul > li {
+
+}
+#main-serve > ul > li > a {
+	text-decoration: none;
+	color : black;
+}
+#main-serve > ul > li:hover > ul {
+	display : block;
+	background-color : #fafafa;
+	padding-bottom : 10px;
+}
+#main-serve > ul > li > ul {
+	display : none;
+	position : relative;
+	top : 10px;
+	list-style : none;
+	font-weight : normal;
+	width : 110px;
+	height : 30px;
+}
+#main-serve > ul > li > ul > li > a{
+	text-decoration : none;
+	color : black;
+}
+#product {
+	padding:20px;
+	display : flex;
+	flex-wrap: wrap; 
+	width : 1060px;
+}
+#product > div {
+	border-bottom : 1px solid gray;
+	width: 223px;
+	height : 457px;
+	padding : 20px;
+	overflow: hidden;
+	display: block;
+	color: #111;
+	transition: box-shadow .2s ease;
+	margin : 15px 0px;
+}
+#product > div:hover {
+	box-shadow : 5px 5px 5px 5px rgba(0,0,0,0.3);
+}
+#product > div:hover > a{
+	color : #4285f4;
+}
+.product-image {
+	width: 223px;
+	height : 223px;
+}
+#product-bridge{
+	width : 100%;
+	height: 17px;
+	padding : 16px 0 5px 0;
+}
+#product-name{
+    width: 100%;
+    max-height: 48px;
+    line-height: 16px;
+    font-size: 12px;
+    color: #111;
+    text-decoration: none;
+}
+#product-area{
+	padding-top: 3px;
+	display : block;
+}
+#product-area-price > span{
+	font-size : 12px;
+}
+#product-area-price > del{
+	font-size : 12px;
+	color : gray;
+}
+#product-area > em {
+	display: block;
+    padding-bottom: 2px;
+    margin-bottom: -3px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #cb1400;
+    font-family : Tahoma,sans-serif;
+}
+#product-area > span {
+	display: inline-block;
+    font-size: 11px;
+    color: #cb1400;
+}
+#product-arrive > span {
+	color: #008C00;
+}
+#product-star {
+	float: left;
+    width: 200px;
+    height: 17px;
+    margin-right: 3px;
+    padding-top : 10px;
+}
+#product-star-rate{
+	float : left;
+	display: block;
+    width: 69px;
+    height: 12px;
+    background: url("//img1a.coupangcdn.com/image/dragonstone/sdp/PCSDP_imageasset_171215-min.png") no-repeat;
+    background-position: 0 -368px;
+    text-indent: -9999px;
+}
+#product-star-rate-rating {
+	display: block;
+	margin-bottom: 1px;
+    height: 12px;
+    background: url("//img1a.coupangcdn.com/image/dragonstone/sdp/PCSDP_imageasset_171215-min.png") no-repeat;
+    background-position: 0 -380px;
+    text-indent: -9999px;
+}
+#product-star-count {
+	display : inline-block;
+	float : left;
+	color: #888;
+    font-size: 11px;
+    font-family: Tahoma,sans-serif;
+}
+#product-point {
+	padding-top : 15px;
+}
+#product-point-box{
+	box-sizing: border-box;
+    display: inline-block;
+    padding: 0 8px;
+    height: 20px;
+    border-radius: 10px;
+    border: solid 1px #ccc;
+    background-color: #fff;
+    margin-top : 5px;
+}
+#product-point-box > span{
+	display: inline-block;
+    vertical-align: top;
+    color: #333;
+    font-size: 12px;
+    line-height : 19px;
+}
+#product-point-img{
+	display: inline-block;
+    width: 14px;
+    margin-top: 2px;
+    vertical-align: top;
+}
+#page-wrapper{
+	margin: 11px 0 100px 0;
+	text-align: center;
+	width : 1100px;
+	display: inline-block;
+}
+#prevbtn {
+	display: inline-block;
+	margin : 0 4px 0 -8px;
+	background: url(//img1a.coupangcdn.com/image/coupang/list/ico_paging.png) 0 0 no-repeat;
+	background-position: 0 -68px;
+    text-indent: -9999em;
+    vertical-align: middle;
+    cursor: default;
+}
+#page-wrapper-beforeicon > span {
+	display: block;
+}
+#page-wrapper > a {
+	display: inline-block;
+    width: 32px;
+    height: 32px;
+    margin: 0 0px;
+    color: #555;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 30px;
+    vertical-align: middle;
+    text-decoration: none;
+    border : 1px solid transparent;
+    background-color : transparent;
+    cursor: pointer;
+}
+#page-wrapper > a.on{
+	color: #0073e9;
+    border: 1px solid #0073e9;
+}
+
+#page-wrapper > a:hover {
+	color: red;
+    text-decoration: underline;
+}
+
+#nextbtn {
+	display: inline-block;
+	margin : 0 4px 0 -8px;
+	background: url(//img1a.coupangcdn.com/image/coupang/list/ico_paging.png) 0 0 no-repeat;
+	background-position: -34px -68px;
+    text-indent: -9999em;
+    vertical-align: middle;
+    cursor: default;
+}
+
+.footer-frame {
+	position: relative;
+	border-top: #ddd solid 2px;
+    background: #fff;
+}
+
+.footer-layer1 {
+	border-bottom: #ddd solid 1px;
+    height: 34px;
+    text-align: center;
+    padding-top: 15px;
+    white-space: nowrap;
+}
+
+
+.footer-layer1 > a {
+	display: inline-block;
+    white-space: nowrap;
+    padding: 0 14px;
+    font-size: 12px;
+    color: #555;
+    height: 12px;
+    text-decoration: none;
+    border-right: 1px solid gray;
+}
+
+.footer-layer1 > a:first-child{
+	border-left: 0;
+}
+
+.footer-layer1 .site-picker {
+	position: relative;
+    font-size: 14px;
+    display: inline-block;
+    text-align: left;
+    vertical-align: top;
+    margin-top: -9px;
+    color: #212b36;
+    margin-left: 5px;
+}
+
+.footer-layer1 .site-picker .site-picker-arrow {
+	transition: .3s;
+	display: inline-block;
+    width: 14px;
+    height: 14px;
+    background-color: #333;
+}
+
+.footer-layer2 {
+	width: 1020px;
+    height: 100px;
+    margin: 30px auto;
+    font-size: 12px;
+    color: #555;
+    line-height: 150%;
+}
+
+.footer-layer2 h1 {
+	float: left;
+    width: 150px;
+    background-image: none;
+}
+
+.footer-layer2 h1 a {
+	display: block;
+	width: 117px;
+	height: 34px;
+    overflow: hidden;
+    background: url(//static.coupangcdn.com/image/coupang/common/footer_asset_v8.png) no-repeat;
+	background-position: -19px -34px;
+    text-indent: -99em;
+	margin-left: 10px;
+	text-decoration: none;
+}
+
+.footer-layer2 a {
+	color: #555;
+	text-decoration: none;
+}
+
+
+.footer-layer2 address {
+	float: left;
+    width: 260px;
+}
+
+.footer-layer2 .licensee {
+	text-decoration: underline;
+}
+
+.footer-layer2 .contact-info {
+	float: left;
+    width: 340px;
+    color: #555;
+}
+
+.footer-layer2 strong {
+	font-weight: bold;
+    font-size: 12px;
+}
+
+.footer-layer2 .contact-info em {
+	font-size: 24px;
+    font-family: Tahoma;
+    font-weight: bold;
+    display: block;
+    margin: 9px 0 11px 0;
+	font-style: normal;
+}
+
+.footer-layer2 .safe-service {
+	float: left;
+    width: 270px;
+    font-size: 11px;
+}
+
+.footer-layer3 {
+	width: 1020px;
+    height: 80px;
+    margin: 0 auto;
+    position: relative;
+    border-top: #ddd solid 1px;
+}
+
+.footer-layer3 .certification-list {
+	width: 968px;
+	height: 80px;
+	margin: 0 auto;
+	background: url(//static.coupangcdn.com/image/coupang/common/footer_asset_v12.png) no-repeat;
+	background-position: -44px -92px;
+	position: relative;
+}
+
+.footer-layer4 {
+	background: #333;
+    height: 80px;
+}
+
+.footer-layer4 .coupang-copyright {
+	width: 1020px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.footer-layer4 .coupang-copyright p {
+	color: #888;
+    font-size: 11px;
+}
+
+.footer-layer4 .coupang-copyright .info {
+	padding: 21px 0 3px 0;
+}
+
+.footer-layer4 .coupang-copyright .sns-link {
+	position: absolute;
+    top: 23px;
+    right: 0;
+    list-style: none;
+}
+
+.footer-layer4 .coupang-copyright .sns-link li {
+	float: left;
+}
+
+.footer-layer4 .coupang-copyright .sns-link a {
+	width: 34px;
+    height: 34px;
+    margin-right: 8px;
+	display: block;
+    overflow: hidden;
+    background: url(//static.coupangcdn.com/image/coupang/common/footer_asset_v8.png) no-repeat;
+    text-indent: -99em;
+    text-decoration: none;
+}
+
+.footer-layer4 .coupang-copyright .sns-link a.facebook {
+	background-position: -220px -30px;
+}
+
+.footer-layer4 .coupang-copyright .sns-link a.blog {
+	background-position: -348px -30px;
+}
+
+.footer-layer4 .coupang-copyright .sns-link a.instagram {
+	background-position: -390px -30px;
+}
