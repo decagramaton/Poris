@@ -18,13 +18,13 @@
     <script src="${pageContext.request.contextPath}/resources/javascript/login.js"></script>
 </head>
 <body>
-	<div class="container-fluid">
+	<div class="container">
 	    <header class="row" style="margin:100 auto;">
-	        <h1 class="col" style="margin:0 auto;"><a href="main"><img src="${pageContext.request.contextPath}/resources/images/fruitlight_logo.png"></a></h1>
+	        <h1 class="col" style="margin:0 auto;"><a href="main"><img src="${pageContext.request.contextPath}/resources/images/fruitlight_logo.png" style="margin: 30px auto"></a></h1>
 	    </header>
 	    <div class="row" style="float: none;">
-	    	<div class="col-lg-2 col-sm-0"></div>
-	    	<div class="col-lg-8 col-sm-12">
+	    	<div class="col-lg-3 col-sm-0"></div>
+	    	<div class="col-lg-6 col-sm-12">
 	    		<section>
 			        <form action="login/askLogin" method="post" id="loginform">
 			            <fieldset>
@@ -73,7 +73,7 @@
 			    </section>
 	    	
 	    	</div>
-	    	<div class="col-lg-2 col-sm-0"></div>
+	    	<div class="col-lg-3 col-sm-0"></div>
 	    </div>
 	    
 	    <footer>

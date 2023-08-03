@@ -134,15 +134,7 @@ section #loginform fieldset .btm .idpw_search {
     font-weight: bold;
     text-decoration-line: none;
 }
-section #loginform fieldset .btm .idpw_search::after {
-    content:'';
-    display: inline-block;
-    width: 8px;
-    height: 15px;
-    background-image: url(../images/icon.svg);
-    background-position: -104px -21px;
-    margin-left: 5px;
-}
+
 section #loginform fieldset #login_btn {
     background: #A0DE5F;
     width: 100%;
