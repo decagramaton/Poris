@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html>
@@ -49,49 +50,38 @@
 								<th scope="col">배송비</th>
 							</tr>
 						</thead>
-						<!-- 로켓배송 상품 -->
-						<tbody class="cartTableBodyRocket">
-							<tr class="cartItem">
-				            	<td class="cartItem_check"><input type="checkbox" class="cbox"/></td>
-				            	<td class="cartItem_img"><img src="${pageContext.request.contextPath}/resources/images/watermelon_cart.jpg" width="90%"></td>
-				            	<td class="cartItem_product">
-				            		<div class="cartItem_product">
-				            			<div class="text-left">
-				            				<a href="#">
-					             				고재승 꿀수박, 
-					            				<span class="product_option">4kg</span>
-					            			</a>
-				            			</div>
-				            		</div>
-				            	</td>
-				            	<td class="cartItemOption">
-		            				<span class="product_price">28000원</span>
-		            				<label class="product_quantity">
-	            						<input class="productQuantity" type="number" min="1" max="50" name="1" value="1">
-	            						<input class="quantityChange d-none" type="button" value="수량변경">
-		            				</label>
-		            				<button class="productDelete"></button>
-				            	</td>
-				            	<td class="cartItemPrice">
-				            		<div>28000원</div>
-				            	</td>
-				            	<td class="cartItemShipping">
-				            		<div class="shippingFreeRule font-weight-light"><div>30000원이상</div>무료배송</div>
-				            		<div class="shippingPrice">3000원</div>
-				            	</td>
-				            </tr>
-				            <!-- <tr class="cart_total_price text-right">
-					        	<td colspan="6" class="p-3">
-					        		<span>상품가격 <span class="totalPriceRocket font-weight-bold">0</span>원 </span>
-					        		<span class="symbol_plus_r mx-2"></span>
-					        		<span>배송비 <strong class="totalDeliveryRocket">0</strong>원</span>
-					        		<span class="symbol_equal_r mx-2"></span>
-					        		<span>주문금액 <span class="totalOrderPriceRocket font-weight-bold">0</span>원</span>
-					        	</td>
-					        </tr> -->
-						</tbody>
-						<!-- 판매자배송 상품 -->
-						<tbody class="cartTableBodyNormal">
+						<tbody class="cartTableBody">
+							<c:forEach var="cartProduct" items="${listProduct}">
+								<tr class="cartItem">
+					            	<td class="cartItem_check"><input type="checkbox" class="cbox"/></td>
+					            	<td class="cartItem_img"><img src="${pageContext.request.contextPath}/resources/images/watermelon_cart.jpg" width="100%"></td>
+					            	<td class="cartItem_product">
+					            		<div class="cartItem_product">
+					            			<div class="text-left">
+					            				<a href="#">
+						             				${cartProduct.name}, 
+						            				<span class="product_option">${cartProduct.option}</span>
+						            			</a>
+					            			</div>
+					            		</div>
+					            	</td>
+					            	<td class="cartItemOption">
+			            				<span class="product_price">${cartProduct.price}원</span>
+			            				<label class="product_quantity">
+		            						<input class="productQuantity" type="number" min="1" max="50" name="1" value="${cartProduct.stock}">
+		            						<input class="quantityChange d-none" type="button" value="수량변경">
+			            				</label>
+			            				<button class="productDelete"></button>
+					            	</td>
+					            	<td class="cartItemPrice">
+					            		<div>원</div>
+					            	</td>
+					            	<td class="cartItemShipping">
+					            		<div class="shippingFreeRule font-weight-light"><div>${cartProduct.shippingFreeRule}원이상</div>무료배송</div>
+					            		<div class="shippingPrice">${cartProduct.shippingPrice}원</div>
+					            	</td>
+					            </tr>
+					        </c:forEach>
 						</tbody>
 					</table>
 					<!-- 전체 선택 -->

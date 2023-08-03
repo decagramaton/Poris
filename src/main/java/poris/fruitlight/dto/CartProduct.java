@@ -1,5 +1,8 @@
 package poris.fruitlight.dto;
 
+import lombok.Data;
+
+@Data
 public class CartProduct {
 	int pid;
 	byte[] img;
