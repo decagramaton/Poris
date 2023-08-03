@@ -96,7 +96,7 @@
                     <div class="cartCoupon">
                     	<div class="coupon_title">할인쿠폰 적용</div>
                     	<div class="coupon_list">
-                    		<c:forEach var="coupon" items="listCoupon">
+                    		<c:forEach var="coupon" items="${listCoupon}">
 	                    		<dl class="coupon_item row py-1">
 						    		<dt class="col-2">
 						    			<label>
@@ -114,7 +114,7 @@
 						    				</c:if>
 						    			</c:if>
 						    			<c:if test="${coupon.name != null}">
-						    				<strong>${coupon.name}</strong>
+						    				<strong>${coupon.name} 할인쿠폰</strong>
 						    			</c:if>
 						    			
 						    			<c:if test="${coupon.discountRule == 0}">

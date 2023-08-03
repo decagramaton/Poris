@@ -29,10 +29,10 @@ public class CartController {
 		
 		List<Coupon> listCoupon = couponService.getCoupon(1);
 		//[price] 특성이 [java.lang.String] 유형에 없습니다. 에러..
-		for(Coupon coupon : listCoupon) {
+		/*for(Coupon coupon : listCoupon) {
 			String strPrice = "" + coupon.getPrice();
 			log.info(strPrice);
-		}
+		}*/
 		model.addAttribute("listCoupon", listCoupon);
 		
 		return "cart";
