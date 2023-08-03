@@ -20,11 +20,11 @@
 	</head>
 	<body>
 		<div class="wrap">
-			<header>
-				<a href="https://www.coupang.com/"><img src="${pageContext.request.contextPath}/resources/images/fruitlight_logo.png" width="300px;"></a>
+			<header class="text-center pt-3">
+				<a href="https://www.coupang.com/"><img src="${pageContext.request.contextPath}/resources/images/fruitlight_logo.png" width="260px;"></a>
 			</header>
 			<section class="container">
-				<div class="cart_title"><h3 class="p-3">장바구니</h3></div>
+				<div class="cart_title"><h2 class="p-3">장바구니</h2></div>
 				<div class="cart_content">
 					<table class="table table-sm cartTable">
 						<colgroup>
@@ -101,6 +101,21 @@
         			</div>
                     <!-- 할인쿠폰 -->
                     <div class="cartCoupon">
+                    	<div class="coupon_title">할인쿠폰 적용</div>
+                    	<div class="coupon_list">
+                    		<dl class="coupon_item row py-1">
+					    		<dt class="col-2">
+					    			<label>
+					    				<input type="checkbox" class="cboxCoupon">
+					    				<span><span class="couponAmount ml-1">3000</span>원</span>
+					    			</label>
+					    		</dt>
+					    		<dd class="col p-0">
+					    			<strong>배송비 3000원 할인쿠폰</strong>
+					    			<em>10000원 이상 구매 시 배송비 3000원 할인</em>
+					    		</dd>
+					    	</dl>
+                    	</div>
                     </div>
 					<!-- 총 구매가격 -->
 					<div class="cartFinalPrice">
@@ -115,7 +130,7 @@
 						</span>
 						<span class="cartFinalTotal">
 							<img src="${pageContext.request.contextPath}/resources/images/equal.gif" class="mx-2">
-							<span>총 주문금액 <span class="finalTotalPrice font-weight-bold text-danger">0원</span></span>
+							<span>총 주문금액 <span class="finalTotalPrice font-weight-bold">0원</span></span>
 						</span>
 					</div>
 					<!-- 구매버튼 -->
