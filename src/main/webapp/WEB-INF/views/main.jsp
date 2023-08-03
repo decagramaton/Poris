@@ -40,8 +40,8 @@
 		                     		<li><a href="#">취소 / 반품안내</a></li>
 		                  		</ul>
 		               		</li>
-		               		<li><a href="./joinForm.jsp">회원가입</a></li>
-		               		<li><a href="./login">로그인</a></li>
+		               		<li><a href="joinForm.jsp">회원가입</a></li>
+		               		<li><a href="login">로그인</a></li>
 		            	</ul>
 		         	</div>
 		      	</div>

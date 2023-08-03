@@ -20,7 +20,7 @@ h1 a img {
 }
 
 section {
-    width: 460px;
+    width: 100%;
     margin: 0 auto;
 }
 section #loginform {
@@ -59,7 +59,7 @@ section #loginform fieldset ul li .id_bg::after{
     background-position: 0 0;
     width: 21px;
     height: 21px;
-    left:14px;
+    left:11px;
     top:11px;
     position: absolute;
 
@@ -78,14 +78,13 @@ section #loginform fieldset ul li .pw_bg::after{
     background-position: -21px 0;
     width: 21px;
     height: 21px;
-    left:14px;
+    left:11px;
     top:11px;
     position: absolute;
 
 }
 
 section #loginform fieldset ul li span input {
-    width: 200%;
     height: 40px;
     border: 0;
     padding-left: 10px;
