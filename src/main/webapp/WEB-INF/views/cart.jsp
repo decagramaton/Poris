@@ -96,18 +96,36 @@
                     <div class="cartCoupon">
                     	<div class="coupon_title">할인쿠폰 적용</div>
                     	<div class="coupon_list">
-                    		<dl class="coupon_item row py-1">
-					    		<dt class="col-2">
-					    			<label>
-					    				<input type="checkbox" class="cboxCoupon">
-					    				<span><span class="couponAmount ml-1">3000</span>원</span>
-					    			</label>
-					    		</dt>
-					    		<dd class="col p-0">
-					    			<strong>배송비 3000원 할인쿠폰</strong>
-					    			<em>10000원 이상 구매 시 배송비 3000원 할인</em>
-					    		</dd>
-					    	</dl>
+                    		<c:forEach var="coupon" items="listCoupon">
+	                    		<dl class="coupon_item row py-1">
+						    		<dt class="col-2">
+						    			<label>
+						    				<input type="checkbox" class="cboxCoupon">
+						    				<span><span class="couponAmount ml-1">${coupon.price}</span>${coupon.type}</span>
+						    			</label>
+						    		</dt>
+						    		<dd class="col p-0">
+						    			<c:if test="${coupon.name == null}">
+						    				<c:if test="${coupon.kind.equals('배송비')}">
+								    			<strong>${coupon.kind} <span>${coupon.price}</span>${coupon.type} 할인쿠폰</strong>
+						    				</c:if>
+						    				<c:if test="${coupon.kind.equals('상품')}">
+								    			<strong><span>${coupon.price}</span>${coupon.type} 할인쿠폰</strong>
+						    				</c:if>
+						    			</c:if>
+						    			<c:if test="${coupon.name != null}">
+						    				<strong>${coupon.name}</strong>
+						    			</c:if>
+						    			
+						    			<c:if test="${coupon.discountRule == 0}">
+							    			<em>금액제한없음</em>
+						    			</c:if>
+						    			<c:if test="${coupon.discountRule != 0}">
+							    			<em>${coupon.discountRule}원 이상 구매 시</em>
+						    			</c:if>
+						    		</dd>
+						    	</dl>
+					    	</c:forEach>
                     	</div>
                     </div>
 					<!-- 총 구매가격 -->
