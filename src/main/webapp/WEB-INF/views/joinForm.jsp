@@ -22,20 +22,20 @@
         <h1><a href="main"><img src="${pageContext.request.contextPath}/resources/images/fruitlight_logo.png"></a></h1>
     </header>
     <section>
-        <form action="askJoinForm" method="get" id="joinform">
+        <form action="#" method="get" id="joinform">
             <div class="form_title">회원정보를 입력해주세요</div>
             <fieldset>
                 <legend class="skip">회원가입 양식</legend>
                 <ul>
                     <li>
                         <span class="id_bg"><!-- 배경이미지(이메일) --></span>
-                        <span style="width:100%"><input type="text" name="user_id" id="user_id" placeholder="아이디(이메일)"></span>
+                        <span style="width:100%"><input type="text" name="userId" id="user_id" placeholder="아이디(이메일)"></span>
                     </li>
                     <span id="uidNotInputErr" class="errorMsg">이메일을 입력하세요.</span>
                     <span id="uidNotAvailableErr" class="errorMsg">이메일을 올바르게 입력해주세요.</span>
                     <li>
                         <span class="pw_bg"><!-- 배경이미지(비밀번호) --></span>
-                        <span style="width:100%"><input type="password" name="user_pw" id="user_pw" placeholder="비밀번호"></span>
+                        <span style="width:100%"><input type="password" name="userPassword" id="user_pw" placeholder="비밀번호"></span>
                     </li>
                     <span id="user_pw_letter_combination" class="errorMsg">영문/숫자/특수문자 2가지 이상 조합 (8~20자)</span>
                     <span id="user_pw_character_pattern" class="errorMsg">3개 이상 연속되거나 동일한 문자/숫자 제외</span>
@@ -43,18 +43,18 @@
                     <span id="user_pw_success" class="errorMsg">사용가능한 비밀번호입니다</span>
                     <li>
                         <span class="pw_check_bg"><!-- 배경이미지(비밀번호 확인) --></span>
-                        <span style="width:100%"><input type="password" name="user_pw_check" id="user_pw_check" placeholder="비밀번호 확인"></span>
+                        <span style="width:100%"><input type="password" name="userPasswordCheck" id="user_pw_check" placeholder="비밀번호 확인"></span>
                     </li>
                     <span id="pw_no_match" class="errorMsg">새 비밀번호가 일치하지 않습니다.</span>
                     <span id="pw_match" class="errorMsg">새 비밀번호가 일치합니다.</span>
                     <li>
                         <span class="name_bg"><!-- 배경이미지(성함) --></span>
-                        <span style="width:100%"><input type="text" name="user_name" id="user_name" placeholder="이름"></span>
+                        <span style="width:100%"><input type="text" name="userName" id="user_name" placeholder="이름"></span>
                     </li>
                     <span id="uname_no_match" class="errorMsg">이름을 정확히 입력하세요.</span>
                     <li>
                         <span class="tel_bg"><!-- 배경이미지(연락처) --></span>
-                        <span style="width:100%"><input type="tel" name="user_tel" id="user_tel" placeholder="휴대폰 번호"></span>
+                        <span style="width:100%"><input type="tel" name="userTel" id="user_tel" placeholder="휴대폰 번호"></span>
                     </li>
                     <span id="phone_no_match" class="errorMsg">휴대폰 번호를 정확하게 입력하세요.</span>
                 </ul>
@@ -137,17 +137,8 @@
             </fieldset>
         </form>
     </section>
-    <div class="biz_register">
-        <p>법인 고객이신가요? </p>
-        <p>사업자 회원으로 전용 특가 혜택을 누려보세요. </p>
-        <a href="https://login.coupang.com/corporation/member/landing-page">쿠팡비즈 간편가입
-            <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M5.6812 2.43364C5.91414 2.18614 6.29156 2.15621 6.55912 2.35155L6.62358 2.40508L12.2902 7.73841C12.5499 7.98283 12.5685 8.38355 12.3459 8.6503L12.2902 8.70935L6.62358 14.0427C6.35546 14.295 5.93355 14.2822 5.6812 14.0141C5.44827 13.7666 5.44124 13.3881 5.65242 13.1328L5.70976 13.0717L10.86 8.22389L5.70976 3.37601C5.46227 3.14308 5.43234 2.76566 5.62767 2.49809L5.6812 2.43364Z" fill="#454F5B"></path>
-            </svg>
-        </a>
-    </div>
     <footer>
-        &copy; Coupang Corp. All rights reserved.
+        &copy; Fruitlight Corp. All rights reserved.
     </footer>
 </body>
 
