@@ -28,25 +28,10 @@ function init() {
     
     $("#user_tel").click(checkEmptyPhone);
     $("#user_tel").keyup(checkEmptyPhone);
-
-
-    $("#all_agree_y").click(checkAllAgreeJoinForm);
 }
 
-function checkAllAgreeJoinForm() {
-    if ($(event.target).is(':checked')){
-        $(age_agree_check).prop('checked',true);
-        $(coupang_agree_check).prop('checked',true);
-        $(finance_agree_check).prop('checked',true);
-        $(user_info_collection_agree_check).prop('checked',true);
-        $(user_info_share_agree_check).prop('checked',true);
-    } else {
-        $(age_agree_check).prop('checked',false);
-        $(coupang_agree_check).prop('checked',false);
-        $(finance_agree_check).prop('checked',false);
-        $(user_info_collection_agree_check).prop('checked',false);
-        $(user_info_share_agree_check).prop('checked',false);
-    }
+function checkAcceptAgreement() {
+	$("#agreement_content_1").css("display", "block");
 }
 
 
