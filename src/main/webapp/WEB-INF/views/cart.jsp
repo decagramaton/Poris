@@ -82,19 +82,19 @@
 						            		</div>
 						            	</td>
 						            	<td class="cartItemOption">
-				            				<span class="product_price">${cartProduct.price}원</span>
-				            				<form class="product_quantity d-inline-block" action="changeStock">
-			            						<input class="productQuantity" type="number" min="1" max="50" id="stock" name="stock" value="${cartProduct.stock}"/>
+				            				<span class="productPrice">${cartProduct.price}</span>원
+				            				<form class="d-inline-block" action="changeStock">
+			            						<input class="productStock" type="number" min="1" max="50" id="stock" name="stock" value="${cartProduct.stock}"/>
 			            						<input type="hidden" id="pid" name="pid" value="${cartProduct.pid}"/>
 			            						<input class="quantityChange d-none" type="submit" value="수량변경"/>
 				            				</form>
 				            				<a type="button" class="productDelete" href="delete?pid=${cartProduct.pid}"></a>
 						            	</td>
 						            	<td class="cartItemPrice">
-						            		<div>원</div>
+						            		<span class="cartItemProductPrice">${cartProduct.price * cartProduct.stock}원</span>
 						            	</td>
 						            	<td class="cartItemShipping">
-						            		<div class="shippingFreeRule font-weight-light"><div>${cartProduct.shippingFreeRule}원이상</div>무료배송</div>
+						            		<div class="shippingFreeRule font-weight-light"><div class="shippingFreeRulePrice">${cartProduct.shippingFreeRule}원이상</div>무료배송</div>
 						            		<div class="shippingPrice">${cartProduct.shippingPrice}원</div>
 						            	</td>
 						            </tr>
@@ -119,16 +119,16 @@
 								    		<dt class="col-2">
 								    			<label>
 								    				<input type="checkbox" class="cboxCoupon">
-								    				<span><span class="couponAmount ml-1">${coupon.price}</span>${coupon.type}</span>
+								    				<span><span class="couponAmount ml-1">${coupon.price}</span><span>${coupon.type}</span></span>
 								    			</label>
 								    		</dt>
 								    		<dd class="col p-0">
 								    			<c:if test="${coupon.name == null}">
 								    				<c:if test="${coupon.kind.equals('배송비')}">
-										    			<strong>${coupon.kind} <span>${coupon.price}</span>${coupon.type} 할인쿠폰</strong>
+										    			<strong>${coupon.kind} <span class="discountPrice">${coupon.price}</span>${coupon.type} 할인쿠폰</strong>
 								    				</c:if>
 								    				<c:if test="${coupon.kind.equals('상품')}">
-										    			<strong><span>${coupon.price}</span>${coupon.type} 할인쿠폰</strong>
+										    			<strong><span class="discountPrice">${coupon.price}</span>${coupon.type} 할인쿠폰</strong>
 								    				</c:if>
 								    			</c:if>
 								    			<c:if test="${coupon.name != null}">
@@ -139,7 +139,7 @@
 									    			<em>금액제한없음</em>
 								    			</c:if>
 								    			<c:if test="${coupon.discountRule != 0}">
-									    			<em>${coupon.discountRule}원 이상 구매 시</em>
+									    			<em class="discountRule">${coupon.discountRule}원 이상 구매 시</em>
 								    			</c:if>
 								    		</dd>
 								    	</dl>
@@ -150,13 +150,13 @@
 						<!-- 총 구매가격 -->
 						<div class="cartFinalPrice">
 							<span>총 상품가격 <span class="finalProductPrice font-weight-bold">0</span>원</span>
-							<span class="cartFinalDiscount d-none">
-								<img src="${pageContext.request.contextPath}/resources/images/minus.gif" class="mx-2">
-								<span>총 할인 <span class="finalDiscountPrice font-weight-bold text-danger">0</span>원</span>
-							</span>
 							<span class="cartFinalDelivery">
 								<img src="${pageContext.request.contextPath}/resources/images/plus.gif" class="mx-2">
 								<span>총 배송비 <span class="finalDeliveryPrice font-weight-bold">0</span>원</span>
+							</span>
+							<span class="cartFinalDiscount d-none">
+								<img src="${pageContext.request.contextPath}/resources/images/minus.gif" class="mx-2">
+								<span>총 할인 <span class="finalDiscountPrice font-weight-bold text-danger">0</span>원</span>
 							</span>
 							<span class="cartFinalTotal">
 								<img src="${pageContext.request.contextPath}/resources/images/equal.gif" class="mx-2">
