@@ -89,7 +89,7 @@ section #joinform fieldset ul li .id_bg::after{
     background-position: 0px 0px;
     width: 21px;
     height: 21px;
-    left:11px;
+    left:10px;
     top:11px;
     position: absolute;
 }
@@ -108,7 +108,7 @@ section #joinform fieldset ul li .pw_bg::after{
     background-position: 127px 0px;
     width: 21px;
     height: 21px;
-    left:11px;
+    left:10px;
     top:11px;
     position: absolute;
 }
@@ -127,7 +127,7 @@ section #joinform fieldset ul li .pw_check_bg::after{
     background-position: 106px 0px;
     width: 21px;
     height: 21px;
-    left:11px;
+    left:10px;
     top:11px;
     position: absolute;
 }
@@ -146,7 +146,7 @@ section #joinform fieldset ul li .name_bg::after{
     background-position: 0px -21px;
     width: 21px;
     height: 21px;
-    left:11px;
+    left:10px;
     top:11px;
     position: absolute;
 }
@@ -165,7 +165,7 @@ section #joinform fieldset ul li .tel_bg::after{
     background-position: -21px -21px;
     width: 21px;
     height: 21px;
-    left:11px;
+    left:12px;
     top:11px;
     position: absolute;
 }
