@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -25,7 +25,7 @@
 	    <div class="row" style="float: none;">
 	    	<div class="col">
 			    <section>
-			        <form action="#" method="get" id="joinform">
+			        <form action="joinForm/askJoinForm" method="post" id="joinform">
 			            <div class="form_title">회원정보를 입력해주세요</div>
 			            <fieldset>
 			                <legend class="skip">회원가입 양식</legend>

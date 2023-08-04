@@ -9,4 +9,5 @@ public class JoinParam {
 	private String userPasswordCheck;
 	private String userName;
 	private String userTel;
+	private String acceptAgreement;
 }
