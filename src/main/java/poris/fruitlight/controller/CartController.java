@@ -1,6 +1,5 @@
 package poris.fruitlight.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -42,12 +41,14 @@ public class CartController {
 		return "cart";
 	}
 	
+	//개별삭제
 	@RequestMapping("/delete")
 	public String delete(int pid) {
 		cartProductService.deleteProduct(pid);
 		return "redirect:/cart/";
 	}
 	
+	//선택삭제 및 전체삭제
 	@RequestMapping("/deleteChecked")
 	public String deleteChecked(HttpServletRequest request) {
 		String[] strPidList = request.getParameterValues("pidsChecked");
@@ -57,4 +58,12 @@ public class CartController {
 		}
 		return "redirect:/cart/";
 	}
+
+	//수량변경
+	@RequestMapping("/changeStock")
+	public String changeStock(CartProduct cartProduct) {
+		cartProductService.changeStock(cartProduct);
+		return "redirect:/cart/";
+	}
+
 }

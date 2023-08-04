@@ -12,7 +12,7 @@ function init() {
 	$(".checkedDelete").click(deleteItem);
 	
 	//상품수량변경 동작
-	//$(".productQuantity").change(changeItemQuantity);
+	$(".productQuantity").change(changeItemQuantity);
 	
 	//할인쿠폰 동작
 	//$(".cboxCoupon").click(checkCoupon);
@@ -88,7 +88,7 @@ function deleteItem() {
 
 //상품수량변경 동작
 function changeItemQuantity() {
-	var quantityChange = $(event.target).next();
+	var quantityChange = $(event.target).next().next();
 	var itemQuantity = $(event.target).val();
 	var itemQuantityMin = $(event.target).attr("min");
 	var itemPno = $(event.target).attr("name");
@@ -101,43 +101,8 @@ function changeItemQuantity() {
 	
 	quantityChange.removeClass("d-none");
 	quantityChange.click(function() {
-		changeItemPrice(itemPno, itemQuantity);
+		$(event.target).addClass("d-none");
 	});
-}
-function changeItemPrice(itemPno, itemQuantity) {
-	var quantityChange  = $(event.target);
-	var productTotalPrice = quantityChange.parent().next();
-	var cartItemPrice = quantityChange.parent().parent().parent().parent().next().children("div");
-	var productCash = quantityChange.parent().parent().next().children().children(":nth-child(2)");
-	
-	$.ajax({
-		url: "./json/cartItem.jsp",
-		method: "get",
-		success: function(data) {
-			let Pprice = 0;
-			let itemPrice = 0;
-			
-			data.forEach((item, index) => {
-				if(item.Pno == itemPno) {
-					Pprice = item.Pprice;
-				}
-			});
-			
-			itemPrice = Pprice * itemQuantity;
-			itemCash = itemPrice * 0.1;
-			productTotalPrice.html(itemPrice.toLocaleString("ko-KR") + "원");
-			cartItemPrice.html(itemPrice.toLocaleString("ko-KR") + "원");
-			productCash.html("최대 " + itemCash.toLocaleString("ko-KR") + "원 적립")
-
-			//주문금액 동작
-			calculatePrice();
-		}
-	});
-	
-	$(event.target).addClass("d-none");
-	
-	//추후 변경된 상품수량을 json으로 보내서 db에 저장하는 코드 추가
-	
 }
 
 //주문금액 동작

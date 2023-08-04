@@ -83,10 +83,11 @@
 						            	</td>
 						            	<td class="cartItemOption">
 				            				<span class="product_price">${cartProduct.price}원</span>
-				            				<label class="product_quantity">
-			            						<input class="productQuantity" type="number" min="1" max="50" name="1" value="${cartProduct.stock}">
-			            						<input class="quantityChange d-none" type="button" value="수량변경">
-				            				</label>
+				            				<form class="product_quantity d-inline-block" action="changeStock">
+			            						<input class="productQuantity" type="number" min="1" max="50" id="stock" name="stock" value="${cartProduct.stock}"/>
+			            						<input type="hidden" id="pid" name="pid" value="${cartProduct.pid}"/>
+			            						<input class="quantityChange d-none" type="submit" value="수량변경"/>
+				            				</form>
 				            				<a type="button" class="productDelete" href="delete?pid=${cartProduct.pid}"></a>
 						            	</td>
 						            	<td class="cartItemPrice">

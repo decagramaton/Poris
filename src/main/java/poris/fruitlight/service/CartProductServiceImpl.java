@@ -11,7 +11,7 @@ import poris.fruitlight.dto.CartProduct;
 @Service
 @Slf4j
 public class CartProductServiceImpl implements CartProductService {
-
+	//장바구니 목록 가져오기
 	@Override
 	public List<CartProduct> getCartProduct(int uid) {
 		List<CartProduct> list = new ArrayList<>();
@@ -30,9 +30,19 @@ public class CartProductServiceImpl implements CartProductService {
 		}
 		return list;
 	}
-
+	
+	//상품삭제
 	@Override
 	public int deleteProduct(int pid) {
+		return 1;
+	}
+	
+	//수량변경
+	@Override
+	public int changeStock(CartProduct cartProduct) {
+		int pid = cartProduct.getPid();
+		int stock = cartProduct.getStock();
+		
 		return 1;
 	}
 
