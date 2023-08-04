@@ -24,137 +24,149 @@
 			<header class="text-center pt-3">
 				<a href="https://www.coupang.com/"><img src="${pageContext.request.contextPath}/resources/images/fruitlight_logo.png" width="260px;"></a>
 			</header>
-			<section class="container">
+			<section class="container mb-5">
 				<div class="cart_title"><h2 class="p-3">장바구니</h2></div>
-				<div class="cart_content">
-					<table class="table table-sm cartTable">
-						<colgroup>
-							<col width="50">
-							<col width="80">
-							<col width="*">
-							<col width="200">
-							<col width="100">
-							<col width="100">
-						</colgroup>
-						<thead>
-							<tr>
-								<th scope="col" class="cartTableCol1">
-									<label>
-										<input type="checkbox" value="allcheck" class="cboxAll">
-		  								<span>전체선택</span>
-	  								</label>
-								</th>
-								<th scope="colgroup" colspan="2">상품정보</th>
-								<th scope="col">상품옵션</th>
-								<th scope="col">상품금액</th>
-								<th scope="col">배송비</th>
-							</tr>
-						</thead>
-						<tbody class="cartTableBody">
-							<c:forEach var="cartProduct" items="${listProduct}">
-								<tr class="cartItem">
-					            	<td class="cartItem_check"><input type="checkbox" class="cbox"/></td>
-					            	<td class="cartItem_img"><img src="${pageContext.request.contextPath}/resources/images/watermelon_cart.jpg" width="100%"></td>
-					            	<td class="cartItem_product">
-					            		<div class="cartItem_product">
-					            			<div class="text-left">
-					            				<a href="#">
-						             				${cartProduct.name}, 
-						            				<span class="product_option">${cartProduct.option}</span>
-						            			</a>
-					            			</div>
-					            		</div>
-					            	</td>
-					            	<td class="cartItemOption">
-			            				<span class="product_price">${cartProduct.price}원</span>
-			            				<label class="product_quantity">
-		            						<input class="productQuantity" type="number" min="1" max="50" name="1" value="${cartProduct.stock}">
-		            						<input class="quantityChange d-none" type="button" value="수량변경">
-			            				</label>
-			            				<button class="productDelete"></button>
-					            	</td>
-					            	<td class="cartItemPrice">
-					            		<div>원</div>
-					            	</td>
-					            	<td class="cartItemShipping">
-					            		<div class="shippingFreeRule font-weight-light"><div>${cartProduct.shippingFreeRule}원이상</div>무료배송</div>
-					            		<div class="shippingPrice">${cartProduct.shippingPrice}원</div>
-					            	</td>
-					            </tr>
-					        </c:forEach>
-						</tbody>
-					</table>
-					<!-- 전체 선택 -->
-					<div class="cartSelect p-2">
-						<label>
-		                    <input type="checkbox" class="cboxAll"> <span>전체선택</span>
-		                    <span>( <em id="checkCount">0</em> / <span id="productCount">0</span> )</span>
-		                </label>
-		               	<button class="checkedAllDelete">선택삭제</button>
-        			</div>
-                    <!-- 할인쿠폰 -->
-                    <div class="cartCoupon">
-                    	<div class="coupon_title">할인쿠폰 적용</div>
-                    	<div class="coupon_list">
-                    		<c:forEach var="coupon" items="${listCoupon}">
-	                    		<dl class="coupon_item row py-1">
-						    		<dt class="col-2">
-						    			<label>
-						    				<input type="checkbox" class="cboxCoupon">
-						    				<span><span class="couponAmount ml-1">${coupon.price}</span>${coupon.type}</span>
-						    			</label>
-						    		</dt>
-						    		<dd class="col p-0">
-						    			<c:if test="${coupon.name == null}">
-						    				<c:if test="${coupon.kind.equals('배송비')}">
-								    			<strong>${coupon.kind} <span>${coupon.price}</span>${coupon.type} 할인쿠폰</strong>
-						    				</c:if>
-						    				<c:if test="${coupon.kind.equals('상품')}">
-								    			<strong><span>${coupon.price}</span>${coupon.type} 할인쿠폰</strong>
-						    				</c:if>
-						    			</c:if>
-						    			<c:if test="${coupon.name != null}">
-						    				<strong>${coupon.name} 할인쿠폰</strong>
-						    			</c:if>
-						    			
-						    			<c:if test="${coupon.discountRule == 0}">
-							    			<em>금액제한없음</em>
-						    			</c:if>
-						    			<c:if test="${coupon.discountRule != 0}">
-							    			<em>${coupon.discountRule}원 이상 구매 시</em>
-						    			</c:if>
-						    		</dd>
-						    	</dl>
-					    	</c:forEach>
-                    	</div>
-                    </div>
-					<!-- 총 구매가격 -->
-					<div class="cartFinalPrice">
-						<span>총 상품가격 <span class="finalProductPrice font-weight-bold">0</span>원</span>
-						<span class="cartFinalDiscount d-none">
-							<img src="${pageContext.request.contextPath}/resources/images/minus.gif" class="mx-2">
-							<span>총 할인 <span class="finalDiscountPrice font-weight-bold text-danger">0</span>원</span>
-						</span>
-						<span class="cartFinalDelivery">
-							<img src="${pageContext.request.contextPath}/resources/images/plus.gif" class="mx-2">
-							<span>총 배송비 <span class="finalDeliveryPrice font-weight-bold">0</span>원</span>
-						</span>
-						<span class="cartFinalTotal">
-							<img src="${pageContext.request.contextPath}/resources/images/equal.gif" class="mx-2">
-							<span>총 주문금액 <span class="finalTotalPrice font-weight-bold">0원</span></span>
-						</span>
+				<!-- 장바구니에 담은 상품이 없을 경우 -->
+				<c:if test="${listProduct == null}">
+					<div class="cartNoItem text-center">
+						<p>장바구니에 담긴 상품이 없습니다.</p>
+						<a href="${pageContext.request.contextPath}/" type="">홈으로 가기</a>
 					</div>
-					<!-- 구매버튼 -->
-					<div class="orderBtns text-center">
-						<a class="shopping_btn" href="//www.coupang.com">계속 쇼핑하기</a>
-						<a class="buy_btn" href="order.html">구매하기</a>
+				</c:if>
+				<c:if test="${listProduct != null}">
+					<div class="cart_content">
+						<table class="table table-sm cartTable">
+							<colgroup>
+								<%-- <col width="50">
+								<col width="80">
+								<col width="*">
+								<col width="200">
+								<col width="100">
+								<col width="100"> --%>
+								<col width="5%">
+								<col width="8%">
+								<col width="*">
+								<col width="18%">
+								<col width="10%">
+								<col width="10%">
+							</colgroup>
+							<thead>
+								<tr>
+									<th scope="col" class="cartTableCol1">
+										<label>
+											<input type="checkbox" value="allcheck" class="cboxAll">
+			  								<span>전체선택</span>
+		  								</label>
+									</th>
+									<th scope="colgroup" colspan="2">상품정보</th>
+									<th scope="col">상품옵션</th>
+									<th scope="col">상품금액</th>
+									<th scope="col">배송비</th>
+								</tr>
+							</thead>
+							<tbody class="cartTableBody">
+								<c:forEach var="cartProduct" items="${listProduct}">
+									<tr class="cartItem">
+						            	<td class="cartItem_check"><input type="checkbox" class="cbox"/></td>
+						            	<td class="cartItem_img"><img src="${pageContext.request.contextPath}/resources/images/watermelon_cart.jpg" width="100%"></td>
+						            	<td class="cartItem_product">
+						            		<div class="cartItem_product">
+						            			<div class="text-left">
+						            				<a href="#">
+							             				${cartProduct.name}, 
+							            				<span class="product_option">${cartProduct.option}</span>
+							            			</a>
+						            			</div>
+						            		</div>
+						            	</td>
+						            	<td class="cartItemOption">
+				            				<span class="product_price">${cartProduct.price}원</span>
+				            				<label class="product_quantity">
+			            						<input class="productQuantity" type="number" min="1" max="50" name="1" value="${cartProduct.stock}">
+			            						<input class="quantityChange d-none" type="button" value="수량변경">
+				            				</label>
+				            				<button class="productDelete"></button>
+						            	</td>
+						            	<td class="cartItemPrice">
+						            		<div>원</div>
+						            	</td>
+						            	<td class="cartItemShipping">
+						            		<div class="shippingFreeRule font-weight-light"><div>${cartProduct.shippingFreeRule}원이상</div>무료배송</div>
+						            		<div class="shippingPrice">${cartProduct.shippingPrice}원</div>
+						            	</td>
+						            </tr>
+						        </c:forEach>
+							</tbody>
+						</table>
+						<!-- 전체 선택 -->
+						<div class="cartSelect p-2">
+							<label>
+			                    <input type="checkbox" class="cboxAll"> <span>전체선택</span>
+			                    <span>( <em id="checkCount">0</em> / <span id="productCount">0</span> )</span>
+			                </label>
+			               	<button class="checkedAllDelete">선택삭제</button>
+	        			</div>
+	                    <!-- 할인쿠폰 -->
+	                    <c:if test="${listCoupon != null}">
+		                    <div class="cartCoupon">
+		                    	<div class="coupon_title">할인쿠폰 적용</div>
+		                    	<div class="coupon_list">
+		                    		<c:forEach var="coupon" items="${listCoupon}">
+			                    		<dl class="coupon_item row py-1">
+								    		<dt class="col-2">
+								    			<label>
+								    				<input type="checkbox" class="cboxCoupon">
+								    				<span><span class="couponAmount ml-1">${coupon.price}</span>${coupon.type}</span>
+								    			</label>
+								    		</dt>
+								    		<dd class="col p-0">
+								    			<c:if test="${coupon.name == null}">
+								    				<c:if test="${coupon.kind.equals('배송비')}">
+										    			<strong>${coupon.kind} <span>${coupon.price}</span>${coupon.type} 할인쿠폰</strong>
+								    				</c:if>
+								    				<c:if test="${coupon.kind.equals('상품')}">
+										    			<strong><span>${coupon.price}</span>${coupon.type} 할인쿠폰</strong>
+								    				</c:if>
+								    			</c:if>
+								    			<c:if test="${coupon.name != null}">
+								    				<strong>${coupon.name} 할인쿠폰</strong>
+								    			</c:if>
+								    			
+								    			<c:if test="${coupon.discountRule == 0}">
+									    			<em>금액제한없음</em>
+								    			</c:if>
+								    			<c:if test="${coupon.discountRule != 0}">
+									    			<em>${coupon.discountRule}원 이상 구매 시</em>
+								    			</c:if>
+								    		</dd>
+								    	</dl>
+							    	</c:forEach>
+		                    	</div>
+		                    </div>
+		                </c:if>
+						<!-- 총 구매가격 -->
+						<div class="cartFinalPrice">
+							<span>총 상품가격 <span class="finalProductPrice font-weight-bold">0</span>원</span>
+							<span class="cartFinalDiscount d-none">
+								<img src="${pageContext.request.contextPath}/resources/images/minus.gif" class="mx-2">
+								<span>총 할인 <span class="finalDiscountPrice font-weight-bold text-danger">0</span>원</span>
+							</span>
+							<span class="cartFinalDelivery">
+								<img src="${pageContext.request.contextPath}/resources/images/plus.gif" class="mx-2">
+								<span>총 배송비 <span class="finalDeliveryPrice font-weight-bold">0</span>원</span>
+							</span>
+							<span class="cartFinalTotal">
+								<img src="${pageContext.request.contextPath}/resources/images/equal.gif" class="mx-2">
+								<span>총 주문금액 <span class="finalTotalPrice font-weight-bold">0원</span></span>
+							</span>
+						</div>
+						<!-- 구매버튼 -->
+						<div class="orderBtns text-center">
+							<a class="shopping_btn" href="/">계속 쇼핑하기</a>
+							<a class="buy_btn" href="order.html">구매하기</a>
+						</div>
 					</div>
-					<!-- 장바구니에 담은 상품이 없을 경우 -->
-					<div class="cartNoItem d-none">
-						<p>장바구니에 담은 상품이 없습니다.</p>
-						<a href="https://www.coupang.com/"></a>
-					</div>
-				</div>
+				</c:if>
 			</section>
 		</div>
 

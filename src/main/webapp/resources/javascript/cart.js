@@ -1,4 +1,4 @@
-/*$(init);
+$(init);
 
 function init() {
 	//상품테이블 초기화
@@ -624,4 +624,4 @@ function calculateCoupon(price, delivery) {
 		});
 	}
 	return {Pdis:discountProduct, Ddis:discountDelivery};
-}*/
+}

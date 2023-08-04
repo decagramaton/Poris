@@ -1,41 +1,45 @@
 @charset "UTF-8";
 
-div, header, img, section, table, colgroup, col, thead, tr, th, label, input, span, tbody, td, p, a, footer, em, dl, dt, dd, input {
+div, section, h2, header, img, section, table, colgroup, col, thead, tr, th, label, input, span, tbody, td, p, a, footer, em, dl, dt, dd, input {
 	margin: 0;
 	padding: 0;
 	font-family: sans-serif;
 }
 
-body {
-	/* background-color: #f0f0f0; */
-}
-
 .wrap {
-	width: 980px;
+	/* width: 980px; */
 	margin: 0 auto;
     font-size: 12px;
 }
 
-header {
-	/* padding: 30px 0 15px; */
+.cart_title {
+	border-bottom: 1px solid #ddd;
 }
 
-section {
-	/* border-top: 2px solid #8a8a8a; */
-	padding: 0 20px;
-	/* border: 1px solid #e0e0e0; */
-	/* background-color: #fff; */
-	margin-bottom: 80px;
+/* 장바구니에 담은 상품이 없을 경우 */
+.cartNoItem {
+	padding: 80px 0;
+	font-size: 16px;
 }
-/* 장바구니 단계 이미지 */
-/* .cart_title {
-	height: 45px;
-	background-image: url("../image/orderstep.gif");
-	background-repeat: no-repeat;
-	background-position: 0 -200px;
-	margin-bottom: 30px;
-} */
+.cartNoItem p {
+	text-align: center;
+	padding-bottom: 30px;
+}
+.cartNoItem a {
+	display: inline-block;
+	width: 190px;
+	border: 2px solid #95CF59;
+    border-radius: 4px;
+    background-color: #fefefe;
+	text-align: center;
+	padding: 14px 0;
+	color: #95CF59;
+	font-weight: 600;
+	cursor: pointer;
+	text-decoration: none;
+}
 
+/* 상품테이블 */
 .cartTable {
 	border-collapse: collapse;
     border-spacing: 0;
@@ -69,7 +73,6 @@ section {
 }
 .cartItem_product {
 	text-align: left;
-	/* border-bottom: 1px solid #e2e5e7; */
     font-size: 15px;
     padding: 13px 0;
 }
@@ -79,7 +82,6 @@ section {
 }
 
 .cartItemOption {
-	/* text-align: left; */
     font-size: 15px;
     padding: 13px 0;
     border-left: 1px solid #ddd;
@@ -104,74 +106,11 @@ section {
 	vertical-align: text-top;
 }
 
-/* 
-.cartItem_product_option {
-	padding-top: 5px;
-	font-size: 13px;
-	color: #555;
-}
-.option_delivery_date_rocket {
-	color: #00891a;
-}
-.quantityChange {
-    width: 52px;
-    height: 21px;
-    font-size: 11px;
-    border: 1px solid #888;
-    color: #111;
-    background: #fff;
-    text-align: center;
-}
-.productDelete {
-	border: none;
-	width: 18px;
-	height: 18px;
-	background-image: url(//img1a.coupangcdn.com/image/cart/generalCart/cart_sprite_170201.png);
-	background-position: -114px 0; 
-	background-repeat: no-repeat;
-	vertical-align: text-top;
-}
-.max-cash {
-	display: inline-block;
-    padding: 0 8px;
-    border-radius: 10px;
-    border: solid 1px #ccc;
-    background-color: #fff;
-}
-.max-cash img {
-	vertical-align: text-bottom;
-} 
-*/
-
 .cartItemPrice {
 	border-left: 1px solid #ddd;
 	border-right: 1px solid #ddd;
 }
 
-/* .cart_total_price {
-	background-color: #f7f7f7;
-}
-.symbol_plus_r {
-	display: inline-block;
-	width: 18px;
-    height: 18px;
-	background-image: url(//img1a.coupangcdn.com/image/order/mathematics-symbol.png);
-    background-position: 0 0;
-    background-repeat: no-repeat;
-    vertical-align: text-bottom;
-}
-.symbol_equal_r {
-	display: inline-block;
-	width: 18px;
-    height: 18px;
-	background-image: url(//img1a.coupangcdn.com/image/order/mathematics-symbol.png);
-    background-position: -36px 0;
-    background-repeat: no-repeat;
-    vertical-align: text-bottom;
-}
-.totalOrderPriceRocket, .totalOrderPriceNormal {
-	font-size: 16px;
-} */
 .shippingFreeRule {
 	font-size: 10px;
 }
@@ -201,33 +140,6 @@ section {
 .coupon_list {
 	padding: 15px 20px;
 }
-/* 캐시 적립 혜택 */
-.cashPromotion {
-	padding: 20px 20px 20px 50px;
-    border-radius: 1px;
-    border: solid 1px #ccc;
-    color: #555;
-    font-size: 14px;
-    position: relative;
-}
-.cashPromotion img {
-	position: absolute;
-	left: 20px;
-	top: 18px;
-}
-.cashPromotion_btn {
-    height: 36px;
-    border-radius: 2px;
-    border: solid 1px #346aff;
-    padding: 0 15px;
-    background-color: #fff;
-	color: #346aff;
-	font-size: 14px;
-	position: absolute;
-	right: 20px;
-	top: 50px;
-	cursor: pointer;
-}
 /* 총 구매가격 */
 .cartFinalPrice {
 	border: 2px solid #c8c8c8;
@@ -254,7 +166,6 @@ section {
     border-radius: 4px;
 	text-align: center;
 	padding: 14px 0;
-	/* font-family: Dotum,\\B3CB\C6C0,sans-serif; */
 	color: #95CF59;
 	font-size: 18px;
 	font-weight: 600;
@@ -268,21 +179,7 @@ section {
 	background-color: #A0DE5F;
 	text-align: center;
 	padding: 14px 0;
-	font-family: Dotum,\\B3CB\C6C0,sans-serif;
 	color: #fff;
 	font-size: 18px;
 	font-weight: 700;
-}
-/* 장바구니에 담은 상품이 없을 경우 */
-.cartNoItem p {
-	text-align: center;
-	padding: 60px 0;
-	font-size: 15px;
-	font-weight: bold;
-}
-.cartNoItem a {
-	display: block;
-	height: 184px;
-	background: url(//img1a.coupangcdn.com/image/static/product/cart/img_nonebasket4.jpg);
-	background-repeat: no-repeat;
 }
