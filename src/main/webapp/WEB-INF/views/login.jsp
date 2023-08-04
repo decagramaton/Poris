@@ -23,8 +23,7 @@
 	        <h1 class="col" style="margin:0 auto;"><a href="main"><img src="${pageContext.request.contextPath}/resources/images/fruitlight_logo.png" style="margin: 30px auto"></a></h1>
 	    </header>
 	    <div class="row" style="float: none;">
-	    	<div class="col-lg-3 col-sm-0"></div>
-	    	<div class="col-lg-6 col-sm-12">
+	    	<div class="col">
 	    		<section>
 			        <form action="login/askLogin" method="post" id="loginform">
 			            <fieldset>
@@ -73,7 +72,6 @@
 			    </section>
 	    	
 	    	</div>
-	    	<div class="col-lg-3 col-sm-0"></div>
 	    </div>
 	    
 	    <footer>

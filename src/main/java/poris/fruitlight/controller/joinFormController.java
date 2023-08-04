@@ -27,7 +27,7 @@ public class joinFormController {
 	}
 	
 	@PostMapping("/askJoinForm")
-	public String askJoinForm(JoinParam joinParam, HttpServletResponse response) throws IOException {
+	public void askJoinForm(JoinParam joinParam, HttpServletResponse response) throws IOException {
 		// Step1. 회원가입 입력 데이터 확인 (유효성 검사)
 		log.info(joinParam.toString());
 		if(joinParam.getUserId().equals("")) {
@@ -51,12 +51,10 @@ public class joinFormController {
 		// Step3. 중복 회원 없으면 DB에 저장 후 메인페이지로 이동
 		if(resultIsMember) {
 			joinService.insertMember(joinParam);
-			
-			return "redirect:/";
+			AlertScript.alertAndMovePage(response, "회원가입이 완료되었습니다.", "/fruitlight/");
 		} else {
 			// Step4. 중복 회원 있으면 에러 반환
 			AlertScript.alertAndBackPage(response, "중복된 ID입니다.");
-			return "/main";
 		}
 	}
 }

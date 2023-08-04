@@ -3,6 +3,13 @@
     padding: 0px;
 }
 
+body {
+	margin: 0 auto;
+    padding: 0 4.35%;
+    min-width: 290px;
+	max-width: 600px;
+}
+
 .skip {
     display:none;
 }
@@ -15,7 +22,7 @@ h1 {
 }
 
 h1 a img {
-    width:70%;
+    width:80%;
     margin-right: 50px;
 }
 
