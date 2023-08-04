@@ -16,14 +16,16 @@ import poris.fruitlight.service.CouponService;
 
 @Slf4j
 @Controller
+@RequestMapping("/cart")
 public class CartController {
 	@Resource
 	private CartService cartService;
 	@Resource
 	private CouponService couponService;
 	
-	@RequestMapping("/cart")
+	@RequestMapping("/")
 	public String cart(Model model) {
+		log.info("실행");
 		List<CartProduct> listProduct = cartService.getCartProduct(1);
 		model.addAttribute("listProduct", listProduct);
 		
@@ -36,5 +38,12 @@ public class CartController {
 		model.addAttribute("listCoupon", listCoupon);
 		
 		return "cart";
+	}
+	
+	@RequestMapping("/delete")
+	public String delete(Model model) {
+		log.info("실행");
+		
+		return "";
 	}
 }

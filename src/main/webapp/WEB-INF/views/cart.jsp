@@ -67,7 +67,9 @@
 							<tbody class="cartTableBody">
 								<c:forEach var="cartProduct" items="${listProduct}">
 									<tr class="cartItem">
-						            	<td class="cartItem_check"><input type="checkbox" class="cbox"/></td>
+						            	<td class="cartItem_check">
+						            		<input type="checkbox" class="cbox"/>
+						            	</td>
 						            	<td class="cartItem_img"><img src="${pageContext.request.contextPath}/resources/images/watermelon_cart.jpg" width="100%"></td>
 						            	<td class="cartItem_product">
 						            		<div class="cartItem_product">
@@ -85,7 +87,10 @@
 			            						<input class="productQuantity" type="number" min="1" max="50" name="1" value="${cartProduct.stock}">
 			            						<input class="quantityChange d-none" type="button" value="수량변경">
 				            				</label>
-				            				<button class="productDelete"></button>
+				            				<form style="display: inline-block;" action="">
+							            		<input type="hidden" name="pid" value="${cartProduct.pid}"/>
+					            				<button class="productDelete"></button>
+					            			</form>
 						            	</td>
 						            	<td class="cartItemPrice">
 						            		<div>원</div>

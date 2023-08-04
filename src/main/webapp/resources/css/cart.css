@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-div, section, h2, header, img, section, table, colgroup, col, thead, tr, th, label, input, span, tbody, td, p, a, footer, em, dl, dt, dd, input {
+div, h2, header, img, section, table, colgroup, col, thead, tr, th, label, input, form, span, tbody, td, p, a, footer, em, dl, dt, dd, input {
 	margin: 0;
 	padding: 0;
 	font-family: sans-serif;

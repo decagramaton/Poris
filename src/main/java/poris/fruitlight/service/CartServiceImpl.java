@@ -13,7 +13,7 @@ public class CartServiceImpl implements CartService {
 	@Override
 	public List<CartProduct> getCartProduct(int uid) {
 		List<CartProduct> list = new ArrayList<>();
-		for(int i=1; i<=3; i++) {
+		for(int i=1; i<=5; i++) {
 			CartProduct cartProduct = new CartProduct();
 			cartProduct.setPid(i);
 			/*cartProduct.setImg(img);*/
