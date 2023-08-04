@@ -103,32 +103,6 @@
                             </label>
                             <span class="agree_btn"></span>
                         </div>
-                        <div class="wrapper">
-                            <label>
-                                <input type="checkbox" id="user_info_for_marketing_agree_check">
-                                <span>[선택] 마케팅 목적의 개인정보 수집 및 이용 동의</span>
-                            </label>
-                            <span class="agree_btn"></span>
-                        </div>
-                        <div class="wrapper">
-                            <label>
-                                <input type="checkbox" id="marketing_receive_agree_check">
-                                <span>[선택] 광고성 정보 수신 동의</span>
-                            </label>
-                            <span class="agree_btn"></span>
-                        </div>
-                        <div class="info_receive_style">
-                            <input type="checkbox" id="email_receive_agree_check">
-                            <span>[선택] 이메일 수신 동의</span>
-                        </div>
-                        <div class="info_receive_style">
-                            <input type="checkbox" id="sms_receive_agree_check">
-                            <span>[선택] SMS, SNS 수신 동의</span>
-                        </div>
-                        <div class="info_receive_style">
-                            <input type="checkbox" id="app_receive_agree_check">
-                            <span>[선택] 앱 푸시 수신 동의</span>
-                        </div>
                     </ul>
                 </div>
                 <div class="join_btn">

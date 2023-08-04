@@ -40,22 +40,12 @@ function checkAllAgreeJoinForm() {
         $(finance_agree_check).prop('checked',true);
         $(user_info_collection_agree_check).prop('checked',true);
         $(user_info_share_agree_check).prop('checked',true);
-        $(user_info_for_marketing_agree_check).prop('checked',true);
-        $(marketing_receive_agree_check).prop('checked',true);
-        $(email_receive_agree_check).prop('checked',true);
-        $(sms_receive_agree_check).prop('checked',true);
-        $(app_receive_agree_check).prop('checked',true);
     } else {
         $(age_agree_check).prop('checked',false);
         $(coupang_agree_check).prop('checked',false);
         $(finance_agree_check).prop('checked',false);
         $(user_info_collection_agree_check).prop('checked',false);
         $(user_info_share_agree_check).prop('checked',false);
-        $(user_info_for_marketing_agree_check).prop('checked',false);
-        $(marketing_receive_agree_check).prop('checked',false);
-        $(email_receive_agree_check).prop('checked',false);
-        $(sms_receive_agree_check).prop('checked',false);
-        $(app_receive_agree_check).prop('checked',false);
     }
 }
 
