@@ -8,10 +8,8 @@ function init() {
 	$(".cboxAll").click(checkAll);
 	//상품개별선택 동작
 	$(".cbox").click(checkItem);
-	//상품개별삭제 동작
-	//$(".productDelete").click(deleteProduct);
 	//상품삭제 동작
-	//$(".checkedAllDelete").click(deleteItem);
+	$(".checkedDelete").click(deleteItem);
 	
 	//상품수량변경 동작
 	//$(".productQuantity").change(changeItemQuantity);
@@ -69,67 +67,22 @@ function checkItem() {
     //calculatePrice();
 }
 
-//상품개별삭제 동작
-function deleteProduct() {
-	var cartItem = $(event.target).parent().parent().parent().parent();
-	deleteCartItem(cartItem);
-	itemCount = initItemCount();
-	
-	//주문금액 동작
-    calculatePrice();
-}
-
 //상품삭제 동작
 function deleteItem() {
 	if(confirm("선택한 상품을 삭제하시겠습니까?")) {
 		var cboxsChecked = $(".cbox:checked");
-		
-		//전체삭제
-		if(cboxsChecked.length == itemCount) {
-			$(".cartTable tbody").addClass("d-none");
-			$(".cartTableCol1").addClass("invisible");
-			$(".cartSelect").addClass("d-none");
-			$(".cartCoupon").addClass("d-none");
-			$(".cashPromotion").addClass("d-none");
-			$(".cartFinalPrice").addClass("d-none");
-			$(".orderBtns").addClass("d-none");
-			$(".cartNoItem").removeClass("d-none");
-		}
-		//선택삭제
+		var pidsChecked = [];
 		cboxsChecked.each((index, item) => {
-			var cartItem = $(item).parent().parent();
-			deleteCartItem(cartItem);
-		})
+			pidsChecked.push($(item).val());
+		});
 		
-		itemCount = initItemCount();
-		$("#checkCount").html(0);
-		
-		//주문금액 동작
-	    calculatePrice();
-	}
-}
-
-function deleteCartItem(cartItem) {
-	cartItem.detach();
-	
-	var cartItemsRocket = $(".cartTableBodyRocket .cartItem");
-	var cartItemsNormal = $(".cartTableBodyNormal .cartItem");
-	
-	if(cartItemsRocket.length === 0) {
-		$(".cartTableBodyRocket").addClass("d-none");
-	} else if(cartItemsNormal.length === 0) {
-		$(".cartTableBodyNormal").addClass("d-none");
-	}
-	
-	if(cartItemsRocket.length === 0 && cartItemsNormal.length === 0) {
-		$(".cartTable tbody").addClass("d-none");
-		$(".cartTableCol1").addClass("invisible");
-		$(".cartSelect").addClass("d-none");
-		$(".cartCoupon").addClass("d-none");
-		$(".cashPromotion").addClass("d-none");
-		$(".cartFinalPrice").addClass("d-none");
-		$(".orderBtns").addClass("d-none");
-		$(".cartNoItem").removeClass("d-none");
+		$.ajax({
+			url: "deleteChecked",
+			method: "post",
+			traditional: true,
+			data: {pidsChecked:pidsChecked},
+			success: function(data) {}
+		});
 	}
 }
 

@@ -5,10 +5,12 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import lombok.extern.slf4j.Slf4j;
 import poris.fruitlight.dto.CartProduct;
 
 @Service
-public class CartServiceImpl implements CartService {
+@Slf4j
+public class CartProductServiceImpl implements CartProductService {
 
 	@Override
 	public List<CartProduct> getCartProduct(int uid) {
@@ -27,6 +29,11 @@ public class CartServiceImpl implements CartService {
 			list.add(cartProduct);
 		}
 		return list;
+	}
+
+	@Override
+	public int deleteProduct(int pid) {
+		return 1;
 	}
 
 }

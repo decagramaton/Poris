@@ -1,8 +1,10 @@
 package poris.fruitlight.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import lombok.extern.slf4j.Slf4j;
 import poris.fruitlight.dto.CartProduct;
 import poris.fruitlight.dto.Coupon;
-import poris.fruitlight.service.CartService;
+import poris.fruitlight.service.CartProductService;
 import poris.fruitlight.service.CouponService;
 
 @Slf4j
@@ -19,14 +21,14 @@ import poris.fruitlight.service.CouponService;
 @RequestMapping("/cart")
 public class CartController {
 	@Resource
-	private CartService cartService;
+	private CartProductService cartProductService;
 	@Resource
 	private CouponService couponService;
 	
 	@RequestMapping("/")
 	public String cart(Model model) {
 		log.info("실행");
-		List<CartProduct> listProduct = cartService.getCartProduct(1);
+		List<CartProduct> listProduct = cartProductService.getCartProduct(1);
 		model.addAttribute("listProduct", listProduct);
 		
 		List<Coupon> listCoupon = couponService.getCoupon(1);
@@ -41,9 +43,18 @@ public class CartController {
 	}
 	
 	@RequestMapping("/delete")
-	public String delete(Model model) {
-		log.info("실행");
-		
-		return "";
+	public String delete(int pid) {
+		cartProductService.deleteProduct(pid);
+		return "redirect:/cart/";
+	}
+	
+	@RequestMapping("/deleteChecked")
+	public String deleteChecked(HttpServletRequest request) {
+		String[] strPidList = request.getParameterValues("pidsChecked");
+		for(String strPid : strPidList) {
+			int pid = Integer.parseInt(strPid);
+			cartProductService.deleteProduct(pid);
+		}
+		return "redirect:/cart/";
 	}
 }

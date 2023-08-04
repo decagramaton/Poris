@@ -16,13 +16,13 @@
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 		
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/cart.css"/>
-		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/footer.css"/>
+		<%-- <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/footer.css"/> --%>
 		<script src="${pageContext.request.contextPath}/resources/javascript/cart.js"></script>
 	</head>
 	<body>
 		<div class="wrap">
 			<header class="text-center pt-3">
-				<a href="https://www.coupang.com/"><img src="${pageContext.request.contextPath}/resources/images/fruitlight_logo.png" width="260px;"></a>
+				<a href="${pageContext.request.contextPath}"><img src="${pageContext.request.contextPath}/resources/images/fruitlight_logo.png" width="260px;"></a>
 			</header>
 			<section class="container mb-5">
 				<div class="cart_title"><h2 class="p-3">장바구니</h2></div>
@@ -30,11 +30,11 @@
 				<c:if test="${listProduct == null}">
 					<div class="cartNoItem text-center">
 						<p>장바구니에 담긴 상품이 없습니다.</p>
-						<a href="${pageContext.request.contextPath}/" type="">홈으로 가기</a>
+						<a href="${pageContext.request.contextPath}" type="">홈으로 가기</a>
 					</div>
 				</c:if>
 				<c:if test="${listProduct != null}">
-					<div class="cart_content">
+					<div class="cartContent">
 						<table class="table table-sm cartTable">
 							<colgroup>
 								<%-- <col width="50">
@@ -68,7 +68,7 @@
 								<c:forEach var="cartProduct" items="${listProduct}">
 									<tr class="cartItem">
 						            	<td class="cartItem_check">
-						            		<input type="checkbox" class="cbox"/>
+						            		<input type="checkbox" class="cbox" value="${cartProduct.pid}"/>
 						            	</td>
 						            	<td class="cartItem_img"><img src="${pageContext.request.contextPath}/resources/images/watermelon_cart.jpg" width="100%"></td>
 						            	<td class="cartItem_product">
@@ -87,10 +87,7 @@
 			            						<input class="productQuantity" type="number" min="1" max="50" name="1" value="${cartProduct.stock}">
 			            						<input class="quantityChange d-none" type="button" value="수량변경">
 				            				</label>
-				            				<form style="display: inline-block;" action="">
-							            		<input type="hidden" name="pid" value="${cartProduct.pid}"/>
-					            				<button class="productDelete"></button>
-					            			</form>
+				            				<a type="button" class="productDelete" href="delete?pid=${cartProduct.pid}"></a>
 						            	</td>
 						            	<td class="cartItemPrice">
 						            		<div>원</div>
@@ -109,7 +106,7 @@
 			                    <input type="checkbox" class="cboxAll"> <span>전체선택</span>
 			                    <span>( <em id="checkCount">0</em> / <span id="productCount">0</span> )</span>
 			                </label>
-			               	<button class="checkedAllDelete">선택삭제</button>
+			               	<button class="checkedDelete">선택삭제</button>
 	        			</div>
 	                    <!-- 할인쿠폰 -->
 	                    <c:if test="${listCoupon != null}">
@@ -176,7 +173,7 @@
 		</div>
 
 		<footer class="footer-frame">
-	        <div class="footer-layer1">
+	        <!-- <div class="footer-layer1">
 	            <a href="https://news.coupang.com/" target="_blank">회사소개</a>
 	            <a href="https://ir.aboutcoupang.com/English/home/" target="_blank">Investor Relations</a>
 	            <a href="https://rocketyourcareer.kr.coupang.com" target="_blank">인재채용</a>
@@ -247,7 +244,7 @@
                         	인스타그램</a></li>
                		</ul>
             	</div>
-         	</div>
+         	</div> -->
 		</footer>
 	</body>
 </html>

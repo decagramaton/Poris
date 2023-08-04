@@ -21,7 +21,7 @@
 		      	<div id="top-bar">
 		         	<div id="header-header">
 		            	<ul id="header-header1">
-		               		<li><a href="cart">즐겨찾기</a></li>
+		               		<li><a href="cart/">즐겨찾기</a></li>
 		               		<li><a id="dropdown-a" href="#"> 입점신청</a>
 		                 		<ul id="dropdown-ipjum">
 		                    		<li><a href="#">오픈마켓</a></li>

@@ -116,7 +116,7 @@ div, h2, header, img, section, table, colgroup, col, thead, tr, th, label, input
 }
 
 /* 전체 선택 */
-.checkedAllDelete {
+.checkedDelete {
     margin-left: 10px;
     padding: 5px;
     border: 1px solid #ccc;
