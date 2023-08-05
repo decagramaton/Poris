@@ -30,7 +30,7 @@
 				<c:if test="${listProduct == null}">
 					<div class="cartNoItem text-center">
 						<p>장바구니에 담긴 상품이 없습니다.</p>
-						<a href="${pageContext.request.contextPath}" type="">홈으로 가기</a>
+						<a href="${pageContext.request.contextPath}">홈으로 가기</a>
 					</div>
 				</c:if>
 				<c:if test="${listProduct != null}">
@@ -166,7 +166,7 @@
 						<!-- 구매버튼 -->
 						<div class="orderBtns text-center">
 							<a class="shopping_btn" href="${pageContext.request.contextPath}">계속 쇼핑하기</a>
-							<a class="buyBtn" href="order.html">구매하기</a>
+							<a class="buyBtn" href="#">구매하기</a>
 						</div>
 					</div>
 				</c:if>
