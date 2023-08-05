@@ -161,7 +161,7 @@ function changePrice(quantityCurrent) {
     - 상세 리뷰 리스트
 */
 
-window.onload = printAjax;
+/*window.onload = printAjax;
 
 function printAjax() {
     // 신선제품 필수 표기정보 출력 기능
@@ -566,4 +566,4 @@ function printReviewDetailList() {
     }
     xhttp.open("GET", "../ajax/review_detail.txt");
     xhttp.send();
-}
+}*/

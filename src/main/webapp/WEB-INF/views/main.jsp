@@ -32,7 +32,7 @@
 		               		</li>
 		            	</ul>
 		            	<ul id="header-header2">
-		               		<li><a href="#">고객센터</a>
+		               		<li><a href="detailView/">고객센터</a>
 		                  		<ul>
 		                     		<li><a href="#">자주묻는 질문</a></li>
 		                     		<li><a href="#">1:1 채팅문의</a></li>
