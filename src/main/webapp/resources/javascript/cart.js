@@ -18,6 +18,9 @@ function init() {
 	
 	//할인쿠폰 동작
 	$(".cboxCoupon").click(calculatePrice);
+	
+	//구매 동작
+	$(".buyBtn").click(checkBuyProduct);
 }
 //금액 xxx,xxx원 적용
 function initPriceFormat() {
@@ -25,7 +28,7 @@ function initPriceFormat() {
 		$(item).html(parseInt($(item).html()).toLocaleString("ko-KR"));
     });
 	$(".cartItemProductPrice").each((index, item) => {
-		$(item).html(parseInt($(item).html()).toLocaleString("ko-KR"));
+		$(item).html(parseInt($(item).html()).toLocaleString("ko-KR") + "원");
 	});
 	$(".shippingFreeRulePrice").each((index, item) => {
 		$(item).html(parseInt($(item).html()).toLocaleString("ko-KR") + "원이상");
@@ -272,4 +275,33 @@ function calculateCoupon(price, delivery) {
 	var discountPrice = discountProduct + discountDelivery;
 	
 	return {Pdis:discountProduct, Ddis:discountDelivery};
+}
+
+//구매동작
+function checkBuyProduct() {
+	var cboxsChecked = $(".cbox:checked");
+	var cboxCouponsChecked = $(".cboxCoupon:checked");
+	
+	if(cboxsChecked.length == 0) {
+		if(confirm("결제하실 상품을 선택해주세요.")) {
+			var pidsChecked = [];
+			var cidsChecked = [];
+			
+			cboxsChecked.each((index, item) => {
+				pidsChecked.push($(item).val());
+			});
+			cboxCouponsChecked.each((index, item) => {
+				cidsChecked.push($(item).val());
+			});
+			
+			$.ajax({
+				url: "buy",
+				method: "post",
+				traditional: true,
+				data: {pidsChecked:pidsChecked, cidsChecked:cidsChecked},
+				success: function(data) {}
+			});
+		}
+	}
+	
 }

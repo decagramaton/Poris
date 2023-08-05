@@ -118,7 +118,7 @@
 			                    		<dl class="coupon_item row py-1">
 								    		<dt class="col-2">
 								    			<label>
-								    				<input type="checkbox" class="cboxCoupon">
+								    				<input type="checkbox" class="cboxCoupon" value="${coupon.couponId}">
 								    				<span><span class="couponAmount ml-1">${coupon.price}</span><span class="couponType">${coupon.type}</span></span>
 								    			</label>
 								    		</dt>
@@ -165,8 +165,8 @@
 						</div>
 						<!-- 구매버튼 -->
 						<div class="orderBtns text-center">
-							<a class="shopping_btn" href="/">계속 쇼핑하기</a>
-							<a class="buy_btn" href="order.html">구매하기</a>
+							<a class="shopping_btn" href="${pageContext.request.contextPath}">계속 쇼핑하기</a>
+							<a class="buyBtn" href="order.html">구매하기</a>
 						</div>
 					</div>
 				</c:if>

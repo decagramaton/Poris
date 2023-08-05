@@ -55,7 +55,6 @@ public class CartController {
 			int pid = Integer.parseInt(strPid);
 			cartProductService.deleteProduct(pid);
 		}
-		log.info("실행");
 		return "redirect:/cart/";
 	}
 
@@ -72,4 +71,18 @@ public class CartController {
 		return "redirect:/cart/";
 	}
 
+	//구매
+	@RequestMapping("/buy")
+	public String buy(HttpServletRequest request) {
+		//구매할 상품 리스트
+		String[] strPidList = request.getParameterValues("pidsChecked");
+		for(String strPid : strPidList) {
+			int pid = Integer.parseInt(strPid);
+			cartProductService.deleteProduct(pid);
+		}
+		//사용할 쿠폰 리스트
+		String[] strCidList = request.getParameterValues("cidsChecked");
+		
+		return "redirect:/cart/";
+	}
 }

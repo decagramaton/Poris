@@ -170,8 +170,9 @@ div, h2, header, img, section, table, colgroup, col, thead, tr, th, label, input
 	font-size: 18px;
 	font-weight: 600;
 	margin-right: 5px;
+	text-decoration: none;
 }
-.buy_btn {
+.buyBtn {
 	display: inline-block;
 	width: 190px;
 	border: 2px solid #A0DE5F;
@@ -182,4 +183,13 @@ div, h2, header, img, section, table, colgroup, col, thead, tr, th, label, input
 	color: #fff;
 	font-size: 18px;
 	font-weight: 700;
+	text-decoration: none;
+}
+.shopping_btn:hover {
+	text-decoration: none;
+	color: #95CF59;
+}
+.buyBtn:hover {
+	text-decoration: none;
+	color: #fff;
 }
