@@ -26,7 +26,6 @@ public class CartController {
 	
 	@RequestMapping("/")
 	public String cart(Model model) {
-		log.info("실행");
 		List<CartProduct> listProduct = cartProductService.getCartProduct(1);
 		model.addAttribute("listProduct", listProduct);
 		
@@ -56,6 +55,7 @@ public class CartController {
 			int pid = Integer.parseInt(strPid);
 			cartProductService.deleteProduct(pid);
 		}
+		log.info("실행");
 		return "redirect:/cart/";
 	}
 
@@ -63,6 +63,12 @@ public class CartController {
 	@RequestMapping("/changeStock")
 	public String changeStock(CartProduct cartProduct) {
 		cartProductService.changeStock(cartProduct);
+		
+		/*return "redirect:/cart/";를 하면 안됨 어떤 상품을 선택했는지가 페이지에 남아있어야 함..
+		return "cart"를 하면 model에 아무것도 없으니까 listProduct랑 lisCoupon이 없어서 상품이 아무것도 없는 페이지가 뜸
+
+		어카지........ 쿠키 아니면 세션?*/
+		
 		return "redirect:/cart/";
 	}
 

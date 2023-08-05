@@ -17,7 +17,7 @@ function init() {
 	$(".productStock").change(changeItemQuantity);
 	
 	//할인쿠폰 동작
-	$(".cboxCoupon").click(checkCoupon);
+	$(".cboxCoupon").click(calculatePrice);
 }
 //금액 xxx,xxx원 적용
 function initPriceFormat() {
@@ -89,7 +89,7 @@ function checkItem() {
     }
     
     //주문금액 동작
-    //calculatePrice();
+    calculatePrice();
 }
 
 //상품삭제 동작
@@ -135,13 +135,14 @@ function calculatePrice() {
 	var cartItems = $(".cartTableBody .cartItem");
 	var cboxsChecked = $(".cartTableBody .cbox:checked");
 	
+	//총 할인금액
+	var discountFinal = 0;
+	
 	if(cboxsChecked.length != 0) {
-		//로켓배송 총 상품가격
+		//총 상품가격
 		var totalPrice = 0;
-		//로켓배송 총 배송비
+		//총 배송비
 		var totalDelivery = 0;
-		//로켓배송 상품주문가격(총 상품가격 + 총 배송비)
-		var orderPriceRocket = 0;
 		
 		cboxsChecked.each((index, item) => {
 			let cartItemChecked = $(item).parent().parent();
@@ -156,65 +157,30 @@ function calculatePrice() {
 				totalDelivery += parseInt(itemDelivery.replace(/[^0-9]/g, ""));
 			}
 		});
-		var totalOrderPrice = totalPrice + totalDelivery;
-		$(".finalProductPrice").html(totalPrice.toLocaleString("ko-KR"));
-		$(".finalDeliveryPrice").html(totalDelivery.toLocaleString("ko-KR"));
-		$(".finalTotalPrice").html(totalOrderPrice.toLocaleString("ko-KR") + '원');
-		/*
-		//총 상품가격 표시
-		$(".totalPriceRocket").html(priceRocket.toLocaleString("ko-KR"));
-		//총 배송비 표시
-		if(deliveryRocket == 0) {
-			$(".totalDeliveryRocket").parent().html('배송비 <strong class="totalDeliveryRocket">무료</strong>');
-		} else {
-			$(".totalDeliveryRocket").html(deliveryRocket.toLocaleString("ko-KR"));
-		}
-		//상품주문가격 표시
-		orderPriceRocket = priceRocket + deliveryRocket;
-		$(".totalOrderPriceRocket").html(orderPriceRocket.toLocaleString("ko-KR"));*/
+		
+		//쿠폰 적용
+		var coupon = calculateCoupon(totalPrice, totalDelivery);
+		var discountProduct = coupon.Pdis;
+		var discountDelivery = coupon.Ddis;
+		
+		//최종가격
+		var priceFinal = totalPrice;
+		var deliveryFinal = totalDelivery - discountDelivery;
+		discountFinal = discountProduct + discountDelivery;
+		var orderPriceFinal = priceFinal + deliveryFinal - discountFinal;
+		
+		$(".finalProductPrice").html(priceFinal.toLocaleString("ko-KR"));
+		$(".finalDeliveryPrice").html(deliveryFinal.toLocaleString("ko-KR"));
+		$(".finalDiscountPrice").html(discountFinal.toLocaleString("ko-KR"));
+		$(".finalTotalPrice").html(orderPriceFinal.toLocaleString("ko-KR") + "원");
 	} else {
-		/*$(".totalPriceRocket").html(0);
-		$(".totalDeliveryRocket").parent().html('배송비 <strong class="totalDeliveryRocket">0</strong>원');
-		$(".totalOrderPriceRocket").html(0);*/
+		$(".cboxCoupon").prop("checked", false);
+		
+		$(".finalProductPrice").html(0);
+		$(".finalDeliveryPrice").html(0);
+		$(".finalDiscountPrice").html(0);
+		$(".finalTotalPrice").html('0원');
 	}
-	
-	//최종상품가격 동작
-	calculateFinalPrice();
-}
-
-//할인쿠폰 동작
-function checkCoupon() {
-	var cboxsChecked = $(".cbox:checked");
-	
-	if(cboxsChecked.length != 0) {
-		calculateFinalPrice();
-	} else {
-		$(event.target).prop("checked", false);
-	}
-}
-
-//최종상품가격 동작
-function calculateFinalPrice() {
-	//현재 총상품금액
-	var priceCurrent = parseInt($(".finalProductPrice").html());
-	//현재 총배송비
-	var deliveryCurrent = parseInt($(".finalDeliveryPrice").html());
-	
-	//쿠폰 적용
-	var coupon = calculateCoupon(priceCurrent, deliveryCurrent);
-	var discountProduct = coupon.Pdis;
-	var discountDelivery = coupon.Ddis;
-	
-	//최종가격
-	var priceFinal = priceCurrent;
-	var discountFinal = discountProduct + discountDelivery;
-	var deliveryFinal = deliveryCurrent;
-	var orderPriceFinal = priceFinal + deliveryFinal - discountProduct;
-	
-	$(".finalProductPrice").html(priceFinal.toLocaleString("ko-KR"));
-	$(".finalDiscountPrice").html(discountFinal.toLocaleString("ko-KR"));
-	$(".finalDeliveryPrice").html(deliveryFinal.toLocaleString("ko-KR"));
-	$(".finalTotalPrice").html(orderPriceFinal.toLocaleString("ko-KR") + '원');
 	
 	if(discountFinal != 0) {
 		$(".cartFinalDiscount").removeClass("d-none");
@@ -223,6 +189,7 @@ function calculateFinalPrice() {
 		$(".cartFinalDiscount").addClass("d-none");
 	}
 }
+
 //쿠폰가격 동작
 function calculateCoupon(price, delivery) {
 	var cboxCouponsChecked = $(".cboxCoupon:checked");
@@ -242,23 +209,12 @@ function calculateCoupon(price, delivery) {
 		cboxCouponsChecked.each((index, item) => {
 			//couponType: ####[원|%]
 			var couponType = $(item).next().children(":last-child").html();
-			
-			
-			
-			
-			
-			//여기부터....
-			
-			
-			
-			
-			
 			//couponCondition: [금액제한없음|####원 이상 구매 시 ~~~]
 			var couponCondition = $(item).parent().parent().next().children("em").html().split(" ")[0];
 			//isDlivery: 배송비 할인쿠폰인지 아닌지
 			var isDelivery = $(item).parent().parent().next().children("strong").html().includes("배송비");
 			//couponPrice: 쿠폰할인가격
-			var couponPrice = parseInt($(item).next().children(".couponAmount").html().replace(/[^0-9]/g, ""));
+			var couponPrice = parseInt($(item).next().children(":first-child").html().replace(/[^0-9]/g, ""));
 			
 			//쿠폰작용가능여부
 			var isUsable = false;
@@ -312,5 +268,8 @@ function calculateCoupon(price, delivery) {
 			if(!isUsable) {	$(item).prop("checked", false); }
 		});
 	}
+	
+	var discountPrice = discountProduct + discountDelivery;
+	
 	return {Pdis:discountProduct, Ddis:discountDelivery};
 }

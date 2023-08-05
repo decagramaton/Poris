@@ -119,7 +119,7 @@
 								    		<dt class="col-2">
 								    			<label>
 								    				<input type="checkbox" class="cboxCoupon">
-								    				<span><span class="couponAmount ml-1">${coupon.price}</span><span>${coupon.type}</span></span>
+								    				<span><span class="couponAmount ml-1">${coupon.price}</span><span class="couponType">${coupon.type}</span></span>
 								    			</label>
 								    		</dt>
 								    		<dd class="col p-0">
