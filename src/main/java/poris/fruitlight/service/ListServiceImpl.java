@@ -26,6 +26,8 @@ public class ListServiceImpl implements ListService{
 			listProduct.setDisrate(15);
 			listProduct.setDiscountprice(30000);
 			listProduct.setPrice(27000);
+			
+			list.add(listProduct);
 		}
 		
 		/*List<MainProduct> list = listDao.selectByPage(pager);*/

@@ -29,21 +29,25 @@
 						<span><a href="#">리뷰순</a></span>
 						<span><a href="#">별점순</a></span>
 					</div>
-					<c:forEach var="product" items="${products}" varStatus="i">
-						<div class="productList ${product.pid}" style="cursor:pointer;">
-							<div>
-								<img class="productImage${i.count}" src="${pageContext.request.contextPath}/resources/images/cherry1.jpg"/>
-							</div>
-							<a class="productName">${product.name}</a>
-							<div class="productPriceArea">
-								<span class="productDisrate">${product.disrate}</span>
-								<del class="productDiscountPrice">${product.discountprice}</del>
-							</div>
-							<em>
-								<span id="productPrice" class="productPrice">${product.price}</span>
-							</em>
+					<div class="container">
+						<div class ="row">
+							<c:forEach var="product" items="${products}" varStatus="i">
+								<div class="productList ${product.pid} col-md col-sm-12" style="cursor:pointer;">
+									<div>
+										<img class="productImage${i.count}" src="${pageContext.request.contextPath}/resources/images/cherry1.jpg"/>
+									</div>
+									<a class="productName">${product.name}</a>
+									<div class="productPriceArea">
+										<span class="productDisrate">${product.disrate}</span>
+										<del class="productDiscountPrice">${product.discountprice}</del>
+									</div>
+									<em>
+										<span id="productPrice" class="productPrice">${product.price}</span>
+									</em>
+								</div>
+							</c:forEach>
 						</div>
-					</c:forEach>
+					</div>
 				</article>
 			</section>
 <%@ include file="/WEB-INF/views/footer.jsp" %>
