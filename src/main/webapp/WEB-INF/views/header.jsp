@@ -25,7 +25,7 @@
 					<a class="mr-2 mt-2 text-right" href="login">
 						<img src="${pageContext.request.contextPath}/resources/images/person.png" width="40" height="40"/>
 					</a>
-					<a class="mr-2 mt-2 text-right" href="mypage">
+					<a class="mr-2 mt-2 text-right" href="mypageOrdered">
 						<img src="${pageContext.request.contextPath}/resources/images/mypage.png" width="40" height="40"/>
 					</a>   					
 				</div>

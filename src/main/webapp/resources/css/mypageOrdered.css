@@ -2,68 +2,38 @@
 dl, dt, dd, ul, ol, menu, li {
     list-style: none;
 }
-.cll1 {
-	border-bottom : 1px solid #f0f0f0;
-	margin-bottom : 20px;
-}
-
-.bodycontainer {
-	width : 980px;
-	margin : 0 auto;
-}
 .leftside {
-	width : 150px;
+	width : 230px;
 	float : left;
 	position: relative;
 }
-.mycoupang {
-	height: 122px;
-    padding: 1px;
-    background: rgb(40, 109, 180);
-    text-align: center;
-    box-sizing: border-box;
-    display: flex;
-    -webkit-box-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    align-items: center;
-}
-.mycoupang-span{
-	width: 95px;
-    height: 30px;
-    color: rgb(255, 255, 255);
-    text-indent: inherit;
-    text-align: center;
-    font-size: 29px;
-    font-weight: 400;
-    letter-spacing: -2px;
-}
 .mymenu{
 	background-color: rgb(249, 249, 249);
-    border-width: 0px 1px 1px;
+    border-width: 1px;
     border-style: solid;
     border-color: rgb(225, 228, 230);
     border-image: initial;
     color: rgb(17, 17, 17);
-    padding: 10px 0px;
     margin: 0px;
 }
 
 .mymenu-menu {
 	padding: 15px 10px 16px 17px;
     border-bottom: 1px solid rgb(225, 228, 230);
+    height: 150px;
+    text-align: center;
+    padding-top: 60px;
 }
 .mymenu-menu-title {
 	display: block;
     font-weight: bold;
-    font-size: 14px;
-    line-height: 20px;
+    font-size: 28px;
+    line-height: 30px;
     color: rgb(17, 17, 17);
 }
-.mymenu-menu-content {
-	font-size: 12px;
-    line-height: 16px;
-    margin-top: 11px;
+.mymenu-menu-title:hover {
+	text-decoration: none;
+	color : rgb(17, 17, 17);
 }
 .mymenu-menu > div > ul > li:hover > a{
 	color: rgb(61, 130, 247);
@@ -78,88 +48,6 @@ dl, dt, dd, ul, ol, menu, li {
     display: block;
     padding: 3px 0px;
 }
-.mymenu-qna {
-	margin-top: 10px;
-}
-.mymenu-qna > ul > li{
-	list-style: none;
-}
-.mymenu-qna > ul > li:hover > a{
-	border: 1px solid rgb(40, 109, 180);
-}
-.mymenu-qna > ul > li > a {
-	display: block;
-    border: 1px solid rgb(225, 228, 230);
-    color: rgb(51, 51, 51);
-	-webkit-user-select: none;
-    cursor: pointer;
-    text-decoration: none;
-    outline: none;
-}
-.mymenu-qna > ul > li > a > span {
-	display: flex;
-    -webkit-box-pack: end;
-    justify-content: flex-end;
-    width: 148px;
-    height: 60px;
-}
-.mymenu-qna-1{
-	background: url(//img1a.coupangcdn.com/image/my/desktop/sprite-lnb_161021_1.png) 0px -220px no-repeat;
-}
-.mymenu-qna-2{
-	background: url(//img1a.coupangcdn.com/image/my/desktop/sprite-lnb_161021_1.png) 0px -281px no-repeat;
-}
-.mymenu-qna-3{
-	background: url(//img1a.coupangcdn.com/image/my/desktop/sprite-lnb_161021_1.png) 0px -403px no-repeat;
-}
-.mymenu-qna-1 > span{
-	height: 60px;
-    width: 86px;
-    display: inline-flex;
-    font-size: 14px;
-    font-weight: 600;
-    background-color: rgb(255, 255, 255);
-    color: rgb(40, 109, 180);
-    letter-spacing: -1px;
-    -webkit-box-pack: center;
-    justify-content: center;
-    flex-direction: column;
-    margin: auto 0px;
-    padding-right: 4px;
-    line-height: 1;
-}
-.mymenu-qna-2 > span{
-	height: 60px;
-    width: 86px;
-    display: inline-flex;
-    font-size: 14px;
-    font-weight: 600;
-    background-color: rgb(255, 255, 255);
-    color: rgb(40, 109, 180);
-    letter-spacing: -1px;
-    -webkit-box-pack: center;
-    justify-content: center;
-    flex-direction: column;
-    margin: auto 0px;
-    padding-right: 4px;
-    line-height: 1;
-}
-.mymenu-qna-3 > span{
-	height: 60px;
-    width: 86px;
-    display: inline-flex;
-    font-size: 14px;
-    font-weight: 600;
-    background-color: rgb(255, 255, 255);
-    color: rgb(40, 109, 180);
-    letter-spacing: -1px;
-    -webkit-box-pack: center;
-    justify-content: center;
-    flex-direction: column;
-    margin: auto 0px;
-    padding-right: 4px;
-    line-height: 1;
-}
 .content {
 	width: 830px;
 	float: left;
@@ -168,134 +56,6 @@ dl, dt, dd, ul, ol, menu, li {
 .mycoupang-dash{
 	height: auto;
     margin-bottom: 40px;
-}
-.mycoupang-dash > ul {
-	background-color: rgb(130, 188, 226);
-    color: rgb(255, 255, 255);
-    border-width: 1px 1px 1px 0px;
-    border-top-style: solid;
-    border-right-style: solid;
-    border-bottom-style: solid;
-    border-top-color: rgb(119, 174, 209);
-    border-right-color: rgb(119, 174, 209);
-    border-bottom-color: rgb(119, 174, 209);
-    border-image: initial;
-    border-left-style: initial;
-    border-left-color: initial;
-    height: 122px;
-    font-weight: 100;
-    font-style: normal;
-    box-sizing: border-box;
-    font-family: robotoThinNumber, roboto, "Courier New", Tahoma, NanumGothic, MalgunGothic, 돋움, dotum, sans-serif;
-}
-.mycoupang-dash-li {
-	position: relative;
-    float: left;
-    min-width: 156px;
-    height: 120px;
-    padding: 19px 0px 0px 30px;
-    border-right: 1px solid rgb(155, 201, 232);
-    border-left: 1px solid rgb(120, 173, 208);
-    box-sizing: border-box;
-}
-.mycoupang-dash-li > strong {
-	display: block;
-    margin-bottom: 13px;
-    height: 21px;
-    color: rgb(255, 255, 255);
-    font-size: 15px;
-    font-weight: bold;
-    text-shadow: rgba(0, 0, 0, 0.2) 0px 1px 0px;
-    font-family: AppleSDGothicNeo;
-}
-.mycoupang-dash-div {
-	display: block;
-    margin-top: -5px;
-    text-shadow: rgba(0, 0, 50, 0.15) 0px 1px 1px;
-}
-.mycoupang-dash-div > a {
-	color: rgb(51, 51, 51);
-    cursor: pointer;
-    text-decoration: none;
-}
-.mycoupang-dash-div > a:hover {
-	text-decoration: none;
-}
-.mycoupang-dash-wrapper{
-	color: rgb(255, 255, 255);
-}
-#coupon-num{
-	color: rgb(255, 255, 255);
-    font-size: 50px;
-    line-height: 60px;
-    cursor: pointer;
-}
-#coupon-unit{
-	margin-left: 5px;
-    vertical-align: 2px;
-    font-size: 12px;
-}
-#deli-num{
-	color: rgb(255, 255, 255);
-    font-size: 50px;
-    line-height: 60px;
-    cursor: pointer;
-}
-#deli-unit{
-	margin-left: 5px;
-    vertical-align: 2px;
-    font-size: 12px;
-}
-#disc-num{
-	color: rgb(255, 255, 255);
-    font-size: 50px;
-    line-height: 60px;
-    cursor: pointer;
-}
-#disc-unit{
-	margin-left: 5px;
-    vertical-align: 2px;
-    font-size: 12px;
-}
-.mycoupang-dash-flex{
-	border-right: 0px;
-    padding-left: 0px;
-    padding-top: 0px;
-    height: 118px;
-}
-.mycoupang-dash-flex-div{
-	width: 360px;
-    height: 62px;
-    border-bottom: 1px solid rgb(120, 173, 208);
-    box-sizing: border-box;
-    display: flex;
-    -webkit-box-pack: justify;
-    justify-content: space-between;
-    -webkit-box-align: center;
-    align-items: center;
-}
-.mycoupang-dash-flex-div > span{
-	float: left;
-    margin: 0px 0px 0px 30px;
-    height: 21px;
-    color: rgb(255, 255, 255);
-    font-size: 15px;
-    font-weight: bold;
-    text-shadow: rgba(0, 0, 0, 0.2) 0px 1px 0px;
-    font-family: AppleSDGothicNeo;
-}
-.coupang-money{
-	margin: 0px 2px 0px 0px;
-    color: rgb(255, 255, 255);
-    font-size: 28px;
-    line-height: 35px;
-    text-shadow: rgba(0, 0, 0, 0.2) 0px 1px 0px;
-}
-.coupang-unit{
-	margin: 12px 30px 0px 2px;
-    vertical-align: 2px;
-    font-size: 12px;
-    text-shadow: rgba(0, 0, 0, 0.2) 0px 1px 0px;
 }
 .mycoupang-main-container{
 	margin: 0px 0px 0px 30px;
@@ -351,101 +111,9 @@ dl, dt, dd, ul, ol, menu, li {
     align-items: center;
     cursor: pointer;
 }
-.mycoupang-main-year{
-	display: flex;
-    flex-direction: row;
-}
-.mycoupang-main-year > div {
-	display: flex;
-    -webkit-box-align: center;
-    align-items: center;
-    margin-top: 12px;
-}
-.mycoupang-main-year-cate{
-	display: flex;
-    -webkit-box-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    justify-content: center;
-    width: 54px;
-    height: 26px;
-    border-radius: 13px;
-    border: 1px solid rgb(196, 205, 213);
-    background-color: rgb(255, 255, 255);
-    color: rgb(69, 79, 91);
-    font-size: 12px;
-    font-weight: 500;
-    text-align: center;
-    vertical-align: middle;
-    margin-right: 5px;
-    line-height: 1;
-    cursor: pointer;
-}
-.selected {
-	display: flex;
-    -webkit-box-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    justify-content: center;
-    width: 54px;
-    height: 26px;
-    border-radius: 13px;
-    border: 1px solid rgb(52, 106, 255);
-    background-color: rgb(52, 106, 255);
-    color: rgb(255, 255, 255);
-    font-size: 12px;
-    font-weight: 500;
-    text-align: center;
-    vertical-align: middle;
-    margin-right: 5px;
-    line-height: 1;
-    cursor: pointer;
-}
 
 .mycoupang-product-search {
 	margin: 0px 0px 24px;
-}
-.search-wrapper {
-	position: relative;
-    height: 45px;
-    display: block;
-    width: 100%;
-    box-sizing: border-box;
-    border-collapse: collapse;
-}
-.search-selected {
-	display: inline-block;
-    vertical-align: middle;
-    cursor: pointer;
-    position: relative;
-    height: 45px;
-    width: 25%;
-    text-align: center;
-    font-size: 16px;
-    font-weight: bold;
-    border-width: 2px;
-    border-style: solid;
-    border-color: rgb(61, 130, 247) rgb(61, 130, 247) transparent;
-    border-image: initial;
-    background-color: rgb(255, 255, 255);
-    color: rgb(61, 130, 247);
-    padding-top: 10px;
-}
-.search-default {
-	display: inline-block;
-    vertical-align: middle;
-    cursor: pointer;
-    position: relative;
-    height: 45px;
-    width: 25%;
-    text-align: center;
-    font-size: 16px;
-    font-weight: bold;
-    border-style: solid;
-    border-width: 1px 1px 2px;
-    border-color: rgb(215, 215, 215) rgb(215, 215, 215) rgb(61, 130, 247);
-    background-color: rgb(249, 249, 249);
-    padding-top: 10px;
 }
 .none{
 	display: flex;
@@ -456,6 +124,7 @@ dl, dt, dd, ul, ol, menu, li {
     justify-content: center;
     padding: 20px;
 }
+//주문 배송 조회
 .exist {
 	width: 800px;
     border-radius: 12px;
@@ -733,6 +402,7 @@ dl, dt, dd, ul, ol, menu, li {
     width: 160px;
     margin: 4px 0px;
 }
+//여기까지
 .prev-next{
 	display: flex;
     -webkit-box-align: center;
@@ -989,87 +659,4 @@ dl, dt, dd, ul, ol, menu, li {
     left: 2px;
     width: 10px;
     height: 10px;
-}
-.rightside{
-	margin-left: 15px;
-    float : left;
-    left: 15px;
-    top: 20px;
-    white-space: nowrap;
-    position: relative;
-}
-.promotion-banner > li {
-	margin-bottom : 10px;
-}
-.promotion-banner > li > a > img{
-	cursor: pointer;
-}
-.myview {
-	width:102px;
-}
-.myview .side-cart{
-	position: relative;
-	width: 102px;
-    height: 33px;
-    background: url(//img1a.coupangcdn.com/image/coupang/common/bg_side_sprite.png) no-repeat -31px 0;
-    cursor: pointer;
-    overflow: hidden;
-}
-.side-cart > a {
-	display: block;
-    overflow: hidden;
-}
-.side-cart > a > strong {
-	float: left;
-    text-indent: -9999em;
-}
-.cart-count {
-	float: right;
-    height: 33px;
-    padding: 0 14px 0 0;
-    font: bold 12px 'Arial';
-    color: #3abbff;
-    line-height: 33px;
-}
-.myview .side-recent {
-	position: relative;
-	width: 102px;
-    height: 33px;
-	background: url(//img1a.coupangcdn.com/image/coupang/common/bg_side_sprite.png) no-repeat -31px -66px;;
-	cursor: pointer;
-    overflow: hidden;
-}
-.side-recent > a {
-	display: block;
-    overflow: hidden;
-}
-.side-recent > a > strong {
-	float: left;
-    text-indent: -9999em;
-}
-.cart-count {
-	float: right;
-    height: 33px;
-    padding: 0 14px 0 0;
-    font: bold 12px 'Arial';
-    color: #3abbff;
-    line-height: 33px;
-}
-.myview .viewed-list {
-	position: relative;
-    padding: 10px;
-    background-color: #fff;
-    border: 1px solid silver;
-    border-top: 0;
-}
-.viewed-list-page{
-	height: 328px;
-}
-.viewed-list-page .no-item {
-	height: 158px;
-    padding: 110px 0 0 0;
-    text-align: center;
-    font-size: 11px;
-    color: #929292;
-    line-height: 160%;
 }

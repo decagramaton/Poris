@@ -19,7 +19,7 @@ public class ListServiceImpl implements ListService{
 	public List<ListProduct> getList(int pid) {
 		log.info("listService 실행");
 		List<ListProduct> list = new ArrayList<>();
-		for(int i=1; i<=5; i++) {
+		for(int i=1; i<=60; i++) {
 			ListProduct listProduct = new ListProduct();
 			listProduct.setPid(i);
 			listProduct.setName("미국산 뭐시기 체리"+i);
