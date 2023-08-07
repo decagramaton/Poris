@@ -239,9 +239,9 @@ header {
 }
 
 /* 상품 옵션 */
-.product-select {
+/* .product-select {
 	display: none;
-}
+} */
 .product-option-btn {
 	/* box-sizing: border-box;
 	width: 100%;
@@ -307,6 +307,7 @@ header {
 	border-radius: 4px;
 	font-size: 15px;
 	color: #111;
+	font-weight: bold;
 }
 
 /* 상품 수량 */

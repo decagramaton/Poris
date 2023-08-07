@@ -194,32 +194,32 @@
                <div class="product-image">
                   <ul class="productItems">
                      <li><img
-                           src="//thumbnail10.coupangcdn.com/thumbnails/remote/48x48ex/image/retail/images/2022/06/23/10/9/bbabae63-6743-4538-877b-7ccf2fddbef5.jpg"
+                           src="${pageContext.request.contextPath}/resources/images/cherry_sm1.jpg"
                            id="cherry1">
                      </li>
                      <li><img
-                           src="//thumbnail10.coupangcdn.com/thumbnails/remote/48x48ex/image/retail/images/2022/06/23/10/9/d2a7d797-4b2d-4ab9-b0fa-1a29a3d3c8ad.jpg"
+                           src="${pageContext.request.contextPath}/resources/images/cherry_sm2.jpg"
                            id="cherry2">
                      </li>
                      <li><img
-                           src="//thumbnail9.coupangcdn.com/thumbnails/remote/48x48ex/image/retail/images/2022/06/23/10/1/78ecbb19-a253-42a2-a6ba-085d0222e141.jpg"
+                           src="${pageContext.request.contextPath}/resources/images/cherry_sm3.jpg"
                            id="cherry3">
                      </li>
                      <li><img
-                           src="//thumbnail6.coupangcdn.com/thumbnails/remote/48x48ex/image/retail/images/2022/06/23/10/8/5ed822b0-dfdb-48cc-80dc-bcbc725820d4.jpg"
+                           src="${pageContext.request.contextPath}/resources/images/cherry_sm4.jpg"
                            id="cherry4">
                      </li>
                      <li><img
-                           src="//thumbnail6.coupangcdn.com/thumbnails/remote/48x48ex/image/retail/images/4911267064515809-dc68e857-13d0-418d-91be-6a9469093ec3.jpg"
+                           src="${pageContext.request.contextPath}/resources/images/cherry_sm5.jpg"
                            id="cherry5">
                      </li>
                      <li><img
-                           src="//thumbnail7.coupangcdn.com/thumbnails/remote/48x48ex/image/retail/images/2022/06/23/10/6/4ebabbb5-c770-4218-b8dc-b07e77b23eb6.jpg"
+                           src="${pageContext.request.contextPath}/resources/images/cherry_sm6.jpg"
                            id="cherry6">
                      </li>
                   </ul>
                   <img class="productMainImage"
-                     src="//thumbnail10.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2022/06/23/10/9/bbabae63-6743-4538-877b-7ccf2fddbef5.jpg">
+                     src="${pageContext.request.contextPath}/resources/images/cherry_main1.jpg">
                </div>
                <!-- 구매 선택 -->
                <div class="product-buy">
@@ -268,9 +268,9 @@
                   <div class="product-option-container">
                   	 <div class="product-option-btn-container">
                   	 	<select class="product-select">
-                  	 		<option>1.2kg x 1팩</option>
-                  	 		<option>400g x 1팩</option>
-                  	 		<option>800g x 1팩</option>
+                  	 		<option class="1">1.2kg x 1팩</option>
+                  	 		<option class="2">400g x 1팩</option>
+                  	 		<option class="3">800g x 1팩</option>
                   	 	</select>
                   	 	<div class="product-option-btn">
                            <span class="product-option-title">
@@ -280,21 +280,27 @@
                      	</div>
                   	 </div>
                      <ul class="product-options-list closed">
-	                  	<li class="product-option-list-item">
-	                      <div>
-	                      	<strong class="product-option-list-title">1.2kg x 1팩</strong>
-	                      </div>
-	                  	</li>
-	                  	<li class="product-option-list-item selected">
-	                      <div>
-	                      	<strong class="product-option-list-title">400g x 1팩</strong>
-	                      </div>
-	                  	</li>
-	                  	<li class="product-option-list-item">
-	                      <div>
-	                      	<strong class="product-option-list-title">800g x 1팩</strong>
-	                      </div>
-	                  	</li>
+                     	<a href="detailView?pid=1">
+		                  	<li class="product-option-list-item">
+		                      <div class="product-option-list-title">
+		                      	1.2kg x 1팩
+		                      </div>
+		                  	</li>
+		                </a>
+		                <a href="detailView?pid=2">
+		                  	<li class="product-option-list-item selected">
+		                      <div class="product-option-list-title">
+		                      	400g x 1팩
+		                      </div>
+		                  	</li>
+	                  	</a>
+	                  	<a href="detailView?pid=3">
+		                  	<li class="product-option-list-item">
+		                      <div class="product-option-list-title">
+		                      	800g x 1팩
+		                      </div>
+		                  	</li>
+	                  	</a>
 	                  </ul>
                   </div>
                   <!-- 상품 수량 및 구매 -->

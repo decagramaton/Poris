@@ -1,7 +1,7 @@
 $(init);
 
 function init() {
-	//상품가격 및 할인율 전역변수
+	//상품가격 및 할인율 및 옵션 전역변수
 	productOriginPrice = parseInt($(".origin-price").html().replace(/[^0-9]/g, ""));
 	discountRate = parseInt($(".discount-rate").html().replace(/[^0-9]/g, ""));
 	unitPrice = parseInt($(".unit-price span").html().replace(/[^0-9]/g, ""));
@@ -11,7 +11,6 @@ function init() {
 	$(".product-wish-btn").click(changeWish);
 	//옵션 선택 동작
 	$(".product-option-btn").click(openOption);
-	$(".product-option-list-item").click(goPage);
 	//상품수량 변경 동작
 	$(".product-quantity-plus-btn").click(changeQuantityPlus);
 	$(".product-quantity-minus-btn").click(changeQuantityMinus);
@@ -64,10 +63,6 @@ function openOption() {
 	$(event.target).toggleClass("clicked");
 	$(".product-options-list").toggleClass("closed");
 }
-function goPage() {
-	$(".product-options-list").toggleClass("closed");
-}
-
 //상품수량 변경 동작
 function changeQuantityPlus() {
 	//현재 수량
