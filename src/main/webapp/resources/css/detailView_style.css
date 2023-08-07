@@ -8,11 +8,6 @@ a {
 	text-decoration: none;
 }
 
-address {
-	font-style: normal;
-    font-weight: normal;
-}
-
 li {
 	list-style: none;
 	text-align: -webkit-match-parent;
@@ -37,200 +32,6 @@ header {
 	position: relative;
 	min-width: 980px;
 	overflow: hidden;
-}
-
-.top-bar {
-	position: absolute;
-	height: 32px;
-	top: 0;
-	right: 0;
-	left: 0;
-	background: #f0f0f0;
-}
-
-.top-bar-menus {
-	width: 980px;
-	margin: 0 auto;
-	font-size: 11px;
-}
-
-.top-bar-menu1 {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-	float: left;
-}
-
-.top-bar-menu1 li {
-	float: left;
-	height: 24px;
-	padding: 10px 0 0 12px;
-}
-.top-bar-menu2 {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-	float: right;
-	position: relative;
-}
-
-.top-bar-menu2 li {
-	height: 26px;
-	padding-top: 10px;
-	padding-right: 12px;
-	float: left;
-}
-
-.top-bar-menu2 a {
-	text-decoration: none;
-	color: #333;
-}
-
-.cs-center {
-	padding-right: 25px;
-}
-
-.renewal-header {
-	background-color: #fff;
-	border-bottom: 1px solid #eee;
-}
-
-#header {
-	margin: 0 auto;
-	display: block;
-	/*padding: 32px 16px 0px;*/
-	border-bottom: 1px solid #ddd;
-	width: 980px;
-	height: 115px;
-}
-
-.category-btn {
-	/* position: absolute; */
-	width: 110px;
-	height: 115px;
-	top: 32px;
-	left: 0;
-	margin-right: 30px;
-	text-align: center;
-	background-image:
-		url("//static.coupangcdn.com/image/coupang/common/pc_header_img_sprite_180104.png");
-	float: left;
-}
-
-.category-btn a {
-	text-decoration: none;
-	display: block;
-	margin-top: 73px;
-	color: #fff;
-	font-size: 13px;
-}
-
-.main-clickpage {
-	/* position: absolute; */
-	width: 840px;
-	height: 91px;
-	margin: 25px 0 0 140px;
-	/* float: left; */
-}
-
-.clearFix {
-	position: relative;
-	z-index: 3;
-}
-
-.logo {
-	line-height: 48px;
-	font-size: 18px;
-	width: 174px;
-	height: 41px;
-	margin: 2px 20px 0 0;
-	float: left;
-}
-
-.logo a {
-	text-decoration: none;
-	display: block;
-}
-
-.search-product {
-	float: left;
-	width: 484px;
-	height: 37px;
-	margin-right: 22px;
-	border: 2px solid #4285f4;
-	position: relative;
-}
-
-.icon-menus {
-	margin-top: 3px;
-	display: block;
-	font-size: 12px;
-}
-
-.my-coupang {
-	list-style: none;
-	float: left;
-	position: relative;
-	margin-right: 20px;
-	width: 50px;
-	height: 52px;
-}
-
-.my-coupang a {
-	text-decoration: none;
-}
-
-.my-coupang-icon {
-	background-image:
-		url("//static.coupangcdn.com/image/coupang/common/pc_header_img_sprite_180104.png");
-	background-repeat: no-repeat;
-	width: 29px;
-	height: 31px;
-	display: block;
-	margin: 0 auto;
-	background-position: -112px -42px;
-}
-
-.my-coupang-title {
-	width: 50px;
-	display: block;
-	padding-top: 7px;
-	text-align: center;
-	color: #333;
-	white-space: nowrap;
-}
-
-.cart {
-	list-style: none;
-	float: left;
-	width: 50px;
-	height: 60px;
-	margin-top: -4px;
-	display: inline-block;
-}
-
-.cart a {
-	text-decoration: none;
-}
-
-.cart-icon {
-	background-image:
-		url("//static.coupangcdn.com/image/coupang/common/pc_header_img_sprite_180104.png");
-	background-repeat: no-repeat;
-	width: 40px;
-	height: 41px;
-	display: block;
-	margin: 0 auto;
-	background-position: -112px 0;
-}
-
-.cart-title {
-	width: 50px;
-	display: block;
-	padding-top: 3px; text-align : center;
-	color: #333;
-	white-space: nowrap;
-	text-align: center;
 }
 
 .contents {
@@ -372,6 +173,7 @@ header {
 }
 
 .prod-buy-header__productreview .count {
+	color: #1E9A4F;
 	margin-left: 4px;
 }
 
@@ -394,8 +196,7 @@ header {
 }
 
 .product-price-container {
-	padding: 17px 0;
-	border-bottom: 1px solid #eee;
+	padding-top: 17px;
 }
 .product-origin-price {
 	font-size: 14px;
@@ -426,43 +227,60 @@ header {
 	font-size: 14px
 }
 
-.max-cash {
-	display: inline-block;
-	height: 20px;
-    border-radius: 10px;
-    border: solid 1px #ccc;
-    margin-top: 12px;
-    padding: 0 8px;
-    background-color: #fff;
-}
-.max-cash img {
-	vertical-align: text-bottom;
-}
-
 .product-shipping-container {
-	padding: 14px 0 3px 0;
-	margin-bottom: 4px;
+	padding: 3px 0 3px 0;
+	margin-bottom: 10px;
+	font-size: 15px;
+	font-weight: 600;
 }	
-.product-shipping-fee span:nth-child(1) {
-    font-weight: bold
-}
-.product-shipping-date span:nth-child(1) {
-	font-weight: bold;
-    color: #00891a;
-    font-size: 14px;
-}
-.product-shipping-date span:nth-child(2) {
-    color: #00891a;
-}
 
 .product-option-container {
 	border-bottom: 1px solid #eee;
 }
 
 /* 상품 옵션 */
-.product-option-btn.clicked {
-	border: 1px solid #346aff;
+.product-select {
+	display: none;
 }
+.product-option-btn {
+	/* box-sizing: border-box;
+	width: 100%;
+	height: 54px;
+    background: #fafafa;
+	border: 1px solid #ccc;
+	cursor: pointer;
+	box-shadow: 0 1px 1px 0 rgba(0,0,0,0.1); */
+	width: 100%;
+    height: 50px;
+    padding: 0;
+    border: 1px solid #e6e6e6;
+    border-radius: 4px;
+    background-color: #fff;
+    display: flex;
+    cursor: pointer;
+}
+.product-option-title {
+	display: inline-block;
+	padding: 15px 10px;
+	font-size: 15px;
+	font-weight: 600;
+	flex: 8;
+}
+.product-option-ico {
+	display: inline-block;
+	width: 16px;
+    height: 16px;
+    margin-right: 20px;
+    background-image: url(https://www.brandi.co.kr/static/23.04.02/images/mo-ic-drop-down-black-16-pt@3x.png);
+    margin: 16px 16px 0 0;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: 100%;
+    /* background-image: url(https://www.brandi.co.kr/static/23.04.02/images/mo-ic-drop-up-black-16-pt@3x.png); */
+}
+/* .product-option-btn.clicked {
+	border: 1px solid #346aff;
+} */
 .product-options-list {
 	box-sizing: border-box;
     position: absolute;
@@ -471,75 +289,24 @@ header {
 	display: block;
 	width: 480px;
 	border: 1px solid #ddd;
-    border-top: 2px solid #ddd;
+	border-radius: 4px;
 	background-color: #fff;
-	max-height: 250px;
 	cursor: pointer;
 }
 .product-options-list.closed {
 	display: none;
 }
-.product-option-list-item.selected {
-	background: #fafafa;
+.product-option-list-item {
+	height: 50px;
 }
-.product-option-list-item a {
+.product-option-list-item div {
 	display: block;
 	text-decoration: none;
-	padding: 10px 8px;
+	padding: 13px 10px;
 	border-top: 1px solid #eee;
-	font-size: 13px;
-}
-.product-option-list-price {
-	color: #cb1400;
-}
-
-/* 쿠팡캐시 */
-.product-reward-cash-container {
-	padding: 17px 0;
-	border-bottom: 1px solid #eee;
-}
-.reward-cash-summary {
-	padding-bottom: 17px;
-}
-.reward-cash-summary span {
-	display: inline-block;
-	font-size: 14px;
-    color: #111;
-    padding-left: 6px;
-}
-.reward-cash-summary_title {
-	display: inline-block;
-}
-.reward-cash-summary_title img {
-	vertical-align: top;
-}
-.reward-cash-summary_info {
-	display: inline-block;
-}
-
-.reward-cash-promotion {
-	padding: 15px;
-    border-radius: 1px;
-    border: solid 1px #ccc;
-    background-color: #fafafa;
-    color: #555;
-    font-size: 14px;
-}
-.reward-cash-promotion p {
-	padding-bottom: 10px;
-}
-.reward-cash-promotion strong {
+	border-radius: 4px;
+	font-size: 15px;
 	color: #111;
-}
-.reward-cash-promotion-btn {
-	box-sizing: border-box;
-    height: 36px;
-	padding: 0 12px;
-    border-radius: 2px;
-    border: solid 1px #346aff;
-    background-color: #fff;
-	color: #346aff;
-	cursor: pointer;
 }
 
 /* 상품 수량 */
@@ -631,10 +398,10 @@ header {
 	display: block;
     width: 191px;
     height: 42px;
-    border: 1px solid #346aff;
-    border-radius: 0;
+    border: 1px solid #95CF59;
+    border-radius: 4px;
     background: transparent;
-    color: #346aff;
+    color: #95CF59;
     text-align: center;
     font-size: 16px;
     font-weight: bold;
@@ -646,9 +413,9 @@ header {
     display: block;
     width: 191px;
     height: 42px;
-    border: 1px solid #346aff;
-    border-radius: 0;
-    background-color: #346aff;
+    border: 1px solid #A0DE5F;
+    border-radius: 4px;
+    background-color: #A0DE5F;
     color: #fff;
     text-align: center;
     font-size: 16px;
@@ -656,45 +423,6 @@ header {
     cursor: pointer;
     float: left;
 }
-
-.product-description {
-	padding-top: 16px;
-    margin-bottom: 16px;
-}
-.product-description ul {
-	font-size: 12px;
-    list-style: none;
-    margin-left: 16px;
-}
-.product-description li {
-	list-style: disc;
-	line-height: 1.5;
-}
-
-.product-option-btn {
-	box-sizing: border-box;
-	width: 100%;
-	height: 54px;
-    background: #fafafa;
-	/* border: 1px solid #346aff; */
-	border: 1px solid #ccc;
-	cursor: pointer;
-	box-shadow: 0 1px 1px 0 rgba(0,0,0,0.1);
-}
-.product-option-item {
-	padding: 0 10px;
-}
-.product-option-title {
-	float: left;
-}
-.product-option-title span {
-	display: block;
-}
-.product-option-item img {
-	float: right;
-	margin-top: 15px;
-}
-
 
 
 
