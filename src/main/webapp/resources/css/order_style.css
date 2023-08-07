@@ -539,206 +539,93 @@ section .middle {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* footer */
-.footer-frame {
-	position: relative;
-	border-top: #ddd solid 2px;
-    background: #fff;
+/* 3 */
+.custom-btn {
+  width: 180px;
+  height: 60px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  font-size: 2em;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+  outline: none;
 }
 
-.footer-layer1 {
-	border-bottom: #ddd solid 1px;
-    height: 34px;
-    text-align: center;
-    padding-top: 15px;
-    white-space: nowrap;
+.btn-3 {
+  background: rgb(149,207,89);
+background: linear-gradient(0deg, rgba(149,207,89,1) 0%, rgba(149,207,89,1) 100%);
+  width: 260px;
+  height: 80px;
+  line-height: 84px;
+  padding: 0;
+  border: none;
+  
 }
-
-
-.footer-layer1 > a {
-	display: inline-block;
-    white-space: nowrap;
-    padding: 0 14px;
-    font-size: 12px;
-    color: #555;
-    height: 12px;
-    text-decoration: none;
-    border-right: 1px solid gray;
+.btn-3 span {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
 }
-
-.footer-layer1 > a:first-child{
-	border-left: 0;
+.btn-3:before,
+.btn-3:after {
+  position: absolute;
+  content: "";
+  right: 0;
+  top: 0;
+   background: rgba(149,207,89,1);
+  transition: all 0.3s ease;
 }
-
-.footer-layer1 .site-picker {
-	position: relative;
-    font-size: 14px;
-    display: inline-block;
-    text-align: left;
-    vertical-align: top;
-    margin-top: -9px;
-    color: #212b36;
-    margin-left: 5px;
+.btn-3:before {
+  height: 0%;
+  width: 2px;
 }
-
-.footer-layer1 .site-picker .site-picker-arrow {
-	transition: .3s;
-	display: inline-block;
-    width: 14px;
-    height: 14px;
-    background-color: #333;
+.btn-3:after {
+  width: 0%;
+  height: 2px;
 }
-
-.footer-layer2 {
-	width: 1020px;
-    height: 100px;
-    margin: 30px auto;
-    font-size: 12px;
-    color: #555;
-    line-height: 150%;
+.btn-3:hover{
+   background: transparent;
+  box-shadow: none;
 }
-
-.footer-layer2 h1 {
-	float: left;
-    width: 150px;
-    background-image: none;
+.btn-3:hover:before {
+  height: 100%;
 }
-
-.footer-layer2 h1 a {
-	display: block;
-	width: 117px;
-	height: 34px;
-    overflow: hidden;
-    background: url(//static.coupangcdn.com/image/coupang/common/footer_asset_v8.png) no-repeat;
-	background-position: -19px -34px;
-    text-indent: -99em;
-	margin-left: 10px;
-	text-decoration: none;
+.btn-3:hover:after {
+  width: 100%;
 }
-
-.footer-layer2 a {
-	color: #555;
-	text-decoration: none;
+.btn-3 span:hover{
+   color: rgba(149,207,89,1);
 }
-
-
-.footer-layer2 address {
-	float: left;
-    width: 260px;
+.btn-3 span:before,
+.btn-3 span:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 0;
+   background: rgba(149,207,89,1);
+  transition: all 0.3s ease;
 }
-
-.footer-layer2 .licensee {
-	text-decoration: underline;
+.btn-3 span:before {
+  width: 2px;
+  height: 0%;
 }
-
-.footer-layer2 .contact-info {
-	float: left;
-    width: 340px;
-    color: #555;
+.btn-3 span:after {
+  width: 0%;
+  height: 2px;
 }
-
-.footer-layer2 strong {
-	font-weight: bold;
-    font-size: 12px;
+.btn-3 span:hover:before {
+  height: 100%;
 }
-
-.footer-layer2 .contact-info em {
-	font-size: 24px;
-    font-family: Tahoma;
-    font-weight: bold;
-    display: block;
-    margin: 9px 0 11px 0;
-	font-style: normal;
-}
-
-.footer-layer2 .safe-service {
-	float: left;
-    width: 270px;
-    font-size: 11px;
-}
-
-.footer-layer3 {
-	width: 1020px;
-    height: 80px;
-    margin: 0 auto;
-    position: relative;
-    border-top: #ddd solid 1px;
-}
-
-.footer-layer3 .certification-list {
-	width: 968px;
-	height: 80px;
-	margin: 0 auto;
-	background: url(//static.coupangcdn.com/image/coupang/common/footer_asset_v12.png) no-repeat;
-	background-position: -44px -92px;
-	position: relative;
-}
-
-.footer-layer4 {
-	background: #333;
-    height: 80px;
-}
-
-.footer-layer4 .coupang-copyright {
-	width: 1020px;
-    margin: 0 auto;
-    position: relative;
-}
-
-.footer-layer4 .coupang-copyright p {
-	color: #888;
-    font-size: 11px;
-}
-
-.footer-layer4 .coupang-copyright .info {
-	padding: 21px 0 3px 0;
-}
-
-.footer-layer4 .coupang-copyright .sns-link {
-	position: absolute;
-    top: 23px;
-    right: 0;
-    list-style: none;
-}
-
-.footer-layer4 .coupang-copyright .sns-link li {
-	float: left;
-}
-
-.footer-layer4 .coupang-copyright .sns-link a {
-	width: 34px;
-    height: 34px;
-    margin-right: 8px;
-	display: block;
-    overflow: hidden;
-    background: url(//static.coupangcdn.com/image/coupang/common/footer_asset_v8.png) no-repeat;
-    text-indent: -99em;
-    text-decoration: none;
-}
-
-.footer-layer4 .coupang-copyright .sns-link a.facebook {
-	background-position: -220px -30px;
-}
-
-.footer-layer4 .coupang-copyright .sns-link a.blog {
-	background-position: -348px -30px;
-}
-
-.footer-layer4 .coupang-copyright .sns-link a.instagram {
-	background-position: -390px -30px;
+.btn-3 span:hover:after {
+  width: 100%;
 }

@@ -395,10 +395,7 @@
                위 주문 내용을 확인 하였으며, 회원 본인은 개인정보 이용 및 제공(해외직구의 경우 국외제공) 및 결제에 동의합니다.
             </div>
             <div class="agreeBtn hasRocketPayCheckoutButton" id="btn_all">
-               <button type="button" id="paymentRocketpayBtn" style="display: inline-block; width="250" height="60"">쿠페이 머니 결제</button>
-               <button type="button" id="paymentBtn">
-                  <img src="//image7.coupangcdn.com/image/rocketpay-order-image/pc/btn_payment.gif" width="260" height="60" alt="결제하기">
-               </button>
+	            <button class="custom-btn btn-3"><span>결제하기</span></button>
             </div>
          </div>
       </div>
