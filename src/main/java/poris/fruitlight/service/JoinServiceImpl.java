@@ -10,7 +10,7 @@ public class JoinServiceImpl implements JoinService{
 	@Override
 	public boolean isMember(String userId) {
 
-		return true;
+		return false;
 	}
 	
 	@Override
