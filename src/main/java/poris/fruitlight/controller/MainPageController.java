@@ -47,10 +47,16 @@ public class MainPageController {
 		return "detailView";
 	}
 	
-	@GetMapping("/cart")
-	public String cart() {
+	@GetMapping("/order")
+	public String order() {
 		
-		return "cart";
+		return "order";
+	}
+	
+	@GetMapping("/login")
+	public String login() {
+		
+		return "login";
 	}
 	
 	@GetMapping("/mypage")
@@ -58,4 +64,6 @@ public class MainPageController {
 		
 		return "mypage";
 	}
+	
+	
 }

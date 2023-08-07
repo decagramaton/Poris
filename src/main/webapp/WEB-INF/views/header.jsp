@@ -16,12 +16,18 @@
 					</form>
 				</div>
 				<div id="headerIcon" class="headerIcon">
-					<a class="mr-2 mt-2 text-right" href="cart">
+					<a class="mr-2 mt-2 text-right" href="detailView">
+						<img src="${pageContext.request.contextPath}/resources/images/detailview.png" width="40" height="40"/>
+					</a>
+					<a class="mr-2 mt-2 text-right" href="order">
 						<img src="${pageContext.request.contextPath}/resources/images/cart.png" width="40" height="40"/>
 					</a>
-					<a class="mr-2 mt-2 text-right" href="mypage">
+					<a class="mr-2 mt-2 text-right" href="login">
 						<img src="${pageContext.request.contextPath}/resources/images/person.png" width="40" height="40"/>
-					</a>	       					
+					</a>
+					<a class="mr-2 mt-2 text-right" href="mypage">
+						<img src="${pageContext.request.contextPath}/resources/images/mypage.png" width="40" height="40"/>
+					</a>   					
 				</div>
 			</div>
 			<div id="menu" class="menu">

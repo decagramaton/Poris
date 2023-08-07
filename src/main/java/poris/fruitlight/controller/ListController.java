@@ -49,9 +49,10 @@ public class ListController {
 		return "cart";
 	}
 	
-	@GetMapping("/mypage")
-	public String mypage() {
+	
+	@GetMapping("/login")
+	public String login() {
 		
-		return "mypage";
+		return "login";
 	}
 }
