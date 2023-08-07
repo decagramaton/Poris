@@ -18,7 +18,7 @@
     <header class="header-frame">
       <div class="header-logo">
          <a class="main-logo" href="http://www.coupang.com/">
-            <img src="/fruitlight/resources/images/fruitlight_logo.png" width="174" height="41">
+            <img src="/fruitlight/resources/images/fruitlight_logo.png" width="260">
          </a>
       </div>
     </header>

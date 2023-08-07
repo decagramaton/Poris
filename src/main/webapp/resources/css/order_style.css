@@ -36,14 +36,6 @@ button {
 .header-logo {
     width: 1020px;
     margin: 0 auto;
-    padding-top: 30px;
-}
-
-.header-logo a {
-    display: block;
-    float: left;
-    width: 174px;
-    height: 41px;
 }
 
 /* section CSS */
