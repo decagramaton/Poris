@@ -60,15 +60,15 @@
                <div>
                   <div class="table-row">
                      <div class="table-colume">이름</div>
-                     <div id="recipientName" class="table_content">고재승</div>
+                     <div id="recipientName" class="table_content">${shipAddress.name}</div>
                   </div>
                   <div class="table-row">
                      <div class="table-colume">배송주소</div>
-                     <div id="deliveryDetailAddress" class="table_content">서울특별시 종로구 창경궁로 254  7층</div>
+                     <div id="deliveryDetailAddress" class="table_content">${shipAddress.address}</div>
                   </div>
                   <div class="table-row">
                      <div class="table-colume">연락처</div>
-                     <div id="deliveryTel" class="table_content">010 - 1234 - 5678</div>
+                     <div id="deliveryTel" class="table_content">${shipAddress.tel}</div>
                   </div>
                </div>
             </div>

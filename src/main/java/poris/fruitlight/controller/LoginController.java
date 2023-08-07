@@ -22,13 +22,12 @@ import poris.fruitlight.service.LoginService;
 
 @Slf4j
 @Controller
-@RequestMapping("/login")
 public class LoginController {
 	
 	@Autowired
 	private LoginService loginservice;
 	
-	@RequestMapping("/")
+	@RequestMapping("/login")
 	public String MainPage() {
 		return "login";
 	}

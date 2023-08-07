@@ -15,13 +15,12 @@ import poris.fruitlight.util.AlertScript;
 
 @Slf4j
 @Controller
-@RequestMapping("/joinForm")
 public class joinFormController {
 	
 	@Autowired
 	private JoinService joinService;
 	
-	@RequestMapping("/")
+	@RequestMapping("/joinForm")
 	public String MainPage() {
 		return "joinForm";
 	}

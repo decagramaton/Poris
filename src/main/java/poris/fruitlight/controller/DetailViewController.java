@@ -17,10 +17,9 @@ import poris.fruitlight.service.CouponService;
 
 @Slf4j
 @Controller
-@RequestMapping("/detailView")
 public class DetailViewController {
 	
-	@RequestMapping("/")
+	@RequestMapping("/detailView")
 	public String detailView() {
 		
 		return "detailView";
