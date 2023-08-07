@@ -15,24 +15,13 @@ import poris.fruitlight.service.ListService;
 
 @Slf4j
 @Controller
-public class MainPageController {
-
+@RequestMapping("/list")
+public class ListController {
+	
 	@Resource
 	private ListService listService;
 	
 	@RequestMapping("/")
-	public String main() {
-		return "main";
-	}
-	
-	@GetMapping("/joinForm")
-	public String joinForm() {
-		
-		return "joinForm";
-	}
-
-	
-	@GetMapping("/list")
 	public String list(Model model) {
 		log.info("list 실행");
 		List<ListProduct> products = listService.getList(1);
@@ -40,6 +29,13 @@ public class MainPageController {
 		
 		return "list";
 	}
+	
+	@GetMapping("/joinForm")
+	public String joinForm() {
+		
+		return "joinForm";
+	}
+	
 	
 	@GetMapping("/detailView")
 	public String detailView(){
