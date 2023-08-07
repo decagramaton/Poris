@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -97,7 +97,19 @@
                   <div class="delivery-date">
                      <span class="delivery-date-info">내일(목) 7/6 도착 보장</span>
                   </div>
-                  <div class="bundle-info-item-list"></div>
+                  <div class="bundle-info-item-list">
+                  <c:forEach var=" " items="">
+                  	<div class="bundle-info-item-box">
+                  		<div class="bundle-info-item">
+                  			<p>'+ item.name +'</p>
+                  		</div>
+                  		<div class="bundle-info-delivery-service">
+                  			<img src="'+ item.deliveryImageSrc +'">
+                  		</div>
+                  		<div class="bundle-info-item-descript">수량 '+ item.count + '개 /' + item.deliveryPrice +'</div>
+                  	</div>
+                  </c:forEach>          
+                  </div>
                </div>
             </div>
          </div>
