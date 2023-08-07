@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import lombok.extern.slf4j.Slf4j;
@@ -30,11 +31,6 @@ public class CartController {
 		model.addAttribute("listProduct", listProduct);
 		
 		List<Coupon> listCoupon = couponService.getCoupon(1);
-		//[price] 특성이 [java.lang.String] 유형에 없습니다. 에러..
-		/*for(Coupon coupon : listCoupon) {
-			String strPrice = "" + coupon.getPrice();
-			log.info(strPrice);
-		}*/
 		model.addAttribute("listCoupon", listCoupon);
 		
 		return "cart";
@@ -59,16 +55,22 @@ public class CartController {
 	}
 
 	//수량변경
-	@RequestMapping("/changeStock")
-	public String changeStock(CartProduct cartProduct) {
+	@PostMapping("/changeStock")
+	public String changeStock(CartProduct cartProduct, Model model) {
 		cartProductService.changeStock(cartProduct);
+		
+		List<CartProduct> listProduct = cartProductService.getCartProduct(1);
+		model.addAttribute("listProduct", listProduct);
+		
+		List<Coupon> listCoupon = couponService.getCoupon(1);
+		model.addAttribute("listCoupon", listCoupon);
 		
 		/*return "redirect:/cart/";를 하면 안됨 어떤 상품을 선택했는지가 페이지에 남아있어야 함..
 		return "cart"를 하면 model에 아무것도 없으니까 listProduct랑 lisCoupon이 없어서 상품이 아무것도 없는 페이지가 뜸
 
 		어카지........ 쿠키 아니면 세션?*/
 		
-		return "redirect:/cart/";
+		return "cart";
 	}
 
 	//구매

@@ -83,7 +83,7 @@
 						            	</td>
 						            	<td class="cartItemOption">
 				            				<span class="productPrice">${cartProduct.price}</span>원
-				            				<form class="d-inline-block" action="changeStock">
+				            				<form class="d-inline-block" action="changeStock" method="post">
 			            						<input class="productStock" type="number" min="1" max="50" id="stock" name="stock" value="${cartProduct.stock}"/>
 			            						<input type="hidden" id="pid" name="pid" value="${cartProduct.pid}"/>
 			            						<input class="quantityChange d-none" type="submit" value="수량변경"/>

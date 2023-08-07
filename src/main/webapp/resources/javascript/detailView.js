@@ -2,11 +2,9 @@ $(init);
 
 function init() {
 	//상품가격 및 할인율 전역변수
-	//productPrice = parseInt($(".total-price").html().replace(/[^0-9]/g, ""));
 	productOriginPrice = parseInt($(".origin-price").html().replace(/[^0-9]/g, ""));
 	discountRate = parseInt($(".discount-rate").html().replace(/[^0-9]/g, ""));
 	unitPrice = parseInt($(".unit-price span").html().replace(/[^0-9]/g, ""));
-	cash = parseInt($(".reward-cash-txt").html().replace(/[^0-9]/g, ""));
 	//메인이미지 변경 동작
 	$(".productItems li img").hover(changeMain);
 	//찜 동작
@@ -26,39 +24,23 @@ function changeMain() {
 	imgId = $(event.target).attr("id");
 	switch (imgId) {
 	  case "cherry1":
-		console.log(imgId);
-	    $(".productMainImage").attr("src", "image/cherry_main1.jpg");
+	    $(".productMainImage").attr("src", "/fruitlight/resources/images/cherry_main1.jpg");
 	    break;
 	  case "cherry2":
-		$(".productMainImage").attr("src", "image/cherry_main2.jpg");
+		$(".productMainImage").attr("src", "/fruitlight/resources/images/cherry_main2.jpg");
 	    break;
 	  case "cherry3":
-		$(".productMainImage").attr("src", "image/cherry_main3.jpg");
+		$(".productMainImage").attr("src", "/fruitlight/resources/images/cherry_main3.jpg");
 	    break;
 	  case "cherry4":
-		$(".productMainImage").attr("src", "image/cherry_main4.jpg");
+		$(".productMainImage").attr("src", "/fruitlight/resources/images/cherry_main4.jpg");
 	    break;
 	  case "cherry5":
-		$(".productMainImage").attr("src", "image/cherry_main5.jpg");
+		$(".productMainImage").attr("src", "/fruitlight/resources/images/cherry_main5.jpg");
 	    break;
 	  case "cherry6":
-		$(".productMainImage").attr("src", "image/cherry_main6.jpg");
+		$(".productMainImage").attr("src", "/fruitlight/resources/images/cherry_main6.jpg");
 	}
-}
-//헤더 메뉴 좌우이동
-function menuprev(){
-	$("#menu-btn2").css("backgroundImage","url(//img1a.coupangcdn.com/image/coupang/common/pc_gnb_arrow-left-gray@2x.png)");
-	$("#menu-btn1").css("backgroundImage","url(//img1a.coupangcdn.com/image/coupang/common/pc_gnb_arrow-right@2x.png)");
-	$("#menus").css("transform","translateX(0px)")
-	$("#menu-btn2").attr("disabled",true);
-	$("#menu-btn1").attr("disabled",false);
-}
-function menunext(){
-	$("#menu-btn1").css("backgroundImage","url(//img1a.coupangcdn.com/image/coupang/common/pc_gnb_arrow-right-gray@2x.png)");
-	$("#menu-btn2").css("backgroundImage","url(//img1a.coupangcdn.com/image/coupang/common/pc_gnb_arrow-left@2x.png)");
-	$("#menus").css("transform","translateX(-190px)")
-	$("#menu-btn1").attr("disabled",true);
-	$("#menu-btn2").attr("disabled",false);
 }
 
 //찜 동작
@@ -142,13 +124,10 @@ function changePrice(quantityCurrent) {
 	var newProductOriginPrice = productOriginPrice * quantityCurrent;
 	var newProductPrice = productPrice * quantityCurrent;
 	var newUnitPrice = unitPrice * quantityCurrent;
-	var newCash = cash * quantityCurrent;
 	
 	$(".origin-price").html(newProductOriginPrice.toLocaleString("ko-KR") + "원");
 	$(".total-price").html(newProductPrice.toLocaleString("ko-KR") + "원");
 	$(".unit-price").html("(100g당 " + newUnitPrice.toLocaleString("ko-KR") + "원)");
-	$(".reward-cash-txt").html("최대 " + newCash.toLocaleString("ko-KR") + "원 적립");
-	$(".reward-cash-summary_info strong").html(newCash.toLocaleString("ko-KR"));
 }
 
 

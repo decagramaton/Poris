@@ -273,7 +273,7 @@
                   	 		<option>800g x 1팩</option>
                   	 	</select>
                   	 	<div class="product-option-btn">
-                           <span class="product-option">
+                           <span class="product-option-title">
                                <strong>400g x 1팩</strong>
                            </span>
                            <span class="product-option-ico"></span>
