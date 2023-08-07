@@ -74,8 +74,8 @@ public class CartController {
 	}
 
 	//구매
-	@RequestMapping("/buy")
-	public String buy(HttpServletRequest request) {
+	@RequestMapping("/buyFromCart")
+	public String buyFromCart(HttpServletRequest request) {
 		//구매할 상품 리스트
 		String[] strPidList = request.getParameterValues("pidsChecked");
 		for(String strPid : strPidList) {

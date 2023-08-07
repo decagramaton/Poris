@@ -15,6 +15,11 @@ function init() {
 	$(".product-quantity-plus-btn").click(changeQuantityPlus);
 	$(".product-quantity-minus-btn").click(changeQuantityMinus);
 	$(".product-quantity-input").change(changeQuantityInput);
+	
+	//장바구니 담기
+	$(".product-cart-btn").click(addCart);
+	//바로구매
+	$(".product-buy-btn").click(buy);
 }
 
 
@@ -125,6 +130,26 @@ function changePrice(quantityCurrent) {
 	$(".unit-price").html("(100g당 " + newUnitPrice.toLocaleString("ko-KR") + "원)");
 }
 
+//장바구니 담기
+function addCart() {
+	var stock = $(".product-quantity-input").val();
+	$.ajax({
+		url: "addCartProduct",
+		method: "post",
+		data: {stock:stock},
+		success: function(data) {}
+	});
+}
+//바로구매
+function buy() {
+	var stock = $(".product-quantity-input").val();
+	$.ajax({
+		url: "addCartProduct",
+		method: "post",
+		data: {stock:stock},
+		success: function(data) {}
+	});
+}
 
 /* 고재승
 - AJAX기반 데이터 출력 기능 구현

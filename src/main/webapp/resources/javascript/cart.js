@@ -282,26 +282,28 @@ function checkBuyProduct() {
 	var cboxsChecked = $(".cbox:checked");
 	var cboxCouponsChecked = $(".cboxCoupon:checked");
 	
+	
 	if(cboxsChecked.length == 0) {
 		if(confirm("결제하실 상품을 선택해주세요.")) {
-			var pidsChecked = [];
-			var cidsChecked = [];
-			
-			cboxsChecked.each((index, item) => {
-				pidsChecked.push($(item).val());
-			});
-			cboxCouponsChecked.each((index, item) => {
-				cidsChecked.push($(item).val());
-			});
-			
-			$.ajax({
-				url: "buy",
-				method: "post",
-				traditional: true,
-				data: {pidsChecked:pidsChecked, cidsChecked:cidsChecked},
-				success: function(data) {}
-			});
 		}
+	} else {
+		var pidsChecked = [];
+		var cidsChecked = [];
+		
+		cboxsChecked.each((index, item) => {
+			pidsChecked.push($(item).val());
+		});
+		cboxCouponsChecked.each((index, item) => {
+			cidsChecked.push($(item).val());
+		});
+		
+		$.ajax({
+			url: "buyFromCart",
+			method: "post",
+			traditional: true,
+			data: {pidsChecked:pidsChecked, cidsChecked:cidsChecked},
+			success: function(data) {}
+		});
 	}
 	
 }
