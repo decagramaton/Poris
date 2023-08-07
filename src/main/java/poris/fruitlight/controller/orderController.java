@@ -15,12 +15,14 @@ import poris.fruitlight.util.AlertScript;
 
 @Slf4j
 @Controller
-@RequestMapping("/detailView")
-public class detailViewController {
+@RequestMapping("/order")
+public class orderController {
 	
 	@RequestMapping("/")
 	public String DetailViewPage() {
-		return "detailView";
+		return "order";
 	}
+	
+	
 	
 }
