@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=2.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="//image9.coupangcdn.com/image/coupang/favicon/v2/favicon.ico" type="image/x-icon" />
     <title>쿠팡 주문/결제 페이지</title>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
@@ -24,10 +24,10 @@
     </header>
 
     <section id="body">
-      <div class="middle">
-         <div class="orderTitle">
-            <h3 class="title">주문/결제</h3>
-            <span class="steps">장바구니 ><em> 주문결제 ></em> 주문완료</span>
+      <div class="middle container">
+         <div class="orderTitle row">
+            <h3 class="title col">주문/결제</h3>
+            <span class="steps col">장바구니 ><em> 주문결제 ></em> 주문완료</span>
          </div>
 
          <div data-component="customerInfo">
@@ -79,7 +79,7 @@
                <div class="table-frame" style="border-top:0;">
                   <div>
                      <div class="table-row">
-                        <div class="table-colume"><span class="delivery-request-message">배송 요청사항</span></div>
+                        <div class="table-colume">배송 요청사항</div>
                         <div class="table_content">
                            <span>문 앞</span>
                            <button class="delivery-request-popup-button" type="button">변경</button>
@@ -92,23 +92,17 @@
 
          <div>
             <div style="margin-top: 8px;">
-               <div class="bundle-info-title">배송 1건 중 1</div>
+               <div class="bundle-info-title">배송 목록</div>
                <div class="bundle-info-box">
-                  <div class="delivery-date">
-                     <span class="delivery-date-info">내일(목) 7/6 도착 보장</span>
-                  </div>
                   <div class="bundle-info-item-list">
-                  <c:forEach var=" " items="">
+                  <c:forEach var="item" items="${deliveryInfo}">
                   	<div class="bundle-info-item-box">
                   		<div class="bundle-info-item">
-                  			<p>'+ item.name +'</p>
+                  			<p>${item.name}</p>
                   		</div>
-                  		<div class="bundle-info-delivery-service">
-                  			<img src="'+ item.deliveryImageSrc +'">
-                  		</div>
-                  		<div class="bundle-info-item-descript">수량 '+ item.count + '개 /' + item.deliveryPrice +'</div>
+                  		<div class="bundle-info-item-descript">수량 ${item.stock}개 / ${item.productPrice}원 </div>
                   	</div>
-                  </c:forEach>          
+                  </c:forEach>        
                   </div>
                </div>
             </div>
@@ -136,13 +130,6 @@
                      </div>
                   </div>
                   <div class="table-row">
-                     <div class="table-colume">쿠팡캐시</div>
-                     <div class="table_content">
-                        <div id="coupang_cash" style="display: inline-block; width: 100px;">0원</div>
-                        <div id="my_coupnag_cash" style="display: inline-block;">보유 : <span>0원</span></div>
-                     </div>
-                  </div>
-                  <div class="table-row">
                      <div class="table-colume">총결제금액</div>
                      <div id="total_payment_price" class="table_content">21,710원</div>
                   </div>
@@ -160,15 +147,7 @@
                                       <label class="type-selector-label type-selector-label--bank" for="payTypeBank" style="font-weight: bold;">
                                           <span class="type-selector-label__text">계좌이체</span>
                                       </label>
-                                  </li>
-                                  <li id="rocketPayBalanceBox" class="type-selector-li">
-                                      <input class="type-selector-radio" type="radio" name="payType" id="payTypeBalance" value="ROCKET_BALANCE">
-                                      <label class="type-selector-label type-selector-label--balance" for="payTypeBalance" style="font-weight: normal;">
-                                          <span class="type-selector-label__text">쿠페이 머니</span>
-                                          <img class="rpay-badge rpay-icon-2percent" src="//image7.coupangcdn.com/image/rocketpay/order/icon_max_cashback_v2.png" width="66" height="14" alt="최대 캐시적립">
-                                      </label>
-                                  </li>
-                      
+                                  </li>              
                                   
                                  <li id="rocketPayCardBox" class="type-selector-li">
                                     <input class="type-selector-radio" type="radio" name="payType" id="payTypeCard" value="ROCKET_CARD">
@@ -178,24 +157,12 @@
                                     </label>
                                  </li>
                               
-                              
-                                 <li id="cardPayBox" class="type-selector-li">
-                                    <input class="type-selector-radio" type="radio" name="payType" id="payTypeCompanyCard" value="CARD">
-                                    <label class="type-selector-label" for="payTypeCompanyCard" style="font-weight: normal;">
-                                          <span class="type-selector-label__text">법인카드</span>
-                                    </label>
-                                 </li>
-                              
-                              
-                                 
                                  <li id="phonePayBox" class="type-selector-li">
                                        <input class="type-selector-radio" type="radio" name="payType" id="payTypePhone" value="PHONE">
                                        <label class="type-selector-label" for="payTypePhone" style="font-weight: normal;">
                                           <span class="type-selector-label__text">휴대폰</span>
                                        </label>
                                  </li>
-                                 
-                              
                               
                                  <li id="virtualAccountPayBox" class="type-selector-li">
                                     <input class="type-selector-radio" type="radio" name="payType" id="payTypeAccount" value="VIRTUALACCOUNT">
@@ -300,45 +267,6 @@
                                        <div class="line-data">
                                           <select name="quota" id="rocketCard-quota-select" class="rocketpay-card__quotaList" disabled="disabled"><option value="00" selected="">일시불</option></select>
                                           <span id="rocketCard-installment-notice" class="note-install">* 할부는 50,000원 이상만 가능합니다</span>
-                                       </div>
-                                    </li>
-                                 </ul>
-                              </div>
-                           </div>
-
-                           <!-- 법인카드 결제 -->
-                           <div class="cardPayBox pay-box-content">
-                              <h3 class="title">신용카드</h3>
-                              <div class="card-payment pay-type-content">
-                                 <ul class="pay-type-sections">
-                                    <li class="pay-type-section">
-                                       <label for="cardTypeSelect" class="line-title">카드선택</label>
-                                       <div class="line-data">
-                                          <select name="cardCode" id="cardTypeSelect" class="corporate-card__cardList">
-                                             <option value="">선택</option>
-                                             <option value="KB">KB국민카드</option>
-                                             <option value="LOTTE">롯데카드</option>
-                                             <option value="SHINHAN">신한카드</option>
-                                             <option value="HANA_SK">하나카드</option>
-                                             <option value="BC">BC카드</option>
-                                             <option value="SAMSUNG">삼성카드</option>
-                                             <option value="HYUNDAI">현대카드</option>
-                                             <option value="WOORI">우리카드</option>
-                                             <option value="NH">NH농협카드</option>
-                                             <option value="CITY">씨티카드</option>
-                                             <option value="KakaoBank">카카오뱅크카드</option>
-                                             <option value="TOSSBANK">토스뱅크카드</option>
-                                             <option value="ETC">기타(은행/증권)카드</option>
-                                          </select>
-                                       </div>
-                                    </li>
-                                    <li class="pay-type-section last-section">
-                                       <label for="quotaSelect" class="line-title">할부기간</label>
-                                       <div class="line-data">
-                                          <select name="quota" id="quotaSelect" class="quotaSelect corporate-card__quotaList" disabled="">
-                                             <option value="00" selected="">일시불</option>
-                                          </select>
-                                          <span class="note-install">법인카드는 일시불 결제만 가능합니다</span>
                                        </div>
                                     </li>
                                  </ul>
@@ -467,10 +395,7 @@
                위 주문 내용을 확인 하였으며, 회원 본인은 개인정보 이용 및 제공(해외직구의 경우 국외제공) 및 결제에 동의합니다.
             </div>
             <div class="agreeBtn hasRocketPayCheckoutButton" id="btn_all">
-               <button type="button" id="paymentRocketpayBtn" style="display: inline-block;">
-                  <img class="paymentRocketpayBtn__tooltip-2percent-cashback" src="//image10.coupangcdn.com/image/rocketpay/checkout/ico_cashback_tip.png" width="96" height="36" alt="최대 캐시적립">
-                  <img src="//image7.coupangcdn.com/image/rocketpay/checkout/btn_coupay_payment.png" width="250" height="60" alt="쿠페이 머니 결제">
-               </button>
+               <button type="button" id="paymentRocketpayBtn" style="display: inline-block; width="250" height="60"">쿠페이 머니 결제</button>
                <button type="button" id="paymentBtn">
                   <img src="//image7.coupangcdn.com/image/rocketpay-order-image/pc/btn_payment.gif" width="260" height="60" alt="결제하기">
                </button>

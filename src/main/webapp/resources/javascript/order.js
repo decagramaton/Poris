@@ -1,12 +1,6 @@
 window.onload = init;
 
 function init() {
-    // 구매자 정보 초기화
-    customerInfoInit();
-
-    // 배송 정보 초기화
-    deliveryInfoInit();
-
     // 결제 정보 초기화
     paymentInfoInit();
 
