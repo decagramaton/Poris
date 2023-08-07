@@ -269,7 +269,7 @@
                   	 <div class="product-option-btn-container">
                   	 	<select class="product-select">
                   	 		<option class="1">1.2kg x 1팩</option>
-                  	 		<option class="2">400g x 1팩</option>
+                  	 		<option class="2" selected="selected">400g x 1팩</option>
                   	 		<option class="3">800g x 1팩</option>
                   	 	</select>
                   	 	<div class="product-option-btn">

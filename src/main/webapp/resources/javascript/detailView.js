@@ -144,7 +144,7 @@ function addCart() {
 function buy() {
 	var stock = $(".product-quantity-input").val();
 	$.ajax({
-		url: "addCartProduct",
+		url: "buyDirect",
 		method: "post",
 		data: {stock:stock},
 		success: function(data) {}

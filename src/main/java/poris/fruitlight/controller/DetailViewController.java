@@ -21,8 +21,7 @@ public class DetailViewController {
 	
 	//장바구니 담기
 	@RequestMapping("/addCartProduct")
-	public String addCartProduct(HttpServletRequest request) {
-		String stock = (String) request.getAttribute("stock");
+	public String addCartProduct(String stock) {
 		log.info(stock);
 		return "redirect:/detailView";
 	}
