@@ -14,10 +14,21 @@
 window.onload = init;
 
 function init() {
+	validationEmptyUserID = false;
+	validationPattenUserID = false;
+	validationEmptyUserPW = false;
+	validationPattenUserPW = false;
+	validationEmptyAgainUserPW = false;
+	validationEmptyUserName = false;
+	validationEmptyUserTel = false;
+	validationAcceptAgreement = false;
+	
     $("#user_id").click(checkEmptyUserID);
+    $("#user_pw").mouseout(checkEmptyUserID);
     $("#user_id").keyup(checkPattenUserID);
 
     $("#user_pw").click(checkEmptyPassword);
+    $("#user_pw").mouseout(checkEmptyPassword);
     $("#user_pw").keyup(checkPattenPassword);
     
     $("#user_pw_check").click(checkEmptyAgainPassword);
@@ -28,6 +39,8 @@ function init() {
     
     $("#user_tel").click(checkEmptyPhone);
     $("#user_tel").keyup(checkEmptyPhone);
+    
+    $("#join_btn").click(checkValidation);
 }
 
 function checkAcceptAgreement() {
@@ -39,8 +52,10 @@ function checkEmptyUserID () {
     if($("#user_id").val() === ""){
         $("#uidNotInputErr").css("display","block");
         $("#uidNotAvailableErr").css("display","none");
+        validationEmptyUserID = false;
     } else {
         $("#uidNotInputErr").css("display","none");
+        validationEmptyUserID = true;
     }
 }
 function checkPattenUserID () {
@@ -48,8 +63,10 @@ function checkPattenUserID () {
     if(!email_pattern.test($('#user_id').val())){
         $("#uidNotInputErr").css('display','none');
         $("#uidNotAvailableErr").css("display","block");
+        validationPattenUserID = false;
     } else {
         $("#uidNotAvailableErr").css("display","none");
+        validationPattenUserID = true;
     }
 }
 
@@ -59,6 +76,9 @@ function checkEmptyPassword () {
         $("#user_pw_letter_combination").css("display","block");
         $("#user_pw_character_pattern").css("display","block");
         $("#user_pw_duplicate_pattern").css("display","block");
+        validationEmptyUserPW = false;
+    } else {
+    	validationEmptyUserPW = true;
     }
 }
 function checkPattenPassword () {
@@ -106,12 +126,13 @@ function checkPattenPassword () {
         $("#user_pw_duplicate_pattern").css("display","none");
         $("#user_pw_success").css("display","block");
         $("#user_pw_success").css("color","green");
-
+        validationPattenUserPW = true;
     } else {
         $("#user_pw_letter_combination").css("display","block");
         $("#user_pw_character_pattern").css("display","block");
         $("#user_pw_duplicate_pattern").css("display","block");
         $("#user_pw_success").css("display","none");
+        validationPattenUserPW = false;
     }
 }
 
@@ -121,9 +142,11 @@ function checkEmptyAgainPassword () {
         $("#pw_match").css("display","block");
         $("#pw_match").css("color","green");
         $("#pw_no_match").css("display","none");
+        validationEmptyAgainUserPW = true;
     } else {
         $("#pw_match").css("display","none");
         $("#pw_no_match").css("display","block");
+        validationEmptyAgainUserPW = false;
     }
 }
 
@@ -131,8 +154,10 @@ function checkEmptyAgainPassword () {
 function checkEmptyUserName () { 
     if($("#user_name").val() === "") {
         $("#uname_no_match").css("display","block");
+        validationEmptyUserName = false;
     } else {
         $("#uname_no_match").css("display","none");
+        validationEmptyUserName = true;
     }
 }
 
@@ -141,20 +166,36 @@ function checkEmptyPhone () {
     let tel_partten = /^(010)-[0-9]{4}-[0-9]{4}$/;
     if($("#user_tel").val() === "" || !tel_partten.test($(user_tel).val())) {
         $("#phone_no_match").css("display","block");
+        validationEmptyUserTel = false;
     } else {
         $("#phone_no_match").css("display","none");
+        validationEmptyUserTel = true;
     }
 }
 
 
 
 function checkValidation() {
-
     // 모든 에러 메시지를 보여주지 않도록 초기화
 	$(".errorMsg").each((index,el) => {$(el).css("display","none")});
+	
+	if($("#acceptAgreement").is(":checked")){
+		validationAcceptAgreement = true;
+	} else {
+		validationAcceptAgreement = false;
+	}
 
+	console.log("validationEmptyUserID :" + validationEmptyUserID);
+	console.log("validationPattenUserID  :" + validationPattenUserID );
+	console.log("validationEmptyUserPW  :" + validationEmptyUserPW );
+	console.log("validationPattenUserPW  :" + validationPattenUserPW );
+	console.log("validationEmptyAgainUserPW  :" + validationEmptyAgainUserPW );
+	console.log("validationEmptyUserName  :" + validationEmptyUserName );
+	console.log("validationEmptyUserTel  :" + validationEmptyUserTel );
+	console.log("validationAcceptAgreement  :" + validationAcceptAgreement );
     // 유효성 검사에서 실패시 form의 제출기능 비활성화
-	if(isSuccess == false) {
+	if(validationEmptyUserID && validationPattenUserID && validationEmptyUserPW && validationPattenUserPW && validationEmptyAgainUserPW && validationEmptyUserName && validationEmptyUserTel && validationAcceptAgreement) {
+	} else {
 		event.preventDefault();
 	}
 }

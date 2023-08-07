@@ -32,7 +32,7 @@
 			                <ul>
 			                    <li>
 			                        <span class="id_bg"><!-- 배경이미지(이메일) --></span>
-			                        <span style="width:100%"><input type="text" name="userId" id="user_id" placeholder="아이디(이메일)"></span>
+			                        <span style="width:100%"><input type="email" name="userId" id="user_id" placeholder="아이디(이메일)"></span>
 			                    </li>
 			                    <span id="uidNotInputErr" class="errorMsg">이메일을 입력하세요.</span>
 			                    <span id="uidNotAvailableErr" class="errorMsg">이메일을 올바르게 입력해주세요.</span>

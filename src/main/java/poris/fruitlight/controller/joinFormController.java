@@ -25,7 +25,7 @@ public class joinFormController {
 		return "joinForm";
 	}
 	
-	@PostMapping("/askJoinForm")
+	@PostMapping("/joinForm/askJoinForm")
 	public void askJoinForm(JoinParam joinParam, HttpServletResponse response) throws IOException {
 		// Step1. 회원가입 입력 데이터 확인 (유효성 검사)
 		log.info(joinParam.toString());
