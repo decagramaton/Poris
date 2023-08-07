@@ -25,7 +25,7 @@
 	    <div class="row" style="float: none;">
 	    	<div class="col">
 			    <section>
-			        <form action="joinForm/askJoinForm" method="post" id="joinform">
+			        <form action="joinForm/askJoinForm" method="post" id="joinform" accept-charset="UTF-8">
 			            <div class="form_title">회원정보를 입력해주세요</div>
 			            <fieldset>
 			                <legend class="skip">회원가입 양식</legend>
