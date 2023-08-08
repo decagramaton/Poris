@@ -69,8 +69,9 @@ function chooseOption() {
 		var optionPrice = parseInt($(event.target).children(":last-child").html().replace(/[^0-9]/g, ""));
 		
 		var addOptionHtml = $(".product-option-tableBody").html();
-			addOptionHtml += '<tr class="product-option-tableRow ' + pid + '">';
+			addOptionHtml += '<tr class="product-option-tableRow">';
 			addOptionHtml += '	<td class="product-option-table-name">';
+			addOptionHtml += '		<input type="hidden" class="product-option-pid" id="' + pid + '" value="' + pid + '"/>';
 			addOptionHtml += '   	' + optionName;
 			addOptionHtml += '	</td>';
 			addOptionHtml += '	<td class="product-option-table-quantity">';
@@ -93,7 +94,7 @@ function chooseOption() {
 			addOptionHtml += '	</td>';
 			addOptionHtml += '</tr>';
 		
-		if($(".product-option-tableBody").children("." + pid).length == 0) {
+		if($(".product-option-tableBody").children("#" + pid).length == 0) {
 			$(".product-option-tableBody").html(addOptionHtml);
 			
 			//상품옵션수량 변경 동작
@@ -180,23 +181,60 @@ function deleteOption() {
 
 //장바구니 담기
 function addCart() {
-	var pid = $(".product-id").val();
-	var stock = $(".product-quantity-input").val();
-	var option = $(".product-select").val();
-	$.ajax({
-		url: "addCartProduct",
-		method: "post",
-		data: {
-			pid:pid,
-			stock:stock,
-			option:option
-		},
-		success: function(data) {}
-	});
+	var selectedItems = $(".product-option-tableRow");
+	if(selectedItems.length == 0) {
+		alert("옵션을 선택해주세요.");
+	} else {
+		var selectedItemsPids = $(".product-option-pid");
+		var selectedItemsStocks = $(".product-quantity-input");
+		var pids = [];
+		var stocks = [];
+		selectedItemsPids.each((index, item) => {
+			pids.push($(item).val());
+		});
+		selectedItemsStocks.each((index, item) => {
+			stocks.push($(item).val());
+		});
+		$.ajax({
+			url: "addCartProduct",
+			method: "post",
+			traditional: true,
+			data: {
+				pids:pids,
+				stocks:stocks
+			},
+			success: function(data) {}
+		});
+	}
 }
 //바로구매
 function buy() {
-	var pid = $(".product-id").val();
+	var selectedItems = $(".product-option-tableRow");
+	if(selectedItems.length == 0) {
+		alert("옵션을 선택해주세요.");
+	} else {
+		var selectedItemsPids = $(".product-option-pid");
+		var selectedItemsStocks = $(".product-quantity-input");
+		var pids = [];
+		var stocks = [];
+		selectedItemsPids.each((index, item) => {
+			pids.push($(item).val());
+		});
+		selectedItemsStocks.each((index, item) => {
+			stocks.push($(item).val());
+		});
+		$.ajax({
+			url: "buyDirect",
+			method: "post",
+			traditional: true,
+			data: {
+				pids:pids,
+				stocks:stocks
+			},
+			success: function(data) {}
+		});
+	}
+	/*var pid = $(".product-id").val();
 	var stock = $(".product-quantity-input").val();
 	var option = $(".product-select").val();
 	$.ajax({
@@ -208,7 +246,7 @@ function buy() {
 			option:option
 		},
 		success: function(data) {}
-	});
+	});*/
 }
 
 /* 고재승
