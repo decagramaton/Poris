@@ -32,7 +32,6 @@ public class addressBookController {
 	
 	@GetMapping("/addressBook/changeAddressBook")
 	public String changeAddressBook(AddressBookParam changeAddressBook) {
-		log.info("실행");
 		boolean result = addrBookService.changeAddressBook(changeAddressBook);
 		
 		// if(result) {
