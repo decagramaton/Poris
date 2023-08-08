@@ -15,6 +15,7 @@
 		<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+		<script src="${pageContext.request.contextPath}/resources/javascript/header.js"></script>
 		<script src="${pageContext.request.contextPath}/resources/javascript/mypageChangeInfo.js"></script>
 	</head>
 <%@ include file="/WEB-INF/views/header.jsp" %>
@@ -55,12 +56,12 @@
 								<th scope="row">아이디</th>
 								<td>
 									<div class="infoForm id">
-										<span>sfasffsa@poris.com</span>
+										<span id="user_id">${mypageChangeInfo[0].userId}</span>
 										<button id="emailChange" class="d-inline-block" onclick="openEmailChange()">이메일 변경하기</button>
 										<button id="emailCancel" class="d-none" onclick="openEmailChangeCancel()">이메일 변경취소</button>
 										<form id="changeIdForm"class="d-none changeForm">
 											<input type="text" value="">
-											<button type="submit">인증메일 보내기</button>
+											<button type="submit" >변경하기</button>
 										</form>
 									</div>
 								</td>
@@ -68,7 +69,7 @@
 							<tr>
 								<th scope="row">이름</th>
 								<td class="infoForm name"> 
-									<span> 김진성 </span>
+									<span>${mypageChangeInfo[0].userName}</span>
 								</td>
 							</tr>
 							<tr>
@@ -91,18 +92,33 @@
 									<div class="pwForm">
 										<form>
 											<div>
+												<input id="user_original_pw" type="hidden" value="${mypageChangeInfo[0].userPassword}"/>
 												<span style="padding-right: 30px;">현재 비밀번호</span>
-												<input type="password" value="">
+												<input id="user_current_pw" type="password" value=""/>
+											</div>
+											<div>
+												<span id="user_pw_original_check" class="errorMsg">현재 비밀번호가 일치하지 않습니다.</span>
+												<span id="user_pw_original_success" class="errorMsg">비밀번호가 일치합니다.</span>
 											</div>
 											<div>
 												<span style="padding-right: 46px;">새 비밀번호</span>
-												<input type="password" value=""><br>
+												<input id="user_pw" type="password" value=""><br>
+											</div>
+											<div>
+												<span id="user_pw_letter_combination" class="errorMsg">영문/숫자/특수문자 2가지 이상 조합 (8~20자)</span>
+							                    <span id="user_pw_character_pattern" class="errorMsg">3개 이상 연속되거나 동일한 문자/숫자 제외</span>
+							                    <span id="user_pw_duplicate_pattern" class="errorMsg">아이디(이메일) 제외</span>
+							                    <span id="user_pw_success" class="errorMsg">사용가능한 비밀번호입니다</span>
 											</div>
 											<div>
 												<span style="padding-right: 14px;">비밀번호 재입력</span>
-												<input type="password" value=""><br>
+												<input id="user_pw_check" type="password" value=""><br>
 											</div>
-											<button type="submit">비밀번호 변경</button>
+											<div>
+												<span id="pw_no_match" class="errorMsg">새 비밀번호가 일치하지 않습니다.</span>
+			                    				<span id="pw_match" class="errorMsg">새 비밀번호가 일치합니다.</span>
+											</div>
+											<button id="btn-pwd" type="submit">비밀번호 변경</button>
 										</form>
 									</div>
 								</td>
@@ -111,20 +127,8 @@
 								<th scope="row">배송지</th>
 								<td>
 									<div class="infoForm DeliverAddress">
-										<span>서울특별시 종로구 창경궁로 254</span>
-										<button id="daChange" class="d-inline-block" onclick="openDAChange()">배송지 변경하기</button>
-										<button id="daCancel" class="d-none" onclick="openDAChangeCancel()">배송지 변경취소</button>
-										<form id="changeDAForm" class="d-none changeForm">
-											<div>
-												<span style="padding-right: 50px;">주소</span>
-												<input type="text" value="" style="width:500px;">
-											</div>
-											<div>
-												<span style="padding-right: 14px;">상세 주소</span>
-												<input type="text" value="" style="width:400px;">
-											</div>
-											<button type="submit">변경하기</button>
-										</form>
+										<span>배송지 변경은 [배송지 선택/변경] 페이지로 이동합니다.</span>
+										<button id="daChange" class="d-inline-block" onclick="deliveryAddressBtn()">배송지 변경</button>
 									</div>	
 								</td>
 							</tr>

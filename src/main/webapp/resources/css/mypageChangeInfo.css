@@ -100,3 +100,15 @@ dl, dt, dd, ul, ol, menu, li {
 .pwForm > form > div {
 	margin : 10px;
 }
+
+.errorMsg {
+    margin: 0px 12px 9px;
+    padding: 0;
+    font-family: dotum,sans-serif;
+    font-size: 11px;
+    line-height: 18px;
+    cursor: default;
+    display: none;
+    color: #e7223d;
+    border: 0;
+}

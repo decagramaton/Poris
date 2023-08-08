@@ -3,7 +3,7 @@
 		<div class="container">
 			<div id="header" class="header d-block">
 				<div id="headerLogo" class="headerLogo">
-					<a href="">
+					<a href="main">
 						<img src="${pageContext.request.contextPath}/resources/images/fruitlight_logo.png" width="200" height="100"/>				
 					</a>
 				</div>

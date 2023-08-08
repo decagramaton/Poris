@@ -19,5 +19,9 @@ public class MainPageController {
 	public String main() {
 		return "main";
 	}
-
+	
+	@RequestMapping("main")
+	public String mainPage() {
+		return "main";
+	}
 }
