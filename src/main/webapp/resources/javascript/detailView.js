@@ -11,6 +11,7 @@ function init() {
 	$(".product-wish-btn").click(changeWish);
 	//옵션 선택 동작
 	$(".product-option-btn").click(openOption);
+	$(".product-option-list-item").click(getOption);
 	//상품수량 변경 동작
 	$(".product-quantity-plus-btn").click(changeQuantityPlus);
 	$(".product-quantity-minus-btn").click(changeQuantityMinus);
@@ -68,6 +69,15 @@ function openOption() {
 	$(event.target).toggleClass("clicked");
 	$(".product-options-list").toggleClass("closed");
 }
+function getOption() {
+	var oid = $(event.target).attr("id");
+	$(".product-select").children("#" + oid).prop("selected", true);
+	$(".product-select").children("#" + oid).attr("selected", true);
+	
+	$(".product-option-title").children("strong").html($(event.target).html());
+	$(".product-options-list").toggleClass("closed");
+}
+
 //상품수량 변경 동작
 function changeQuantityPlus() {
 	//현재 수량
@@ -132,21 +142,33 @@ function changePrice(quantityCurrent) {
 
 //장바구니 담기
 function addCart() {
+	var pid = $(".product-id").val();
 	var stock = $(".product-quantity-input").val();
+	var option = $(".product-select").val();
 	$.ajax({
 		url: "addCartProduct",
 		method: "post",
-		data: {stock:stock},
+		data: {
+			pid:pid,
+			stock:stock,
+			option:option
+		},
 		success: function(data) {}
 	});
 }
 //바로구매
 function buy() {
+	var pid = $(".product-id").val();
 	var stock = $(".product-quantity-input").val();
+	var option = $(".product-select").val();
 	$.ajax({
 		url: "buyDirect",
 		method: "post",
-		data: {stock:stock},
+		data: {
+			pid:pid,
+			stock:stock,
+			option:option
+		},
 		success: function(data) {}
 	});
 }

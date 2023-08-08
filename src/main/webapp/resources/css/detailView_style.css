@@ -314,30 +314,47 @@ header {
 .product-quantity-buy {
 	margin-top: 16px;
 	height: 44px;
+	text-align: center;
 }
 
+
+/* 상품옵션 테이블 */
+.product-option-table {
+	width: 100%;
+}
+.product-option-table tr {
+	text-align: right;
+	height: 45px;
+	border: 1px solid #ddd;
+}
+.product-option-table td:first-child {
+	text-align: left;
+	padding: 5px;
+	font-size: 13px;
+}
+/* 상품 수량 */
 .product-quantity-container {
 	display: inline;
-	float: left;
+	/* float: left; */
 }
 .product-quantity {
-	width: 80px;
-    height: 40px;
+	/* width: 80px; */
+    height: 20px;
 	border: 1px solid #ccc;
 	display: table;
 	width: auto;
 }
 .product-quantity-input {
     border: 0;
-    width: 60px;
-    height: 40px;
+    /* width: 60px;
+    height: 40px; */
     text-align: center;
-    font-size: 16px;
-    font-weight: bold;
+    /* font-size: 16px;
+    font-weight: bold; */
     color: #111;
     border-right: 1px solid #eee;
-    box-sizing: border-box;
-    padding: 11px 0 9px 0;
+    /* box-sizing: border-box; */
+    padding: 5px 0;
 	vertical-align: top;
 }
 .product-quantity-input::-webkit-inner-spin-button,
@@ -345,16 +362,16 @@ header {
 	display: none;
 }
 .product-quantity-btns {
-	width: 20px;
-	height: 40px;
+	/* width: 20px;
+	height: 40px; */
 	display: table-cell;
 	vertical-align: top;
 }
 .product-quantity-plus-btn {
 	border: none;
 	background-color: transparent;
-	width: 20px;
-	height: 20px;
+	width: 13px;
+	height: 13px;
 	display: block;
 	position: relative;
 	cursor: pointer;
@@ -363,8 +380,8 @@ header {
 .product-quantity-minus-btn {
 	border: none;
 	background-color: transparent;
-	width: 20px;
-	height: 20px;
+	width: 13px;
+	height: 13px;
 	display: block;
 	position: relative;
 	cursor: pointer;
@@ -392,8 +409,8 @@ header {
     left: 50%;
 }
 .product-buy-footer {
-	display: inline;
-	float: right;
+	display: inline-block;
+	/* float: right; */
 }
 .product-cart-btn {
 	display: block;
@@ -424,6 +441,22 @@ header {
     cursor: pointer;
     float: left;
 }
+.productDelete {
+	display: inline-block;
+	border: none;
+	width: 18px;
+	height: 18px;
+	background-image: url(//img1a.coupangcdn.com/image/cart/generalCart/cart_sprite_170201.png);
+	background-position: -114px 0; 
+	background-repeat: no-repeat;
+	vertical-align: text-top;
+	cursor: pointer;
+}
+
+
+
+
+
 
 
 

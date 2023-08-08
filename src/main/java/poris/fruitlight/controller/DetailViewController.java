@@ -14,22 +14,22 @@ import lombok.extern.slf4j.Slf4j;
 public class DetailViewController {
 	
 	@GetMapping("/")
-	public String detailView(String pid, HttpServletRequest request) {
-		request.setAttribute("pid", pid);
+	public String detailView(String pid) {
 		return "detailView";
 	}
 	
 	//장바구니 담기
 	@RequestMapping("/addCartProduct")
-	public String addCartProduct(String stock) {
+	public String addCartProduct(String pid, String stock, String option) {
+		log.info(pid);
 		log.info(stock);
+		log.info(option);
 		return "redirect:/detailView";
 	}
 
 	//바로구매
 	@RequestMapping("/buyDirect")
-	public String buyDirect(HttpServletRequest request) {
-		request.getAttribute("stock");
+	public String buyDirect(String pid, String stock, String option) {
 		return "redirect:/order";
 	}
 }
