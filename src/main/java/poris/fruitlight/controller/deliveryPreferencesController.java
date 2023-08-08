@@ -1,14 +1,11 @@
 package poris.fruitlight.controller;
 
-import java.io.UnsupportedEncodingException;
-
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import lombok.extern.slf4j.Slf4j;
+import poris.fruitlight.dto.deliveryPreferencesParam;
 
 @Slf4j
 @Controller
@@ -22,11 +19,12 @@ public class deliveryPreferencesController {
 	
 	
 	@PostMapping("/deliveryPreferences/agreeSelect")
-	public String agreeSelect(String required_label, String optional_check_checkbox, String required_message) {
-
-		log.info("required_label : " + required_label);
-		log.info("required_message : " + required_message);
-		log.info("optional_check_checkbox : " + optional_check_checkbox);
+	public String agreeSelect(deliveryPreferencesParam deliPreParam) {
+		
+		log.info("RequiredCheckType : " + deliPreParam.getRequiredCheckType());
+		log.info("RequiredMessage : " + deliPreParam.getRequiredMessage());
+		log.info("PasswordCheckType : " + deliPreParam.getPasswordCheckType());
+		log.info("PasswordMessage : " + deliPreParam.getPasswordMessage());
 		
 		return "windowsColse";
 	}

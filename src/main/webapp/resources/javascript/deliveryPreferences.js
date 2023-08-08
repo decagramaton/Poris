@@ -12,7 +12,6 @@ function init() {
     $("#_AA01_KEEP_LOBBY").on('change', lockerClickEvent);
     $("#_AA01_KEEP_IN_LOCKER").on('change', lockerClickEvent);
     $("#_AA01_OTHER_PLACE").on('change', lockerClickEvent);
-    $("#submitButton").click(windowQuit());
 }
 
 function lockerClickEvent() {
@@ -28,8 +27,4 @@ function lockerClickEvent() {
     } else {
         $("#other_place_detail_form").css("display", "none");
     }
-}
-
-function windowQuit() {
-	window.close();
 }
