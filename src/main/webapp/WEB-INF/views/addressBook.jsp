@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -19,7 +19,44 @@
             <h1 class="content-head-title">배송지 선택</h1>
         </header>
         <section class="content-body">
-            <div class="content-body-corset"></div>
+            <div class="content-body-corset">
+            	<c:forEach var="item" items="${addrBookList}">
+	            	<div class="address-card">
+	            		<div class="address-card__head">
+							<div class="address-card__title">${item.recipientName}</div>
+						</div>
+						<div class="address-card__body">
+							<div class="address-card__text address-card__text--address">${item.streetAddress}</div>
+							<div class="address-card__text address-card__text--cellphone">${item.recipientTel}</div>
+							<div class="address-card__text address-card__text--delivery-preference">${item.recipientSummary}</div>
+						</div>
+						<div class="address-card__foot">
+						   <from action="#" method="post" class="address-card__form--pick">
+ 						       <input name="recipientName" value="${item.recipientName}" type="hidden">
+						       <input name="streetAddress" value="${item.streetAddress}" type="hidden">
+						       <input name="recipientTel" value="${item.recipientTel}" type="hidden">
+						       <input name="recipientSummary" value="${item.recipientSummary}" type="hidden">
+						       <button class="addressBookFormSubmit" type="submit">
+						           <span class="addressbook__text">선택</span>
+						       </button>
+						   </from>
+						   <from action="#" method="get">
+						       <button class="address-card__button--edit" type="submit">
+						           <span class="addressbook__text">수정</span>
+						       </button>
+						   </from>
+						</div>
+					</div>
+            	</c:forEach>
+				<form class="addressBookNewForm" method="get" action="#">
+				   <div class="addressbook__button-fixer">
+				       <button type="submit" class="addressbook-new-button">
+				           <i class="addressbook__icon--plus"></i>
+				           <span class="addressbook__text ">배송지 추가</span>
+				       </button>
+				   </div>
+				</form>
+            </div>
         </section>
     </div>
 
