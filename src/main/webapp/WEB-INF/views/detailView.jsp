@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 
@@ -227,7 +227,7 @@
                   <!-- 상품 이름 -->
                   <div class="product-buy-header">
                      <div class="product-buy-header_left">
-                        <h2>과일엔 미국산 생체리</h2>
+                        <h2>${product.name}</h2>
                         <div class="prod-buy-header__info">
                            <span class="prod-buy-header__productreview" style="display:block;">
                               <a href="#product_review-form">
@@ -254,7 +254,7 @@
                         </div>
                         <!-- 총가격 -->
                         <div class="product-total-price">
-                           <span class="total-price">6,900원</span>
+                           <span class="total-price">${product.price}</span>
                            <span class="unit-price">(100g당 <span>1,725원</span>)</span>
                         </div>
                      </div>
@@ -262,7 +262,12 @@
                   <!-- 상품 배송비 -->
                   <div class="product-shipping-container">
                      <div class="product-shipping-fee">
-                        <span>무료배송</span>
+                     	<c:if test="${product.shippingPrice == 0}">
+	                        <span>무료배송</span>
+                     	</c:if>
+                     	<c:if test="${product.shippingPrice != 0}">
+	                        <span>${product.shippingPrice}</span>
+                     	</c:if>
                      </div>
                   </div>
                   <!-- 상품 옵션 -->
@@ -280,23 +285,35 @@
                            <span class="product-option-ico"></span>
                      	</div>
                   	 </div>
-                     <ul class="product-options-list closed">
-                     	<li class="product-option-list-item">
-	                      <div class="product-option-list-title" id="1">
-	                      	<span>400g x 1팩</span><span hidden> 6900</span>
-	                      </div>
-	                  	</li>
-	                  	<li class="product-option-list-item">
-	                      <div class="product-option-list-title" id="2">
-	                      	<span>800g x 1팩</span><span> : 20,000원</span>
-	                      </div>
-	                  	</li>
-	                  	<li class="product-option-list-item">
-	                      <div class="product-option-list-title" id="3">
-	                      	<span>1.2kg x 1팩</span><span> : 30,000원</span>
-	                      </div>
-	                  	</li>
-	                  </ul>
+	                     <ul class="product-options-list closed">
+                  	 		<c:forEach var="optionProduct" items="${optionList}">
+		                     	<li class="product-option-list-item">
+			                      <div class="product-option-list-title" id="${optionProduct.pid}">
+			                      	<c:if test="${optionProduct.option == product.option}">
+			                      		<span>${optionProduct.option}</span><span hidden> ${optionProduct.price}</span>
+			                      	</c:if>
+			                      	<c:if test="${optionProduct.option != product.option}">
+			                      		<span>${optionProduct.option}</span><span> : ${optionProduct.price}</span>
+			                      	</c:if>
+			                      </div>
+			                  	</li>
+		              		</c:forEach>
+		                  	<!-- <li class="product-option-list-item">
+		                      <div class="product-option-list-title" id="2">
+		                      	<span>800g x 1팩</span><span hidden> : 20,000원</span>
+		                      </div>
+		                  	</li>
+		                  	<li class="product-option-list-item">
+		                      <div class="product-option-list-title" id="2">
+		                      	<span>800g x 1팩</span><span> : 20,000원</span>
+		                      </div>
+		                  	</li>
+		                  	<li class="product-option-list-item">
+		                      <div class="product-option-list-title" id="3">
+		                      	<span>1.2kg x 1팩</span><span> : 30,000원</span>
+		                      </div>
+		                  	</li> -->
+		                  </ul>
                   </div>
                   <div class="product-option">
                       <table class="product-option-table">
@@ -315,10 +332,11 @@
                               </tr>
                           </thead> -->
                           <tbody class="product-option-tableBody">
-                              <!-- <tr class="product-option-tableRow">
+                              <c:forEach var="optionProduct" items="${optionList}">
+                              	<tr class="product-option-tableRow ${optionProduct.pid}">
                                   <td class="product-option-table-name">
-                                  	  <input type="hidden" class="product-option-pid" id="3" value="3"/>
-                                      1.2kg x 1팩
+                                  	  <input type="hidden" class="product-option-pid" id="${optionProduct.pid}" value="${optionProduct.pid}"/>
+                                      ${optionProduct.option}
                                   </td>
                                   <td class="product-option-table-quantity">
                                       <div class="product-quantity-container">
@@ -332,13 +350,14 @@
 				                      </div>
                                   </td>
                                   <td class="product-option-table-price">
-                                  	  <input type="hidden" class="product-option-originalPrice" value="30000"/>
-                                      <span>14,000원</span>
+                                  	  <input type="hidden" class="product-option-originalPrice" value="${optionProduct.price}"/>
+                                      <span>${optionProduct.price}</span>
                                   </td>
                                   <td class="product-option-table-delete">
                                       <a class="productDelete"></a>
                                   </td>
-                              </tr> -->
+                              	</tr>
+                              </c:forEach>
                           </tbody>
                       </table>
                   </div>

@@ -334,6 +334,13 @@ header {
 	padding: 10px;
 	font-size: 13px;
 }
+.product-option-tableRow {
+	display: none;
+}
+.product-option-tableRow.selected {
+	display: table-row;
+}
+
 /* 상품 수량 */
 .product-quantity-container {
 	display: inline;

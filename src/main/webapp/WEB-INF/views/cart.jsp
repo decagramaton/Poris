@@ -88,8 +88,13 @@
 						            		<span class="cartItemProductPrice">${cartProduct.price * cartProduct.stock}원</span>
 						            	</td>
 						            	<td class="cartItemShipping">
-						            		<div class="shippingFreeRule font-weight-light"><div class="shippingFreeRulePrice">${cartProduct.shippingFreeRule}원이상</div>무료배송</div>
-						            		<div class="shippingPrice">${cartProduct.shippingPrice}원</div>
+						            		<c:if test="${cartProduct.shippingPrice != 0}">
+							            		<div class="shippingFreeRule font-weight-light"><div class="shippingFreeRulePrice">${cartProduct.shippingFreeRule}원이상</div>무료배송</div>
+						            			<div class="shippingPrice">${cartProduct.shippingPrice}원</div>
+						            		</c:if>
+						            		<c:if test="${cartProduct.shippingPrice == 0}">
+						            			<div class="shippingPrice">무료</div>
+						            		</c:if>
 						            	</td>
 						            </tr>
 						        </c:forEach>

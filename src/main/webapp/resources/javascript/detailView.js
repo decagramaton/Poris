@@ -9,6 +9,13 @@ function init() {
 	$(".product-option-btn").click(openOption);
 	$(".product-option-list-item").click(chooseOption);
 	
+	//상품옵션수량 변경 동작
+	$(".product-quantity-plus-btn").click(changeQuantityPlus);
+	$(".product-quantity-minus-btn").click(changeQuantityMinus);
+	$(".product-quantity-input").change(changeQuantityInput);
+	//상품옵션 삭제 동작
+	$(".productDelete").click(deleteOption);
+	
 	//장바구니 담기
 	$(".product-cart-btn").click(addCart);
 	//바로구매
@@ -64,7 +71,7 @@ function openOption() {
 function chooseOption() {
 	var pid = $(event.target).attr("id");
 	//undefined 방지
-	if(pid != undefined) {
+	/*if(pid != undefined) {
 		var optionName = $(event.target).children(":first-child").html();
 		var optionPrice = parseInt($(event.target).children(":last-child").html().replace(/[^0-9]/g, ""));
 		
@@ -102,11 +109,15 @@ function chooseOption() {
 			$(".product-quantity-minus-btn").click(changeQuantityMinus);
 			$(".product-quantity-input").change(changeQuantityInput);
 			//상품옵션 삭제 동작
-			$(".productDelete").click(deleteOption)
+			$(".productDelete").click(deleteOption);
 		}
 			
 		$(".product-options-list").toggleClass("closed");
+	}*/
+	if(pid != undefined) {
+		$(".product-option-tableBody").children("." + pid).addClass("selected");
 	}
+	$(".product-options-list").toggleClass("closed");
 }
 
 //상품수량 변경 동작
@@ -176,7 +187,7 @@ function changePrice(quantityCurrent, optionTablePrice) {
 
 //상품옵션 삭제 동작
 function deleteOption() {
-	$(event.target).parent().parent().detach();
+	$(event.target).parent().parent().removeClass("selected");
 }
 
 //장바구니 담기
