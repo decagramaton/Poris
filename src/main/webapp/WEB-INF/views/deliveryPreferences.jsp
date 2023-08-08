@@ -114,12 +114,12 @@
                         </div>
 
                         <div class="preference-required__radio-inform-text">
-                            입력된 공동현관 출입번호는 쿠팡이 로켓배송을 위해 필요한 정보로, 향후 배송을 위해 필요한 기간 동안 보관하는데 동의합니다.
+                            입력된 공동현관 출입번호는 배송을 위해 필요한 정보로, 향후 배송을 위해 필요한 기간 동안 보관하는데 동의합니다.
                         </div>
                     </div>
 
                     <button type="submit" class="delivery-preferences__save-button  _pickerFormSaveTrigger">
-                        <span class="delivery-preferences__button-label">동의하고 저장하기</span>
+                        <span class="delivery-preferences__button-label">동의하고 선택하기</span>
                     </button>
 
                 </form>
