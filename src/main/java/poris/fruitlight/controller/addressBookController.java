@@ -17,7 +17,7 @@ public class addressBookController {
 	private AddressBookService addrBookService;
 	
 	@RequestMapping("/addressBook")
-	public String DetailViewPage(Model model) {
+	public String AddressBook(Model model) {
 		
 		List<AddressBookParam> addrBookList = addrBookService.getAddressBookList();
 		
