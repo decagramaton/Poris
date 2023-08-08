@@ -10,7 +10,6 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/addressBook_style.css">
-    <script src="${pageContext.request.contextPath}/resources/javascript/addressBook.js"></script>
 
 </head>
 <body>
