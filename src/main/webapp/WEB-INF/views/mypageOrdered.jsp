@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="icon" href="/html_css_javascript/image/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="${pageContext.request.contextPath}/resources/images/favicon.ico" type="image/x-icon">
 		<title>마이페이지 - 주문내역</title>
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/mypageOrdered.css">
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header.css">
@@ -42,7 +43,9 @@
 									<div class="mycoupang-main-search-it-flex">
 										<div class="mycoupang-main-search-it-flexin1"><input value="" placeholder="주문한 상품을 검색할 수 있어요!"></div>
 										<div class="mycoupang-main-search-it-flexin2">
-											
+											<button id="headerSearchBtn" class="headerSearchBtn" type="button">
+												<img id="headerSearchBtnImage" class="headerSearchBtnImage" title="검색" src="${pageContext.request.contextPath}/resources/images/search.png">	                 	
+						                 	</button>
 										</div>
 									</div>
 								</div>
@@ -67,7 +70,7 @@
 																<span class="dot">
 																	<span></span>
 																</span>
-																<span class="arrivedate">${mypageOrdered.deliverydate}도착</span>
+																<span class="arrivedate"><fmt:formatDate value="${mypageOrdered.deliverydate}" pattern="yyyy년 MM월 dd일 	"/> 도착</span>
 															</div>
 															<div class="right">
 																<button>
@@ -82,11 +85,11 @@
 																<div style="display:none;"></div>
 																<div class="product-content">
 																	<div class="bottom-flex">
-																		<div class="image"><a><img/></a></div>
+																		<div class="image"><a><img src="${pageContext.request.contextPath}/resources/images/watermelon_cart.jpg"/></a></div>
 																		<div class="content">
 																			<div>
 																				<a href="#">
-																					<img height="16" src="${pageContext.request.contextPath}/resources/images/watermelon_cart">
+																					<img height="16">
 																					<span style="color:#111111";>${mypageOrdered.name}</span>
 																				</a>
 																				<div>

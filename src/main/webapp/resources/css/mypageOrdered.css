@@ -272,7 +272,6 @@ dl, dt, dd, ul, ol, menu, li {
 }
 .bottom-flex .image{
 	display: flex;
-    width: 64px;
     position: relative;
     margin-right: 16px;
 }
@@ -485,7 +484,7 @@ dl, dt, dd, ul, ol, menu, li {
 .delistatus-content > div {
 	position: relative;
     float: left;
-    width: 153px;
+    width: 152px;
     padding: 0px;
 }
 .content-image1 {
