@@ -117,11 +117,12 @@ function changeComma(data) {
 
 
 function deliveryAddressBtn() {
-    window.open("../addressBook.html", "_blank","top=10, left=10, width=500, height=600, status=no, menubar=no, toolbar=no, resizable=no", true);
+	console.log("deliveryAddressBtn() 실행");
+    window.open("/fruitlight/addressBook", "_blank","top=10, left=10, width=500, height=600, status=no, menubar=no, toolbar=no, resizable=no", true);
 }
 
 function deliveryPreferencesBtn() {
-    window.open("../deliveryPreferences.html", "_blank","top=10, left=10, width=500, height=600, status=no, menubar=no, toolbar=no, resizable=no", true);
+    window.open("/fruitlight/deliveryPreferences", "_blank","top=10, left=10, width=500, height=600, status=no, menubar=no, toolbar=no, resizable=no", true);
 }
 
 function radioChange() {
