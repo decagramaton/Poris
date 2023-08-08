@@ -1,21 +1,13 @@
 $(init);
 
 function init() {
-	//상품가격 및 할인율 및 옵션 전역변수
-	productOriginPrice = parseInt($(".origin-price").html().replace(/[^0-9]/g, ""));
-	discountRate = parseInt($(".discount-rate").html().replace(/[^0-9]/g, ""));
-	unitPrice = parseInt($(".unit-price span").html().replace(/[^0-9]/g, ""));
 	//메인이미지 변경 동작
 	$(".productItems li img").hover(changeMain);
 	//찜 동작
 	$(".product-wish-btn").click(changeWish);
 	//옵션 선택 동작
 	$(".product-option-btn").click(openOption);
-	$(".product-option-list-item").click(getOption);
-	//상품수량 변경 동작
-	$(".product-quantity-plus-btn").click(changeQuantityPlus);
-	$(".product-quantity-minus-btn").click(changeQuantityMinus);
-	$(".product-quantity-input").change(changeQuantityInput);
+	$(".product-option-list-item").click(chooseOption);
 	
 	//장바구니 담기
 	$(".product-cart-btn").click(addCart);
@@ -69,43 +61,87 @@ function openOption() {
 	$(event.target).toggleClass("clicked");
 	$(".product-options-list").toggleClass("closed");
 }
-function getOption() {
-	var oid = $(event.target).attr("id");
-	$(".product-select").children("#" + oid).prop("selected", true);
-	$(".product-select").children("#" + oid).attr("selected", true);
-	
-	$(".product-option-title").children("strong").html($(event.target).html());
-	$(".product-options-list").toggleClass("closed");
+function chooseOption() {
+	var pid = $(event.target).attr("id");
+	//undefined 방지
+	if(pid != undefined) {
+		var optionName = $(event.target).children(":first-child").html();
+		var optionPrice = parseInt($(event.target).children(":last-child").html().replace(/[^0-9]/g, ""));
+		
+		var addOptionHtml = $(".product-option-tableBody").html();
+			addOptionHtml += '<tr class="product-option-tableRow ' + pid + '">';
+			addOptionHtml += '	<td class="product-option-table-name">';
+			addOptionHtml += '   	' + optionName;
+			addOptionHtml += '	</td>';
+			addOptionHtml += '	<td class="product-option-table-quantity">';
+			addOptionHtml += '		<div class="product-quantity-container">';
+			addOptionHtml += '			<div class="product-quantity">';
+			addOptionHtml += '				<input class="product-quantity-input" type="number" value="1" min="1" max="50" name="product.stock"/>';
+			addOptionHtml += '				<div class="product-quantity-btns">';
+			addOptionHtml += '					<button class="product-quantity-plus-btn" type="button"></button>';
+			addOptionHtml += '					<button class="product-quantity-minus-btn" type="button" disabled="disabled"></button>';
+			addOptionHtml += '				</div>';
+			addOptionHtml += '			</div>';
+			addOptionHtml += '		</div>';
+			addOptionHtml += '	</td>';
+			addOptionHtml += '	<td class="product-option-table-price">';
+			addOptionHtml += '		<input type="hidden" class="product-option-originalPrice" value="' + optionPrice + '"/>';
+			addOptionHtml += '		<span>' + optionPrice.toLocaleString("ko-KR") + '원</span>';
+			addOptionHtml += '	</td>';
+			addOptionHtml += '	<td class="product-option-table-delete">';
+			addOptionHtml += '		<a class="productDelete"></a>';
+			addOptionHtml += '	</td>';
+			addOptionHtml += '</tr>';
+		
+		if($(".product-option-tableBody").children("." + pid).length == 0) {
+			$(".product-option-tableBody").html(addOptionHtml);
+			
+			//상품옵션수량 변경 동작
+			$(".product-quantity-plus-btn").click(changeQuantityPlus);
+			$(".product-quantity-minus-btn").click(changeQuantityMinus);
+			$(".product-quantity-input").change(changeQuantityInput);
+			//상품옵션 삭제 동작
+			$(".productDelete").click(deleteOption)
+		}
+			
+		$(".product-options-list").toggleClass("closed");
+	}
 }
 
 //상품수량 변경 동작
 function changeQuantityPlus() {
 	//현재 수량
-	var quantityCurrent = $(".product-quantity-input").val();
+	var productQuantityInput = $(event.target).parent().prev();
+	var quantityCurrent = productQuantityInput.val();
 	
 	if(quantityCurrent == 1) {
-		$(".product-quantity-minus-btn:disabled").prop("disabled", false);
-		$(".product-quantity-minus-btn:disabled").attr("disabled", false);
+		$(event.target).next().prop("disabled", false);
+		$(event.target).next().attr("disabled", false);
 	}
-	$(".product-quantity-input").prop("value", ++quantityCurrent);
-	$(".product-quantity-input").attr("value", quantityCurrent);
+	productQuantityInput.prop("value", ++quantityCurrent);
+	productQuantityInput.attr("value", quantityCurrent);
+	
+	var optionTablePrice = $(event.target).parent().parent().parent().parent().next();
 	
 	//상품가격 변경 동작
-	changePrice(quantityCurrent);
+	changePrice(quantityCurrent, optionTablePrice);
 }
 function changeQuantityMinus() {
 	//현재 수량
-	var quantityCurrent = $(".product-quantity-input").val();
+	var productQuantityInput = $(event.target).parent().prev();
+	var quantityCurrent = productQuantityInput.val();
 	
-	$(".product-quantity-input").prop("value", --quantityCurrent);
-	$(".product-quantity-input").attr("value", quantityCurrent);
+	productQuantityInput.prop("value", --quantityCurrent);
+	productQuantityInput.attr("value", quantityCurrent);
 	if(quantityCurrent == 1) {
-		$(".product-quantity-minus-btn").prop("disabled", true);
-		$(".product-quantity-minus-btn").attr("disabled", true);
+		$(event.target).prop("disabled", true);
+		$(event.target).attr("disabled", true);
 	}
 	
+	var optionTablePrice = $(event.target).parent().parent().parent().parent().next();
+	
 	//상품가격 변경 동작
-	changePrice(quantityCurrent);
+	changePrice(quantityCurrent, optionTablePrice);
 }
 function changeQuantityInput() {
 	//현재 수량
@@ -114,30 +150,32 @@ function changeQuantityInput() {
 	
 	if(quantityCurrent == "" || quantityCurrent <= quantityMin) {
 		quantityCurrent = quantityMin;
-		$(".product-quantity-minus-btn").prop("disabled", true);
-		$(".product-quantity-minus-btn").attr("disabled", true);
+		$(event.target).next().children(".product-quantity-minus-btn").prop("disabled", true);
+		$(event.target).next().children(".product-quantity-minus-btn").attr("disabled", true);
 	}
 	else if(quantityCurrent > 1) {
-		$(".product-quantity-minus-btn:disabled").prop("disabled", false);
-		$(".product-quantity-minus-btn:disabled").attr("disabled", false);
+		$(event.target).next().children(".product-quantity-minus-btn:disabled").prop("disabled", false);
+		$(event.target).next().children(".product-quantity-minus-btn:disabled").attr("disabled", false);
 	}
 	
 	$(event.target).prop("value", quantityCurrent);
 	$(event.target).attr("value", quantityCurrent);
 	
+	var optionTablePrice = $(event.target).parent().parent().parent().next();
+	
 	//상품가격 변경 동작
-	changePrice(quantityCurrent);
+	changePrice(quantityCurrent, optionTablePrice);
 }
 //상품가격 변경 동작
-function changePrice(quantityCurrent) {
-	var productPrice = productOriginPrice * ((100 - discountRate) / 100) - (productOriginPrice * ((100 - discountRate) / 100) % 100);
-	var newProductOriginPrice = productOriginPrice * quantityCurrent;
-	var newProductPrice = productPrice * quantityCurrent;
-	var newUnitPrice = unitPrice * quantityCurrent;
-	
-	$(".origin-price").html(newProductOriginPrice.toLocaleString("ko-KR") + "원");
-	$(".total-price").html(newProductPrice.toLocaleString("ko-KR") + "원");
-	$(".unit-price").html("(100g당 " + newUnitPrice.toLocaleString("ko-KR") + "원)");
+function changePrice(quantityCurrent, optionTablePrice) {
+	var unitPrice = optionTablePrice.children().val();
+	var newPrice = quantityCurrent * unitPrice;
+	optionTablePrice.children("span").html(newPrice.toLocaleString("ko-KR") + "원")
+}
+
+//상품옵션 삭제 동작
+function deleteOption() {
+	$(event.target).parent().parent().detach();
 }
 
 //장바구니 담기

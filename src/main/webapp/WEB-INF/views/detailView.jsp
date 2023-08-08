@@ -268,11 +268,11 @@
                   <!-- 상품 옵션 -->
                   <div class="product-option-container">
                   	 <div class="product-option-btn-container">
-                  	 	<select class="product-select">
+                  	 	<!-- <select class="product-select">
                   	 		<option id="1" selected>400g x 1팩</option>
                   	 		<option id="2">800g x 1팩</option>
                   	 		<option id="3">1.2kg x 1팩</option>
-                  	 	</select>
+                  	 	</select> -->
                   	 	<div class="product-option-btn">
                            <span class="product-option-title">
                                <strong>= 옵션 : 가격 =</strong>
@@ -283,28 +283,28 @@
                      <ul class="product-options-list closed">
                      	<li class="product-option-list-item">
 	                      <div class="product-option-list-title" id="1">
-	                      	400g x 1팩
+	                      	<span>400g x 1팩</span><span hidden> 6900</span>
 	                      </div>
 	                  	</li>
 	                  	<li class="product-option-list-item">
 	                      <div class="product-option-list-title" id="2">
-	                      	800g x 1팩
+	                      	<span>800g x 1팩</span><span> : 20,000원</span>
 	                      </div>
 	                  	</li>
 	                  	<li class="product-option-list-item">
 	                      <div class="product-option-list-title" id="3">
-	                      	1.2kg x 1팩
+	                      	<span>1.2kg x 1팩</span><span> : 30,000원</span>
 	                      </div>
 	                  	</li>
 	                  </ul>
                   </div>
-                  <div>
+                  <div class="product-option">
                       <table class="product-option-table">
                           <colgroup>
-                              <col width="40%">
+                              <col width="*">
                               <col width="5%">
-                              <col width="10%">
-                              <col width="3%">
+                              <col width="20%">
+                              <col width="5%">
                           </colgroup>
                           <!-- <thead>
                               <tr>
@@ -314,12 +314,12 @@
 								  <th scope="col">삭제버튼</th>
                               </tr>
                           </thead> -->
-                          <tbody>
-                              <tr>
-                                  <td>
+                          <tbody class="product-option-tableBody">
+                              <!-- <tr class="product-option-tableRow">
+                                  <td class="product-option-table-name 3">
                                       1.2kg x 1팩
                                   </td>
-                                  <td>
+                                  <td class="product-option-table-quantity">
                                       <div class="product-quantity-container">
 				                         <div class="product-quantity">
 				                            <input class="product-quantity-input" type="number" value="1" min="1" max="50" name="stock"/>
@@ -330,35 +330,14 @@
 				                         </div>
 				                      </div>
                                   </td>
-                                  <td>
-                                      14,000원
+                                  <td class="product-option-table-price">
+                                  	  <input type="hidden" class="product-option-originalPrice" value="30000"/>
+                                      <span>14,000원</span>
                                   </td>
-                                  <td>
+                                  <td class="product-option-table-delete">
                                       <a class="productDelete"></a>
                                   </td>
-                              </tr>
-                              <tr>
-                                  <td>
-                                      1.2kg x 1팩
-                                  </td>
-                                  <td>
-                                      <div class="product-quantity-container">
-				                         <div class="product-quantity">
-				                            <input class="product-quantity-input" type="number" value="1" min="1" max="50" name="stock"/>
-				                            <div class="product-quantity-btns">
-				                               <button class="product-quantity-plus-btn" type="button"></button>
-				                               <button class="product-quantity-minus-btn" type="button" disabled="disabled"></button>
-				                            </div>
-				                         </div>
-				                      </div>
-                                  </td>
-                                  <td>
-                                      14,000원
-                                  </td>
-                                  <td>
-                                      <a class="productDelete"></a>
-                                  </td>
-                              </tr>
+                              </tr> -->
                           </tbody>
                       </table>
                   </div>
