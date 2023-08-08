@@ -55,32 +55,6 @@ function customerInfoInit() {
     })
 }
 
-function deliveryInfoInit() {
-    const xhttp = new XMLHttpRequest();
-    let week_array = new Array('일', '월', '화', '수', '목', '금', '토');
-			
-    xhttp.onload = function() {
-        let data = JSON.parse(xhttp.responseText);
-        let html = "";
-        data.forEach((item,index) => {
-            html += '<div class="bundle-info-item-box">';
-            html += '   <div class="bundle-info-item">';
-            html += '       <p>'+ item.name +'</p>';
-            html += '   </div>';
-            html += '   <div class="bundle-info-delivery-service">';
-            html += '       <img src="'+ item.deliveryImageSrc +'">';
-            html += '   </div>';
-            html += '   <div class="bundle-info-item-descript">수량 '+ item.count + '개 /' + item.deliveryPrice +'</div>';
-            html += '</div>';
-        });
-
-        $(".bundle-info-title").text("배송 " + data.length + "건 중 " + data.length);
-        $(".delivery-date-info").text("내일 (" + week_array[new Date().getDay()+1] + ") " + (new Date().getMonth()+1) + "/" + (new Date().getDate()+1) +"도착 보장");
-        $(".bundle-info-item-list").html(html);
-    }
-    xhttp.open("GET", "../ajax/delivery_product_list.txt");
-    xhttp.send();
-}
 
 function paymentInfoInit() {
     $.ajax({
@@ -117,11 +91,19 @@ function changeComma(data) {
 
 
 function deliveryAddressBtn() {
-    window.open("/fruitlight/addressBook", "_blank","top=10, left=10, width=500, height=600, status=no, menubar=no, toolbar=no, resizable=no", true);
+	deliAddrChild = window.open("/fruitlight/addressBook", "_blank","top=10, left=10, width=500, height=600, status=no, menubar=no, toolbar=no, resizable=no", true);
+}
+
+function deliveryAddressCloseEvent() {
+	deliAddrChild.close();
 }
 
 function deliveryPreferencesBtn() {
-    window.open("/fruitlight/deliveryPreferences", "_blank","top=10, left=10, width=500, height=600, status=no, menubar=no, toolbar=no, resizable=no", true);
+    deliPreChild = window.open("/fruitlight/deliveryPreferences", "_blank","top=10, left=10, width=500, height=600, status=no, menubar=no, toolbar=no, resizable=no", true);
+}
+
+function deliveryPreferencesCloseEvent() {
+	deliPreChild.close();
 }
 
 function radioChange() {

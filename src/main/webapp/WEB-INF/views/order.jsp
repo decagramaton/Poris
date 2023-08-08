@@ -81,7 +81,11 @@
                      <div class="table-row">
                         <div class="table-colume">배송 요청사항</div>
                         <div class="table_content">
-                           <span>문 앞</span>
+                           <span id="deliPre">문 앞</span>
+                           <input type="hidden" id="requiredCheckTypeID" name="requiredCheckType" value=""/>
+                           <input type="hidden" id="requiredMessageID" name="requiredMessage" value=""/>
+                           <input type="hidden" id="passwordCheckTypeID" name="passwordCheckType" value=""/>
+                           <input type="hidden" id="passwordMessageID" name="passwordMessage" value=""/>
                            <button class="delivery-request-popup-button" type="button">변경</button>
                         </div>
                      </div>

@@ -28,3 +28,17 @@ function lockerClickEvent() {
         $("#other_place_detail_form").css("display", "none");
     }
 }
+
+function windowClose() {
+	window.opener.document.getElementById("deliPre").innerHTML = $("input[name='requiredCheckType']:checked").val();
+	window.opener.document.getElementById("requiredCheckTypeID").value = $("input[name='requiredCheckType']:checked").val();
+	if($("input[name='requiredCheckType']:checked").val() === "택배함"){
+		window.opener.document.getElementById("requiredMessageID").value = $("input[name='courierBoxMessage']").val();		
+	} else if($("input[name='requiredCheckType']:checked").val() === "기타사항") {
+		window.opener.document.getElementById("requiredMessageID").value = $("input[name='otherInfoMessage']").val();		
+	}
+		
+	window.opener.document.getElementById("passwordCheckTypeID").value = $("input[name='passwordCheckType']:checked").val();
+	window.opener.document.getElementById("passwordMessageID").value = $("input[name='passwordMessage']").val();
+	$(opener.location).attr("href", "javascript:deliveryPreferencesCloseEvent()");
+}

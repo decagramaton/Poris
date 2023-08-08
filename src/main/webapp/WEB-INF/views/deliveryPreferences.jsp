@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -24,10 +25,10 @@
                     <span class="covid-19-sub__messages_text">사회적 거리두기를 위해, 모든 배송을 비대면으로 진행합니다.<br>‘직접 받고 부재 시 문 앞’을 선택해도 문 앞으로 배송합니다.</span>
                 </div>
 
-                <form action="/fruitlight/deliveryPreferences/agreeSelect" method="post" class="delivery-preferences" accept-charset="utf-8">
+                <form action="javascript:windowClose()" method="post" class="delivery-preferences" accept-charset="utf-8">
                     <div class="preference-required __AA01_PUT_FRONT_OF_DOOR">
                         <label class="preference-required__radio-row" for="_AA01_PUT_FRONT_OF_DOOR">
-                            <input type="radio" class="preference-required__radio-v1 _radioInput" id="_AA01_PUT_FRONT_OF_DOOR" name="requiredCheckType" value="front_door">
+                            <input type="radio" class="preference-required__radio-v1 _radioInput" id="_AA01_PUT_FRONT_OF_DOOR" name="requiredCheckType" value="문 앞">
                             <span class="preference-required__label">문 앞</span>
                         </label>
                     </div>
@@ -41,14 +42,14 @@
 
                     <div class="preference-required __AA01_KEEP_LOBBY">
                         <label class="preference-required__radio-row" for="_AA01_KEEP_LOBBY">
-                            <input type="radio" class="preference-required__radio-v1 _radioInput" id="_AA01_KEEP_LOBBY" name="requiredCheckType" value="security_office">
+                            <input type="radio" class="preference-required__radio-v1 _radioInput" id="_AA01_KEEP_LOBBY" name="requiredCheckType" value="경비실">
                             <span class="preference-required__label">경비실</span>
                         </label>
                     </div>
 
                     <div class="preference-required __AA01_KEEP_IN_LOCKER">
                         <label class="preference-required__radio-row" for="_AA01_KEEP_IN_LOCKER">
-                            <input type="radio" class="preference-required__radio-v1 _radioInput" id="_AA01_KEEP_IN_LOCKER" name="requiredCheckType" value="courier_box">
+                            <input type="radio" class="preference-required__radio-v1 _radioInput" id="_AA01_KEEP_IN_LOCKER" name="requiredCheckType" value="택배함">
                             <span class="preference-required__label">택배함</span>
                         </label>
                         
@@ -56,7 +57,7 @@
                             <div class="preference-sub">
                                 <div>
                                     <label class="titled-text-field titled-text-field--active" for="__AA01_KEEP_IN_LOCKER">
-                                        <input type="text" class="titled-text-field__input _textInput" name="requiredMessage" maxlength="50" id="__AA01_KEEP_IN_LOCKER" placeholder="택배함 번호 (필수)">
+                                        <input type="text" class="titled-text-field__input _textInput" name="courierBoxMessage" maxlength="50" id="__AA01_KEEP_IN_LOCKER" placeholder="택배함 번호 (필수)">
                                     </label>
                                 </div>
                             </div>
@@ -65,7 +66,7 @@
 
                     <div class="preference-required __AA01_OTHER_PLACE">
                         <label class="preference-required__radio-row" for="_AA01_OTHER_PLACE">
-                            <input type="radio" class="preference-required__radio-v1 _radioInput" id="_AA01_OTHER_PLACE" name="requiredCheckType" value="other_information">
+                            <input type="radio" class="preference-required__radio-v1 _radioInput" id="_AA01_OTHER_PLACE" name="requiredCheckType" value="기타사항">
                             <span class="preference-required__label">기타사항</span>
                         </label>
                         
@@ -74,7 +75,7 @@
                             <div class="preference-sub">
                                 <div>
                                     <label class="titled-text-field _textStatusTarget titled-text-field--active" for="__AA01_OTHER_PLACE">
-                                        <input type="text" class="titled-text-field__input _textInput" name="requiredMessage" maxlength="50" id="__AA01_OTHER_PLACE" placeholder="장소만 입력 (필수)">
+                                        <input type="text" class="titled-text-field__input _textInput" name="otherInfoMessage" maxlength="50" id="__AA01_OTHER_PLACE" placeholder="장소만 입력 (필수)">
                                     </label>  
                                 </div>
                             </div>
