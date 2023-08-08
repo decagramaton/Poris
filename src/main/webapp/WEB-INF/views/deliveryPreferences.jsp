@@ -11,7 +11,12 @@
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/deliveryPreferences_style.css">
     <script src="${pageContext.request.contextPath}/resources/javascript/deliveryPreferences.js"></script>
-
+	<script>
+		$("#submitButton").click(function(){
+			console.log("실행");
+			window.alert("실행");
+		})
+	</script>
 </head>
 <body>
     <div>
@@ -25,32 +30,31 @@
                     <span class="covid-19-sub__messages_text">사회적 거리두기를 위해, 모든 배송을 비대면으로 진행합니다.<br>‘직접 받고 부재 시 문 앞’을 선택해도 문 앞으로 배송합니다.</span>
                 </div>
 
-                <form action="#" method="get" class="delivery-preferences">
-
+                <form action="/fruitlight/deliveryPreferences/agreeSelect" method="post" class="delivery-preferences" accept-charset="utf-8">
                     <div class="preference-required __AA01_PUT_FRONT_OF_DOOR">
                         <label class="preference-required__radio-row" for="_AA01_PUT_FRONT_OF_DOOR">
-                            <input type="radio" class="preference-required__radio-v1 _radioInput" id="_AA01_PUT_FRONT_OF_DOOR" name="required_label" value="문 앞">
+                            <input type="radio" class="preference-required__radio-v1 _radioInput" id="_AA01_PUT_FRONT_OF_DOOR" name="required_label" value="front_door">
                             <span class="preference-required__label">문 앞</span>
                         </label>
                     </div>
 
                     <div class="preference-required __AA01_DIRECT_RECEIVE_AS_FRONT_OF_DOOR">
                         <label class="preference-required__radio-row" for="_AA01_DIRECT_RECEIVE_AS_FRONT_OF_DOOR">
-                            <input type="radio" class="preference-required__radio-v1 _radioInput" id="_AA01_DIRECT_RECEIVE_AS_FRONT_OF_DOOR" name="required_label" value="직접 받고 부재 시 문 앞" data-preference="{ &quot;root&quot;: &quot;__AA01_DIRECT_RECEIVE_AS_FRONT_OF_DOOR&quot;, &quot;isRequiredTextInput&quot;: false }">
+                            <input type="radio" class="preference-required__radio-v1 _radioInput" id="_AA01_DIRECT_RECEIVE_AS_FRONT_OF_DOOR" name="required_label" value="직접 받고 부재 시 문 앞">
                             <span class="preference-required__label">직접 받고 부재 시 문 앞</span>
                         </label>
                     </div>
 
                     <div class="preference-required __AA01_KEEP_LOBBY">
                         <label class="preference-required__radio-row" for="_AA01_KEEP_LOBBY">
-                            <input type="radio" class="preference-required__radio-v1 _radioInput" id="_AA01_KEEP_LOBBY" name="required_label" value="경비실" data-preference="{ &quot;root&quot;: &quot;__AA01_KEEP_LOBBY&quot;, &quot;isRequiredTextInput&quot;: false }">
+                            <input type="radio" class="preference-required__radio-v1 _radioInput" id="_AA01_KEEP_LOBBY" name="required_label" value="security_office">
                             <span class="preference-required__label">경비실</span>
                         </label>
                     </div>
 
                     <div class="preference-required __AA01_KEEP_IN_LOCKER">
                         <label class="preference-required__radio-row" for="_AA01_KEEP_IN_LOCKER">
-                            <input type="radio" class="preference-required__radio-v1 _radioInput" id="_AA01_KEEP_IN_LOCKER" name="required_label" value="택배함">
+                            <input type="radio" class="preference-required__radio-v1 _radioInput" id="_AA01_KEEP_IN_LOCKER" name="required_label" value="courier_box">
                             <span class="preference-required__label">택배함</span>
                         </label>
                         
@@ -60,7 +64,7 @@
                             <div class="preference-sub">
                                 <div>
                                     <label class="titled-text-field titled-text-field--active" for="__AA01_KEEP_IN_LOCKER">
-                                        <input type="text" autocomplete="off" class="titled-text-field__input _textInput" name="required_message" value="" maxlength="50" id="__AA01_KEEP_IN_LOCKER" placeholder="택배함 번호 (필수)">
+                                        <input type="text" autocomplete="off" class="titled-text-field__input _textInput" name="required_message" maxlength="50" id="__AA01_KEEP_IN_LOCKER" placeholder="택배함 번호 (필수)">
                                     </label>
                                 </div>
                             </div>
@@ -69,7 +73,7 @@
 
                     <div class="preference-required __AA01_OTHER_PLACE">
                         <label class="preference-required__radio-row" for="_AA01_OTHER_PLACE">
-                            <input type="radio" class="preference-required__radio-v1 _radioInput" id="_AA01_OTHER_PLACE" name="required_label" value="기타사항">
+                            <input type="radio" class="preference-required__radio-v1 _radioInput" id="_AA01_OTHER_PLACE" name="required_label" value="other_information">
                             <span class="preference-required__label">기타사항</span>
                         </label>
                         
@@ -78,7 +82,7 @@
                             <div class="preference-sub">
                                 <div>
                                     <label class="titled-text-field _textStatusTarget titled-text-field--active" for="__AA01_OTHER_PLACE">
-                                        <input type="text" autocomplete="off" class="titled-text-field__input _textInput" name="required_message" value="" maxlength="50" id="__AA01_OTHER_PLACE" placeholder="장소만 입력 (필수)">
+                                        <input type="text" autocomplete="off" class="titled-text-field__input _textInput" name="required_message" maxlength="50" id="__AA01_OTHER_PLACE" placeholder="장소만 입력 (필수)">
                                     </label>  
                                 </div>
                             </div>
@@ -118,7 +122,7 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="delivery-preferences__save-button  _pickerFormSaveTrigger">
+                    <button type="submit" id="submitButton" class="delivery-preferences__save-button  _pickerFormSaveTrigger">
                         <span class="delivery-preferences__button-label">동의하고 선택하기</span>
                     </button>
 
