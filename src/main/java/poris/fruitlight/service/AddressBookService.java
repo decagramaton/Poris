@@ -6,4 +6,5 @@ import poris.fruitlight.dto.AddressBookParam;
 
 public interface AddressBookService {
 	public List<AddressBookParam> getAddressBookList();
+	public boolean changeAddressBook(AddressBookParam ChangeAddressBook);
 }

@@ -40,9 +40,9 @@
 						       </button>
 						   </from>
 						   <from action="#" method="get">
-						       <button class="address-card__button--edit" type="submit">
+						       <a href="/fruitlight/addressBook/changeAddressBook" class="address-card__button--edit">
 						           <span class="addressbook__text">수정</span>
-						       </button>
+						       </a>
 						   </from>
 						</div>
 					</div>
