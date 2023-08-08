@@ -20,16 +20,26 @@ public class DetailViewController {
 	
 	//장바구니 담기
 	@RequestMapping("/addCartProduct")
-	public String addCartProduct(String pid, String stock, String option) {
-		log.info(pid);
-		log.info(stock);
-		log.info(option);
+	public String addCartProduct(HttpServletRequest request) {
+		String[] strPidList = request.getParameterValues("pids");
+		for(String strPid : strPidList) {
+			String[] strStockList = request.getParameterValues("stocks");
+			for(String strStock : strStockList) {
+			}
+		}
+		
 		return "redirect:/detailView";
 	}
-
+	
 	//바로구매
 	@RequestMapping("/buyDirect")
-	public String buyDirect(String pid, String stock, String option) {
+	public String buyDirect(HttpServletRequest request) {
+		String[] strPidList = request.getParameterValues("pids");
+		for(String strPid : strPidList) {
+			String[] strStockList = request.getParameterValues("stocks");
+			for(String strStock : strStockList) {
+			}
+		}
 		return "redirect:/order";
 	}
 }

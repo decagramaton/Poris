@@ -316,7 +316,8 @@
                           </thead> -->
                           <tbody class="product-option-tableBody">
                               <!-- <tr class="product-option-tableRow">
-                                  <td class="product-option-table-name 3">
+                                  <td class="product-option-table-name">
+                                  	  <input type="hidden" class="product-option-pid" id="3" value="3"/>
                                       1.2kg x 1팩
                                   </td>
                                   <td class="product-option-table-quantity">
