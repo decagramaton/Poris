@@ -92,6 +92,7 @@ function changeComma(data) {
 
 function deliveryAddressBtn() {
 	deliAddrChild = window.open("/fruitlight/addressBook", "_blank","top=10, left=10, width=500, height=600, status=no, menubar=no, toolbar=no, resizable=no", true);
+	openWin.document.getElementById("requestType").value = "orderPage";
 }
 
 function deliveryAddressCloseEvent() {

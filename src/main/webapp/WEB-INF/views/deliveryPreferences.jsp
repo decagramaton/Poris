@@ -113,6 +113,8 @@
                             입력된 공동현관 출입번호는 배송을 위해 필요한 정보로, 향후 배송을 위해 필요한 기간 동안 보관하는데 동의합니다.
                         </div>
                     </div>
+                    
+                    <input type="hidden" id="requestType" name="requestType" value="">
 
                     <button type="submit" id="submitButton" class="delivery-preferences__save-button  _pickerFormSaveTrigger">
                         <span class="delivery-preferences__button-label">동의하고 선택하기</span>

@@ -72,7 +72,7 @@
 		                    	<span class="icon-text-field__text icon-text-field__text--button-label _addressBookDeliveryPreferencesDefaultSummary">배송 요청사항</span>
 		                    </a>
 		                    <label for="addressbookPreference" class="icon-text-field__input-area" style="display: none;">
-				                    <input type="tel" class="icon-text-field__input _addressBookCellphoneInput" id="addressbookPreference" name="recipientPreference" value="">
+				                    <input type="text" class="icon-text-field__input _addressBookCellphoneInput" id="addressbookPreference" name="recipientPreference" value="">
 				            </label>
 			            </div>
 			        </div>

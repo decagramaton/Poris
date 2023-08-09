@@ -15,7 +15,7 @@ import poris.fruitlight.util.AlertScript;
 
 @Slf4j
 @Controller
-public class joinFormController {
+public class JoinFormController {
 	
 	@Autowired
 	private JoinService joinService;
@@ -25,6 +25,12 @@ public class joinFormController {
 		return "joinForm";
 	}
 	
+	/**
+	 * 
+	 * @param joinParam - (유저ID, 유저PW, 유저PW 재입력, 유저 이름, 유저 연락처, 필수 동의 여부)
+	 * @param response - alert 메세지 응답
+	 * @throws IOException - response 응답 실패 시 예외처리
+	 */
 	@PostMapping("/joinForm/askJoinForm")
 	public void askJoinForm(JoinParam joinParam, HttpServletResponse response) throws IOException {
 		// Step1. 회원가입 입력 데이터 확인 (유효성 검사)
@@ -42,8 +48,6 @@ public class joinFormController {
 		} else if (joinParam.getAcceptAgreement() == null) {
 			AlertScript.alertAndBackPage(response, "필수 항목은 반드시 동의되어야 합니다.");
 		}
-		
-		
 		
 		// Step2. DB에 동일 회원 유무 검사
 		boolean resultIsMember = joinService.isMember(joinParam.getUserId());

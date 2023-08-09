@@ -17,6 +17,7 @@
 		<script src="${pageContext.request.contextPath}/resources/javascript/header.js"></script>
 		<script src="${pageContext.request.contextPath}/resources/javascript/main.js"></script>
 	</head>
+	<body>
 <%@ include file="/WEB-INF/views/header.jsp" %>
 	<div id="body-container">
    		<div id="mainproduct" class="carousel slide" data-ride="carousel">
@@ -26,15 +27,11 @@
 			    <li data-target="#mainproduct" data-slide-to="2"></li>
 			</ul>
 			<div class="carousel-inner">
-				<div class="carousel-item active">
-			        <img src="${pageContext.request.contextPath}/resources/images/mainfruit1.jpg" alt="mainfruit1" width="1100" height="500">
-			    </div>
-			    <div class="carousel-item">
-			        <img src="${pageContext.request.contextPath}/resources/images/mainfruit2.jpg" alt="mainfruit2" width="1100" height="500">
-			    </div>
-			    <div class="carousel-item">
-			        <img src="${pageContext.request.contextPath}/resources/images/mainfruit3.jpg" alt="mainfruit3" width="1100" height="500">
-			    </div>
+				<c:forEach var="mainlist" items="${mainlists}" varStatus="i">
+					<div id="carouselMainItem${i.count}"class="carousel-item">
+				        <img src="${pageContext.request.contextPath}/resources/images/mainfruit${i.count}.jpg" alt="mainfruit${i.count}" width="1100" height="500">
+				    </div>
+				</c:forEach>
 			</div>
 			<a class="carousel-control-prev" href="#mainproduct" data-slide="prev">
 			    <span class="carousel-control-prev-icon"></span>
@@ -120,28 +117,16 @@
 							    	<li data-target="#demo1" data-slide-to="1"></li>
 							    	<li data-target="#demo1" data-slide-to="2"></li>
 							  	</ul>
-							  	<div class="carousel-inner">
-								    <div class="carousel-item active">
-								    	<img src="${pageContext.request.contextPath}/resources/images/cherry1.jpg" width="500" height="500">
-								    	<div class="carousel-caption" style="bottom:50px;">
-								      		<h3>여기 체리도 싸요</h3>
-								        	<p>365일 체리만 먹어도 안물릴거같은데</p>
-								      	</div>  
-									</div>
-									<div class="carousel-item">
-								    	<img src="${pageContext.request.contextPath}/resources/images/cherry2.jpg" width="500" height="500">
-								    	<div class="carousel-caption" style="bottom:50px;">
-								      		<h3>와! 체리가 싸요</h3>
-								        	<p>신선하닌까 당장 사가세요 ~</p>
-								      	</div>   
-								  	</div>
-								  	<div class="carousel-item">
-										<img src="${pageContext.request.contextPath}/resources/images/cherry3.jpg" width="500" height="500">
-									    <div class="carousel-caption" style="bottom:50px;">
-									    	<h3>그저 체리</h3>
-									        <p>쓸말이 없어서 아무거나 넣어봤어요</p>
-									    </div>
-									</div>
+								<div class="carousel-inner">
+							  		<c:forEach var="catemainlist" items="${catemainlists}" varStatus="i">
+									    <div id="carouselCateMainItem${i.count}" class="carousel-item">
+									    	<img src="${pageContext.request.contextPath}/resources/images/cherry${i.count}.jpg" width="500" height="500">
+									    	<div class="carousel-caption" style="bottom:50px;">
+									      		<h3>${catemainlist.catetitle}</h3>
+									        	<p>${catemainlist.catecomment}</p>
+									      	</div>  
+										</div>
+							  		</c:forEach>
 								</div>
 								<a class="carousel-control-prev" href="#demo1" data-slide="prev">
 									<span class="carousel-control-prev-icon"></span>
@@ -157,42 +142,27 @@
 					    	<li data-target="#demo2" data-slide-to="0" class="active bg-dark"></li>
 					    	<li data-target="#demo2" data-slide-to="1" class="bg-dark"></li>
 					    	<li data-target="#demo2" data-slide-to="2" class="bg-dark"></li>
-					    	<li data-target="#demo2" data-slide-to="3" class="bg-dark"></li>
-					    	<li data-target="#demo2" data-slide-to="4" class="bg-dark"></li>
 					  	</ul>
 					  	<div class="carousel-inner">
 						    <div class="carousel-item active">
 						    	<ul id="cateAdvertiseCherryListList" class="cateAdvertiseCherryListList">
-						    		<li id="cateAdvertiseCherryListItem" class="cateAdvertiseCherryListItem">
-						    			<a href="#">
-						    				<img src="${pageContext.request.contextPath}/resources/images/cherry1.jpg"/>
-						    				<span id="hoverUnderline" class="hoverUnderline">뭐시기 저시기</span>
-						    				<span></span>
-						    				<span>
-						    					<strong>18000</strong> 원
-						    				</span>	
-						    			</a>
-						    		</li>
-						    		<li id="cateAdvertiseCherryListItem" class="cateAdvertiseCherryListItem">
-						    			<a href="#">
-						    				<img src="${pageContext.request.contextPath}/resources/images/cherry2.jpg"/>
-						    				<span id="hoverUnderline" class="hoverUnderline">뭐시기 저시기</span>
-						    				<span></span>
-						    				<span>
-						    					<strong>18000</strong> 원
-						    				</span>	
-						    			</a>
-						    		</li>
+						    		<c:forEach var="catesublist" items="${catesublists}" varStatus="i">
+							    		<li id="cateAdvertiseCherryListItem" class="cateAdvertiseCherryListItem">
+							    			<a href="detailView?pid=${catesublist.pid}">
+							    				<img src="${pageContext.request.contextPath}/resources/images/cherry${i.count}.jpg"/>
+							    				<span id="hoverUnderline" class="hoverUnderline">${catesublist.name}</span>
+							    				<span>
+							    					<strong>${catesublist.price}</strong>원
+							    				</span>	
+							    			</a>
+							    		</li>
+						    		</c:forEach>
 						    	</ul>
 							</div>
 							<div class="carousel-item">
 						  	</div>
 						  	<div class="carousel-item">
 							</div>
-							<div class="carousel-item">
-							</div>
-							<div class="carousel-item">
-						  	</div>
 						</div>
 						<a class="carousel-control-prev" href="#demo2" data-slide="prev">
 							<span class="carousel-control-prev-icon"></span>
@@ -207,3 +177,5 @@
 	      		</div>
       		</div>
 <%@ include file="/WEB-INF/views/footer.jsp" %>
+	</body>
+</html>

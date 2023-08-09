@@ -6,6 +6,8 @@ import lombok.Data;
 public class MainProduct {
 	private int pid;
 	private String name;
+	private String catetitle;
+	private String catecomment;
 	private byte[] mainimage;
 	private byte[] image;
 	private int price;

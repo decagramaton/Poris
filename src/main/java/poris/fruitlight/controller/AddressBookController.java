@@ -12,13 +12,20 @@ import poris.fruitlight.dto.AddressBookParam;
 import poris.fruitlight.service.AddressBookService;
 import poris.fruitlight.util.AlertScript;
 
+
 @Slf4j
 @Controller
-public class addressBookController {
+public class AddressBookController {
 	
 	@Autowired
 	private AddressBookService addrBookService;
 	
+	
+	/**
+	 * @author 고재승
+	 * @param model - (받는 사람, 받을 주소, 연락처, 배송 요청사항) DTO
+	 * @return 배송지 목록 페이지 이동
+	 */
 	@RequestMapping("/addressBook")
 	public String AddressBook(Model model) {
 		List<AddressBookParam> addrBookList = addrBookService.getAddressBookList();
@@ -30,6 +37,11 @@ public class addressBookController {
 		return "addressBook";
 	}
 	
+	/**
+	 * @author 고재승
+	 * @param changeAddressBook - 변경할 배송지 정보(받는 사람, 받을 주소, 연락처, 배송 요청사항)
+	 * @return - 배송지 목록 페이지으로 리다이렉트 
+	 */
 	@GetMapping("/addressBook/changeAddressBook")
 	public String changeAddressBook(AddressBookParam changeAddressBook) {
 		boolean result = addrBookService.changeAddressBook(changeAddressBook);
@@ -41,7 +53,10 @@ public class addressBookController {
 		return "redirect:/addressBook";
 	}
 	
-	
+	/**
+	 * @author 고재승
+	 * @return 배송지 추가 페이지 이동
+	 */
 	@GetMapping("/addressBook/addAddressBook")
 	public String addAddressBook() {
 		

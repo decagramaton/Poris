@@ -6,7 +6,6 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import lombok.extern.slf4j.Slf4j;
-import poris.fruitlight.dto.ListProduct;
 import poris.fruitlight.dto.MainProduct;
 
 @Service
@@ -59,5 +58,32 @@ public class MainServiceImpl implements MainService{
 			list.add(sellerList);
 		}
 		return list;
+	}
+
+	@Override
+	public List<MainProduct> getCateMainList(int pid) {
+		List<MainProduct> list = new ArrayList<>();
+		for(int i=1; i<=3; i++) {
+			MainProduct cateMainList = new MainProduct();
+			cateMainList.setCatetitle("상품 타이틀");
+			cateMainList.setCatecomment("상품에 대한 설명");
+			
+			list.add(cateMainList);
+		}
+		return list;
+	}
+
+	@Override
+	public List<MainProduct> getCateSubList(int pid) {
+		List<MainProduct> list = new ArrayList<>();
+		for(int i=1; i<=6; i++) {
+			MainProduct cateSubList = new MainProduct();
+			cateSubList.setName("카테고리 서브 상품 이름");
+			cateSubList.setPrice(17000);
+			
+			list.add(cateSubList);
+		}
+		return list;
+
 	}
 }
