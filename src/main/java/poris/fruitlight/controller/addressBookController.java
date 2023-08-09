@@ -30,6 +30,11 @@ public class addressBookController {
 		return "addressBook";
 	}
 	
+	/**
+	 * 
+	 * @param changeAddressBook - 변경할 배송지 DTO
+	 * @return - 리다이렉트로 페이지 이동
+	 */
 	@GetMapping("/addressBook/changeAddressBook")
 	public String changeAddressBook(AddressBookParam changeAddressBook) {
 		boolean result = addrBookService.changeAddressBook(changeAddressBook);
