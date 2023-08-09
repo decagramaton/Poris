@@ -16,30 +16,13 @@ import poris.fruitlight.dto.deliveryPreferencesParam;
 @Controller
 public class deliveryPreferencesController {
 	
+	/**
+	 * @author 고재승
+	 * @return 배송 요청사항 페이지 이동
+	 */
 	@RequestMapping("/deliveryPreferences")
-	public String DeliveryPreferencesPage(Model model) {
+	public String DeliveryPreferencesPage() {
 		
 		return "deliveryPreferences";
 	}
-	
-	
-	@PostMapping("/deliveryPreferences/agreeSelect")
-	public void agreeSelect(deliveryPreferencesParam deliPreParam, HttpServletResponse response) {
-		
-		log.info("RequiredCheckType : " + deliPreParam.getRequiredCheckType());
-		log.info("RequiredMessage : " + deliPreParam.getRequiredMessage());
-		log.info("PasswordCheckType : " + deliPreParam.getPasswordCheckType());
-		log.info("PasswordMessage : " + deliPreParam.getPasswordMessage());
-		
-		
-		try {
-			response.setContentType("text/html; charset=UTF-8");
-			response.setCharacterEncoding("UTF-8");
-			PrintWriter out;
-			out = response.getWriter();
-			out.println("<script>windowClose();</script> ");
-			out.flush();
-		} catch (IOException e) {}
-	}
-	
 }
