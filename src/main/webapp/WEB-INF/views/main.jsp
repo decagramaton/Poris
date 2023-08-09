@@ -27,15 +27,11 @@
 			    <li data-target="#mainproduct" data-slide-to="2"></li>
 			</ul>
 			<div class="carousel-inner">
-				<div class="carousel-item active">
-			        <img src="${pageContext.request.contextPath}/resources/images/mainfruit1.jpg" alt="mainfruit1" width="1100" height="500">
-			    </div>
-			    <div class="carousel-item">
-			        <img src="${pageContext.request.contextPath}/resources/images/mainfruit2.jpg" alt="mainfruit2" width="1100" height="500">
-			    </div>
-			    <div class="carousel-item">
-			        <img src="${pageContext.request.contextPath}/resources/images/mainfruit3.jpg" alt="mainfruit3" width="1100" height="500">
-			    </div>
+				<c:forEach var="mainlist" items="${mainlists}" varStatus="i">
+					<div id="carouselMainItem${i.count}"class="carousel-item">
+				        <img src="${pageContext.request.contextPath}/resources/images/mainfruit${i.count}.jpg" alt="mainfruit${i.count}" width="1100" height="500">
+				    </div>
+				</c:forEach>
 			</div>
 			<a class="carousel-control-prev" href="#mainproduct" data-slide="prev">
 			    <span class="carousel-control-prev-icon"></span>
@@ -126,8 +122,8 @@
 									    <div id="carouselCateMainItem${i.count}" class="carousel-item">
 									    	<img src="${pageContext.request.contextPath}/resources/images/cherry${i.count}.jpg" width="500" height="500">
 									    	<div class="carousel-caption" style="bottom:50px;">
-									      		<h3>${catemainlists.catetitle}</h3>
-									        	<p>${catemainlists.catecomment}</p>
+									      		<h3>${catemainlist.catetitle}</h3>
+									        	<p>${catemainlist.catecomment}</p>
 									      	</div>  
 										</div>
 							  		</c:forEach>
@@ -146,42 +142,27 @@
 					    	<li data-target="#demo2" data-slide-to="0" class="active bg-dark"></li>
 					    	<li data-target="#demo2" data-slide-to="1" class="bg-dark"></li>
 					    	<li data-target="#demo2" data-slide-to="2" class="bg-dark"></li>
-					    	<li data-target="#demo2" data-slide-to="3" class="bg-dark"></li>
-					    	<li data-target="#demo2" data-slide-to="4" class="bg-dark"></li>
 					  	</ul>
 					  	<div class="carousel-inner">
 						    <div class="carousel-item active">
 						    	<ul id="cateAdvertiseCherryListList" class="cateAdvertiseCherryListList">
-						    		<li id="cateAdvertiseCherryListItem" class="cateAdvertiseCherryListItem">
-						    			<a href="#">
-						    				<img src="${pageContext.request.contextPath}/resources/images/cherry1.jpg"/>
-						    				<span id="hoverUnderline" class="hoverUnderline">뭐시기 저시기</span>
-						    				<span></span>
-						    				<span>
-						    					<strong>18000</strong> 원
-						    				</span>	
-						    			</a>
-						    		</li>
-						    		<li id="cateAdvertiseCherryListItem" class="cateAdvertiseCherryListItem">
-						    			<a href="#">
-						    				<img src="${pageContext.request.contextPath}/resources/images/cherry2.jpg"/>
-						    				<span id="hoverUnderline" class="hoverUnderline">뭐시기 저시기</span>
-						    				<span></span>
-						    				<span>
-						    					<strong>18000</strong> 원
-						    				</span>	
-						    			</a>
-						    		</li>
+						    		<c:forEach var="catesublist" items="${catesublists}" varStatus="i">
+							    		<li id="cateAdvertiseCherryListItem" class="cateAdvertiseCherryListItem">
+							    			<a href="detailView?pid=${catesublist.pid}">
+							    				<img src="${pageContext.request.contextPath}/resources/images/cherry${i.count}.jpg"/>
+							    				<span id="hoverUnderline" class="hoverUnderline">${catesublist.name}</span>
+							    				<span>
+							    					<strong>${catesublist.price}</strong>원
+							    				</span>	
+							    			</a>
+							    		</li>
+						    		</c:forEach>
 						    	</ul>
 							</div>
 							<div class="carousel-item">
 						  	</div>
 						  	<div class="carousel-item">
 							</div>
-							<div class="carousel-item">
-							</div>
-							<div class="carousel-item">
-						  	</div>
 						</div>
 						<a class="carousel-control-prev" href="#demo2" data-slide="prev">
 							<span class="carousel-control-prev-icon"></span>

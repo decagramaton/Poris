@@ -1,3 +1,10 @@
+window.onload = init;
+
+function init(){
+	$("#carouselMainItem1").addClass("active");
+	$("#carouselCateMainItem1").addClass("active");
+}
+
 const cateAdvertiseHide = window.matchMedia(`(max-width: 1100px)`);
 
 const viewChangeHandler = (cateAdvertiseHide) => {
