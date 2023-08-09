@@ -1,6 +1,9 @@
 $(init);
 
 function init() {
+	//금액 xxx,xxx원 적용
+	initPriceFormat();
+	
 	//메인이미지 변경 동작
 	$(".productItems li img").hover(changeMain);
 	//찜 동작
@@ -21,7 +24,16 @@ function init() {
 	//바로구매
 	$(".product-buy-btn").click(buy);
 }
-
+//금액 xxx,xxx원 적용
+function initPriceFormat() {
+	$(".total-price").html(parseInt($(".total-price").html()).toLocaleString("ko-KR") + "원")
+	$(".option-item-price").each((index, item) => {
+		$(item).html(" : " + parseInt($(item).html().replace(/[^0-9]/g, "")).toLocaleString("ko-KR") + "원");
+    });
+	$(".product-option-originalPrice-txt").each((index, item) => {
+		$(item).html(parseInt($(item).html().replace(/[^0-9]/g, "")).toLocaleString("ko-KR") + "원");
+	});
+}
 
 //메인이미지 변경 동작
 function changeMain() {
@@ -70,51 +82,10 @@ function openOption() {
 }
 function chooseOption() {
 	var pid = $(event.target).attr("id");
-	//undefined 방지
-	/*if(pid != undefined) {
-		var optionName = $(event.target).children(":first-child").html();
-		var optionPrice = parseInt($(event.target).children(":last-child").html().replace(/[^0-9]/g, ""));
-		
-		var addOptionHtml = $(".product-option-tableBody").html();
-			addOptionHtml += '<tr class="product-option-tableRow">';
-			addOptionHtml += '	<td class="product-option-table-name">';
-			addOptionHtml += '		<input type="hidden" class="product-option-pid" id="' + pid + '" value="' + pid + '"/>';
-			addOptionHtml += '   	' + optionName;
-			addOptionHtml += '	</td>';
-			addOptionHtml += '	<td class="product-option-table-quantity">';
-			addOptionHtml += '		<div class="product-quantity-container">';
-			addOptionHtml += '			<div class="product-quantity">';
-			addOptionHtml += '				<input class="product-quantity-input" type="number" value="1" min="1" max="50" name="product.stock"/>';
-			addOptionHtml += '				<div class="product-quantity-btns">';
-			addOptionHtml += '					<button class="product-quantity-plus-btn" type="button"></button>';
-			addOptionHtml += '					<button class="product-quantity-minus-btn" type="button" disabled="disabled"></button>';
-			addOptionHtml += '				</div>';
-			addOptionHtml += '			</div>';
-			addOptionHtml += '		</div>';
-			addOptionHtml += '	</td>';
-			addOptionHtml += '	<td class="product-option-table-price">';
-			addOptionHtml += '		<input type="hidden" class="product-option-originalPrice" value="' + optionPrice + '"/>';
-			addOptionHtml += '		<span>' + optionPrice.toLocaleString("ko-KR") + '원</span>';
-			addOptionHtml += '	</td>';
-			addOptionHtml += '	<td class="product-option-table-delete">';
-			addOptionHtml += '		<a class="productDelete"></a>';
-			addOptionHtml += '	</td>';
-			addOptionHtml += '</tr>';
-		
-		if($(".product-option-tableBody").children("#" + pid).length == 0) {
-			$(".product-option-tableBody").html(addOptionHtml);
-			
-			//상품옵션수량 변경 동작
-			$(".product-quantity-plus-btn").click(changeQuantityPlus);
-			$(".product-quantity-minus-btn").click(changeQuantityMinus);
-			$(".product-quantity-input").change(changeQuantityInput);
-			//상품옵션 삭제 동작
-			$(".productDelete").click(deleteOption);
-		}
-			
-		$(".product-options-list").toggleClass("closed");
-	}*/
 	if(pid != undefined) {
+		$(".product-option-tableBody").children("." + pid).addClass("selected");
+	} else {
+		pid = $(event.target).parent().attr("id");
 		$(".product-option-tableBody").children("." + pid).addClass("selected");
 	}
 	$(".product-options-list").toggleClass("closed");
