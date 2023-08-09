@@ -37,24 +37,26 @@ function windowClose() {
 	console.log(window.dataFromParent);
 	if(window.dataFromParent === "orderPage"){
 		// Step1. 부모 페이지의 요소에 자식 페이지의 요소 값 대입
-		window.opener.document.getElementById("deliPre").innerHTML = $("input[name='requiredCheckType']:checked").val();
-		window.opener.document.getElementById("requiredCheckTypeID").value = $("input[name='requiredCheckType']:checked").val();
+		$("#deliPre", opener.document).text($("input[name='requiredCheckType']:checked").val());
+		$("#requiredCheckTypeID", opener.document).val($("input[name='requiredCheckType']:checked").val());
 		if($("input[name='requiredCheckType']:checked").val() === "택배함"){
-			window.opener.document.getElementById("requiredMessageID").value = $("input[name='courierBoxMessage']").val();		
+			$("#requiredMessageID", opener.document).val($("input[name='courierBoxMessage']").val());
 		} else if($("input[name='requiredCheckType']:checked").val() === "기타사항") {
-			window.opener.document.getElementById("requiredMessageID").value = $("input[name='otherInfoMessage']").val();		
+			$("#requiredMessageID", opener.document).val($("input[name='otherInfoMessage']").val());
 		}
-		window.opener.document.getElementById("passwordCheckTypeID").value = $("input[name='passwordCheckType']:checked").val();
-		window.opener.document.getElementById("passwordMessageID").value = $("input[name='passwordMessage']").val();
+		$("#passwordCheckTypeID", opener.document).val($("input[name='passwordCheckType']:checked").val());
+		$("#passwordMessageID", opener.document).val($("input[name='passwordMessage']").val());
 		
 		// Step2. 자식 페이지를 close하는 부모 페이지의 JS 함수 실행
 		$(opener.location).attr("href", "javascript:deliveryPreferencesCloseEvent()");
 		
 	} else if(window.dataFromParent === "newAddressBookPage") {
+		// Step1. 배송 요청사항 자식페이지 생성 요소 비활성화, 유저의 배송 요청사항을 부모페이지로 전달 및 입력 요소 활성화
 		$("#askDeliveryPreference", opener.document).css("display","none");
 		$("#getDeliveryPreference", opener.document).css("display","block");
 		$("#addressbookPreference", opener.document).val($("input[name='requiredCheckType']:checked").val());
 		
+		// Step2. 자식 페이지를 close하는 부모 페이지의 JS 함수 실행
 		$(opener.location).attr("href", "javascript:deliveryPreferencesCloseEvent()");
 	}
 	
