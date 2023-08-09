@@ -31,7 +31,7 @@
 			                <ul>
 			                    <li>
 			                        <span class="id_bg"><!-- 배경이미지(메일) --></span>
-			                        <span>
+			                        <span style="width: 100%">
 			                        	<c:if test="${loginParam != null}">
 				                        	<input type="text" name="userId" placeholder="아이디(이메일)" value="${loginParam.userId}">
 			                        	</c:if>
@@ -44,7 +44,7 @@
 			                    <li class="error id_form_error">아이디(이메일)는 이메일 형식으로 입력해주세요</li>
 			                    <li>
 			                        <span class="pw_bg"><!-- 배경이미지(비밀번호) --></span>
-			                        <span>
+			                        <span style="width: 100%">
 			                        	<c:if test="${loginParam != null}">
 			                        		<input type="password" name="userPw" placeholder="비밀번호" value="${loginParam.userId}">
 			                        	</c:if>
