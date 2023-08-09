@@ -120,14 +120,16 @@
 							    	<li data-target="#demo1" data-slide-to="1"></li>
 							    	<li data-target="#demo1" data-slide-to="2"></li>
 							  	</ul>
-							  	<div class="carousel-inner">
-								    <div class="carousel-item active">
-								    	<img src="${pageContext.request.contextPath}/resources/images/cherry1.jpg" width="500" height="500">
-								    	<div class="carousel-caption" style="bottom:50px;">
-								      		<h3>여기 체리도 싸요</h3>
-								        	<p>365일 체리만 먹어도 안물릴거같은데</p>
-								      	</div>  
-									</div>
+							  	<c:forEach var="" items="${}" varStatus="i">
+								  	<div class="carousel-inner">
+									    <div class="carousel-item active">
+									    	<img src="${pageContext.request.contextPath}/resources/images/cherry1.jpg" width="500" height="500">
+									    	<div class="carousel-caption" style="bottom:50px;">
+									      		<h3>여기 체리도 싸요</h3>
+									        	<p>365일 체리만 먹어도 안물릴거같은데</p>
+									      	</div>  
+										</div>
+							  	</c:forEach>
 									<div class="carousel-item">
 								    	<img src="${pageContext.request.contextPath}/resources/images/cherry2.jpg" width="500" height="500">
 								    	<div class="carousel-caption" style="bottom:50px;">

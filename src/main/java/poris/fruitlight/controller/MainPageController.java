@@ -24,9 +24,13 @@ public class MainPageController {
 		List<MainProduct> mainlists = mainService.getMainList(1);
 		List<MainProduct> todaylists = mainService.getTodayList(1);
 		List<MainProduct> sellerlists = mainService.getSellerList(1);
+		List<MainProduct> catemainlists = mainService.getCateMainList(1);
+		List<MainProduct> catesublists = mainService.getCateMainList(1);
 		model.addAttribute("mainlists", mainlists);
 		model.addAttribute("todaylists", todaylists);
 		model.addAttribute("sellerlists", sellerlists);
+		model.addAttribute("catemainlists", catemainlists);
+		model.addAttribute("catemainlists", catesublists);
 		
 		return "main";
 	}
@@ -36,9 +40,13 @@ public class MainPageController {
 		List<MainProduct> mainlists = mainService.getMainList(1);
 		List<MainProduct> todaylists = mainService.getTodayList(1);
 		List<MainProduct> sellerlists = mainService.getSellerList(1);
+		List<MainProduct> catemainlists = mainService.getCateMainList(1);
+		List<MainProduct> catesublists = mainService.getCateMainList(1);
 		model.addAttribute("mainlists", mainlists);
 		model.addAttribute("todaylists", todaylists);
 		model.addAttribute("sellerlists", sellerlists);
+		model.addAttribute("catemainlists", catemainlists);
+		model.addAttribute("catemainlists", catesublists);
 		
 		return "main";
 	}
