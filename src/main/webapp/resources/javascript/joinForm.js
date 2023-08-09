@@ -20,6 +20,7 @@ function init() {
 	validationPattenUserPW = false;
 	validationEmptyAgainUserPW = false;
 	validationEmptyUserName = false;
+	validationPattenUserName = false;
 	validationEmptyUserTel = false;
 	validationAcceptAgreement = false;
 	
@@ -36,6 +37,7 @@ function init() {
 
     $("#user_name").click(checkEmptyUserName);
     $("#user_name").keyup(checkEmptyUserName);
+    $("#user_name").keyup(checkPattenUserName);
     
     $("#user_tel").click(checkEmptyPhone);
     $("#user_tel").keyup(checkEmptyPhone);
@@ -160,7 +162,19 @@ function checkEmptyUserName () {
         validationEmptyUserName = true;
     }
 }
-
+function checkPattenUserName () {
+	// 국문식/영문식 이름 정규표현식
+    let name_pattern = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/;
+    if(name_pattern.test($("#user_name").val())) {
+    	$("#uname_wacky_match").css("display","none");
+    	validationPattenUserName = true;
+    } else {
+        $("#uname_wacky_match").css("display","block");
+        $("#uname_wacky_match").css("color","#e52528");
+        validationPattenUserName = false;
+    }
+    
+}
 
 function checkEmptyPhone () { 
     let tel_partten = /^(010)-[0-9]{4}-[0-9]{4}$/;
@@ -194,7 +208,7 @@ function checkValidation() {
 	console.log("validationEmptyUserTel  :" + validationEmptyUserTel );
 	console.log("validationAcceptAgreement  :" + validationAcceptAgreement );
     // 유효성 검사에서 실패시 form의 제출기능 비활성화
-	if(validationEmptyUserID && validationPattenUserID && validationEmptyUserPW && validationPattenUserPW && validationEmptyAgainUserPW && validationEmptyUserName && validationEmptyUserTel && validationAcceptAgreement) {
+	if(validationEmptyUserID && validationPattenUserID && validationEmptyUserPW && validationPattenUserPW && validationEmptyAgainUserPW && validationEmptyUserName && validationPattenUserName && validationEmptyUserTel && validationAcceptAgreement) {
 	} else {
 		event.preventDefault();
 	}

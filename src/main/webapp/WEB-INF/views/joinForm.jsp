@@ -55,6 +55,7 @@
 			                        <span style="width:100%"><input type="text" name="userName" id="user_name" placeholder="이름"></span>
 			                    </li>
 			                    <span id="uname_no_match" class="errorMsg">이름을 정확히 입력하세요.</span>
+			                    <span id="uname_wacky_match" class="errorMsg">정상적인 이름을 입력하세요.</span>
 			                    <li>
 			                        <span class="tel_bg"><!-- 배경이미지(연락처) --></span>
 			                        <span style="width:100%"><input type="tel" name="userTel" id="user_tel" placeholder="휴대폰 번호"></span>
