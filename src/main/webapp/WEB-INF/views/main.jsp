@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -27,13 +27,13 @@
 			</ul>
 			<div class="carousel-inner">
 				<div class="carousel-item active">
-			        <img src="${pageContext.request.contextPath}/resources/images/mainavocado1.jpg" alt="mainavocado1" width="1100" height="500">
+			        <img src="${pageContext.request.contextPath}/resources/images/mainfruit1.jpg" alt="mainfruit1" width="1100" height="500">
 			    </div>
 			    <div class="carousel-item">
-			        <img src="${pageContext.request.contextPath}/resources/images/mainmango1.jpg" alt="mainmango1" width="1100" height="500">
+			        <img src="${pageContext.request.contextPath}/resources/images/mainfruit2.jpg" alt="mainfruit2" width="1100" height="500">
 			    </div>
 			    <div class="carousel-item">
-			        <img src="${pageContext.request.contextPath}/resources/images/maincherry1.jpg" alt="maincherry1" width="1100" height="500">
+			        <img src="${pageContext.request.contextPath}/resources/images/mainfruit3.jpg" alt="mainfruit3" width="1100" height="500">
 			    </div>
 			</div>
 			<a class="carousel-control-prev" href="#mainproduct" data-slide="prev">
@@ -48,242 +48,61 @@
 	      		<div class="todayDiscoveryHottext pt-4">
    					<span class="px-2 font-weight-bold">오늘의 발견</span>
    				</div>
-		      	<div id="todayDiscovery" class="todayDiscovery container">
-		      		 <div class="row">
-			      		<div id="todayDiscoveryProduct" class="todayDiscoveryProduct col-md col-sm-12">
-				      		<div>
-				      			<div>
-					      			<a href="detailView?pno=${mainproduct.pno}">
-					      				<img class="productImage" src="${pageContext.request.contextPath}/resources/images/cherry1.jpg"/>
-					      			</a>
-					      		</div>
-					      		<div class="productNameHolder">
-					      			<a id="productName" class="productName" href="detailView?pno=${mainproduct.pno}">체리 리턴즈1</a>
-					      		</div>
-					      		<div id="price" class="price">
-									<div id="productPriceArea" class="productPriceArea">
-										<span id="productDisrate" class="productDisrate">15%</span>
-										<del id="productDiscountPrice"class="productDiscountPrice">20,000원</del>
+			      	<div id="todayDiscovery" class="todayDiscovery container">
+			      		 <div class="row">
+					     <c:forEach var="todaylist" items="${todaylists}">
+				      		<div id="todayDiscoveryProduct" class="todayDiscoveryProduct col-md col-sm-12">
+					      		<div>
+					      			<div>
+						      			<a href="detailView?pid=${todaylist.pid}">
+						      				<img class="productImage" src="${pageContext.request.contextPath}/resources/images/cherry2.jpg"/>
+						      			</a>
+						      		</div>
+						      		<div class="productNameHolder">
+						      			<a id="productName" class="productName" href="detailView?pid=${todaylist.pid}">${todaylist.name}</a>
+						      		</div>
+						      		<div id="price" class="price">
+										<div id="productPriceArea" class="productPriceArea">
+											<span id="productDisrate" class="productDisrate">${todaylist.disrate}%</span>
+											<del id="productDiscountPrice"class="productDiscountPrice">${todaylist.discountprice}원</del>
+										</div>
+										<em>
+											<span id="productPrice" class="productPrice">${todaylist.price}원</span>
+										</em>
 									</div>
-									<em>
-										<span id="productPrice" class="productPrice">17,000원</span>
-									</em>
 								</div>
-							</div>
-			      		</div>
-					
-					
-					<div id="todayDiscoveryProduct" class="todayDiscoveryProduct col-md col-sm-12" onclick="location.href='http://localhost:8080/fruitlight/';">
-		      			<div>
-			      			<img class="productImage" src="${pageContext.request.contextPath}/resources/images/cherry2.jpg"/>
-			      		</div>
-			      		<div class="productNameHolder">
-			      			<a id="productName" class="productName">체리 리턴즈2</a>
-			      		</div>
-			      		<div id="price" class="price">
-							<div id="productPriceArea" class="productPriceArea">
-								<span id="productDisrate" class="productDisrate">35%</span>
-								<del id="productDiscountPrice"class="productDiscountPrice">50,000원</del>
-							</div>
-							<em>
-								<span id="productPrice" class="productPrice">32,500원</span>
-							</em>
-						</div>
-		      		</div>
-		      		
-		      		
-		      		<div id="todayDiscoveryProduct" class="todayDiscoveryProduct col-md col-sm-12" onclick="location.href='http://localhost:8080/fruitlight/';">
-		      			<div>
-			      			<img class="productImage" src="${pageContext.request.contextPath}/resources/images/cherry3.jpg"/>
-			      		</div>
-			      		<div class="productNameHolder">
-			      			<a id="productName" class="productName">체리 리턴즈3 맨날 또 체리야</a>
-			      		</div>
-			      		<div id="price" class="price">
-							<div id="productPriceArea" class="productPriceArea">
-								<span id="productDisrate" class="productDisrate">25%</span>
-								<del id="productDiscountPrice"class="productDiscountPrice">25,000원</del>
-							</div>
-							<em>
-								<span id="productPrice" class="productPrice">18,750원</span>
-							</em>
-						</div>
-		      		</div>
-		      		
-		      		
-		      		<div id="todayDiscoveryProduct" class="todayDiscoveryProduct col-md col-sm-12">
-		      			<div>
-			      			<img class="productImage" src="${pageContext.request.contextPath}/resources/images/cherry4.jpg"/>
-			      		</div>
-			      		<div class="productNameHolder">
-			      			<a id="productName" class="productName">체리 리턴즈4 체리부자</a>
-			      		</div>
-			      		<div id="price" class="price">
-							<div id="productPriceArea" class="productPriceArea">
-								<span id="productDisrate" class="productDisrate">10%</span>
-								<del id="productDiscountPrice"class="productDiscountPrice">30,000원</del>
-							</div>
-							<em>
-								<span id="productPrice" class="productPrice">27,000원</span>
-							</em>
-						</div>
-		      		</div>	      		
+				      		</div>
+		      			</c:forEach>
+	      			</div>
 		      	</div>
-		      </div>
 	      	</div>
-			  <div class="todaySellerContainer">
-	      		
+			<div class="todaySellerContainer">
 	      		<div class="todaySellerHottext pt-4">
    					<span class="px-2 font-weight-bold">오늘의 판매자 특가</span>
    				</div>
 		      	<div id="todaySeller" class="todaySeller container">
 		      		<div class="row"> 
-		      		
-			      		<div id="todaySellerProduct" class="todaySellerProduct col-md" onclick="location.href='http://localhost:8080/fruitlight/';">
-			      			<div>
-				      			<img class="productImage" src="${pageContext.request.contextPath}/resources/images/cherry1.jpg"/>
+			      		<c:forEach var="sellerlist" items="${sellerlists}">
+				      		<div id="todaySellerProduct" class="todaySellerProduct col-md">
+				      			<div>
+					      			<img class="productImage" src="${pageContext.request.contextPath}/resources/images/cherry3.jpg"/>
+					      		</div>
+					      		<div class="productDiscountHolder">
+					      			<span>지금 ${sellerlist.disrate}% 할인중!</span>
+					      		</div>
+					      		<div class="productNameHolder">
+					      			<a id="productName" class="productName">${sellerlist.name}</a>
+					      		</div>
+					      		<div id="price" class="price">
+									<em>
+										<span id="productPrice" class="productPrice">${sellerlist.price}원</span>
+									</em>
+								</div>
 				      		</div>
-				      		<div class="productDiscountHolder">
-				      			<span>지금 70% 할인중!</span>
-				      		</div>
-				      		<div class="productNameHolder">
-				      			<a id="productName" class="productName">체리 리턴즈4 체리부자</a>
-				      		</div>
-				      		<div id="price" class="price">
-								<em>
-									<span id="productPrice" class="productPrice">17,000원</span>
-								</em>
-							</div>
-			      		</div>
-			      		
-			      		
-			      		<div id="todaySellerProduct" class="todaySellerProduct col-md" onclick="location.href='http://localhost:8080/fruitlight/';">
-			      			<div>
-				      			<img class="productImage" src="${pageContext.request.contextPath}/resources/images/cherry1.jpg"/>
-				      		</div>
-				      		<div class="productDiscountHolder">
-				      			<span>지금 70% 할인중!</span>
-				      		</div>
-				      		<div class="productNameHolder">
-				      			<a id="productName" class="productName">체리 리턴즈4 체리부자</a>
-				      		</div>
-				      		<div id="price" class="price">
-								<em>
-									<span id="productPrice" class="productPrice">17,000원</span>
-								</em>
-							</div>
-			      		</div>
-			      		
-			      		
-			      		<div id="todaySellerProduct" class="todaySellerProduct col-md" onclick="location.href='http://localhost:8080/fruitlight/';">
-			      			<div>
-				      			<img class="productImage" src="${pageContext.request.contextPath}/resources/images/cherry1.jpg"/>
-				      		</div>
-				      		<div class="productDiscountHolder">
-				      			<span>지금 70% 할인중!</span>
-				      		</div>
-				      		<div class="productNameHolder">
-				      			<a id="productName" class="productName">체리 리턴즈4 체리부자</a>
-				      		</div>
-				      		<div id="price" class="price">
-								<em>
-									<span id="productPrice" class="productPrice">17,000원</span>
-								</em>
-							</div>
-			      		</div>
-			      		
-			      		
-			      		<div id="todaySellerProduct" class="todaySellerProduct col-md" onclick="location.href='http://localhost:8080/fruitlight/';">
-			      			<div>
-				      			<img class="productImage" src="${pageContext.request.contextPath}/resources/images/cherry1.jpg"/>
-				      		</div>
-				      		<div class="productDiscountHolder">
-				      			<span>지금 70% 할인중!</span>
-				      		</div>
-				      		<div class="productNameHolder">
-				      			<a id="productName" class="productName">체리 리턴즈4 체리부자</a>
-				      		</div>
-				      		<div id="price" class="price">
-								<em>
-									<span id="productPrice" class="productPrice">17,000원</span>
-								</em>
-							</div>
-			      		</div>
-			      		
-			      		
-			      		<div id="todaySellerProduct" class="todaySellerProduct col-md" onclick="location.href='http://localhost:8080/fruitlight/';">
-			      			<div>
-				      			<img class="productImage" src="${pageContext.request.contextPath}/resources/images/cherry1.jpg"/>
-				      		</div>
-				      		<div class="productDiscountHolder">
-				      			<span>지금 70% 할인중!</span>
-				      		</div>
-				      		<div class="productNameHolder">
-				      			<a id="productName" class="productName">체리 리턴즈4 체리부자</a>
-				      		</div>
-				      		<div id="price" class="price">
-								<em>
-									<span id="productPrice" class="productPrice">17,000원</span>
-								</em>
-							</div>
-			      		</div>
-			      		
-			      		
-			      		<div id="todaySellerProduct" class="todaySellerProduct col-md" onclick="location.href='http://localhost:8080/fruitlight/';">
-			      			<div>
-				      			<img class="productImage" src="${pageContext.request.contextPath}/resources/images/cherry1.jpg"/>
-				      		</div>
-				      		<div class="productDiscountHolder">
-				      			<span>지금 70% 할인중!</span>
-				      		</div>
-				      		<div class="productNameHolder">
-				      			<a id="productName" class="productName">체리 리턴즈4 체리부자</a>
-				      		</div>
-				      		<div id="price" class="price">
-								<em>
-									<span id="productPrice" class="productPrice">17,000원</span>
-								</em>
-							</div>
-			      		</div>
-			      		
-			      		
-			      		<div id="todaySellerProduct" class="todaySellerProduct col-md" onclick="location.href='http://localhost:8080/fruitlight/';">
-			      			<div>
-				      			<img class="productImage" src="${pageContext.request.contextPath}/resources/images/cherry1.jpg"/>
-				      		</div>
-				      		<div class="productDiscountHolder">
-				      			<span>지금 70% 할인중!</span>
-				      		</div>
-				      		<div class="productNameHolder">
-				      			<a id="productName" class="productName">체리 리턴즈4 체리부자</a>
-				      		</div>
-				      		<div id="price" class="price">
-								<em>
-									<span id="productPrice" class="productPrice">17,000원</span>
-								</em>
-							</div>
-			      		</div>
-			      		
-			      		
-			      		<div id="todaySellerProduct" class="todaySellerProduct col-md" onclick="location.href='http://localhost:8080/fruitlight/';">
-			      			<div>
-				      			<img class="productImage" src="${pageContext.request.contextPath}/resources/images/cherry1.jpg"/>
-				      		</div>
-				      		<div class="productDiscountHolder">
-				      			<span>지금 70% 할인중!</span>
-				      		</div>
-				      		<div class="productNameHolder">
-				      			<a id="productName" class="productName">체리 리턴즈4 체리부자</a>
-				      		</div>
-				      		<div id="price" class="price">
-								<em>
-									<span id="productPrice" class="productPrice">17,000원</span>
-								</em>
-							</div>
-			      		</div>
-			      	</div>
-		      	</div>
-		      </div>
+			      		</c:forEach>
+			    	</div>
+		    	</div>
+		    </div>
    			<div id="cateAdvertise" class="cateAdvertise">
    				<p>HOT! TREND</p>
    				<span>카테고리 별</span>
@@ -303,21 +122,21 @@
 							  	</ul>
 							  	<div class="carousel-inner">
 								    <div class="carousel-item active">
-								    	<img src="image/cherry1.jpg" width="500" height="500">
+								    	<img src="${pageContext.request.contextPath}/resources/images/cherry1.jpg" width="500" height="500">
 								    	<div class="carousel-caption" style="bottom:50px;">
 								      		<h3>여기 체리도 싸요</h3>
 								        	<p>365일 체리만 먹어도 안물릴거같은데</p>
 								      	</div>  
 									</div>
 									<div class="carousel-item">
-								    	<img src="image/cherry2.jpg" width="500" height="500">
+								    	<img src="${pageContext.request.contextPath}/resources/images/cherry2.jpg" width="500" height="500">
 								    	<div class="carousel-caption" style="bottom:50px;">
 								      		<h3>와! 체리가 싸요</h3>
 								        	<p>신선하닌까 당장 사가세요 ~</p>
 								      	</div>   
 								  	</div>
 								  	<div class="carousel-item">
-										<img src="image/cherry3.jpg" width="500" height="500">
+										<img src="${pageContext.request.contextPath}/resources/images/cherry3.jpg" width="500" height="500">
 									    <div class="carousel-caption" style="bottom:50px;">
 									    	<h3>그저 체리</h3>
 									        <p>쓸말이 없어서 아무거나 넣어봤어요</p>
@@ -346,27 +165,21 @@
 						    	<ul id="cateAdvertiseCherryListList" class="cateAdvertiseCherryListList">
 						    		<li id="cateAdvertiseCherryListItem" class="cateAdvertiseCherryListItem">
 						    			<a href="#">
-						    				<img src="image/cherry1.jpg"/>
+						    				<img src="${pageContext.request.contextPath}/resources/images/cherry1.jpg"/>
 						    				<span id="hoverUnderline" class="hoverUnderline">뭐시기 저시기</span>
 						    				<span></span>
 						    				<span>
 						    					<strong>18000</strong> 원
-						    					<span>
-						    						<img src="//image10.coupangcdn.com/image/delivery_badge/default/ios/rocket_merchant/consignment_v3@2x.png" height="14" alt="로켓배송">
-						    					</span>
 						    				</span>	
 						    			</a>
 						    		</li>
 						    		<li id="cateAdvertiseCherryListItem" class="cateAdvertiseCherryListItem">
 						    			<a href="#">
-						    				<img src="image/cherry1.jpg"/>
+						    				<img src="${pageContext.request.contextPath}/resources/images/cherry2.jpg"/>
 						    				<span id="hoverUnderline" class="hoverUnderline">뭐시기 저시기</span>
 						    				<span></span>
 						    				<span>
 						    					<strong>18000</strong> 원
-						    					<span>
-						    						<img src="//image10.coupangcdn.com/image/delivery_badge/default/ios/rocket_merchant/consignment_v3@2x.png" height="14" alt="로켓배송">
-						    					</span>
 						    				</span>	
 						    			</a>
 						    		</li>
