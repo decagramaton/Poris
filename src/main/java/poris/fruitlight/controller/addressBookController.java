@@ -40,4 +40,11 @@ public class addressBookController {
 		
 		return "redirect:/addressBook";
 	}
+	
+	
+	@GetMapping("/addressBook/addAddressBook")
+	public String addAddressBook() {
+		
+		return "newAddressBook";
+	}
 }

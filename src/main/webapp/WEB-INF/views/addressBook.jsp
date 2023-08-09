@@ -46,7 +46,7 @@
 						</div>
 					</div>
             	</c:forEach>
-				<form class="addressBookNewForm" method="get" action="#">
+				<form class="addressBookNewForm" method="get" action="/fruitlight/addressBook/addAddressBook">
 				   <div class="addressbook__button-fixer">
 				       <button type="submit" class="addressbook-new-button">
 				           <i class="addressbook__icon--plus"></i>
