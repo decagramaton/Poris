@@ -19,7 +19,9 @@
 		
 		
 		<div class="content-body__corset">
-		    <form method="post" class="_addressBookSaveForm" action="https://id.coupang.com/addressbook/save">
+		    <form method="post" class="_addressBookSaveForm" action="#">
+		    
+		    	<!-- 받는 사람 입력 요소 -->
 			    <div class="icon-text-field__frame-box _addressBookRecipientRoot">
 				    <div class="icon-text-field__icon-container">
 				        <div class="icon-text-field__icon-box icon-text-field__icon-box--fix">
@@ -33,6 +35,7 @@
 				    </div>
 				</div>
 				
+				<!-- 받을 주소 입력 요소 -->
 				<div class="icon-text-field__frame-box _addressBookAddressErrorStatus">
 				    <div class="icon-text-field__icon-container">
 				        <div class="icon-text-field__icon-box icon-text-field__icon-box--fix">
@@ -46,6 +49,7 @@
 				    </div>
 				</div>
 				
+				<!-- 연락처 입력 요소 -->
 				<div class="icon-text-field icon-text-field--input-util _addressBookCellphoneAddonStatus">
 				    <div class="icon-text-field__frame-box _addressBookCellphoneErrorStatus">
 				        <div class="icon-text-field__icon-container">
@@ -61,17 +65,17 @@
 				    </div>
 				</div>
 				
-				
+				<!-- 배송 요청사항 입력 요소 -->
 			    <div class="icon-text-field__frame-box _addressBookDeliveryPreferencesErrorStatus">
 			        <div class="icon-text-field__icon-container">
 			            <div class="icon-text-field__icon-box icon-text-field__icon-box--fix">
 			                <i class="icon-text-field__icon--speech-bubble"></i>
 			            </div>
 			            <div class="icon-text-field__button-container">
-		                    <a href="/fruitlight/deliveryPreferences" role="button" class="icon-text-field__button icon-text-field__button--icon-container _addressBookDeliveryPreferencesTrigger">
+		                    <button id="askDeliveryPreference" onclick="openDeliveryPreferencesPage()" type="button" role="button" class="icon-text-field__button icon-text-field__button--icon-container _addressBookDeliveryPreferencesTrigger">
 		                    	<span class="icon-text-field__text icon-text-field__text--button-label _addressBookDeliveryPreferencesDefaultSummary">배송 요청사항</span>
-		                    </a>
-		                    <label for="addressbookPreference" class="icon-text-field__input-area" style="display: none;">
+		                    </button>
+		                    <label id="getDeliveryPreference" for="addressbookPreference" class="icon-text-field__input-area" style="display: none;">
 				                    <input type="text" class="icon-text-field__input _addressBookCellphoneInput" id="addressbookPreference" name="recipientPreference" value="">
 				            </label>
 			            </div>

@@ -114,7 +114,7 @@
                         </div>
                     </div>
                     
-                    <input type="hidden" id="requestType" name="requestType" value="">
+                    <input type="hidden" id="requestTypeID" name="requestType">
 
                     <button type="submit" id="submitButton" class="delivery-preferences__save-button  _pickerFormSaveTrigger">
                         <span class="delivery-preferences__button-label">동의하고 선택하기</span>

@@ -11,7 +11,6 @@
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/addressBook_style.css">
     <script src="${pageContext.request.contextPath}/resources/javascript/addressBook.js"></script>
-
 </head>
 <body>
     <div>
@@ -57,6 +56,5 @@
             </div>
         </section>
     </div>
-
 </body>
 </html>

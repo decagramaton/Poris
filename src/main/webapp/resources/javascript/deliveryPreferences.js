@@ -15,7 +15,6 @@ function init() {
 }
 
 function lockerClickEvent() {
-    console.log($("#_AA01_KEEP_IN_LOCKER").is(":checked"));
     if($("#_AA01_KEEP_IN_LOCKER").is(":checked")){
         $("#locker_detail_form").css("display", "block");
     } else {
@@ -29,8 +28,15 @@ function lockerClickEvent() {
     }
 }
 
+
+/**
+ * @author 고재승
+ * 배송 요청사항을 호출한 부모 페이지의 종류에 따라 배송 요청사항을 전달하는 메소드
+ */
 function windowClose() {
-	if($("#requestType").val() === "orderPage"){
+	console.log(window.dataFromParent);
+	if(window.dataFromParent === "orderPage"){
+		// Step1. 부모 페이지의 요소에 자식 페이지의 요소 값 대입
 		window.opener.document.getElementById("deliPre").innerHTML = $("input[name='requiredCheckType']:checked").val();
 		window.opener.document.getElementById("requiredCheckTypeID").value = $("input[name='requiredCheckType']:checked").val();
 		if($("input[name='requiredCheckType']:checked").val() === "택배함"){
@@ -38,9 +44,17 @@ function windowClose() {
 		} else if($("input[name='requiredCheckType']:checked").val() === "기타사항") {
 			window.opener.document.getElementById("requiredMessageID").value = $("input[name='otherInfoMessage']").val();		
 		}
-		
 		window.opener.document.getElementById("passwordCheckTypeID").value = $("input[name='passwordCheckType']:checked").val();
 		window.opener.document.getElementById("passwordMessageID").value = $("input[name='passwordMessage']").val();
+		
+		// Step2. 자식 페이지를 close하는 부모 페이지의 JS 함수 실행
+		$(opener.location).attr("href", "javascript:deliveryPreferencesCloseEvent()");
+		
+	} else if(window.dataFromParent === "newAddressBookPage") {
+		$("#askDeliveryPreference", opener.document).css("display","none");
+		$("#getDeliveryPreference", opener.document).css("display","block");
+		$("#addressbookPreference", opener.document).val($("input[name='requiredCheckType']:checked").val());
+		
 		$(opener.location).attr("href", "javascript:deliveryPreferencesCloseEvent()");
 	}
 	
