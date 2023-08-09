@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html>
 
@@ -273,11 +275,6 @@
                   <!-- 상품 옵션 -->
                   <div class="product-option-container">
                   	 <div class="product-option-btn-container">
-                  	 	<!-- <select class="product-select">
-                  	 		<option id="1" selected>400g x 1팩</option>
-                  	 		<option id="2">800g x 1팩</option>
-                  	 		<option id="3">1.2kg x 1팩</option>
-                  	 	</select> -->
                   	 	<div class="product-option-btn">
                            <span class="product-option-title">
                                <strong>= 옵션 : 가격 =</strong>
@@ -288,31 +285,16 @@
 	                     <ul class="product-options-list closed">
                   	 		<c:forEach var="optionProduct" items="${optionList}">
 		                     	<li class="product-option-list-item">
-			                      <div class="product-option-list-title" id="${optionProduct.pid}">
+			                      <div id="${optionProduct.pid}">
 			                      	<c:if test="${optionProduct.option == product.option}">
-			                      		<span>${optionProduct.option}</span><span hidden> ${optionProduct.price}</span>
+			                      		<span class="option-item-name">${optionProduct.option}</span><span class="option-item-price" hidden> : ${optionProduct.price}</span>
 			                      	</c:if>
 			                      	<c:if test="${optionProduct.option != product.option}">
-			                      		<span>${optionProduct.option}</span><span> : ${optionProduct.price}</span>
+			                      		<span class="option-item-name">${optionProduct.option}</span><span class="option-item-price"> : ${optionProduct.price}</span>
 			                      	</c:if>
 			                      </div>
 			                  	</li>
 		              		</c:forEach>
-		                  	<!-- <li class="product-option-list-item">
-		                      <div class="product-option-list-title" id="2">
-		                      	<span>800g x 1팩</span><span hidden> : 20,000원</span>
-		                      </div>
-		                  	</li>
-		                  	<li class="product-option-list-item">
-		                      <div class="product-option-list-title" id="2">
-		                      	<span>800g x 1팩</span><span> : 20,000원</span>
-		                      </div>
-		                  	</li>
-		                  	<li class="product-option-list-item">
-		                      <div class="product-option-list-title" id="3">
-		                      	<span>1.2kg x 1팩</span><span> : 30,000원</span>
-		                      </div>
-		                  	</li> -->
 		                  </ul>
                   </div>
                   <div class="product-option">
@@ -351,7 +333,7 @@
                                   </td>
                                   <td class="product-option-table-price">
                                   	  <input type="hidden" class="product-option-originalPrice" value="${optionProduct.price}"/>
-                                      <span>${optionProduct.price}</span>
+                                      <span class="product-option-originalPrice-txt">${optionProduct.price}</span>
                                   </td>
                                   <td class="product-option-table-delete">
                                       <a class="productDelete"></a>
@@ -361,20 +343,9 @@
                           </tbody>
                       </table>
                   </div>
-                  <!-- 상품 수량 및 구매 -->
-                  <div class="product-quantity-buy">
-                     <!-- 상품 수량 -->
-                     <!-- <div class="product-quantity-container">
-                        <div class="product-quantity">
-                           <input class="product-quantity-input" type="number" value="1" min="1" max="50" name="stock"/>
-                           <div class="product-quantity-btns">
-                              <button class="product-quantity-plus-btn" type="button"></button>
-                              <button class="product-quantity-minus-btn" type="button" disabled="disabled"></button>
-                           </div>
-                        </div>
-                     </div> -->
+                  <div class="product-buy-footer">
                      <!-- 장바구니/구매하기 -->
-                     <div class="product-buy-footer">
+                     <div class="product-buy-btns">
                         <button class="product-cart-btn">
                            	장바구니 담기
                         </button>
@@ -783,7 +754,6 @@
                         </div>
                         <div class="inquiry-notice">
                            <ul>
-                              <li>구매한 상품의 <strong>취소/반품은 마이쿠팡 구매내역에서 신청</strong> 가능합니다.</li>
                               <li>상품문의 및 후기게시판을 통해 취소나 환불, 반품 등은 처리되지 않습니다.</li>
                               <li><strong>가격, 판매자, 교환/환불 및 배송 등 해당 상품 자체와 관련 없는 문의는 고객센터 내 1:1 문의하기</strong>를 이용해주세요.
                               </li>
@@ -794,46 +764,44 @@
                         </div>
                         <div class="inquiry-item-container">
                            <div class="inquiry-items">
-                              <!-- 문의1 -->
-                              <div class="inquiry-item">
-                                 <span class="inquiry-item-question-label">질문</span>
-                                 <div class="inquiry-item-question">
-                                    <div class="inquiry-item-option">300g | 1개 쿠팡</div>
-                                    <div class="inquiry-item-content">씻어서 먹어야하죠? 새척된건 아니죠?</div>
-                                    <div class="inquiry-item-time">2022/08/18 08:55:17</div>
-                                 </div>
-                                 <div class="inquiry-item-answer">
-                                    <i></i>
-                                    <span class="inquiry-item-answer-label">답변</span>
-                                    <div class="inquiry-item-answer-wrap">
-                                       <div class="inquiry-item-seller"><strong>[COUPANG]</strong></div>
-                                       <div class="inquiry-item-answer-content">만나다 미국 체리 상품은 세척해야 하는 점 참고 부탁드립니다.</div>
-                                       <div class="inquiry-item-answer-time">2022/08/18 09:51:06</div>
-                                    </div>
-                                 </div>
-                              </div>
-                              <!-- 문의2 -->
-                              <div class="inquiry-item">
-                                 <span class="inquiry-item-question-label">질문</span>
-                                 <div class="inquiry-item-question">
-                                    <div class="inquiry-item-option">300g | 1개 쿠팡</div>
-                                    <div class="inquiry-item-content">체리 맛있나여</div>
-                                    <div class="inquiry-item-time">2023/06/22 11:55:17</div>
-                                 </div>
-                                 <div class="inquiry-item-answer">
-                                    <i></i>
-                                    <span class="inquiry-item-answer-label">답변</span>
-                                    <div class="inquiry-item-answer-wrap">
-                                       <div class="inquiry-item-seller"><strong>[COUPANG]</strong></div>
-                                       <div class="inquiry-item-answer-content">냠냠굿</div>
-                                       <div class="inquiry-item-answer-time">2023/06/22 12:00:06</div>
-                                    </div>
-                                 </div>
-                              </div>
+                              <c:forEach var="productInquiry" items="${productInquiryList}">
+                              	 <div class="inquiry-item">
+	                                 <span class="inquiry-item-question-label">질문</span>
+	                                 <div class="inquiry-item-question">
+	                                    <!-- <div class="inquiry-item-option">${Login.uid}</div> -->
+	                                    <div class="inquiry-item-content">${productInquiry.inquiryContent}</div>
+	                                    <div class="inquiry-item-time"><fmt:formatDate value="${productInquiry.inquiryDate}" pattern="yyyy/MM/dd HH:mm:ss"/></div>
+	                                 </div>
+	                             
+	                              	 <c:if test="${productInquiry.emptAnswer == false}">
+	                              	 	<div class="inquiry-item-answer">
+		                                    <i></i>
+		                                    <span class="inquiry-item-answer-label">답변</span>
+		                                    <div class="inquiry-item-answer-wrap">
+		                                       <div class="inquiry-item-seller"><strong>[FRUITLIGHT]</strong></div>
+		                                       <div class="inquiry-item-answer-content">${productInquiry.answerContent}</div>
+		                                       <div class="inquiry-item-answer-time">${productInquiry.answerDate}</div>
+		                                    </div>
+		                                 </div>
+	                              	 </c:if>
+                              	 </div>
+                              </c:forEach>
                            </div>
-                           <!-- 전체보기 버튼 -->
-                           <div class="inquiry-expand">
-                              <button type="button" class="inquiry-expand-btn">전체보기 <i></i></button>
+                           <div class="inquiry-page-btns">
+								  <c:if test="${productInquiryPager.groupNo > 1}">
+									  <%-- <a class="page-prev" href="moveInquiryPage?pageNo=${productInquiryPager.startPageNo-1}">이전</a> --%>
+									  <button class="page-prev"></button>
+								  </c:if>
+								
+								  <c:forEach var="i" begin="${productInquiryPager.startPageNo}" end="${productInquiryPager.endPageNo}">
+									  <a class="page-num" href="moveInquiryPage?pageNo=${i}">${i}</a>
+								  </c:forEach>
+								  
+								  <c:if test="${productInquiryPager.groupNo < productInquiryPager.totalGroupNo}">
+									  <%-- <a class="page-next" href="moveInquiryPage?pageNo=${productInquiryPager.endPageNo+1}">다음</a> --%>
+									  <button class="page-next"></button>
+								  </c:if>
+							  <%-- <a class="btn btn-outline-primary btn-sm" href="getBoardList?pageNo=${pager.totalPageNo}">맨끝</a> --%>
                            </div>
                         </div>
                         <div class="inquiry-report">
