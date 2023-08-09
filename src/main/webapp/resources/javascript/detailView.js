@@ -192,19 +192,17 @@ function deleteOption() {
 
 //장바구니 담기
 function addCart() {
-	var selectedItems = $(".product-option-tableRow");
+	var selectedItems = $(".product-option-tableRow.selected");
 	if(selectedItems.length == 0) {
 		alert("옵션을 선택해주세요.");
 	} else {
-		var selectedItemsPids = $(".product-option-pid");
-		var selectedItemsStocks = $(".product-quantity-input");
 		var pids = [];
 		var stocks = [];
-		selectedItemsPids.each((index, item) => {
-			pids.push($(item).val());
-		});
-		selectedItemsStocks.each((index, item) => {
-			stocks.push($(item).val());
+		selectedItems.each((index, item) => {
+			let selectedItemsPid = $(item).find(".product-option-pid").val();
+			let selectedItemsStock = $(item).find(".product-quantity-input").val();
+			pids.push(selectedItemsPid);
+			stocks.push(selectedItemsStock);
 		});
 		$.ajax({
 			url: "addCartProduct",
@@ -220,19 +218,17 @@ function addCart() {
 }
 //바로구매
 function buy() {
-	var selectedItems = $(".product-option-tableRow");
+	var selectedItems = $(".product-option-tableRow.selected");
 	if(selectedItems.length == 0) {
 		alert("옵션을 선택해주세요.");
 	} else {
-		var selectedItemsPids = $(".product-option-pid");
-		var selectedItemsStocks = $(".product-quantity-input");
 		var pids = [];
 		var stocks = [];
-		selectedItemsPids.each((index, item) => {
-			pids.push($(item).val());
-		});
-		selectedItemsStocks.each((index, item) => {
-			stocks.push($(item).val());
+		selectedItems.each((index, item) => {
+			let selectedItemsPid = $(item).find(".product-option-pid").val();
+			let selectedItemsStock = $(item).find(".product-quantity-input").val();
+			pids.push(selectedItemsPid);
+			stocks.push(selectedItemsStock);
 		});
 		$.ajax({
 			url: "buyDirect",
@@ -245,19 +241,6 @@ function buy() {
 			success: function(data) {}
 		});
 	}
-	/*var pid = $(".product-id").val();
-	var stock = $(".product-quantity-input").val();
-	var option = $(".product-select").val();
-	$.ajax({
-		url: "buyDirect",
-		method: "post",
-		data: {
-			pid:pid,
-			stock:stock,
-			option:option
-		},
-		success: function(data) {}
-	});*/
 }
 
 /* 고재승

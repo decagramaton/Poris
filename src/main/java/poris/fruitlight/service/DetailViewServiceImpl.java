@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import poris.fruitlight.dto.CartProduct;
 import poris.fruitlight.dto.detailViewProduct;
 
 @Service
@@ -36,6 +37,12 @@ public class DetailViewServiceImpl implements DetailViewService {
 			list.add(product);
 		}
 		return list;
+	}
+	@Override
+	public int addToCart(List<CartProduct> productList) {
+		//선택한 상품들 추가
+		//xml에 이미 있는 상품이면 수량만 업데이트하도록 작성
+		return 0;
 	}
 
 }
