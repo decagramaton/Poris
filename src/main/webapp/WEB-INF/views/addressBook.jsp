@@ -10,6 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/addressBook_style.css">
+    <script src="${pageContext.request.contextPath}/resources/javascript/addressBook.js"></script>
 
 </head>
 <body>
@@ -19,7 +20,7 @@
         </header>
         <section class="content-body">
             <div class="content-body-corset">
-            	<c:forEach var="item" items="${addrBookList}">
+            	<c:forEach var="item" items="${addrBookList}" varStatus="status">
 	            	<div class="address-card">
 	            		<div class="address-card__head">
 							<div class="address-card__title">${item.recipientName}</div>
@@ -31,19 +32,17 @@
 						</div>
 						<div class="address-card__foot">
 						   <from action="#" method="post" class="address-card__form--pick">
- 						       <input name="recipientName" value="${item.recipientName}" type="hidden">
-						       <input name="streetAddress" value="${item.streetAddress}" type="hidden">
-						       <input name="recipientTel" value="${item.recipientTel}" type="hidden">
-						       <input name="recipientSummary" value="${item.recipientSummary}" type="hidden">
-						       <button class="addressBookFormSubmit" type="submit">
+ 						       <input name="recipientName${status.count}" value="${item.recipientName}" type="hidden">
+						       <input name="streetAddress${status.count}" value="${item.streetAddress}" type="hidden">
+						       <input name="recipientTel${status.count}" value="${item.recipientTel}" type="hidden">
+						       <input name="recipientSummary${status.count}" value="${item.recipientSummary}" type="hidden">
+						       <button class="addressBookFormSubmit" type="submit" onclick="selectAddressBook(${status.count})">
 						           <span class="addressbook__text">선택</span>
 						       </button>
 						   </from>
-						   <from action="#" method="get">
-						       <a href="/fruitlight/addressBook/changeAddressBook" class="address-card__button--edit">
-						           <span class="addressbook__text">수정</span>
-						       </a>
-						   </from>
+					       <a href="/fruitlight/addressBook/changeAddressBook" class="address-card__button--edit">
+					           <span class="addressbook__text">수정</span>
+					       </a>
 						</div>
 					</div>
             	</c:forEach>

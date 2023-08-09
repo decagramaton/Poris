@@ -40,5 +40,4 @@ public class addressBookController {
 		
 		return "redirect:/addressBook";
 	}
-	
 }
