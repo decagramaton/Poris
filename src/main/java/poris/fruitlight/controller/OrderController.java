@@ -22,7 +22,6 @@ public class OrderController {
 	
 	@RequestMapping("/order")
 	public String DetailViewPage(Model model) {
-		log.info("실행");
 		// Step1.구매자 정보, 도착지 정보, 배송 목록을 DB에서 가져오기
 		ShopperParam shopperInfo = orderService.getShopperInfo("1");
 		ShippingAddressParam shipAddress = orderService.getShippingAddressInfo("1");

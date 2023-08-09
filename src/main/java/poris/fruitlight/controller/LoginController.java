@@ -24,16 +24,31 @@ import poris.fruitlight.service.LoginService;
 @Controller
 public class LoginController {
 	
+
 	@Autowired
 	private LoginService loginservice;
 	
+	
+	/**
+	 * 로그인 페이지 접속 메소드
+	 * @author 고재승
+	 * @return 로그인 페이지 이동
+	 */
 	@RequestMapping("/login")
 	public String MainPage() {
 		return "login";
 	}
 	
-	@PostMapping("/askLogin")
-	public String askLogin(LoginParam loginParam, HttpServletRequest request, HttpServletResponse response , HttpSession session, Model model) {
+	/**
+	 * 로그인 요청 처리 메소드
+	 * @param loginParam - (유저ID, 유저PW, 자동로그인 여부)
+	 * @param response - 쿠키를 응답으로 전송하기 위해 사용
+	 * @param session - 로그인 성공 시 유저 정보를 브라우저 내 공유하기 위해 사용
+	 * @param model - 로그인 실패 시, 에러 사유 메세지와 유저가 입력한 값을 전달하기 위해 사용
+	 * @return 메인 페이지로 리다이렉트
+	 */
+	@PostMapping("/login/askLogin")
+	public String askLogin(LoginParam loginParam, HttpServletResponse response , HttpSession session, Model model) {
 		// Step1. JSP에서 유저 로그인 값 얻기
 		log.info(loginParam.toString());
 		

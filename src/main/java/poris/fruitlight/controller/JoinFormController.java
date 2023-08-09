@@ -25,6 +25,12 @@ public class JoinFormController {
 		return "joinForm";
 	}
 	
+	/**
+	 * 
+	 * @param joinParam - (유저ID, 유저PW, 유저PW 재입력, 유저 이름, 유저 연락처, 필수 동의 여부)
+	 * @param response - alert 메세지 응답
+	 * @throws IOException - response 응답 실패 시 예외처리
+	 */
 	@PostMapping("/joinForm/askJoinForm")
 	public void askJoinForm(JoinParam joinParam, HttpServletResponse response) throws IOException {
 		// Step1. 회원가입 입력 데이터 확인 (유효성 검사)

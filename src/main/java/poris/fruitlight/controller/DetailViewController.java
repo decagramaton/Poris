@@ -28,13 +28,15 @@ public class DetailViewController {
 	
 	@GetMapping("/")
 	public String detailView(Model model) {
-		DetailViewProduct product = detailViewService.getProduct(1);
-		model.addAttribute("product", product);
-		List<DetailViewProduct> optionList = detailViewService.getOptions(product.getName());
-		model.addAttribute("optionList", optionList);
 		
-		//상품문의
+		// Step1. 
+		DetailViewProduct product = detailViewService.getProduct(1);
+		List<DetailViewProduct> optionList = detailViewService.getOptions(product.getName());
 		int totalBoardNum = detailViewService.getTotalProductInquiryNum("1");
+		
+		model.addAttribute("product", product);
+		model.addAttribute("optionList", optionList);
+		//상품문의
 		Pager productInquiryPager = new Pager(5, 10, totalBoardNum, 1);
 		
 		List<ProductInquiry> productInquiryList = detailViewService.getProductInquiryList(productInquiryPager, "1");

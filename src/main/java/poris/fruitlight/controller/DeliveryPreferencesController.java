@@ -10,7 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import lombok.extern.slf4j.Slf4j;
-import poris.fruitlight.dto.deliveryPreferencesParam;
+import poris.fruitlight.dto.DeliveryPreferencesParam;
 
 @Slf4j
 @Controller
