@@ -14,7 +14,7 @@ import poris.fruitlight.dto.deliveryPreferencesParam;
 
 @Slf4j
 @Controller
-public class deliveryPreferencesController {
+public class DeliveryPreferencesController {
 	
 	/**
 	 * @author 고재승

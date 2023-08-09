@@ -15,7 +15,7 @@ import poris.fruitlight.util.AlertScript;
 
 @Slf4j
 @Controller
-public class joinFormController {
+public class JoinFormController {
 	
 	@Autowired
 	private JoinService joinService;
@@ -42,8 +42,6 @@ public class joinFormController {
 		} else if (joinParam.getAcceptAgreement() == null) {
 			AlertScript.alertAndBackPage(response, "필수 항목은 반드시 동의되어야 합니다.");
 		}
-		
-		
 		
 		// Step2. DB에 동일 회원 유무 검사
 		boolean resultIsMember = joinService.isMember(joinParam.getUserId());

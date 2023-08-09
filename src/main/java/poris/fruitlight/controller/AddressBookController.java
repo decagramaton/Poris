@@ -15,7 +15,7 @@ import poris.fruitlight.util.AlertScript;
 
 @Slf4j
 @Controller
-public class addressBookController {
+public class AddressBookController {
 	
 	@Autowired
 	private AddressBookService addrBookService;
