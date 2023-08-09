@@ -7,21 +7,22 @@
 window.onload = init;
 
 function init() {
-    $("#_AA01_PUT_FRONT_OF_DOOR").on('change', lockerClickEvent);
-    $("#_AA01_DIRECT_RECEIVE_AS_FRONT_OF_DOOR").on('change', lockerClickEvent);
-    $("#_AA01_KEEP_LOBBY").on('change', lockerClickEvent);
-    $("#_AA01_KEEP_IN_LOCKER").on('change', lockerClickEvent);
-    $("#_AA01_OTHER_PLACE").on('change', lockerClickEvent);
+    $("#put_front_of_door").on('change', lockerClickEvent);
+    $("#direct_receive_as_front_of_door").on('change', lockerClickEvent);
+    $("#security_office").on('change', lockerClickEvent);
+    $("#delivery_Box").on('change', lockerClickEvent);
+    $("#other_place").on('change', lockerClickEvent);
 }
 
+
 function lockerClickEvent() {
-    if($("#_AA01_KEEP_IN_LOCKER").is(":checked")){
+    if($("#delivery_Box").is(":checked")){
         $("#locker_detail_form").css("display", "block");
     } else {
         $("#locker_detail_form").css("display", "none");
     }
 
-    if($("#_AA01_OTHER_PLACE").is(":checked")){
+    if($("#other_place").is(":checked")){
         $("#other_place_detail_form").css("display", "block");
     } else {
         $("#other_place_detail_form").css("display", "none");

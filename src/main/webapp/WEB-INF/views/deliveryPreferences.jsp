@@ -27,29 +27,29 @@
 
                 <form action="javascript:windowClose()" method="post" class="delivery-preferences" accept-charset="utf-8">
                     <div class="preference-required __AA01_PUT_FRONT_OF_DOOR">
-                        <label class="preference-required__radio-row" for="_AA01_PUT_FRONT_OF_DOOR">
-                            <input type="radio" class="preference-required__radio-v1 _radioInput" id="_AA01_PUT_FRONT_OF_DOOR" name="requiredCheckType" value="문 앞">
+                        <label class="preference-required__radio-row" for="put_front_of_door">
+                            <input type="radio" class="preference-required__radio-v1 _radioInput" id="put_front_of_door" name="requiredCheckType" value="문 앞">
                             <span class="preference-required__label">문 앞</span>
                         </label>
                     </div>
 
                     <div class="preference-required __AA01_DIRECT_RECEIVE_AS_FRONT_OF_DOOR">
-                        <label class="preference-required__radio-row" for="_AA01_DIRECT_RECEIVE_AS_FRONT_OF_DOOR">
-                            <input type="radio" class="preference-required__radio-v1 _radioInput" id="_AA01_DIRECT_RECEIVE_AS_FRONT_OF_DOOR" name="requiredCheckType" value="직접 받고 부재 시 문 앞">
+                        <label class="preference-required__radio-row" for="direct_receive_as_front_of_door">
+                            <input type="radio" class="preference-required__radio-v1 _radioInput" id="direct_receive_as_front_of_door" name="requiredCheckType" value="직접 받고 부재 시 문 앞">
                             <span class="preference-required__label">직접 받고 부재 시 문 앞</span>
                         </label>
                     </div>
 
                     <div class="preference-required __AA01_KEEP_LOBBY">
-                        <label class="preference-required__radio-row" for="_AA01_KEEP_LOBBY">
-                            <input type="radio" class="preference-required__radio-v1 _radioInput" id="_AA01_KEEP_LOBBY" name="requiredCheckType" value="경비실">
+                        <label class="preference-required__radio-row" for="security_office">
+                            <input type="radio" class="preference-required__radio-v1 _radioInput" id="security_office" name="requiredCheckType" value="경비실">
                             <span class="preference-required__label">경비실</span>
                         </label>
                     </div>
 
                     <div class="preference-required __AA01_KEEP_IN_LOCKER">
-                        <label class="preference-required__radio-row" for="_AA01_KEEP_IN_LOCKER">
-                            <input type="radio" class="preference-required__radio-v1 _radioInput" id="_AA01_KEEP_IN_LOCKER" name="requiredCheckType" value="택배함">
+                        <label class="preference-required__radio-row" for="delivery_Box">
+                            <input type="radio" class="preference-required__radio-v1 _radioInput" id="delivery_Box" name="requiredCheckType" value="택배함">
                             <span class="preference-required__label">택배함</span>
                         </label>
                         
@@ -65,8 +65,8 @@
                     </div>
 
                     <div class="preference-required __AA01_OTHER_PLACE">
-                        <label class="preference-required__radio-row" for="_AA01_OTHER_PLACE">
-                            <input type="radio" class="preference-required__radio-v1 _radioInput" id="_AA01_OTHER_PLACE" name="requiredCheckType" value="기타사항">
+                        <label class="preference-required__radio-row" for="other_place">
+                            <input type="radio" class="preference-required__radio-v1 _radioInput" id="other_place" name="requiredCheckType" value="기타사항">
                             <span class="preference-required__label">기타사항</span>
                         </label>
                         
