@@ -77,13 +77,6 @@
 			            </div>
 			        </div>
 			    </div>
-     
-			    <div class="save-as-default">
-			        <label for="_addressBookSaveAsDefault" class="save-as-default__container">
-			            <input id="_addressBookSaveAsDefault" value="true" type="checkbox" class="save-as-default__checkbox _addressBookSaveDefault">
-			            <span class="save-as-default__label">기본 배송지로 선택</span>
-			        </label>
-			    </div>
 				
 				<!-- 저장 버튼 -->
 			    <div class="addressbook__button-fixer">

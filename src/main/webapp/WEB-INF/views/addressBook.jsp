@@ -31,15 +31,15 @@
 							<div class="address-card__text address-card__text--delivery-preference">${item.recipientSummary}</div>
 						</div>
 						<div class="address-card__foot">
-						   <from action="#" method="post" class="address-card__form--pick">
+						   <div class="address-card__form--pick">
  						       <input name="recipientName${status.count}" value="${item.recipientName}" type="hidden">
 						       <input name="streetAddress${status.count}" value="${item.streetAddress}" type="hidden">
 						       <input name="recipientTel${status.count}" value="${item.recipientTel}" type="hidden">
 						       <input name="recipientSummary${status.count}" value="${item.recipientSummary}" type="hidden">
-						       <button class="addressBookFormSubmit" type="submit" onclick="selectAddressBook(${status.count})">
+						       <button class="addressBookFormSubmit" type="button" onclick="selectAddressBook(${status.count})">
 						           <span class="addressbook__text">선택</span>
 						       </button>
-						   </from>
+						   </div>
 					       <a href="/fruitlight/addressBook/changeAddressBook" class="address-card__button--edit">
 					           <span class="addressbook__text">수정</span>
 					       </a>
