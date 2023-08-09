@@ -64,6 +64,7 @@ public class DetailViewController {
 	//장바구니 담기
 	@RequestMapping("/addCartProduct")
 	public String addCartProduct(HttpServletRequest request) {
+		//로그인 세션이 없으면 로그인 페이지로 이동
 		List<CartProduct> list = new ArrayList<CartProduct>();
 		
 		String[] strPidList = request.getParameterValues("pids");
@@ -88,6 +89,7 @@ public class DetailViewController {
 	//바로구매
 	@RequestMapping("/buyDirect")
 	public String buyDirect(HttpServletRequest request) {
+		//로그인 세션이 없으면 로그인 페이지로 이동
 		//List<CartProduct> list = new ArrayList<CartProduct>();
 		
 		String[] strPidList = request.getParameterValues("pids");
