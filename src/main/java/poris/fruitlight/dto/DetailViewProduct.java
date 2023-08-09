@@ -11,5 +11,5 @@ public class DetailViewProduct {
 	private int shippingPrice;
 	private String option;
 	
-	private String sellerName;
+	private String sellerName;  //판매자이름
 }
