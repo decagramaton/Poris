@@ -16,6 +16,11 @@ import poris.fruitlight.dto.Coupon;
 import poris.fruitlight.service.CartProductService;
 import poris.fruitlight.service.CouponService;
 
+/**
+ * 
+ * @author 이은지
+ *
+ */
 @Slf4j
 @Controller
 @RequestMapping("/cart")
@@ -25,6 +30,11 @@ public class CartController {
 	@Resource
 	private CouponService couponService;
 	
+	/**
+	 * 
+	 * @param model
+	 * @return 장바구니(cart) 페이지
+	 */
 	@RequestMapping("/")
 	public String cart(Model model) {
 		List<CartProduct> listProduct = cartProductService.getCartProduct(1);
@@ -36,6 +46,11 @@ public class CartController {
 		return "cart";
 	}
 	
+	/**
+	 * 
+	 * @param pid(삭제할 상품의 id)
+	 * @return 리다이렉트로 장바구니(cart) 페이지
+	 */
 	//개별삭제
 	@RequestMapping("/delete")
 	public String delete(int pid) {
@@ -43,6 +58,11 @@ public class CartController {
 		return "redirect:/cart/";
 	}
 	
+	/**
+	 * 
+	 * @param request(ajax로 삭제할 상품의 id 리스트)
+	 * @return 리다이렉트로 장바구니(cart) 페이지
+	 */
 	//선택삭제 및 전체삭제
 	@RequestMapping("/deleteChecked")
 	public String deleteChecked(HttpServletRequest request) {
@@ -54,6 +74,12 @@ public class CartController {
 		return "redirect:/cart/";
 	}
 
+	/**
+	 * 
+	 * @param cartProduct(수량 변경할 상품 객체) 
+	 * @param model
+	 * @return 장바구니(cart) 페이지
+	 */
 	//수량변경
 	@PostMapping("/changeStock")
 	public String changeStock(CartProduct cartProduct, Model model) {
@@ -73,6 +99,11 @@ public class CartController {
 		return "cart";
 	}
 
+	/**
+	 * 
+	 * @param request(ajax로 삭제할 상품의 id 리스트)
+	 * @return 리다이렉트로 장바구니(cart) 페이지
+	 */
 	//구매
 	@RequestMapping("/buyFromCart")
 	public String buyFromCart(HttpServletRequest request) {

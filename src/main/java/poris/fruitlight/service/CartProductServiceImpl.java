@@ -8,6 +8,11 @@ import org.springframework.stereotype.Service;
 import lombok.extern.slf4j.Slf4j;
 import poris.fruitlight.dto.CartProduct;
 
+/**
+ * 
+ * @author 이은지
+ *
+ */
 @Service
 @Slf4j
 public class CartProductServiceImpl implements CartProductService {

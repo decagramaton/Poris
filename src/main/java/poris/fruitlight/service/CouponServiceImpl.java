@@ -8,6 +8,11 @@ import org.springframework.stereotype.Service;
 import lombok.extern.slf4j.Slf4j;
 import poris.fruitlight.dto.Coupon;
 
+/**
+ * 
+ * @author 이은지
+ *
+ */
 @Slf4j
 @Service
 public class CouponServiceImpl implements CouponService {
