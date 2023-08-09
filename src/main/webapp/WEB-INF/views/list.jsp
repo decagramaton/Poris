@@ -17,6 +17,7 @@
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 		<script src="${pageContext.request.contextPath}/resources/javascript/header.js"></script>
 	</head>
+	<body>
 <%@ include file="/WEB-INF/views/header.jsp" %>
 			<section class="container">
 				<article id="main">
@@ -55,3 +56,5 @@
 				</article>
 			</section>
 <%@ include file="/WEB-INF/views/footer.jsp" %>
+	</body>
+</html>

@@ -17,6 +17,7 @@
 		<script src="${pageContext.request.contextPath}/resources/javascript/header.js"></script>
 		<script src="${pageContext.request.contextPath}/resources/javascript/main.js"></script>
 	</head>
+	<body>
 <%@ include file="/WEB-INF/views/header.jsp" %>
 	<div id="body-container">
    		<div id="mainproduct" class="carousel slide" data-ride="carousel">
@@ -120,30 +121,16 @@
 							    	<li data-target="#demo1" data-slide-to="1"></li>
 							    	<li data-target="#demo1" data-slide-to="2"></li>
 							  	</ul>
-							  	<c:forEach var="" items="${}" varStatus="i">
-								  	<div class="carousel-inner">
-									    <div class="carousel-item active">
-									    	<img src="${pageContext.request.contextPath}/resources/images/cherry1.jpg" width="500" height="500">
+								<div class="carousel-inner">
+							  		<c:forEach var="catemainlist" items="${catemainlists}" varStatus="i">
+									    <div id="carouselCateMainItem${i.count}" class="carousel-item">
+									    	<img src="${pageContext.request.contextPath}/resources/images/cherry${i.count}.jpg" width="500" height="500">
 									    	<div class="carousel-caption" style="bottom:50px;">
-									      		<h3>여기 체리도 싸요</h3>
-									        	<p>365일 체리만 먹어도 안물릴거같은데</p>
+									      		<h3>${catemainlists.catetitle}</h3>
+									        	<p>${catemainlists.catecomment}</p>
 									      	</div>  
 										</div>
-							  	</c:forEach>
-									<div class="carousel-item">
-								    	<img src="${pageContext.request.contextPath}/resources/images/cherry2.jpg" width="500" height="500">
-								    	<div class="carousel-caption" style="bottom:50px;">
-								      		<h3>와! 체리가 싸요</h3>
-								        	<p>신선하닌까 당장 사가세요 ~</p>
-								      	</div>   
-								  	</div>
-								  	<div class="carousel-item">
-										<img src="${pageContext.request.contextPath}/resources/images/cherry3.jpg" width="500" height="500">
-									    <div class="carousel-caption" style="bottom:50px;">
-									    	<h3>그저 체리</h3>
-									        <p>쓸말이 없어서 아무거나 넣어봤어요</p>
-									    </div>
-									</div>
+							  		</c:forEach>
 								</div>
 								<a class="carousel-control-prev" href="#demo1" data-slide="prev">
 									<span class="carousel-control-prev-icon"></span>
@@ -209,3 +196,5 @@
 	      		</div>
       		</div>
 <%@ include file="/WEB-INF/views/footer.jsp" %>
+	</body>
+</html>

@@ -18,6 +18,7 @@
 		<script src="${pageContext.request.contextPath}/resources/javascript/header.js"></script>
 		<script src="${pageContext.request.contextPath}/resources/javascript/mypageChangeInfo.js"></script>
 	</head>
+	<body>
 <%@ include file="/WEB-INF/views/header.jsp" %>
 		<div class="container">
 			<div class="bodycontainer">
@@ -138,3 +139,5 @@
 			</div>
 		</div>
 <%@ include file="/WEB-INF/views/footer.jsp" %>
+	</body>
+</html>
