@@ -76,7 +76,7 @@ dl, dt, dd, ul, ol, menu, li {
 .mycoupang-main-search {
 	margin-bottom : 24px;
 }
-.mycoupang-main-search-it-flex {
+.mycoupang-main-search-it-flex > form {
 	display: flex;
     flex-direction: row;
     -webkit-box-pack: justify;
@@ -124,7 +124,7 @@ dl, dt, dd, ul, ol, menu, li {
     justify-content: center;
     padding: 20px;
 }
-//주문 배송 조회
+/* 주문 배송 조회 */
 .exist {
 	width: 800px;
     border-radius: 12px;
@@ -178,6 +178,7 @@ dl, dt, dd, ul, ol, menu, li {
     border: 1px solid rgb(238, 238, 238);
     background-color: rgb(255, 255, 255);
     margin-top: 16px;
+    margin-bottom : 10px;
 }
 .order-product > table {
 

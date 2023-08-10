@@ -20,6 +20,7 @@
 .footerWrapper {
 	background-color: #fefefe;
 	margin-top : 40px;
+	clear:both;
 }
 .footerLayer1{
 	margin : 30px 80px 0 80px;

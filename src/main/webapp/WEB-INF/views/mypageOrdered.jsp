@@ -16,7 +16,7 @@
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 		<script src="${pageContext.request.contextPath}/resources/javascript/header.js"></script>
-		<script src="${pageContext.request.contextPath}/resources/javascript/mypage.js"></script>
+		<script src="${pageContext.request.contextPath}/resources/javascript/mypageOrdered.js"></script>
 	</head>
 	<body>
 <%@ include file="/WEB-INF/views/header.jsp" %>
@@ -43,12 +43,14 @@
 							<div class="mycoupang-main-search">
 								<div class="mycoupang-main-search-it">
 									<div class="mycoupang-main-search-it-flex">
-										<div class="mycoupang-main-search-it-flexin1"><input value="" placeholder="주문한 상품을 검색할 수 있어요!"></div>
-										<div class="mycoupang-main-search-it-flexin2">
-											<button id="headerSearchBtn" class="headerSearchBtn" type="button">
-												<img id="headerSearchBtnImage" class="headerSearchBtnImage" title="검색" src="${pageContext.request.contextPath}/resources/images/search.png">	                 	
-						                 	</button>
-										</div>
+										<form>
+											<div class="mycoupang-main-search-it-flexin1"><input value="" placeholder="주문한 상품을 검색할 수 있어요!"></div>
+											<div class="mycoupang-main-search-it-flexin2">
+												<button id="headerSearchBtn" class="headerSearchBtn" type="button" onclick="searchOrdered()">
+													<img id="headerSearchBtnImage" class="headerSearchBtnImage" title="검색" src="${pageContext.request.contextPath}/resources/images/search.png">	                 	
+							                 	</button>
+											</div>
+										</form>
 									</div>
 								</div>
 							</div>
@@ -56,11 +58,11 @@
 							</div>
 							
 							<div class="exist">
-								<div class="order-date-line">
-									<div class="left">${myPageOrdered.orderddate} 주문</div>
-									<div class="right"><span>주문 상세보기</span></div>
-								</div>
 								<c:forEach var="mypageOrdered" items="${mypageOrdered}">
+								<div class="order-date-line">
+									<div class="left" id="ordereddate"><fmt:formatDate value="${mypageOrdered.ordereddate}" pattern="yyyy.MM.dd"/> 주문</div>
+									<div class="right"></div>
+								</div>
 									<div class="order-product">
 										<table>
 											<tbody>
@@ -73,13 +75,6 @@
 																	<span></span>
 																</span>
 																<span class="arrivedate"><fmt:formatDate value="${mypageOrdered.deliverydate}" pattern="yyyy년 MM월 dd일 	"/> 도착</span>
-															</div>
-															<div class="right">
-																<button>
-																	<div></div>
-																	<div></div>
-																	<div></div>
-																</button>
 															</div>
 														</div>
 														<div class="bottom">

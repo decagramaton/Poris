@@ -28,7 +28,7 @@
 			</ul>
 			<div class="carousel-inner">
 				<c:forEach var="mainlist" items="${mainlists}" varStatus="i">
-					<div id="carouselMainItem${i.count}"class="carousel-item">
+					<div id="carouselMainItem${i.count}" class="carousel-item">
 				        <img src="${pageContext.request.contextPath}/resources/images/mainfruit${i.count}.jpg" alt="mainfruit${i.count}" width="1100" height="500">
 				    </div>
 				</c:forEach>
@@ -165,10 +165,10 @@
 							</div>
 						</div>
 						<a class="carousel-control-prev" href="#demo2" data-slide="prev">
-							<span class="carousel-control-prev-icon"></span>
+							<span class="carousel-control-prev-icon bg-dark"></span>
 						</a>
 						<a class="carousel-control-next" href="#demo2" data-slide="next">
-							<span class="carousel-control-next-icon"></span>
+							<span class="carousel-control-next-icon bg-dark"></span>
 						</a>
 					</div>
    						</dd>
