@@ -18,7 +18,7 @@
 		<property name="driverClassName" value="net.sf.log4jdbc.DriverSpy"/>
 		<property name="url" value="jdbc:log4jdbc:oracle:thin:@kosa402.iptime.org:1521:orcl"/>
 		
-		<property name="username" value="webteam5"/> <!-- DB 계정 ID -->
+		<property name="username" value="user_webteam5"/> <!-- DB 계정 ID -->
 		<property name="password" value="oracle"/> <!-- DB 계정 PW -->
 		
 		<property name="maxTotal" value="3"/>
