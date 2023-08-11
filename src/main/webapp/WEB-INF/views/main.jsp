@@ -29,7 +29,7 @@
 			<div class="carousel-inner">
 				<c:forEach var="mainlist" items="${mainlists}" varStatus="i">
 					<div id="carouselMainItem${i.count}" class="carousel-item">
-				        <img src="${pageContext.request.contextPath}/resources/images/mainfruit${i.count}.jpg" alt="mainfruit${i.count}" width="1100" height="500">
+				        <img src="data:${productlist.MEDIA_DATA};base64, ${base64Img}" alt="mainfruit${i.count}" width="1100" height="500">
 				    </div>
 				</c:forEach>
 			</div>
@@ -51,20 +51,20 @@
 				      		<div id="todayDiscoveryProduct" class="todayDiscoveryProduct col-md col-sm-12">
 					      		<div>
 					      			<div>
-						      			<a href="detailView?pid=${todaylist.pid}">
+						      			<a href="detailView?pid=${todaylist.PRODUCT_NO}">
 						      				<img class="productImage" src="${pageContext.request.contextPath}/resources/images/cherry2.jpg"/>
 						      			</a>
 						      		</div>
 						      		<div class="productNameHolder">
-						      			<a id="productName" class="productName" href="detailView?pid=${todaylist.pid}">${todaylist.name}</a>
+						      			<a id="productName" class="productName" href="detailView?pid=${todaylist.PRODUCT_NO}">${todaylist.PRODUCT_NAME}</a>
 						      		</div>
 						      		<div id="price" class="price">
 										<div id="productPriceArea" class="productPriceArea">
-											<span id="productDisrate" class="productDisrate">${todaylist.disrate}%</span>
-											<del id="productDiscountPrice"class="productDiscountPrice">${todaylist.discountprice}원</del>
+											<span id="productDisrate" class="productDisrate">${todaylist.DISCOUNT_RATE}%</span>
+											<del id="productDiscountPrice"class="productDiscountPrice">${todaylist.PRODUCT_PRICE}원</del>
 										</div>
 										<em>
-											<span id="productPrice" class="productPrice">${todaylist.price}원</span>
+											<span id="productPrice" class="productPrice">${todaylist.DISCOUNT_PRICE}원</span>
 										</em>
 									</div>
 								</div>
@@ -85,14 +85,14 @@
 					      			<img class="productImage" src="${pageContext.request.contextPath}/resources/images/cherry3.jpg"/>
 					      		</div>
 					      		<div class="productDiscountHolder">
-					      			<span>지금 ${sellerlist.disrate}% 할인중!</span>
+					      			<span>지금 ${sellerlist.DISCOUNT_RATE}% 할인중!</span>
 					      		</div>
 					      		<div class="productNameHolder">
-					      			<a id="productName" class="productName">${sellerlist.name}</a>
+					      			<a id="productName" class="productName">${sellerlist.PRODUCT_NAME}</a>
 					      		</div>
 					      		<div id="price" class="price">
 									<em>
-										<span id="productPrice" class="productPrice">${sellerlist.price}원</span>
+										<span id="productPrice" class="productPrice">${sellerlist.DISCOUNT_PRICE}원</span>
 									</em>
 								</div>
 				      		</div>
@@ -122,8 +122,8 @@
 									    <div id="carouselCateMainItem${i.count}" class="carousel-item">
 									    	<img src="${pageContext.request.contextPath}/resources/images/cherry${i.count}.jpg" width="500" height="500">
 									    	<div class="carousel-caption" style="bottom:50px;">
-									      		<h3>${catemainlist.catetitle}</h3>
-									        	<p>${catemainlist.catecomment}</p>
+									      		<h3>메인 코멘트</h3>
+									        	<p>서브 코멘트</p>
 									      	</div>  
 										</div>
 							  		</c:forEach>
@@ -148,11 +148,11 @@
 						    	<ul id="cateAdvertiseCherryListList" class="cateAdvertiseCherryListList">
 						    		<c:forEach var="catesublist" items="${catesublists}" varStatus="i">
 							    		<li id="cateAdvertiseCherryListItem" class="cateAdvertiseCherryListItem">
-							    			<a href="detailView?pid=${catesublist.pid}">
+							    			<a href="detailView">
 							    				<img src="${pageContext.request.contextPath}/resources/images/cherry${i.count}.jpg"/>
-							    				<span id="hoverUnderline" class="hoverUnderline">${catesublist.name}</span>
+							    				<span id="hoverUnderline" class="hoverUnderline">${catesublist.PRODUCT_NAME}</span>
 							    				<span>
-							    					<strong>${catesublist.price}</strong>원
+							    					<strong>${catesublist.PRODUCT_PRICE}</strong>원
 							    				</span>	
 							    			</a>
 							    		</li>
