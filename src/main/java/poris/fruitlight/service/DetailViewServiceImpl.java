@@ -36,13 +36,12 @@ public class DetailViewServiceImpl implements DetailViewService {
 	public List<ProductInquiry> getProductInquiryList(Pager pager, String pno) {
 		pager.setBOARD_NO(Integer.parseInt(pno));
 		List<ProductInquiry> list = detailViewDao.selectProductInquiryPager(pager);
-		
 		return list;
 	}
 	@Override
 	public int getTotalProductInquiryNum(String pno) {
-		detailViewDao.count(Integer.parseInt(pno));
-		return 10;
+		int totalProductInquiryNum = detailViewDao.count(Integer.parseInt(pno));
+		return totalProductInquiryNum;
 	}
 
 }

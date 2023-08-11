@@ -33,7 +33,7 @@ public class MainPageController {
       model.addAttribute("catemainlists", catemainlists);
       model.addAttribute("catesublists", catesublists);
       
-      ProductList productlist = mainService.SelectByPno(1);
+      ProductList productlist = mainService.SelectByPno(4);
       model.addAttribute("productlist", productlist);
       if(productlist.getMEDIA_DATA() != null) {
 			String base64Img = Base64.getEncoder().encodeToString(productlist.getMEDIA_DATA());

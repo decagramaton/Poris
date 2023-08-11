@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="poris.fruitlight.dao.ShopperDao">
+	
+	<select id="selectAllShopper" resultType="Shopper">
+		SELECT SHOPPER_NO as shopperNo,
+		SHOPPER_ID as shopperId,
+		SHOPPER_PW as shopperPw,
+		SHOPPER_NAME as shopperName,
+		SHOPPER_TEL as shopperTel,
+		SHOPPER_AUTO_LOGIN as shopperAutoLogin
+		FROM SHOPPER
+	</select>
+	
+	
+	<select id="selectShopper" parameterType="Shopper" resultType="Shopper">
+		SELECT SHOPPER_NO as shopperNo,
+		SHOPPER_ID as shopperId,
+		SHOPPER_PW as shopperPw,
+		SHOPPER_NAME as shopperName,
+		SHOPPER_TEL as shopperTel,
+		SHOPPER_AUTO_LOGIN as shopperAutoLogin
+		FROM SHOPPER
+		WHERE SHOPPER_ID=#{shopperId} AND SHOPPER_PW=#{shopperPw}
+	</select>
+	
+	
+	<update id="updateShopperAutoLoginState" parameterType="Shopper">
+		UPDATE SHOPPER
+		SET SHOPPER_AUTO_LOGIN = #{shopperAutoLogin}
+		WHERE SHOPPER_NO=#{shopperNo}
+	</update>
+	
+</mapper>

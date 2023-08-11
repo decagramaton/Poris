@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import lombok.extern.slf4j.Slf4j;
 import poris.fruitlight.dto.JoinParam;
-import poris.fruitlight.service.JoinService;
+import poris.fruitlight.service.ShopperService;
 import poris.fruitlight.util.AlertScript;
 
 @Slf4j
@@ -18,12 +18,23 @@ import poris.fruitlight.util.AlertScript;
 public class JoinFormController {
 	
 	@Autowired
-	private JoinService joinService;
+	private ShopperService shopperService;
 	
 	@RequestMapping("/joinForm")
 	public String MainPage() {
 		return "joinForm";
 	}
+	
+	/**
+	 * DB 테스트 메소드
+	 * @author 고재승
+	 */
+	@RequestMapping("/joinForm/test")
+	public void TestController() {
+		shopperService.getAllShopper();
+	}
+	
+	
 	
 	/**
 	 * 
@@ -50,10 +61,10 @@ public class JoinFormController {
 		}
 		
 		// Step2. DB에 동일 회원 유무 검사
-		boolean resultIsMember = joinService.isMember(joinParam.getUserId());
+		boolean resultIsMember = shopperService.isMember(joinParam.getUserId());
 		// Step3. 중복 회원 없으면 DB에 저장 후 메인페이지로 이동
 		if(resultIsMember) {
-			joinService.insertMember(joinParam);
+			//shopperService.insertMember(joinParam);
 			AlertScript.alertAndMovePage(response, "회원가입이 완료되었습니다.", "/fruitlight/");
 		} else {
 			// Step4. 중복 회원 있으면 에러 반환
