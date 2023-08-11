@@ -3,7 +3,7 @@ package poris.fruitlight.service;
 import java.util.List;
 
 import poris.fruitlight.dto.CartProduct;
-import poris.fruitlight.dto.DetailViewProduct;
+import poris.fruitlight.dto.Product;
 import poris.fruitlight.dto.Pager;
 import poris.fruitlight.dto.ProductInquiry;
 
@@ -18,13 +18,13 @@ public interface DetailViewService {
 	 * @param pid(상품상세 페이지에서 보여줄 상품 id)
 	 * @return DetailViewProduct(상품 DTO)
 	 */
-	public DetailViewProduct getProduct(int pid);
+	public Product getProduct(int pid);
 	/**
 	 * 
 	 * @param name(상품상세 페이지에서 보여줄 옵션들을 가져오기 위한 기준인 현재 상품 id)
 	 * @return List<DetailViewProduct>(같은 이름을 가진 상품 리스트)
 	 */
-	public List<DetailViewProduct> getOptions(String name);
+	public List<Product> getOptions(String name);
 	/**
 	 * 
 	 * @param productList(장바구니에 추가될 상품 리스트)

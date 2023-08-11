@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import lombok.extern.slf4j.Slf4j;
 import poris.fruitlight.dto.CartProduct;
-import poris.fruitlight.dto.DetailViewProduct;
+import poris.fruitlight.dto.Product;
 import poris.fruitlight.dto.Pager;
 import poris.fruitlight.dto.ProductInquiry;
 import poris.fruitlight.service.DetailViewService;
@@ -39,8 +39,8 @@ public class DetailViewController {
 	public String detailView(Model model) {
 		
 		// Step1. 
-		DetailViewProduct product = detailViewService.getProduct(1);
-		List<DetailViewProduct> optionList = detailViewService.getOptions(product.getName());
+		Product product = detailViewService.getProduct(1);
+		List<Product> optionList = detailViewService.getOptions(product.getName());
 		int totalBoardNum = detailViewService.getTotalProductInquiryNum("1");
 		
 		model.addAttribute("product", product);
@@ -136,9 +136,9 @@ public class DetailViewController {
 		model.addAttribute("productInquiryPager", productInquiryPager);
 		model.addAttribute("productInquiryList", productInquiryList);
 		
-		DetailViewProduct product = detailViewService.getProduct(1);
+		Product product = detailViewService.getProduct(1);
 		model.addAttribute("product", product);
-		List<DetailViewProduct> optionList = detailViewService.getOptions(product.getName());
+		List<Product> optionList = detailViewService.getOptions(product.getName());
 		model.addAttribute("optionList", optionList);
 		return "detailView";
 	}

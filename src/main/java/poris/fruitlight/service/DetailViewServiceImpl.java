@@ -8,16 +8,16 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import poris.fruitlight.dto.CartProduct;
-import poris.fruitlight.dto.DetailViewProduct;
+import poris.fruitlight.dto.Product;
 import poris.fruitlight.dto.Pager;
 import poris.fruitlight.dto.ProductInquiry;
 
 @Service
 public class DetailViewServiceImpl implements DetailViewService {
 	@Override
-	public DetailViewProduct getProduct(int pid) {
-		List<DetailViewProduct> list = new ArrayList<>();
-		DetailViewProduct product = new DetailViewProduct();
+	public Product getProduct(int pid) {
+		List<Product> list = new ArrayList<>();
+		Product product = new Product();
 		product.setPid(1);
 		/*cartProduct.setImg(img);*/
 		product.setName("과일엔 미국산 생체리");
@@ -27,11 +27,11 @@ public class DetailViewServiceImpl implements DetailViewService {
 		return product;
 	}
 	@Override
-	public List<DetailViewProduct> getOptions(String name) {
-		List<DetailViewProduct> list = new ArrayList<>();
+	public List<Product> getOptions(String name) {
+		List<Product> list = new ArrayList<>();
 		//같은 이름을 가진 product들을 select
 		for(int i=1; i<=3; i++) {
-			DetailViewProduct product = new DetailViewProduct();
+			Product product = new Product();
 			product.setPid(i);
 			product.setName("과일엔 미국산 생체리");
 			product.setPrice(6900 + i);
