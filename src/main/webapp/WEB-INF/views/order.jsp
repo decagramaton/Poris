@@ -121,10 +121,9 @@
                      <div id="total_price" class="table_content">21,710원</div>
                   </div>
                   <div class="table-row">
-                     <div class="table-colume">할인쿠폰</div>
+                     <div class="table-colume">할인금액</div>
                      <div class="table_content">
                         <div id="sale_coupon" style="display: inline-block; color:red; width: 100px;">0원</div>
-                        <div id="non_sale_coupon_window">적용 가능한 할인쿠폰이 없습니다.</div>
                      </div>
                   </div>
                   <div class="table-row">
