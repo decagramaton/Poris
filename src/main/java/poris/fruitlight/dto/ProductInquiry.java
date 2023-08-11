@@ -14,13 +14,13 @@ import lombok.Data;
 @Data
 public class ProductInquiry {
 	//상품문의 관련 DTO
-	private int inquiryId;			//상품문의 id(PK) (질문 - 답변 => 한 질문에 하나의 답변만 있는 걸로 가정한다면, 답변은 자체조인 참조키)
-	private int pid;				//상품 id(FK)
-	private String inquiryContent;	//문의내용
+	private int INQUIRY_NO;			//상품문의 no(PK)
+	private int BOARD_NO;			//상품게시글 no(FK)
+	private String INQUIRY_CONTENT;	//문의내용
 	@DateTimeFormat(pattern="yyyy/MM/dd HH:mm:ss")
-	private Date inquiryDate;		//문의날짜
-	private boolean emptAnswer;		//답변여부(default true)
-	private String answerContent;	//답변내용
+	private Date INQUIRY_DATE;		//문의날짜
+	private boolean EMPTANSWER;		//답변여부(default true)
+	private String ANSWER_CONTENT;	//답변내용
 	@DateTimeFormat(pattern="yyyy/MM/dd HH:mm:ss")
-	private Date answerDate;		//답변날짜
+	private Date ANSWER_DATE;		//답변날짜
 }
