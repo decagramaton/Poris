@@ -176,14 +176,16 @@ function addCart() {
 			stocks.push(selectedItemsStock);
 		});
 		$.ajax({
-			url: "addCartProduct",
+			url: "/fruitlight/detailView/addCartProduct",
 			method: "post",
 			traditional: true,
 			data: {
 				pids:pids,
 				stocks:stocks
 			},
-			success: function(data) {}
+			success: function(data) {
+				console.log(data);
+			}
 		});
 	}
 }

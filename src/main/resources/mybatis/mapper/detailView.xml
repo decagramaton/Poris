@@ -12,6 +12,36 @@
       from PRODUCT
       where PRODUCT_NAME = #{name}
    </select>
+    
+   <insert id="insertToCart" parameterType="poris.fruitlight.dto.Cart">
+      insert into CART
+      values(#{SHOPPER_NO}, #{PRODUCT_NO}, #{CART_PRODUCT_STOCK})
+      
+      on duplicate key update CART_PRODUCT_STOCK = #{CART_PRODUCT_STOCK} + CART_PRODUCT_STOCK
+   </insert>
+   
+   <update id="updateCartStock" parameterType="poris.fruitlight.dto.Cart">
+      MERGE INTO CART
+	  USING DUAL
+	     ON (SHOPPER_NO = #{SHOPPER_NO} and PRODUCT_NO = #{PRODUCT_NO})
+	  WHEN MATCHED THEN
+	      UPDATE SET CART_PRODUCT_STOCK = #{CART_PRODUCT_STOCK} + CART_PRODUCT_STOCK
+	  WHEN NOT MATCHED THEN
+	      INSERT (SHOPPER_NO, PRODUCT_NO, CART_PRODUCT_STOCK) 
+	      VALUES (#{SHOPPER_NO}, #{PRODUCT_NO}, #{CART_PRODUCT_STOCK})
+   </update>
+   <!-- <update id="updateCartStock" parameterType="java.util.List">
+   	  <foreach collection="list" index="index" item="cart" open="DECLARE BEGIN" separator="; " close="; END;">
+	      MERGE INTO CART
+		  USING DUAL
+		     ON (SHOPPER_NO = #{cart.SHOPPER_NO} and PRODUCT_NO = #{cart.PRODUCT_NO})
+		  WHEN MATCHED THEN
+		      UPDATE SET CART_PRODUCT_STOCK = #{cart.CART_PRODUCT_STOCK} + CART_PRODUCT_STOCK
+		  WHEN NOT MATCHED THEN
+		      INSERT (SHOPPER_NO, PRODUCT_NO, CART_PRODUCT_STOCK)
+		      VALUES (#{cart.SHOPPER_NO}, #{cart.PRODUCT_NO}, #{cart.CART_PRODUCT_STOCK})
+	  </foreach>
+   </update> -->
    
    <select id="selectProductInquiryPager" parameterType="poris.fruitlight.dto.Pager" resultType="poris.fruitlight.dto.ProductInquiry">
       <![CDATA[
@@ -34,4 +64,5 @@
       select count(*) from PRODUCT_INQUIRY
       where BOARD_NO = #{BOARD_NO}
    </select>
+  
 </mapper>

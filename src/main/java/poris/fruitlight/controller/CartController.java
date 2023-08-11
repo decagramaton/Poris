@@ -116,6 +116,6 @@ public class CartController {
 		//사용할 쿠폰 리스트
 		String[] strCidList = request.getParameterValues("cidsChecked");
 		
-		return "redirect:/cart/";
+		return "order";
 	}
 }

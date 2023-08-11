@@ -10,9 +10,12 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import lombok.extern.slf4j.Slf4j;
+import poris.fruitlight.dto.Cart;
 import poris.fruitlight.dto.CartProduct;
 import poris.fruitlight.dto.Product;
 import poris.fruitlight.dto.Pager;
@@ -36,10 +39,10 @@ public class DetailViewController {
 	 * @return 상세상품(detailView) 페이지
 	 */
 	@GetMapping("/detailView")
-	public String detailView(Model model) {
+	public String detailView(Model model, HttpSession session) {
 		
-		// Step1.
-		int pno = 1;
+		// Step1. Session에 있는 게시판 번호 get
+		int pno = (int) session.getAttribute("BoardNo");
 		Product product = detailViewService.getProduct(pno);
 		List<Product> optionList = detailViewService.getOptions(product.getPRODUCT_NAME());
 		int totalBoardNum = detailViewService.getTotalProductInquiryNum("1");
@@ -63,18 +66,31 @@ public class DetailViewController {
 	 */
 	//장바구니 담기
 	@RequestMapping("/detailView/addCartProduct")
+	@ResponseBody
 	public String addCartProduct(HttpServletRequest request) {
 		//로그인 세션이 없으면 로그인 페이지로 이동
-		List<CartProduct> list = new ArrayList<CartProduct>();
+		List<Cart> list = new ArrayList<>();
 		
 		String[] strPidList = request.getParameterValues("pids");
 		String[] strStockList = request.getParameterValues("stocks");
+		
+		/*String[] strPidList = {"1", "2"};
+		String[] strStockList = {"1", "1"};*/
+		
 		int i = 0;
 		for(i=0; i<strPidList.length; i++) {
-			CartProduct product = new CartProduct();
-			product.setPid(Integer.parseInt(strPidList[i]));
-			product.setStock(Integer.parseInt(strStockList[i]));
-			list.add(product);
+			Cart cartProduct = new Cart();
+			cartProduct.setSHOPPER_NO(1);
+			cartProduct.setPRODUCT_NO(Integer.parseInt(strPidList[i]));
+			cartProduct.setCART_PRODUCT_STOCK(Integer.parseInt(strStockList[i]));
+			
+			list.add(cartProduct);
+		}
+		
+		for(Cart cartProduct : list) {
+			log.info("SHOPPER_NO: " + cartProduct.getSHOPPER_NO());
+			log.info("PRODUCT_NO: " + cartProduct.getPRODUCT_NO());
+			log.info("CART_PRODUCT_STOCK: " + cartProduct.getCART_PRODUCT_STOCK());
 		}
 		
 		detailViewService.addToCart(list);

@@ -191,6 +191,8 @@ function calculatePrice() {
 	else if(discountFinal == 0) {
 		$(".cartFinalDiscount").addClass("d-none");
 	}
+	
+	$(".buyBtn-a").attr("href", "/fruitlight/order");
 }
 
 //쿠폰가격 동작
@@ -302,7 +304,8 @@ function checkBuyProduct() {
 			method: "post",
 			traditional: true,
 			data: {pidsChecked:pidsChecked, cidsChecked:cidsChecked},
-			success: function(data) {}
+			success: function(data) {
+			}
 		});
 	}
 	

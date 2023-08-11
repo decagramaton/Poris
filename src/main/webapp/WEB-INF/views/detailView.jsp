@@ -352,6 +352,7 @@
                         <button class="product-buy-btn">
                            <span>바로구매</span>
                         </button>
+                        <a href="detailView/addCartProduct">sfafd</a>
                      </div>
                   </div>
                </div>
