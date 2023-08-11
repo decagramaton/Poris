@@ -229,7 +229,7 @@
                   <!-- 상품 이름 -->
                   <div class="product-buy-header">
                      <div class="product-buy-header_left">
-                        <h2>${product.name}</h2>
+                        <h2>${product.PRODUCT_NAME}</h2>
                         <div class="prod-buy-header__info">
                            <span class="prod-buy-header__productreview" style="display:block;">
                               <a href="#product_review-form">
@@ -251,18 +251,18 @@
                      <div class="product-price">
                         <!-- 할인율 및 원래가격 -->
                         <div class="product-origin-price">
-                           <span class="discount-rate">63%</span>
-                           <span class="origin-price">18,900원</span>
+                           <span class="discount-rate">${product.DISCOUNT_RATE}%</span>
+                           <span class="origin-price">${product.PRODUCT_PRICE}원</span>
                         </div>
                         <!-- 총가격 -->
                         <div class="product-total-price">
-                           <span class="total-price">${product.price}</span>
+                           <span class="total-price">${product.DISCOUNT_PRICE}</span>
                            <span class="unit-price">(100g당 <span>1,725원</span>)</span>
                         </div>
                      </div>
                   </div>
                   <!-- 상품 배송비 -->
-                  <div class="product-shipping-container">
+                  <%-- <div class="product-shipping-container">
                      <div class="product-shipping-fee">
                      	<c:if test="${product.shippingPrice == 0}">
 	                        <span>무료배송</span>
@@ -271,7 +271,7 @@
 	                        <span>${product.shippingPrice}</span>
                      	</c:if>
                      </div>
-                  </div>
+                  </div> --%>
                   <!-- 상품 옵션 -->
                   <div class="product-option-container">
                   	 <div class="product-option-btn-container">
@@ -285,12 +285,12 @@
 	                     <ul class="product-options-list closed">
                   	 		<c:forEach var="optionProduct" items="${optionList}">
 		                     	<li class="product-option-list-item">
-			                      <div id="${optionProduct.pid}">
-			                      	<c:if test="${optionProduct.option == product.option}">
-			                      		<span class="option-item-name">${optionProduct.option}</span><span class="option-item-price" hidden> : ${optionProduct.price}</span>
+			                      <div id="${optionProduct.PRODUCT_NO}">
+			                      	<c:if test="${optionProduct.PRODUCT_OPTION == product.PRODUCT_OPTION}">
+			                      		<span class="option-item-name">${optionProduct.PRODUCT_OPTION}</span><span class="option-item-price" hidden> : ${optionProduct.DISCOUNT_PRICE}</span>
 			                      	</c:if>
-			                      	<c:if test="${optionProduct.option != product.option}">
-			                      		<span class="option-item-name">${optionProduct.option}</span><span class="option-item-price"> : ${optionProduct.price}</span>
+			                      	<c:if test="${optionProduct.PRODUCT_OPTION != product.PRODUCT_OPTION}">
+			                      		<span class="option-item-name">${optionProduct.PRODUCT_OPTION}</span><span class="option-item-price"> : ${optionProduct.DISCOUNT_PRICE}</span>
 			                      	</c:if>
 			                      </div>
 			                  	</li>
@@ -315,10 +315,10 @@
                           </thead> -->
                           <tbody class="product-option-tableBody">
                               <c:forEach var="optionProduct" items="${optionList}">
-                              	<tr class="product-option-tableRow ${optionProduct.pid}">
+                              	<tr class="product-option-tableRow ${optionProduct.PRODUCT_NO}">
                                   <td class="product-option-table-name">
-                                  	  <input type="hidden" class="product-option-pid" id="${optionProduct.pid}" value="${optionProduct.pid}"/>
-                                      ${optionProduct.option}
+                                  	  <input type="hidden" class="product-option-pid" id="${optionProduct.PRODUCT_NO}" value="${optionProduct.PRODUCT_NO}"/>
+                                      ${optionProduct.PRODUCT_OPTION}
                                   </td>
                                   <td class="product-option-table-quantity">
                                       <div class="product-quantity-container">
@@ -332,8 +332,8 @@
 				                      </div>
                                   </td>
                                   <td class="product-option-table-price">
-                                  	  <input type="hidden" class="product-option-originalPrice" value="${optionProduct.price}"/>
-                                      <span class="product-option-originalPrice-txt">${optionProduct.price}</span>
+                                  	  <input type="hidden" class="product-option-originalPrice" value="${optionProduct.DISCOUNT_PRICE}"/>
+                                      <span class="product-option-originalPrice-txt">${optionProduct.DISCOUNT_PRICE}</span>
                                   </td>
                                   <td class="product-option-table-delete">
                                       <a class="productDelete"></a>
@@ -769,18 +769,18 @@
 	                                 <span class="inquiry-item-question-label">질문</span>
 	                                 <div class="inquiry-item-question">
 	                                    <!-- <div class="inquiry-item-option">${Login.uid}</div> -->
-	                                    <div class="inquiry-item-content">${productInquiry.inquiryContent}</div>
-	                                    <div class="inquiry-item-time"><fmt:formatDate value="${productInquiry.inquiryDate}" pattern="yyyy/MM/dd HH:mm:ss"/></div>
+	                                    <div class="inquiry-item-content">${productInquiry.INQUIRY_CONTENT}</div>
+	                                    <div class="inquiry-item-time"><fmt:formatDate value="${productInquiry.INQUIRY_DATE}" pattern="yyyy/MM/dd HH:mm:ss"/></div>
 	                                 </div>
 	                             
-	                              	 <c:if test="${productInquiry.emptAnswer == false}">
+	                              	 <c:if test="${productInquiry.EMPTANSWER == false}">
 	                              	 	<div class="inquiry-item-answer">
 		                                    <i></i>
 		                                    <span class="inquiry-item-answer-label">답변</span>
 		                                    <div class="inquiry-item-answer-wrap">
 		                                       <div class="inquiry-item-seller"><strong>[FRUITLIGHT]</strong></div>
-		                                       <div class="inquiry-item-answer-content">${productInquiry.answerContent}</div>
-		                                       <div class="inquiry-item-answer-time">${productInquiry.answerDate}</div>
+		                                       <div class="inquiry-item-answer-content">${productInquiry.ANSWER_CONTENT}</div>
+		                                       <div class="inquiry-item-answer-time">${productInquiry.ANSWER_DATE}</div>
 		                                    </div>
 		                                 </div>
 	                              	 </c:if>

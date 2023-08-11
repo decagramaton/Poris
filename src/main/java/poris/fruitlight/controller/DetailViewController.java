@@ -38,13 +38,14 @@ public class DetailViewController {
 	@GetMapping("/detailView")
 	public String detailView(Model model) {
 		
-		// Step1. 
-		Product product = detailViewService.getProduct(1);
-		//List<Product> optionList = detailViewService.getOptions(product.getName());
+		// Step1.
+		int pno = 1;
+		Product product = detailViewService.getProduct(pno);
+		List<Product> optionList = detailViewService.getOptions(product.getPRODUCT_NAME());
 		int totalBoardNum = detailViewService.getTotalProductInquiryNum("1");
 		
 		model.addAttribute("product", product);
-		//model.addAttribute("optionList", optionList);
+		model.addAttribute("optionList", optionList);
 		//상품문의
 		Pager productInquiryPager = new Pager(5, 10, totalBoardNum, 1);
 		
@@ -57,7 +58,7 @@ public class DetailViewController {
 	
 	/**
 	 * 
-	 * @param request(ajax로 장바구니에 담을 상품의 id리스트와 각 수량리스트)
+	 * @param request(ajax로 장바구니에 담을 상품의 no리스트와 각 수량리스트)
 	 * @return 상세상품(detailView) 페이지
 	 */
 	//장바구니 담기

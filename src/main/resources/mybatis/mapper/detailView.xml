@@ -31,7 +31,7 @@
    </select>
    
    <select id="count" parameterType="int" resultType="int">
-      select count(*) from INQUIRY_NO
+      select count(*) from PRODUCT_INQUIRY
       where BOARD_NO = #{BOARD_NO}
    </select>
 </mapper>

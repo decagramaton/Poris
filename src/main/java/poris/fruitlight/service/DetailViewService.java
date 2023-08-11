@@ -15,10 +15,10 @@ import poris.fruitlight.dto.ProductInquiry;
 public interface DetailViewService {
 	/**
 	 * 
-	 * @param pid(상품상세 페이지에서 보여줄 상품 id)
+	 * @param pno(상품상세 페이지에서 보여줄 상품 no)
 	 * @return DetailViewProduct(상품 DTO)
 	 */
-	public Product getProduct(int pid);
+	public Product getProduct(int pno);
 	/**
 	 * 
 	 * @param name(상품상세 페이지에서 보여줄 옵션들을 가져오기 위한 기준인 현재 상품 id)
@@ -34,14 +34,14 @@ public interface DetailViewService {
 	/**
 	 * 
 	 * @param pager(상품문의 페이저)
-	 * @param pid(상품문의 목록을 보여줄 상품 id)
+	 * @param pno(상품문의 목록을 보여줄 상품 no)
 	 * @return List<ProductInquiry>(상품문의 리스트)
 	 */
-	public List<ProductInquiry> getProductInquiryList(Pager pager, String pid);
+	public List<ProductInquiry> getProductInquiryList(Pager pager, String pno);
 	/**
 	 * 
-	 * @param pid(상품문의 총 개수를 보여줄 상품 id)
+	 * @param pno(상품문의 총 개수를 보여줄 상품 no)
 	 * @return int(상품문의 총 개수)
 	 */
-	public int getTotalProductInquiryNum(String pid);
+	public int getTotalProductInquiryNum(String pno);
 }
