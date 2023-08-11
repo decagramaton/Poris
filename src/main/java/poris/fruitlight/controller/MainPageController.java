@@ -69,7 +69,7 @@ public class MainPageController {
 		// Step3. 페이지는 DetailView로 이동하되, Detail View에서 게시판 번호를 Session 객체로 조회해야한다.
 		
 		
-		return "/detailView";
+		return "redirect:/detailView";
 	}
 	
 }
