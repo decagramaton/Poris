@@ -6,6 +6,8 @@
 
 	<typeAliases>
 		<typeAlias alias="Shopper" type="poris.fruitlight.dto.Shopper"/>
+		<typeAlias alias="JoinInfo" type="poris.fruitlight.dto.JoinParam"/><!-- 회원가입 정보 DTO -->
+		<typeAlias alias="Product" type="poris.fruitlight.dto.Product"/><!-- 회원가입 정보 DTO -->
 	</typeAliases>
 
 </configuration>

@@ -26,7 +26,7 @@ public class ShopperServiceImpl implements ShopperService{
 	}
 	
 	@Override
-	public void insertMember(JoinParam joinParam) {
+	public void insertMember(Shopper shopper) {
 		
 	}
 	
@@ -40,5 +40,29 @@ public class ShopperServiceImpl implements ShopperService{
 		List<Shopper> shopperList = shopperDao.selectAllShopper();
 		
 		log.info(shopperList.toString());
+	}
+	
+	/**
+	 * 
+	 * @author 고재승
+	 */
+	@Override
+	public Shopper getShopperById(Shopper shopper) {
+		
+		Shopper dbShopper = shopperDao.selectShopper(shopper);
+		
+		if(dbShopper != null) {
+			log.info(dbShopper.toString());
+			return dbShopper;
+		} else {
+			return null;
+		}
+	}
+	
+	
+	@Override
+	public void setShopperAutoLogin(Shopper shopper) {
+		shopperDao.updateShopperAutoLoginState(shopper);
+		
 	}
 }

@@ -6,7 +6,9 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
+import org.apache.ibatis.type.IntegerTypeHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
@@ -18,7 +20,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import lombok.extern.slf4j.Slf4j;
 import poris.fruitlight.dto.LoginParam;
 import poris.fruitlight.dto.Member;
+import poris.fruitlight.dto.Shopper;
 import poris.fruitlight.service.LoginService;
+import poris.fruitlight.service.ShopperService;
 
 @Slf4j
 @Controller
@@ -28,6 +32,9 @@ public class LoginController {
 	@Autowired
 	private LoginService loginservice;
 	
+	@Autowired
+	private ShopperService shopperService;
+	
 	
 	/**
 	 * 로그인 페이지 접속 메소드
@@ -35,7 +42,12 @@ public class LoginController {
 	 * @return 로그인 페이지 이동
 	 */
 	@RequestMapping("/login")
-	public String MainPage() {
+	public String MainPage(HttpSession session) {
+		
+		if(session.getAttribute("ShopperInfo") != null) {
+			return "redirect:/main";
+		}
+		
 		return "login";
 	}
 	
@@ -48,34 +60,41 @@ public class LoginController {
 	 * @return 메인 페이지로 리다이렉트
 	 */
 	@PostMapping("/login/askLogin")
-	public String askLogin(LoginParam loginParam, HttpServletResponse response , HttpSession session, Model model) {
-		// Step1. JSP에서 유저 로그인 값 얻기
-		log.info(loginParam.toString());
-		
-		
-		
-		if(loginParam.getUserId().equals("") || loginParam.getUserPw().equals("")) {
+	public String askLogin(Shopper shopper, HttpServletResponse response , HttpSession session, Model model) {
+		Shopper dbShopper = null;
+		log.info("JSP Shopper : " + shopper.toString());
+		if( (shopper.getShopperId() != null) && (shopper.getShopperPw() != null) ) {
+			// Stpe1. JSP에서 유저 로그인 값을 얻고, userID 정보로 DB에서 Select로 회원 유무 확인
+			dbShopper = shopperService.getShopperById(shopper);
+		} else {
 			return "redirect:/login";
 		}
 		
-		// Stpe2. JSP에서 유저 로그인 값을 얻고, userID 정보로 DB에서 Select로 회원 유무 확인
-		Member member = loginservice.getMemberInfo();
 		
 		// Step3. 회원 정보가 없으면 JSP에 에러 콘솔 출력 (에러 처리)
-		if(member == null) {
+		if(dbShopper == null) {
 			model.addAttribute("error", "정보가 잘못됨. 다시입력");
-			model.addAttribute("loginParam", loginParam);
-			return "login";
+			session.setAttribute("Shopper", shopper);
+			return "redirect:/login";
 		} else {
-			// Step4-1. 회원 정보가 있으면, 최근 로그인 날짜를 DB member Table에 Update
-			loginservice.setLastLoginDate(new Date());
+			shopper.setShopperNo(dbShopper.getShopperNo());
+			if(shopper.getShopperAutoLogin() != null) {
+				shopperService.setShopperAutoLogin(shopper);
+			} else {
+				shopper.setShopperAutoLogin("0");
+				shopperService.setShopperAutoLogin(shopper);
+			}
 			
-			// Step4-2. 세션에 member 정보 저장
-			session.setAttribute("memberInfo", member);
+			// Step4-1. 세션에 Shopper 정보 저장
+			session.setAttribute("ShopperInfo", dbShopper);
+			session.removeAttribute("Shopper");
 			
-			// Step4-3. 자동로그인이 체크되었다면, 클라이언트에게 쿠키 생성
-			if(loginParam.getAutoLogin() != null) {
-				Cookie cookie = new Cookie("userId", loginParam.getUserId());
+			// Step4-2. 자동로그인이 체크되었다면, 클라이언트에게 쿠키 생성
+			if(shopper.getShopperAutoLogin().equals("0")) {
+				
+				
+				
+				Cookie cookie = new Cookie("ShopperID", Integer.toString(dbShopper.getShopperNo()));
 				cookie.setPath("/");
 				cookie.setMaxAge(86400);
 				cookie.setHttpOnly(true);

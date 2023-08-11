@@ -8,9 +8,10 @@ import lombok.Data;
  */
 @Data
 public class Shopper {
-	private int ShopperNo;				// 회원 번호
-	private String ShopperId;			// 회원 ID(이메일 형식)
-	private String ShopperPw;			// 회원 비밀번호
-	private String ShopperName;			// 회원 실명
+	private int shopperNo;				// 회원 번호
+	private String shopperId;			// 회원 ID(이메일 형식)
+	private String shopperPw;			// 회원 비밀번호
+	private String shopperName;			// 회원 실명
 	private String shopperTel;			// 회원 연락처
+	private String shopperAutoLogin;	// 회원 자동로그인 여부
 }

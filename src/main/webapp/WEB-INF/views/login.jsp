@@ -32,11 +32,11 @@
 			                    <li>
 			                        <span class="id_bg"><!-- 배경이미지(메일) --></span>
 			                        <span style="width: 100%">
-			                        	<c:if test="${loginParam != null}">
-				                        	<input type="text" name="userId" placeholder="아이디(이메일)" value="${loginParam.userId}">
+			                        	<c:if test="${Shopper != null}">
+				                        	<input type="text" name="shopperId" placeholder="아이디(이메일)" value="${Shopper.shopperId}">
 			                        	</c:if>
-			                        	<c:if test="${loginParam == null}">
-				                        	<input type="text" name="userId" placeholder="아이디(이메일)">
+			                        	<c:if test="${Shopper == null}">
+				                        	<input type="text" name="shopperId" placeholder="아이디(이메일)">
 			                        	</c:if>
 			                        </span>
 			                    </li>
@@ -45,11 +45,11 @@
 			                    <li>
 			                        <span class="pw_bg"><!-- 배경이미지(비밀번호) --></span>
 			                        <span style="width: 100%">
-			                        	<c:if test="${loginParam != null}">
-			                        		<input type="password" name="userPw" placeholder="비밀번호" value="${loginParam.userId}">
+			                        	<c:if test="${Shopper != null}">
+			                        		<input type="password" name="shopperPw" placeholder="비밀번호" value="${Shopper.shopperPw}">
 			                        	</c:if>
-			                        	<c:if test="${loginParam == null}">
-			                        		<input type="password" name="userPw" placeholder="비밀번호">
+			                        	<c:if test="${Shopper == null}">
+			                        		<input type="password" name="shopperPw" placeholder="비밀번호">
 			                        	</c:if>
 			                        </span>
 			                        <span class="pw_show_hide"></span>
@@ -59,7 +59,7 @@
 			                <div class="btm">
 			                    <p>
 			                        <label>
-			                            <input type="checkbox" name="autoLogin" id="login_y">
+			                            <input type="checkbox" name="shopperAutoLogin" id="login_y">
 			                            <span>자동로그인</span>
 			                        </label>
 			                    </p>
