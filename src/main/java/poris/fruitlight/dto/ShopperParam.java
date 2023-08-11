@@ -2,6 +2,11 @@ package poris.fruitlight.dto;
 
 import lombok.Data;
 
+/**
+ * 결제 페이지 JSP - 구매자 정보 데이터 요청 시 사용하는 DTO
+ * @author 고재승
+ *
+ */
 @Data
 public class ShopperParam {
 	// 결제 페이지 - 구매자 정보 데이터 DTO
