@@ -28,10 +28,22 @@ public class MainPageController {
 	   
 	  // Step1. 초기 화면 init 데이터 LOAD FROM DB
       List<ProductList> mainlists = mainService.getMainList();
+      
       List<ProductList> todaylists = mainService.getTodayList();
       for(ProductList today : todaylists) {
     	  today.setBase64Img(Base64.getEncoder().encodeToString(today.getMEDIA_DATA()));
       }
+      
+      /* 
+       * [이미지 데이터 적용하는법]
+       * Step1. BLOB 데이터가 있는 DTO 객체 리스트를 DB로부터 가져온다.
+       * Step2-1. 반복문을 통해, 각 DTO 객체의 BLOB(byte[])를 GETTER로 가져온다.
+       * Step2-2. BLOB(byte[])를 Base64 형식의 String으로 변환 후, SETTER으로 Base64Img 필드에 저장한다.
+       * Step3. JSP에 사용할 수 있도록 Session에 DTO객체를 설정(저장)한다.
+       * Step4. JSP 내 img태그 src 속성에  DTO 필드, MEDIA_DATA, base64Img ->  JSTL을 적용한다.
+       * <img class="productImage" src="data:${todaylist.MEDIA_DATA};base64, ${todaylist.base64Img}"/>
+       */
+      
       List<ProductList> sellerlists = mainService.getSellerList();
       List<ProductList> catemainlists = mainService.getCateMainList();
       List<ProductList> catesublists = mainService.getCateSubList();

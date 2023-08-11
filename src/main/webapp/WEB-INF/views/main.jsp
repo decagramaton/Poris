@@ -52,7 +52,6 @@
 					      		<div>
 					      			<div>
 						      			<a href="detailView?pid=${todaylist.PRODUCT_NO}">
-						      				<%-- <img class="productImage" src="${pageContext.request.contextPath}/resources/images/cherry2.jpg"/> --%>
 						      				<img class="productImage" src="data:${todaylist.MEDIA_DATA};base64, ${todaylist.base64Img}"/>
 						      			</a>
 						      		</div>
