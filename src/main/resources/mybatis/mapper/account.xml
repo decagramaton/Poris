@@ -3,14 +3,7 @@
 
 <mapper namespace="poris.fruitlight.dao.MemberDao">
    <select id="selectAll" resultType="JoinInfo">
-      SELECT ano, owner, balance FROM account
+
    </select>
-   
-   <select id="selectByAno" parameterType="int" resultType="JoinInfo">
-      SELECT ano, owner, balance FROM account WHERE ano=#{ano}
-   </select>
-   
-   <update id="updateBalance" parameterType="JoinInfo">
-      UPDATE account SET balance=#{balance} WHERE ano=#{ano}
-   </update>
+
 </mapper>
