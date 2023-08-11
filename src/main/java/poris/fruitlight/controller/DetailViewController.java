@@ -40,11 +40,11 @@ public class DetailViewController {
 		
 		// Step1. 
 		Product product = detailViewService.getProduct(1);
-		List<Product> optionList = detailViewService.getOptions(product.getName());
+		//List<Product> optionList = detailViewService.getOptions(product.getName());
 		int totalBoardNum = detailViewService.getTotalProductInquiryNum("1");
 		
 		model.addAttribute("product", product);
-		model.addAttribute("optionList", optionList);
+		//model.addAttribute("optionList", optionList);
 		//상품문의
 		Pager productInquiryPager = new Pager(5, 10, totalBoardNum, 1);
 		
@@ -138,8 +138,8 @@ public class DetailViewController {
 		
 		Product product = detailViewService.getProduct(1);
 		model.addAttribute("product", product);
-		List<Product> optionList = detailViewService.getOptions(product.getName());
-		model.addAttribute("optionList", optionList);
+		//List<Product> optionList = detailViewService.getOptions(product.getName());
+		//model.addAttribute("optionList", optionList);
 		return "detailView";
 	}
 }
