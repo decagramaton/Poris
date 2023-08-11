@@ -43,6 +43,8 @@ public class DetailViewController {
 		
 		// Step1. Session에 있는 게시판 번호 get
 		int pno = (int) session.getAttribute("BoardNo");
+		
+		
 		Product product = detailViewService.getProduct(pno);
 		List<Product> optionList = detailViewService.getOptions(product.getPRODUCT_NAME());
 		int totalBoardNum = detailViewService.getTotalProductInquiryNum("1");
@@ -56,6 +58,10 @@ public class DetailViewController {
 		
 		model.addAttribute("productInquiryPager", productInquiryPager);
 		model.addAttribute("productInquiryList", productInquiryList);
+		
+		// Final. 게시판 번호 Session 제거
+		session.removeAttribute("BoardNo");
+		
 		return "detailView";
 	}
 	
