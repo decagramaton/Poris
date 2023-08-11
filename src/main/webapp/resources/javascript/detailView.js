@@ -169,13 +169,13 @@ function addCart() {
 	} else {
 		var pids = [];
 		var stocks = [];
-		selectedItems.each((index, item) => {
+		selectedItems.each(function(index, item) {
 			let selectedItemsPid = $(item).find(".product-option-pid").val();
 			let selectedItemsStock = $(item).find(".product-quantity-input").val();
 			pids.push(selectedItemsPid);
 			stocks.push(selectedItemsStock);
 		});
-		$.ajax({
+		/*$.ajax({
 			url: "/fruitlight/detailView/addCartProduct",
 			method: "post",
 			traditional: true,
@@ -186,7 +186,12 @@ function addCart() {
 			success: function(data) {
 				console.log(data);
 			}
-		});
+		});*/
+		console.log(pids);
+		console.log(stocks);
+		location.href = "detailView/addCartProduct?"
+			+ "pids=" + encodeURIComponent(pids.join(','))
+			+ "&stocks=" + encodeURIComponent(stocks.join(','));
 	}
 }
 //바로구매

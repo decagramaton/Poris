@@ -301,7 +301,7 @@ function checkBuyProduct() {
 		
 		$.ajax({
 			url: "buyFromCart",
-			method: "post",
+			method: "get",
 			traditional: true,
 			data: {pidsChecked:pidsChecked, cidsChecked:cidsChecked},
 			success: function(data) {

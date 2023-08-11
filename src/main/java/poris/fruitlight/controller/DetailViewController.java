@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import lombok.extern.slf4j.Slf4j;
@@ -42,8 +43,8 @@ public class DetailViewController {
 	public String detailView(Model model, HttpSession session) {
 		
 		// Step1. Session에 있는 게시판 번호 get
-		int pno = (int) session.getAttribute("BoardNo");
-		
+		//int pno = (int) session.getAttribute("BoardNo");
+		int pno = 1;
 		
 		Product product = detailViewService.getProduct(pno);
 		List<Product> optionList = detailViewService.getOptions(product.getPRODUCT_NAME());
@@ -72,16 +73,12 @@ public class DetailViewController {
 	 */
 	//장바구니 담기
 	@RequestMapping("/detailView/addCartProduct")
-	@ResponseBody
-	public String addCartProduct(HttpServletRequest request) {
+	public String addCartProduct(@RequestParam List<Integer> pids, @RequestParam List<Integer> stocks) {
 		//로그인 세션이 없으면 로그인 페이지로 이동
 		List<Cart> list = new ArrayList<>();
 		
-		String[] strPidList = request.getParameterValues("pids");
+		/*String[] strPidList = request.getParameterValues("pids");
 		String[] strStockList = request.getParameterValues("stocks");
-		
-		/*String[] strPidList = {"1", "2"};
-		String[] strStockList = {"1", "1"};*/
 		
 		int i = 0;
 		for(i=0; i<strPidList.length; i++) {
@@ -91,12 +88,18 @@ public class DetailViewController {
 			cartProduct.setCART_PRODUCT_STOCK(Integer.parseInt(strStockList[i]));
 			
 			list.add(cartProduct);
-		}
+		}*/
 		
-		for(Cart cartProduct : list) {
-			log.info("SHOPPER_NO: " + cartProduct.getSHOPPER_NO());
-			log.info("PRODUCT_NO: " + cartProduct.getPRODUCT_NO());
-			log.info("CART_PRODUCT_STOCK: " + cartProduct.getCART_PRODUCT_STOCK());
+		log.info("" + pids);
+		log.info("" + stocks);
+		int i = 0;
+		for(i=0; i<pids.size(); i++) {
+			Cart cartProduct = new Cart();
+			cartProduct.setSHOPPER_NO(1);
+			cartProduct.setPRODUCT_NO(pids.get(i));
+			cartProduct.setCART_PRODUCT_STOCK(stocks.get(i));
+			
+			list.add(cartProduct);
 		}
 		
 		detailViewService.addToCart(list);
