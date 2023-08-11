@@ -64,7 +64,7 @@ public class JoinFormController {
 		boolean resultIsMember = shopperService.isMember(joinParam.getUserId());
 		// Step3. 중복 회원 없으면 DB에 저장 후 메인페이지로 이동
 		if(resultIsMember) {
-			//shopperService.insertMember(joinParam);
+			//shopperService.insertMember();
 			AlertScript.alertAndMovePage(response, "회원가입이 완료되었습니다.", "/fruitlight/");
 		} else {
 			// Step4. 중복 회원 있으면 에러 반환
