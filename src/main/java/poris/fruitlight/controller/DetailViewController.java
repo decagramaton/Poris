@@ -26,7 +26,6 @@ import poris.fruitlight.service.DetailViewService;
  */
 @Slf4j
 @Controller
-@RequestMapping("/detailView")
 public class DetailViewController {
 	@Resource
 	private DetailViewService detailViewService;
@@ -36,7 +35,7 @@ public class DetailViewController {
 	 * @param model
 	 * @return 상세상품(detailView) 페이지
 	 */
-	@GetMapping("/")
+	@GetMapping("/detailView")
 	public String detailView(Model model) {
 		
 		// Step1. 
@@ -62,7 +61,7 @@ public class DetailViewController {
 	 * @return 상세상품(detailView) 페이지
 	 */
 	//장바구니 담기
-	@RequestMapping("/addCartProduct")
+	@RequestMapping("/detailView/addCartProduct")
 	public String addCartProduct(HttpServletRequest request) {
 		//로그인 세션이 없으면 로그인 페이지로 이동
 		List<CartProduct> list = new ArrayList<CartProduct>();
@@ -87,7 +86,7 @@ public class DetailViewController {
 	 * @return 리다이렉트로 결제(order) 페이지
 	 */
 	//바로구매
-	@RequestMapping("/buyDirect")
+	@RequestMapping("/detailView/buyDirect")
 	public String buyDirect(HttpServletRequest request) {
 		//로그인 세션이 없으면 로그인 페이지로 이동
 		//List<CartProduct> list = new ArrayList<CartProduct>();
@@ -114,7 +113,7 @@ public class DetailViewController {
 	 * @return 결제(order) 페이지
 	 */
 	//상품문의 페이저
-	@GetMapping("/moveInquiryPage")
+	@GetMapping("/detailView/moveInquiryPage")
 	public String moveInquiryPage(String pageNo, Model model, HttpSession session) {
 		//브라우저에서 pageNo가 넘어오지 않았을 경우
 		if(pageNo == null) {
