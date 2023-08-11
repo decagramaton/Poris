@@ -14,5 +14,5 @@ import poris.fruitlight.dto.ProductList;
 @Mapper
 public interface ProductDao {
    public List<ProductList> SelectAll();
-   public ProductList SelectByPno(int PRODUCT_NO);
+   public List<ProductList> SelectByPno();
 }

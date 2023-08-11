@@ -27,9 +27,9 @@
 			    <li data-target="#mainproduct" data-slide-to="2"></li>
 			</ul>
 			<div class="carousel-inner">
-				<c:forEach var="mainlist" items="${mainlists}" varStatus="i">
+				<c:forEach var="product" items="${productlist}" varStatus="i">
 					<div id="carouselMainItem${i.count}" class="carousel-item">
-				        <img src="data:${productlist.MEDIA_DATA};base64, ${base64Img}" alt="mainfruit${i.count}" width="1100" height="500">
+				        <img src="data:${product.MEDIA_DATA};base64, ${base64Img}" alt="mainfruit${i.count}" width="1100" height="500">
 				    </div>
 				</c:forEach>
 			</div>

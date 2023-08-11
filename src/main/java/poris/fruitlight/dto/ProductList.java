@@ -6,12 +6,11 @@ import lombok.Data;
 
 /**
  * 
- * @author 이은지
+ * @author 김진성, 고재승
  *
  */
 @Data
 public class ProductList {
-   private MultipartFile MEDIA;
    //상품 DTO
    private int PRODUCT_NO;         //상품 no(sequence)
    private String PRODUCT_NAME;   //상품 이름

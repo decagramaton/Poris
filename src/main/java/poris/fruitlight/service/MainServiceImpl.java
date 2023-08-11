@@ -53,8 +53,8 @@ public class MainServiceImpl implements MainService{
    }
 
 	@Override
-	public ProductList SelectByPno(int PRODUCT_NO) {
-		ProductList prl = productDao.SelectByPno(PRODUCT_NO);
+	public List<ProductList> SelectByPno() {
+		List<ProductList> prl = productDao.SelectByPno();
 		return prl;
 	}
 }

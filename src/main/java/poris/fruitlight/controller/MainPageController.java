@@ -4,6 +4,7 @@ import java.util.Base64;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,47 +22,40 @@ public class MainPageController {
    private MainService mainService;
    
    @RequestMapping("/")
-   public String main(Model model) {
+   public String main(HttpSession session) {
+	   
+	  // Step1. 초기 화면 init 데이터 LOAD FROM DB
       List<ProductList> mainlists = mainService.getMainList();
       List<ProductList> todaylists = mainService.getTodayList();
       List<ProductList> sellerlists = mainService.getSellerList();
       List<ProductList> catemainlists = mainService.getCateMainList();
       List<ProductList> catesublists = mainService.getCateSubList();
-      model.addAttribute("mainlists", mainlists);
-      model.addAttribute("todaylists", todaylists);
-      model.addAttribute("sellerlists", sellerlists);
-      model.addAttribute("catemainlists", catemainlists);
-      model.addAttribute("catesublists", catesublists);
       
-      ProductList productlist = mainService.SelectByPno(4);
-      model.addAttribute("productlist", productlist);
-      if(productlist.getMEDIA_DATA() != null) {
-			String base64Img = Base64.getEncoder().encodeToString(productlist.getMEDIA_DATA());
-			model.addAttribute("base64Img", base64Img);
-		}
+      
+      // Step2. JSP 초기 화면 init 데이터
+      session.setAttribute("mainlists", mainlists);
+      session.setAttribute("todaylists", todaylists);
+      session.setAttribute("sellerlists", sellerlists);
+      session.setAttribute("catemainlists", catemainlists);
+      session.setAttribute("catesublists", catesublists);
+      
+      // Step3. 메인 배너 출력 기능
+      List<ProductList> mainBannerImagelist = mainService.SelectByPno();
+      
+      session.setAttribute("productlist", mainBannerImagelist);
+      for(ProductList mainBannerImage : mainBannerImagelist) {
+    	  
+    	  if(mainBannerImage.getMEDIA_DATA() != null) {
+    		  String base64Img = Base64.getEncoder().encodeToString(mainBannerImage.getMEDIA_DATA());
+    		  session.setAttribute("base64Img", base64Img);
+    	  }
+      }
+      
       return "main";
    }
-   
-   @RequestMapping("main")
-   public String mainPage(Model model, int PRODUCT_NO) {
-      List<ProductList> mainlists = mainService.getMainList();
-      List<ProductList> todaylists = mainService.getTodayList();
-      List<ProductList> sellerlists = mainService.getSellerList();
-      List<ProductList> catemainlists = mainService.getCateMainList();
-      List<ProductList> catesublists = mainService.getCateSubList();
-      model.addAttribute("mainlists", mainlists);
-      model.addAttribute("todaylists", todaylists);
-      model.addAttribute("sellerlists", sellerlists);
-      model.addAttribute("catemainlists", catemainlists);
-      model.addAttribute("catesublists", catesublists);
       
-      
-      ProductList productlist = mainService.SelectByPno(PRODUCT_NO);
-      model.addAttribute("productlist", productlist);
-      if(productlist.getMEDIA_DATA() != null) {
-			String base64Img = Base64.getEncoder().encodeToString(productlist.getMEDIA_DATA());
-			model.addAttribute("base64Img", base64Img);
-		}
-      return "main";
-   }
+	@RequestMapping("/main")
+	public String moveMainPage() {
+		return "redirect:/";
+	}
 }

@@ -10,5 +10,5 @@ public interface MainService {
    public List<ProductList> getSellerList();
    public List<ProductList> getCateMainList();
    public List<ProductList> getCateSubList();
-   public ProductList SelectByPno(int PRODUCT_NO);
+   public List<ProductList> SelectByPno();
 }
