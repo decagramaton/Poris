@@ -20,14 +20,13 @@ public class DetailViewServiceImpl implements DetailViewService {
 	DetailViewDao detailViewDao;
 	
 	@Override
-	public Product getProduct(int pid) {
-		List<Product> list = new ArrayList<>();
-		Product product = new Product();
+	public Product getProduct(int pno) {
+		Product product = detailViewDao.selectByPno(pno);
 		return product;
 	}
 	@Override
 	public List<Product> getOptions(String name) {
-		List<Product> list = new ArrayList<>();
+		List<Product> list = detailViewDao.selectByName(name);
 		return list;
 	}
 	@Override
@@ -37,26 +36,15 @@ public class DetailViewServiceImpl implements DetailViewService {
 		return 0;
 	}
 	@Override
-	public List<ProductInquiry> getProductInquiryList(Pager pager, String pid) {
-		List<ProductInquiry> list = new ArrayList<>();
-		
-		for(int i=1; i<=5; i++) {
-			ProductInquiry productInquiry = new ProductInquiry();
-			productInquiry.setInquiryId(i);
-			productInquiry.setInquiryContent("체리 맛있나여");
-			productInquiry.setInquiryDate(new Date());
-			productInquiry.setEmptAnswer(false);
-			productInquiry.setAnswerContent("냠냠굿" + i);
-			productInquiry.setAnswerDate(new Date());
-			
-			list.add(productInquiry);
-		}
+	public List<ProductInquiry> getProductInquiryList(Pager pager, String pno) {
+		pager.setBOARD_NO(Integer.parseInt(pno));
+		List<ProductInquiry> list = detailViewDao.selectProductInquiryPager(pager);
 		
 		return list;
 	}
 	@Override
-	public int getTotalProductInquiryNum(String pid) {
-		
+	public int getTotalProductInquiryNum(String pno) {
+		detailViewDao.count(Integer.parseInt(pno));
 		return 10;
 	}
 
