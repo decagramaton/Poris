@@ -1,8 +1,10 @@
 package poris.fruitlight.dao;
 
 import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
-import poris.fruitlight.dto.ShopperCondition;
+
+import poris.fruitlight.dto.Shopper;
 
 /**
  * 회원 정보와 관련된 Data Access Object입니다.
@@ -10,6 +12,6 @@ import poris.fruitlight.dto.ShopperCondition;
  * 
  */
 @Mapper
-public interface MemberDao {
-	public List<ShopperCondition> SelectAllMember();
+public interface ShopperDao {
+	public List<Shopper> selectAllShopper();
 }

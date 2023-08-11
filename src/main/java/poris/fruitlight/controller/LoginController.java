@@ -52,6 +52,8 @@ public class LoginController {
 		// Step1. JSP에서 유저 로그인 값 얻기
 		log.info(loginParam.toString());
 		
+		
+		
 		if(loginParam.getUserId().equals("") || loginParam.getUserPw().equals("")) {
 			return "redirect:/login";
 		}

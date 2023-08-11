@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="poris.fruitlight.dao.ShopperDao">
+	
+	<select id="selectAllShopper" resultType="Shopper">
+		SELECT SHOPPER_NO as ShopperNo,
+		SHOPPER_ID as ShopperId,
+		SHOPPER_PW as ShopperPw,
+		SHOPPER_NAME as ShopperName,
+		SHOPPER_TEL as shopperTel FROM SHOPPER
+	</select>
+	
+</mapper>

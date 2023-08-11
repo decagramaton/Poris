@@ -84,7 +84,8 @@
 											<input type="checkbox" name="acceptAgreement" value="Y" id="acceptAgreement">
 											[필수] 개인정보수집 이용.동의에 동의합니다.
 										</label>
-										<a href="javascript:checkAcceptAgreement();">[내용보기]</a>
+										<a href="joinForm/test">[내용보기]</a>
+										<!-- <a href="javascript:checkAcceptAgreement();">[내용보기]</a> -->
 									</div>
 								</div>
 							</div>
