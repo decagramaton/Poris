@@ -57,4 +57,17 @@ public class MainServiceImpl implements MainService{
 		List<ProductList> prl = productDao.SelectByPno();
 		return prl;
 	}
+	
+	/**
+	 * 상품 고유번호를 기준으로 게시판의 번호를 조회하는 메소드
+	 * @author 고재승
+	 * @param pid - 제품(상품) 고유번호
+	 */
+	@Override
+	public int getSelectBoardNo(int pid) {
+		
+		int dbResult = productDao.SelectDetailView(pid);
+		
+		return 0;
+	}
 }

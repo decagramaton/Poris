@@ -57,4 +57,19 @@ public class MainPageController {
 	public String moveMainPage() {
 		return "redirect:/";
 	}
+	
+	
+	@RequestMapping("/main/SelectDetailView")
+	public String moveDetailViewPage(int pid, HttpSession session) {
+		
+		// Step1. PRODUCT_ID를 기준으로 선택한 게시판 번호를 조회한다.
+		int boardNo = mainService.getSelectBoardNo(pid);
+		// Step2. Session에 게시판 번호를 저장한다.
+		session.setAttribute("BoardNo", boardNo);
+		// Step3. 페이지는 DetailView로 이동하되, Detail View에서 게시판 번호를 Session 객체로 조회해야한다.
+		
+		
+		return "/detailView";
+	}
+	
 }
