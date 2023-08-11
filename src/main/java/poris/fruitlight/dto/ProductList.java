@@ -21,4 +21,5 @@ public class ProductList {
    private int DISCOUNT_PRICE;      //할인 가격
    private String MEDIA_NAME;		//상품 사진 파일 이름
    private byte[] MEDIA_DATA;		//상품 사진
+   private String base64Img;
 }

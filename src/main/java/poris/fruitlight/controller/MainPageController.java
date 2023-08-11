@@ -1,6 +1,8 @@
 package poris.fruitlight.controller;
 
+import java.util.ArrayList;
 import java.util.Base64;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -27,10 +29,12 @@ public class MainPageController {
 	  // Step1. 초기 화면 init 데이터 LOAD FROM DB
       List<ProductList> mainlists = mainService.getMainList();
       List<ProductList> todaylists = mainService.getTodayList();
+      for(ProductList today : todaylists) {
+    	  today.setBase64Img(Base64.getEncoder().encodeToString(today.getMEDIA_DATA()));
+      }
       List<ProductList> sellerlists = mainService.getSellerList();
       List<ProductList> catemainlists = mainService.getCateMainList();
       List<ProductList> catesublists = mainService.getCateSubList();
-      
       
       // Step2. JSP 초기 화면 init 데이터
       session.setAttribute("mainlists", mainlists);
@@ -40,16 +44,11 @@ public class MainPageController {
       session.setAttribute("catesublists", catesublists);
       
       // Step3. 메인 배너 출력 기능
-      List<ProductList> mainBannerImagelist = mainService.SelectByPno();
-      
-      session.setAttribute("productlist", mainBannerImagelist);
-      for(ProductList mainBannerImage : mainBannerImagelist) {
-    	  
-    	  if(mainBannerImage.getMEDIA_DATA() != null) {
-    		  String base64Img = Base64.getEncoder().encodeToString(mainBannerImage.getMEDIA_DATA());
-    		  session.setAttribute("base64Img", base64Img);
-    	  }
+      List<ProductList> mainBannerlist = mainService.getTodayList();
+      for(ProductList mainBanner : mainBannerlist) {
+    	  mainBanner.setBase64Img(Base64.getEncoder().encodeToString(mainBanner.getMEDIA_DATA()));
       }
+      session.setAttribute("productlist", mainBannerlist);
       
       return "main";
    }

@@ -29,7 +29,7 @@
 			<div class="carousel-inner">
 				<c:forEach var="product" items="${productlist}" varStatus="i">
 					<div id="carouselMainItem${i.count}" class="carousel-item">
-				        <img src="data:${product.MEDIA_DATA};base64, ${base64Img}" alt="mainfruit${i.count}" width="1100" height="500">
+				        <img src="data:${product.MEDIA_DATA};base64, ${product.base64Img}" width="1100" height="500">
 				    </div>
 				</c:forEach>
 			</div>
@@ -52,7 +52,8 @@
 					      		<div>
 					      			<div>
 						      			<a href="detailView?pid=${todaylist.PRODUCT_NO}">
-						      				<img class="productImage" src="${pageContext.request.contextPath}/resources/images/cherry2.jpg"/>
+						      				<%-- <img class="productImage" src="${pageContext.request.contextPath}/resources/images/cherry2.jpg"/> --%>
+						      				<img class="productImage" src="data:${todaylist.MEDIA_DATA};base64, ${todaylist.base64Img}"/>
 						      			</a>
 						      		</div>
 						      		<div class="productNameHolder">
