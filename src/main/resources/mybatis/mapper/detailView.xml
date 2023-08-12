@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="poris.fruitlight.dao.DetailViewDao">
-	<select id="selectByPno" parameterType="int" resultType="poris.fruitlight.dto.Product">
-      select PRODUCT_NO, PRODUCT_NAME, PRODUCT_PRICE, PRODUCT_OPTION, DISCOUNT_RATE, DISCOUNT_PRICE
-      from PRODUCT
-      where PRODUCT_NO = #{pno}
+	<select id="selectByBno" parameterType="int" resultType="poris.fruitlight.dto.Product">
+      select BOARD_NO, p.PRODUCT_NO, PRODUCT_NAME, PRODUCT_PRICE, PRODUCT_OPTION, DISCOUNT_RATE, DISCOUNT_PRICE
+	  from PRODUCT p, PRODUCT_BOARD b
+	  where p.PRODUCT_NO = b.PRODUCT_NO
+	  and BOARD_NO = #{bno}
    </select>
    
    <select id="selectByName" parameterType="String" resultType="poris.fruitlight.dto.Product">

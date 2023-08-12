@@ -39,23 +39,23 @@ public class DetailViewController {
 	 * @param model
 	 * @return 상세상품(detailView) 페이지
 	 */
-	@GetMapping("/detailView")
+	@RequestMapping("/detailView")
 	public String detailView(Model model, HttpSession session) {
 		
 		// Step1. Session에 있는 게시판 번호 get
-		//int pno = (int) session.getAttribute("BoardNo");
-		int pno = 1;
+		//int bno = (int) session.getAttribute("BoardNo");
+		int bno = 1;
 		
-		Product product = detailViewService.getProduct(pno);
+		Product product = detailViewService.getProduct(bno);
 		List<Product> optionList = detailViewService.getOptions(product.getPRODUCT_NAME());
-		int totalBoardNum = detailViewService.getTotalProductInquiryNum("1");
+		int totalBoardNum = detailViewService.getTotalProductInquiryNum(bno);
 		
 		model.addAttribute("product", product);
 		model.addAttribute("optionList", optionList);
 		//상품문의
 		Pager productInquiryPager = new Pager(5, 10, totalBoardNum, 1);
 		
-		List<ProductInquiry> productInquiryList = detailViewService.getProductInquiryList(productInquiryPager, "1");
+		List<ProductInquiry> productInquiryList = detailViewService.getProductInquiryList(productInquiryPager, bno);
 		
 		model.addAttribute("productInquiryPager", productInquiryPager);
 		model.addAttribute("productInquiryList", productInquiryList);
@@ -150,16 +150,16 @@ public class DetailViewController {
 		int ProductInquiryPageNo = Integer.parseInt(pageNo);
 		session.setAttribute("ProductInquiryPageNo", ProductInquiryPageNo);
 		
-		int totalBoardNum = detailViewService.getTotalProductInquiryNum("1");
+		/*int totalBoardNum = detailViewService.getTotalProductInquiryNum(bno);
 		Pager productInquiryPager = new Pager(5, 10, totalBoardNum, ProductInquiryPageNo);
 		
-		List<ProductInquiry> productInquiryList = detailViewService.getProductInquiryList(productInquiryPager, "1");
+		List<ProductInquiry> productInquiryList = detailViewService.getProductInquiryList(productInquiryPager, bno);
 		
 		model.addAttribute("productInquiryPager", productInquiryPager);
 		model.addAttribute("productInquiryList", productInquiryList);
 		
 		Product product = detailViewService.getProduct(1);
-		model.addAttribute("product", product);
+		model.addAttribute("product", product);*/
 		//List<Product> optionList = detailViewService.getOptions(product.getName());
 		//model.addAttribute("optionList", optionList);
 		return "detailView";

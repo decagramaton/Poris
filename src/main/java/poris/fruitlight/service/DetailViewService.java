@@ -18,7 +18,7 @@ public interface DetailViewService {
 	 * @param pno(상품상세 페이지에서 보여줄 상품 no)
 	 * @return Product(상품 DTO)
 	 */
-	public Product getProduct(int pno);
+	public Product getProduct(int bno);
 	/**
 	 * 
 	 * @param name(상품상세 페이지에서 보여줄 옵션들을 가져오기 위한 기준인 현재 상품 name)
@@ -37,11 +37,11 @@ public interface DetailViewService {
 	 * @param pno(상품문의 목록을 보여줄 상품 no)
 	 * @return List<ProductInquiry>(상품문의 리스트)
 	 */
-	public List<ProductInquiry> getProductInquiryList(Pager pager, String pno);
+	public List<ProductInquiry> getProductInquiryList(Pager pager, int bno);
 	/**
 	 * 
 	 * @param pno(상품문의 총 개수를 보여줄 상품 no)
 	 * @return int(상품문의 총 개수)
 	 */
-	public int getTotalProductInquiryNum(String pno);
+	public int getTotalProductInquiryNum(int bno);
 }

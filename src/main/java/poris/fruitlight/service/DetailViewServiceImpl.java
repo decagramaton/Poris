@@ -19,8 +19,8 @@ public class DetailViewServiceImpl implements DetailViewService {
 	DetailViewDao detailViewDao;
 	
 	@Override
-	public Product getProduct(int pno) {
-		Product product = detailViewDao.selectByPno(pno);
+	public Product getProduct(int bno) {
+		Product product = detailViewDao.selectByBno(bno);
 		return product;
 	}
 	@Override
@@ -36,14 +36,14 @@ public class DetailViewServiceImpl implements DetailViewService {
 		return 0;
 	}
 	@Override
-	public List<ProductInquiry> getProductInquiryList(Pager pager, String pno) {
-		pager.setBOARD_NO(Integer.parseInt(pno));
+	public List<ProductInquiry> getProductInquiryList(Pager pager, int bno) {
+		pager.setBOARD_NO(bno);
 		List<ProductInquiry> list = detailViewDao.selectProductInquiryPager(pager);
 		return list;
 	}
 	@Override
-	public int getTotalProductInquiryNum(String pno) {
-		int totalProductInquiryNum = detailViewDao.count(Integer.parseInt(pno));
+	public int getTotalProductInquiryNum(int bno) {
+		int totalProductInquiryNum = detailViewDao.count(bno);
 		return totalProductInquiryNum;
 	}
 
