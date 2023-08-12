@@ -70,4 +70,12 @@ public class MainServiceImpl implements MainService{
 		
 		return 0;
 	}
+
+
+	@Override
+	public List<ProductList> SelectListName(String pname) {
+		List<ProductList> dbResult = productDao.SelectListView(pname);
+		
+		return dbResult;
+	}
 }

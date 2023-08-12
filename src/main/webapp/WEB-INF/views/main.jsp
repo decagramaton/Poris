@@ -116,7 +116,7 @@
    					<dl>
    						<dt id="cateAdvertiseCherryTitle" class="cateAdvertiseCherryTitle">
    							<span>체리</span>
-   							<a href="list?=체리">&nbsp;바로가기 ></a>
+   							<a href="list?search=체리">&nbsp;바로가기 ></a>
    						</dt>
    						<dd id="cateAdvertiseCherryPromotion" class="cateAdvertiseCherryPromotion">
    							<div id="demo1" class="carousel slide" data-ride="carousel">

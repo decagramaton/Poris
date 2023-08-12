@@ -33,32 +33,32 @@
       			<button id="menu-btn1" class="menu-btn1" onclick="menunext()"><img/></button>
                		<div id="menus" class="menus" style="text-align: left; font-size: 14px;">
                   		<label>
-                   			<a href="list?pname=수박">
+                   			<a href="list?search=수박">
                       			<span>수박</span>
                    			</a>
                   		</label>
 	                   <label>
-	                   		<a href="list?pname=참외">
+	                   		<a href="list?search=참외">
 	                         	<span>참외</span>
 	                      	</a>
 	                   </label>
 	                   <label>
-	                      	<a href="list?pname=체리">
+	                      	<a href="list?search=체리">
 	                         	<span>체리</span>
 	                      	</a>
 	                   </label>
 	                   <label>
-	                      	<a href="list?pname=아보카도">
+	                      	<a href="list?search=아보카도">
 	                         	<span>아보카도</span>
 	                      	</a>
 	                   </label>
 	                   <label>
-	                      	<a href="list?pname=망고">
+	                      	<a href="list?search=망고">
 	                         	<span>망고</span>
 	                      	</a>
 	                   </label>
 	                   <label>
-	                      	<a href="list?pname=바나나">
+	                      	<a href="list?search=바나나">
 	                         	<span>바나나</span>
 	                      	</a>
 	                   </label>

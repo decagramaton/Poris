@@ -32,21 +32,21 @@
 					</div>
 					<div class="productListContainer container">
 						<div class ="row">
-							<c:forEach var="product" items="${products}" varStatus="i">
-								<div class="productList ${product.pid} col-md col-sm-12">
+							<c:forEach var="product" items="${productLists}" varStatus="i">
+								<div class="productList ${product.PRODUCT_NO} col-md col-sm-12">
 									<div>
 										<img class="productImage ${i.count}" src="${pageContext.request.contextPath}/resources/images/cherry1.jpg"/>
 									</div>
 									<div class="productNameHolder">
-										<a class="productName">${product.name}</a>
+										<a class="productName">${product.PRODUCT_NAME}</a>
 									</div>
 									<div id="price" class="price">
 										<div class="productPriceArea">
-											<span class="productDisrate">${product.disrate}%</span>
-											<del class="productDiscountPrice">${product.discountprice}원</del>
+											<span class="productDisrate">${product.DISCOUNT_RATE}%</span>
+											<del class="productDiscountPrice">${product.PRODUCT_PRICE}원</del>
 										</div>
 										<em>
-											<span id="productPrice" class="productPrice">${product.price}원</span>
+											<span id="productPrice" class="productPrice">${product.DISCOUNT_PRICE}원</span>
 										</em>
 									</div>
 								</div>

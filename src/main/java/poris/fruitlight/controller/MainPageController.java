@@ -105,4 +105,14 @@ public class MainPageController {
 		return "redirect:/detailView";
 	}
 	
+	@RequestMapping("/main/SelectListView")
+	public String moveListViewPage(String pname, HttpSession session) {
+		
+		List<ProductList> productList = mainService.SelectListName(pname);
+		session.setAttribute("productList", productList);
+		
+		
+		return "redirect:/list";
+	}
+	
 }

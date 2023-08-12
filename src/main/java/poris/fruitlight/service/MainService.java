@@ -12,4 +12,5 @@ public interface MainService {
    public List<ProductList> getCateSubList();
    public List<ProductList> SelectByPno();
    public int getSelectBoardNo(int pid);
+   public List<ProductList> SelectListName(String pname);
 }
