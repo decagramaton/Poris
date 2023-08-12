@@ -15,6 +15,8 @@ function init() {
 	
 	//상품수량변경 동작
 	$(".productStock").change(changeItemQuantity);
+	$(".quantityChange").click(changeStock);
+	
 	
 	//할인쿠폰 동작
 	$(".cboxCoupon").click(calculatePrice);
@@ -45,6 +47,8 @@ function initPriceFormat() {
 	$(".discountRule").each((index, item) => {
 		$(item).html(parseInt($(item).html()).toLocaleString("ko-KR") + "원 이상 구매 시");
 	});
+	$(".shippingFreeRule").html('<div class="shippingFreeRulePrice">30,000원이상</div>무료배송')
+	$(".shippingPrice").html("3,000원");
 }
 //상품개수 설정 함수
 function initItemCount() {
@@ -59,12 +63,12 @@ function checkAll() {
    if($(event.target).is(':checked')) {
        $(".cbox").prop("checked", true);
        $(".cboxAll").prop("checked", true);
-       $(".checkedAllDelete").html("전체삭제");
+       $(".checkedDelete").html("전체삭제");
        $("#checkCount").html(itemCount);
    } else {
 	   $(".cbox").prop("checked", false);
        $(".cboxAll").prop("checked", false);
-       $(".checkedAllDelete").html("선택삭제");
+       $(".checkedDelete").html("선택삭제");
        $("#checkCount").html(0);
    }
    
@@ -85,10 +89,10 @@ function checkItem() {
     
     if(cboxs.length == cboxsChecked) {
   	  $(".cboxAll").prop("checked", true);
-  	  $(".checkedAllDelete").html("전체삭제");
+  	  $(".checkedDelete").html("전체삭제");
     } else {
   	  $(".cboxAll").prop("checked",false);
-  	  $(".checkedAllDelete").html("선택삭제");
+  	  $(".checkedDelete").html("선택삭제");
     }
     
     //주문금액 동작
@@ -99,18 +103,20 @@ function checkItem() {
 function deleteItem() {
 	if(confirm("선택한 상품을 삭제하시겠습니까?")) {
 		var cboxsChecked = $(".cbox:checked");
-		var pidsChecked = [];
+		var pnosChecked = [];
 		cboxsChecked.each((index, item) => {
-			pidsChecked.push($(item).val());
+			pnosChecked.push($(item).val());
 		});
 		
-		$.ajax({
+		/*$.ajax({
 			url: "deleteChecked",
 			method: "post",
 			traditional: true,
 			data: {pidsChecked:pidsChecked},
 			success: function(data) {}
-		});
+		});*/
+		
+		location.href = "cart/deleteChecked?pnos=" + encodeURIComponent(pnosChecked.join(','));
 	}
 }
 
@@ -128,9 +134,28 @@ function changeItemQuantity() {
 	$(event.target).attr("value", itemQuantity);
 	
 	quantityChange.removeClass("d-none");
-	quantityChange.click(function() {
-		$(event.target).addClass("d-none");
+	
+}
+function changeStock() {
+	var pno = $(event.target).prev().val();
+	var stock = $(event.target).prev().prev().val();
+	var price = parseInt($(event.target).prev().prev().prev().html().replace(/[^0-9]/g, ""));
+	
+	$.ajax({
+		url: "/fruitlight/cart/changeStock",
+		method: "POST",
+		data: {
+			pno:pno,
+			stock:stock
+		},
+		success: function(data) {}
 	});
+	
+	updatePrice = stock * price;
+	$(event.target).parent().parent().find(".cartItemProductPrice").html(updatePrice.toLocaleString("ko-KR") + "원")
+	calculatePrice();
+	
+	$(event.target).addClass("d-none");
 }
 
 //주문금액 동작
@@ -140,26 +165,26 @@ function calculatePrice() {
 	
 	//총 할인금액
 	var discountFinal = 0;
+	//총 배송비
+	var totalDelivery = 0;
 	
 	if(cboxsChecked.length != 0) {
 		//총 상품가격
 		var totalPrice = 0;
-		//총 배송비
-		var totalDelivery = 0;
 		
 		cboxsChecked.each((index, item) => {
 			let cartItemChecked = $(item).parent().parent();
 			//총 상품가격 계산
-			let itemPrice = cartItemChecked.children(":last-child").prev().children().html();
+			let itemPrice = cartItemChecked.find(".cartItemProductPrice").html();
 			totalPrice += parseInt(itemPrice.replace(/[^0-9]/g, ""));
-			//총 배송비 계산
-			let itemDelivery = cartItemChecked.children(":last-child").children(":last-child").html();
-			if(itemDelivery == "무료") {
-				totalDelivery += 0;
-			} else {
-				totalDelivery += parseInt(itemDelivery.replace(/[^0-9]/g, ""));
-			}
 		});
+		
+		//총 배송비 계산
+		if(totalPrice > 30000) {
+			totalDelivery = 0;
+		} else {
+			totalDelivery = 3000;
+		}
 		
 		//쿠폰 적용
 		var coupon = calculateCoupon(totalPrice, totalDelivery);
@@ -191,8 +216,6 @@ function calculatePrice() {
 	else if(discountFinal == 0) {
 		$(".cartFinalDiscount").addClass("d-none");
 	}
-	
-	$(".buyBtn-a").attr("href", "/fruitlight/order");
 }
 
 //쿠폰가격 동작

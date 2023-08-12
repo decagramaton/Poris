@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="poris.fruitlight.dao.CartDao">
+	<select id="selectCartBySno" parameterType="int" resultType="poris.fruitlight.dto.CartProduct">
+		select p.PRODUCT_NO, CART_PRODUCT_STOCK, PRODUCT_STOCK, PRODUCT_NAME, PRODUCT_OPTION, DISCOUNT_PRICE
+		from CART c, PRODUCT p
+		where c.PRODUCT_NO = p.PRODUCT_NO
+		and SHOPPER_NO = #{SHOPPER_NO}
+	</select>
+	
+	<select id="selectCouponBySno" parameterType="int" resultType="poris.fruitlight.dto.Coupon">
+		select *
+		from COUPON
+		where SHOPPER_NO = #{SHOPPER_NO}
+	</select>
+	
+	<delete id="deleteCart" parameterType="int">
+		delete from CART
+		where PRODUCT_NO = #{PRODUCT_NO}
+	</delete>
+	
+	<update id="updateStock" parameterType="poris.fruitlight.dto.Cart">
+		update CART
+		set CART_PRODUCT_STOCK = #{CART_PRODUCT_STOCK}
+		where SHOPPER_NO = #{SHOPPER_NO} and PRODUCT_NO = #{PRODUCT_NO}
+	</update>
+</mapper>

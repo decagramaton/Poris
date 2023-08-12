@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html>
@@ -27,13 +29,13 @@
 			<section class="container mb-5">
 				<div class="cart_title"><h2 class="p-3">장바구니</h2></div>
 				<!-- 장바구니에 담은 상품이 없을 경우 -->
-				<c:if test="${listProduct == null}">
+				<c:if test="${fn:length(listProduct) == 0}">
 					<div class="cartNoItem text-center">
 						<p>장바구니에 담긴 상품이 없습니다.</p>
 						<a href="${pageContext.request.contextPath}">홈으로 가기</a>
 					</div>
 				</c:if>
-				<c:if test="${listProduct != null}">
+				<c:if test="${fn:length(listProduct) != 0}">
 					<div class="cartContent">
 						<table class="table table-sm cartTable">
 							<colgroup>
@@ -59,43 +61,43 @@
 								</tr>
 							</thead>
 							<tbody class="cartTableBody">
-								<c:forEach var="cartProduct" items="${listProduct}">
+								<c:forEach var="cartProduct" items="${listProduct}" varStatus="status">
 									<tr class="cartItem">
 						            	<td class="cartItem_check">
-						            		<input type="checkbox" class="cbox" value="${cartProduct.pid}"/>
+						            		<input type="checkbox" class="cbox" value="${cartProduct.PRODUCT_NO}"/>
 						            	</td>
 						            	<td class="cartItem_img"><img src="${pageContext.request.contextPath}/resources/images/watermelon_cart.jpg" width="100%"></td>
 						            	<td class="cartItem_product">
 						            		<div class="cartItem_product">
 						            			<div class="text-left">
 						            				<a href="#">
-							             				${cartProduct.name}, 
-							            				<span class="product_option">${cartProduct.option}</span>
+							             				${cartProduct.PRODUCT_NAME}, 
+							            				<span class="product_option">${cartProduct.PRODUCT_OPTION}</span>
 							            			</a>
 						            			</div>
 						            		</div>
 						            	</td>
 						            	<td class="cartItemOption">
-				            				<span class="productPrice">${cartProduct.price}</span>원
-				            				<form class="d-inline-block" action="changeStock" method="post">
-			            						<input class="productStock" type="number" min="1" max="50" id="stock" name="stock" value="${cartProduct.stock}"/>
-			            						<input type="hidden" id="pid" name="pid" value="${cartProduct.pid}"/>
+				            				<span class="productPrice">${cartProduct.DISCOUNT_PRICE}</span>원
+				            				<%-- <form class="d-inline-block" action="cart/changeStock" method="post">
+			            						<input class="productStock" type="number" min="1" max="50" id="stock" name="stock" value="${cartProduct.CART_PRODUCT_STOCK}"/>
+			            						<input type="hidden" id="pno" name="pno" value="${cartProduct.PRODUCT_NO}"/>
 			            						<input class="quantityChange d-none" type="submit" value="수량변경"/>
-				            				</form>
-				            				<a type="button" class="productDelete" href="delete?pid=${cartProduct.pid}"></a>
+				            				</form> --%>
+		            						<input class="productStock" type="number" min="1" max="${cartProduct.PRODUCT_STOCK}" id="stock" name="stock" value="${cartProduct.CART_PRODUCT_STOCK}"/>
+		            						<input type="hidden" id="pno" name="pno" value="${cartProduct.PRODUCT_NO}"/>
+		            						<input class="quantityChange d-none" type="button" value="수량변경"/>
+				            				<a type="button" class="productDelete" href="${pageContext.request.contextPath}/cart/delete?pno=${cartProduct.PRODUCT_NO}"></a>
 						            	</td>
 						            	<td class="cartItemPrice">
-						            		<span class="cartItemProductPrice">${cartProduct.price * cartProduct.stock}원</span>
+						            		<span class="cartItemProductPrice">${cartProduct.DISCOUNT_PRICE * cartProduct.CART_PRODUCT_STOCK}원</span>
 						            	</td>
-						            	<td class="cartItemShipping">
-						            		<c:if test="${cartProduct.shippingPrice != 0}">
-							            		<div class="shippingFreeRule font-weight-light"><div class="shippingFreeRulePrice">${cartProduct.shippingFreeRule}원이상</div>무료배송</div>
-						            			<div class="shippingPrice">${cartProduct.shippingPrice}원</div>
-						            		</c:if>
-						            		<c:if test="${cartProduct.shippingPrice == 0}">
-						            			<div class="shippingPrice">무료</div>
-						            		</c:if>
-						            	</td>
+						            	<c:if test="${status.first}">
+						            		<td rowspan="${fn:length(listProduct)}">
+							            		<div class="shippingFreeRule font-weight-light"></div>
+							            		<div class="shippingPrice"></div>
+							            	</td>
+						            	</c:if>
 						            </tr>
 						        </c:forEach>
 							</tbody>
@@ -109,7 +111,7 @@
 			               	<button class="checkedDelete">선택삭제</button>
 	        			</div>
 	                    <!-- 할인쿠폰 -->
-	                    <c:if test="${listCoupon != null}">
+	                    <c:if test="${fn:length(listCoupon) != 0}">
 		                    <div class="cartCoupon">
 		                    	<div class="coupon_title">할인쿠폰 적용</div>
 		                    	<div class="coupon_list">
@@ -117,28 +119,28 @@
 			                    		<dl class="coupon_item row py-1">
 								    		<dt class="col-2">
 								    			<label>
-								    				<input type="checkbox" class="cboxCoupon" value="${coupon.couponId}">
-								    				<span><span class="couponAmount ml-1">${coupon.price}</span><span class="couponType">${coupon.type}</span></span>
+								    				<input type="checkbox" class="cboxCoupon" value="${coupon.COUPON_NO}">
+								    				<span><span class="couponAmount ml-1">${coupon.DISCOUNT_PRICE}</span><span class="couponType">${coupon.COUPON_TYPE}</span></span>
 								    			</label>
 								    		</dt>
 								    		<dd class="col p-0">
-								    			<c:if test="${coupon.name == null}">
-								    				<c:if test="${coupon.kind.equals('배송비')}">
-										    			<strong>${coupon.kind} <span class="discountPrice">${coupon.price}</span>${coupon.type} 할인쿠폰</strong>
+								    			<c:if test="${coupon.COUPON_NAME == null}">
+								    				<c:if test="${coupon.COUPON_KIND.equals('배송비')}">
+										    			<strong>${coupon.COUPON_KIND} <span class="discountPrice">${coupon.DISCOUNT_PRICE}</span>${coupon.COUPON_TYPE} 할인쿠폰</strong>
 								    				</c:if>
-								    				<c:if test="${coupon.kind.equals('상품')}">
-										    			<strong><span class="discountPrice">${coupon.price}</span>${coupon.type} 할인쿠폰</strong>
+								    				<c:if test="${coupon.COUPON_KIND.equals('상품')}">
+										    			<strong><span class="discountPrice">${coupon.DISCOUNT_PRICE}</span>${coupon.COUPON_TYPE} 할인쿠폰</strong>
 								    				</c:if>
 								    			</c:if>
-								    			<c:if test="${coupon.name != null}">
-								    				<strong>${coupon.name} 할인쿠폰</strong>
+								    			<c:if test="${coupon.COUPON_NAME != null}">
+								    				<strong>${coupon.COUPON_NAME} 할인쿠폰</strong>
 								    			</c:if>
 								    			
-								    			<c:if test="${coupon.discountRule == 0}">
+								    			<c:if test="${coupon.DISCOUNT_RULE == 0}">
 									    			<em>금액제한없음</em>
 								    			</c:if>
-								    			<c:if test="${coupon.discountRule != 0}">
-									    			<em class="discountRule">${coupon.discountRule}원 이상 구매 시</em>
+								    			<c:if test="${coupon.DISCOUNT_RULE != 0}">
+									    			<em class="discountRule">${coupon.DISCOUNT_RULE}원 이상 구매 시</em>
 								    			</c:if>
 								    		</dd>
 								    	</dl>
@@ -165,7 +167,7 @@
 						<!-- 구매버튼 -->
 						<div class="orderBtns text-center">
 							<a class="shopping_btn" href="${pageContext.request.contextPath}">계속 쇼핑하기</a>
-							<span class="buyBtn"><a class="buyBtn-a">구매하기</a></span>
+							<span class="buyBtn">구매하기</span>
 						</div>
 					</div>
 				</c:if>
