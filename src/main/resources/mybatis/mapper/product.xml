@@ -4,7 +4,11 @@
    <select id="MainBanner" resultType="poris.fruitlight.dto.ProductList">
       SELECT DISTINCT *
          FROM PRODUCT p, PRODUCT_BOARD b, BOARD_MEDIA m
-         WHERE p.PRODUCT_NO = b.PRODUCT_NO AND b.BOARD_NO = m.BOARD_NO AND (p.PRODUCT_NO IN(37,41,43))
+         WHERE p.PRODUCT_NO = b.PRODUCT_NO AND b.BOARD_NO = m.BOARD_NO AND (p.PRODUCT_NO IN(
+         	SELECT DISTINCT BOARD_NO
+         		FROM PRODUCT_BOARD
+                WHERE (p.PRODUCT_NO IN(37,41,43)) AND MEDIA_NAME LIKE '%main%'
+         ))
    </select>
    
    <select id="TodayDiscovery" resultType="poris.fruitlight.dto.ProductList">
@@ -14,11 +18,20 @@
    </select>
    
    <select id="TodaySeller" resultType="poris.fruitlight.dto.ProductList">
-      SELECT *
+      SELECT DISTINCT *
          FROM PRODUCT p, PRODUCT_BOARD b, BOARD_MEDIA m
-         WHERE p.PRODUCT_NO = b.PRODUCT_NO AND b.BOARD_NO = m.BOARD_NO AND (p.PRODUCT_NO IN (1,4,9,12,15,18))
+         WHERE p.PRODUCT_NO = b.PRODUCT_NO AND b.BOARD_NO = m.BOARD_NO AND (p.PRODUCT_NO IN (1,4,9,12,15,18,46,48))
    </select>
    
+   <select id="CategoryMain" resultType="poris.fruitlight.dto.ProductList">
+     SELECT DISTINCT *
+         FROM PRODUCT p, PRODUCT_BOARD b, BOARD_MEDIA m
+         WHERE p.PRODUCT_NO = b.PRODUCT_NO AND b.BOARD_NO = m.BOARD_NO AND (p.PRODUCT_NO IN(
+         	SELECT DISTINCT b.BOARD_NO
+         		FROM PRODUCT_BOARD b
+                WHERE (p.PRODUCT_NO IN(1,29,43)) AND MEDIA_NAME NOT LIKE '%main%'
+         ))
+   </select>
    
    <select id="SelectDetailView" parameterType="int" resultType="int">
       	 SELECT b.BOARD_NO

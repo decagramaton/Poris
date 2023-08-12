@@ -40,7 +40,7 @@ public class MainServiceImpl implements MainService{
 
    @Override
    public List<ProductList> getCateMainList() {
-	   List<ProductList> list = productDao.TodayDiscovery();
+	   List<ProductList> list = productDao.CategoryMain();
 	      
 	   return list;
    }

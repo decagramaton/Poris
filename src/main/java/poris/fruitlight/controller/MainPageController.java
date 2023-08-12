@@ -52,7 +52,7 @@ public class MainPageController {
       session.setAttribute("catemainlists", catemainlists);
       session.setAttribute("catesublists", catesublists);
       
-      // Step3. 메인 배너 출력 기능
+      // Step3. 각종 배너 사진 출력 기능
       List<ProductList> mainBannerlist = mainService.getMainList();
       for(ProductList mainBanner : mainBannerlist) {
     	  mainBanner.setBase64Img(Base64.getEncoder().encodeToString(mainBanner.getMEDIA_DATA()));
@@ -63,7 +63,19 @@ public class MainPageController {
       for(ProductList mainToday : mainTodaylist) {
     	  mainToday.setBase64Img(Base64.getEncoder().encodeToString(mainToday.getMEDIA_DATA()));
       }
-      session.setAttribute("todaylist", mainTodaylist);
+      session.setAttribute("todaylists", mainTodaylist);
+      
+      List<ProductList>	mainSellerlist = mainService.getSellerList();
+      for(ProductList mainSeller : mainSellerlist) {
+    	  mainSeller.setBase64Img(Base64.getEncoder().encodeToString(mainSeller.getMEDIA_DATA()));
+      }
+      session.setAttribute("sellerlists", mainSellerlist);
+      
+      List<ProductList>	cateMainlist = mainService.getCateMainList();
+      for(ProductList cateMain : cateMainlist) {
+    	  cateMain.setBase64Img(Base64.getEncoder().encodeToString(cateMain.getMEDIA_DATA()));
+      }
+      session.setAttribute("catemainlists", cateMainlist);
       
       return "main";
    }

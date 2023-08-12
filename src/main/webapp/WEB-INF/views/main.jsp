@@ -29,7 +29,9 @@
 			<div class="carousel-inner">
 				<c:forEach var="product" items="${productlist}" varStatus="i">
 					<div id="carouselMainItem${i.count}" class="carousel-item">
-				        <img src="data:${product.MEDIA_DATA};base64, ${product.base64Img}" width="1100" height="500">
+						<a href="detailView?pid=${product.PRODUCT_NO}">
+					        <img src="data:${product.MEDIA_DATA};base64, ${product.base64Img}" width="1100" height="500">
+						</a>
 				    </div>
 				</c:forEach>
 			</div>
@@ -59,10 +61,12 @@
 						      			<a id="productName" class="productName" href="detailView?pid=${todaylist.PRODUCT_NO}">${todaylist.PRODUCT_NAME}</a>
 						      		</div>
 						      		<div id="price" class="price">
-										<div id="productPriceArea" class="productPriceArea">
-											<span id="productDisrate" class="productDisrate">${todaylist.DISCOUNT_RATE}%</span>
-											<del id="productDiscountPrice"class="productDiscountPrice">${todaylist.PRODUCT_PRICE}원</del>
-										</div>
+										<c:if test="${todaylist.DISCOUNT_RATE != 0}">
+											<div id="productPriceArea" class="productPriceArea">
+												<span id="productDisrate" class="productDisrate">${todaylist.DISCOUNT_RATE}%</span>
+												<del id="productDiscountPrice"class="productDiscountPrice">${todaylist.PRODUCT_PRICE}원</del>
+											</div>
+										</c:if>
 										<em>
 											<span id="productPrice" class="productPrice">${todaylist.DISCOUNT_PRICE}원</span>
 										</em>
@@ -82,13 +86,17 @@
 			      		<c:forEach var="sellerlist" items="${sellerlists}">
 				      		<div id="todaySellerProduct" class="todaySellerProduct col-md">
 				      			<div>
-					      			<img class="productImage" src="${pageContext.request.contextPath}/resources/images/cherry3.jpg"/>
+				      				<a href="detailView?pid=${sellerlist.PRODUCT_NO}">
+						      			<img class="productImage" src="data:${sellerlist.MEDIA_DATA};base64, ${sellerlist.base64Img}"/>
+				      				</a>
 					      		</div>
-					      		<div class="productDiscountHolder">
-					      			<span>지금 ${sellerlist.DISCOUNT_RATE}% 할인중!</span>
-					      		</div>
+					      		<c:if test="${sellerlist.DISCOUNT_RATE != 0}">
+						      		<div class="productDiscountHolder">
+						      			<span>지금 ${sellerlist.DISCOUNT_RATE}% 할인중!</span>
+						      		</div>
+					      		</c:if>
 					      		<div class="productNameHolder">
-					      			<a id="productName" class="productName">${sellerlist.PRODUCT_NAME}</a>
+					      			<a href="detailView?pid=${sellerlist.PRODUCT_NO}"id="productName" class="productName">${sellerlist.PRODUCT_NAME}</a>
 					      		</div>
 					      		<div id="price" class="price">
 									<em>
@@ -120,10 +128,12 @@
 								<div class="carousel-inner">
 							  		<c:forEach var="catemainlist" items="${catemainlists}" varStatus="i">
 									    <div id="carouselCateMainItem${i.count}" class="carousel-item">
-									    	<img src="${pageContext.request.contextPath}/resources/images/cherry${i.count}.jpg" width="500" height="500">
+									    	<a href="detailView?pid=${catemainlist.PRODUCT_NO}">
+										    	<img src="data:${catemainlist.MEDIA_DATA};base64, ${catemainlist.base64Img}" width="500" height="500">
+									    	</a>
 									    	<div class="carousel-caption" style="bottom:50px;">
-									      		<h3>메인 코멘트</h3>
-									        	<p>서브 코멘트</p>
+									      		<h3>체리 특가!</h3>
+									        	<p>신선하고 맛있는 체리 특가 판매중</p>
 									      	</div>  
 										</div>
 							  		</c:forEach>
