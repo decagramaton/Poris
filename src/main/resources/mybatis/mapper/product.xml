@@ -70,5 +70,6 @@
         FROM PRODUCT p
         JOIN PRODUCT_BOARD b ON p.PRODUCT_NO = b.PRODUCT_NO
         JOIN BOARD_MEDIA m ON b.BOARD_NO = m.BOARD_NO
+        WHERE MEDIA_NAME NOT LIKE '%main%'
     </select>
 </mapper>

@@ -8,8 +8,8 @@
 				</div>
 				<div id="headerSearch" class="headerSearch">
 					<form id="headerSearchForm">
-						<input type="text" id="headerSearchKeyword" class="headerSearchKeyword" name="pname" placeholder="과일 판매 쇼핑몰!" autocomplete="off" value="">
-	                 	<button id="headerSearchBtn" class="headerSearchBtn" type="button">
+						<input type="text" id="headerSearchKeyword" class="headerSearchKeyword" name="search" placeholder="과일 판매 쇼핑몰!" autocomplete="off" value="">
+	                 	<button id="headerSearchBtn" class="headerSearchBtn" type="submit">
 							<img id="headerSearchBtnImage" class="headerSearchBtnImage" title="검색" src="${pageContext.request.contextPath}/resources/images/search.png">	                 	
 	                 	</button>
 					</form>

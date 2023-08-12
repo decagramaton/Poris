@@ -17,15 +17,26 @@ public class ListServiceImpl implements ListService{
 	@Resource
 	private ProductDao productDao;
 
-
+	/**
+	 * 이름으로 검색된 내용만 나오게 함
+	 */
 	@Override
 	public List<ProductList> SearchProductsByPname(String pname) {
 		 return productDao.SearchProductsByPname(pname);
 	}
 
-
+	/**
+	 * 전체 상품을 보여주는 메소드
+	 */
 	@Override
 	public List<ProductList> SearchProducts() {
 		return productDao.SearchProducts();
+	}
+
+	@Override
+	public int getSelectBoardNo(int pid) {
+		int dbResult = productDao.SelectDetailView(pid);
+		
+		return 0;
 	}
 }

@@ -7,4 +7,5 @@ import poris.fruitlight.dto.ProductList;
 public interface ListService {
 	 List<ProductList> SearchProductsByPname(String pname);
 	 List<ProductList> SearchProducts();
+	 public int getSelectBoardNo(int pid);
 }

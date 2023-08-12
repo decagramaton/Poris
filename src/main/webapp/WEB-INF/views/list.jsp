@@ -35,16 +35,20 @@
 							<c:forEach var="product" items="${productLists}" varStatus="i">
 								<div class="productList ${product.PRODUCT_NO} col-md col-sm-12">
 									<div>
-										<img class="productImage ${i.count}" src="${pageContext.request.contextPath}/resources/images/cherry1.jpg"/>
+										<a href="detailView?pid=${product.PRODUCT_NO}">
+											<img class="productImage ${i.count}" src="data:${product.MEDIA_DATA};base64, ${product.base64Img}"/>
+										</a>
 									</div>
 									<div class="productNameHolder">
 										<a class="productName">${product.PRODUCT_NAME}</a>
 									</div>
 									<div id="price" class="price">
-										<div class="productPriceArea">
-											<span class="productDisrate">${product.DISCOUNT_RATE}%</span>
-											<del class="productDiscountPrice">${product.PRODUCT_PRICE}원</del>
-										</div>
+										<c:if test="${product.DISCOUNT_RATE != 0}">
+											<div class="productPriceArea">
+												<span class="productDisrate">${product.DISCOUNT_RATE}%</span>
+												<del class="productDiscountPrice">${product.PRODUCT_PRICE}원</del>
+											</div>
+										</c:if>
 										<em>
 											<span id="productPrice" class="productPrice">${product.DISCOUNT_PRICE}원</span>
 										</em>

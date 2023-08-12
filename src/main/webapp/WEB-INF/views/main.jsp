@@ -158,7 +158,7 @@
 						    	<ul id="cateAdvertiseCherryListList1" class="cateAdvertiseCherryListList">
 						    		<c:forEach var="catesublist" items="${catesublists}" varStatus="i">
 							    		<li id="cateAdvertiseCherryListItem" class="cateAdvertiseCherryListItem">
-							    			<a href="detailViewpid=${catesublist.PRODUCT_NO}">
+							    			<a href="detailView?pid=${catesublist.PRODUCT_NO}">
 							    				<img src="data:${catesublist.MEDIA_DATA};base64, ${catesublist.base64Img}"/>
 							    				<span id="hoverUnderline" class="hoverUnderline">${catesublist.PRODUCT_NAME}</span>
 							    				<span>
@@ -173,7 +173,7 @@
 								<ul id="cateAdvertiseCherryListList2" class="cateAdvertiseCherryListList">
 						    		<c:forEach var="catesublist" items="${catesublists}" varStatus="i">
 							    		<li id="cateAdvertiseCherryListItem" class="cateAdvertiseCherryListItem">
-							    			<a href="detailViewpid=${catesublist.PRODUCT_NO}">
+							    			<a href="detailView?pid=${catesublist.PRODUCT_NO}">
 							    				<img src="data:${catesublist.MEDIA_DATA};base64, ${catesublist.base64Img}"/>
 							    				<span id="hoverUnderline" class="hoverUnderline">${catesublist.PRODUCT_NAME}</span>
 							    				<span>
@@ -188,7 +188,7 @@
 								<ul id="cateAdvertiseCherryListList3" class="cateAdvertiseCherryListList">
 						    		<c:forEach var="catesublist" items="${catesublists}" varStatus="i">
 							    		<li id="cateAdvertiseCherryListItem" class="cateAdvertiseCherryListItem">
-							    			<a href="detailViewpid=${catesublist.PRODUCT_NO}">
+							    			<a href="detailView?pid=${catesublist.PRODUCT_NO}">
 							    				<img src="data:${catesublist.MEDIA_DATA};base64, ${catesublist.base64Img}"/>
 							    				<span id="hoverUnderline" class="hoverUnderline">${catesublist.PRODUCT_NAME}</span>
 							    				<span>
