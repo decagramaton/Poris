@@ -1,15 +1,12 @@
 package poris.fruitlight.controller;
 
-import java.util.ArrayList;
 import java.util.Base64;
-import java.util.HashMap;
 import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import lombok.extern.slf4j.Slf4j;
@@ -56,11 +53,17 @@ public class MainPageController {
       session.setAttribute("catesublists", catesublists);
       
       // Step3. 메인 배너 출력 기능
-      List<ProductList> mainBannerlist = mainService.getTodayList();
+      List<ProductList> mainBannerlist = mainService.getMainList();
       for(ProductList mainBanner : mainBannerlist) {
     	  mainBanner.setBase64Img(Base64.getEncoder().encodeToString(mainBanner.getMEDIA_DATA()));
       }
       session.setAttribute("productlist", mainBannerlist);
+      
+      List<ProductList> mainTodaylist = mainService.getTodayList();
+      for(ProductList mainToday : mainTodaylist) {
+    	  mainToday.setBase64Img(Base64.getEncoder().encodeToString(mainToday.getMEDIA_DATA()));
+      }
+      session.setAttribute("todaylist", mainTodaylist);
       
       return "main";
    }

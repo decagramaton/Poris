@@ -13,8 +13,9 @@ import poris.fruitlight.dto.ProductList;
  */
 @Mapper
 public interface ProductDao {
-   public List<ProductList> SelectAll();
-   public List<ProductList> SelectByPno();
+   public List<ProductList> MainBanner();
+   public List<ProductList> TodayDiscovery();
+   public List<ProductList> TodaySeller();
    
    /**
     * DB에서 PRODUCT 테이블과 PRODUCT_BOARD 테이블에서 상품 번호를 기준으로 게시판 번호를 조회하는 메소드

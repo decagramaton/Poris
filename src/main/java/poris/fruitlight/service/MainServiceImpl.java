@@ -19,42 +19,42 @@ public class MainServiceImpl implements MainService{
 
    @Override
    public List<ProductList> getMainList() {
-      List<ProductList> list = productDao.SelectAll();
+      List<ProductList> list = productDao.MainBanner();
       
       return list;
    }
 
    @Override
    public List<ProductList> getTodayList() {
-      List<ProductList> list = productDao.SelectAll();
+      List<ProductList> list = productDao.TodayDiscovery();
       
       return list;
    }
 
    @Override
    public List<ProductList> getSellerList() {
-      List<ProductList> list = productDao.SelectAll();
+      List<ProductList> list = productDao.TodaySeller();
       
       return list;
    }
 
    @Override
    public List<ProductList> getCateMainList() {
-	   List<ProductList> list = productDao.SelectAll();
+	   List<ProductList> list = productDao.TodayDiscovery();
 	      
 	   return list;
    }
 
    @Override
    public List<ProductList> getCateSubList() {
-      List<ProductList> list = productDao.SelectAll();
+      List<ProductList> list = productDao.TodayDiscovery();
       
       return list;
    }
 
 	@Override
 	public List<ProductList> SelectByPno() {
-		List<ProductList> prl = productDao.SelectByPno();
+		List<ProductList> prl = productDao.TodayDiscovery();
 		return prl;
 	}
 	
