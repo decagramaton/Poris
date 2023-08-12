@@ -48,11 +48,11 @@ public class DetailViewController {
 		
 		Product product = detailViewService.getProduct(bno);
 		List<Product> optionList = detailViewService.getOptions(product.getPRODUCT_NAME());
-		int totalBoardNum = detailViewService.getTotalProductInquiryNum(bno);
 		
 		model.addAttribute("product", product);
 		model.addAttribute("optionList", optionList);
 		//상품문의
+		int totalBoardNum = detailViewService.getTotalProductInquiryNum(bno);
 		Pager productInquiryPager = new Pager(5, 10, totalBoardNum, 1);
 		
 		List<ProductInquiry> productInquiryList = detailViewService.getProductInquiryList(productInquiryPager, bno);

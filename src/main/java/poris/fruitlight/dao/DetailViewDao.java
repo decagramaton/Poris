@@ -12,6 +12,7 @@ import poris.fruitlight.dto.ProductInquiry;
 @Mapper
 public interface DetailViewDao {
 	public Product selectByBno(int bno);
+	public Product selectByBnoTest(int bno);
 	public List<Product> selectByName(String name);
 	public int updateCartStock(Cart cart);
 	public List<ProductInquiry> selectProductInquiryPager(Pager pager);

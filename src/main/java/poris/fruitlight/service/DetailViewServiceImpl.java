@@ -20,7 +20,8 @@ public class DetailViewServiceImpl implements DetailViewService {
 	
 	@Override
 	public Product getProduct(int bno) {
-		Product product = detailViewDao.selectByBno(bno);
+		//Product product = detailViewDao.selectByBno(bno);
+		Product product = detailViewDao.selectByBnoTest(bno);
 		return product;
 	}
 	@Override

@@ -43,7 +43,7 @@ public class CartController {
 		
 		for(CartProduct cartProduct : listProduct) {
 			cartProduct.setBase64Img(Base64.getEncoder().encodeToString(cartProduct.getMEDIA_DATA()));
-	      }
+	    }
 		
 		model.addAttribute("listProduct", listProduct);
 		
