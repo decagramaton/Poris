@@ -73,25 +73,46 @@ public class DetailViewController {
 	 */
 	//장바구니 담기
 	@RequestMapping("/detailView/addCartProduct")
-	public String addCartProduct(@RequestParam List<Integer> pids, @RequestParam List<Integer> stocks) {
+	public void addCartProduct(HttpServletRequest request) {
 		//로그인 세션이 없으면 로그인 페이지로 이동
 		List<Cart> list = new ArrayList<>();
 		
-		/*String[] strPidList = request.getParameterValues("pids");
+		String[] strPidList = request.getParameterValues("pids");
 		String[] strStockList = request.getParameterValues("stocks");
 		
-		int i = 0;
-		for(i=0; i<strPidList.length; i++) {
+		for(int i=0; i<strPidList.length; i++) {
 			Cart cartProduct = new Cart();
 			cartProduct.setSHOPPER_NO(1);
 			cartProduct.setPRODUCT_NO(Integer.parseInt(strPidList[i]));
 			cartProduct.setCART_PRODUCT_STOCK(Integer.parseInt(strStockList[i]));
 			
 			list.add(cartProduct);
+		}
+		
+		/*int i = 0;
+		for(i=0; i<pids.size(); i++) {
+			Cart cartProduct = new Cart();
+			cartProduct.setSHOPPER_NO(1);
+			cartProduct.setPRODUCT_NO(pids.get(i));
+			cartProduct.setCART_PRODUCT_STOCK(stocks.get(i));
+			
+			list.add(cartProduct);
 		}*/
 		
-		log.info("" + pids);
-		log.info("" + stocks);
+		detailViewService.addToCart(list);
+	}
+	
+	/**
+	 * 
+	 * @param request(ajax로 장바구니에 담을 상품의 id리스트와 각 수량리스트)
+	 * @return 리다이렉트로 결제(order) 페이지
+	 */
+	//바로구매
+	@RequestMapping("/detailView/buyDirect")
+	public String buyDirect(@RequestParam List<Integer> pids, @RequestParam List<Integer> stocks) {
+		//로그인 세션이 없으면 로그인 페이지로 이동
+		List<Cart> list = new ArrayList<>();
+		
 		int i = 0;
 		for(i=0; i<pids.size(); i++) {
 			Cart cartProduct = new Cart();
@@ -102,32 +123,7 @@ public class DetailViewController {
 			list.add(cartProduct);
 		}
 		
-		detailViewService.addToCart(list);
-		return "redirect:/detailView";
-	}
-	
-	/**
-	 * 
-	 * @param request(ajax로 장바구니에 담을 상품의 id리스트와 각 수량리스트)
-	 * @return 리다이렉트로 결제(order) 페이지
-	 */
-	//바로구매
-	@RequestMapping("/detailView/buyDirect")
-	public String buyDirect(HttpServletRequest request) {
-		//로그인 세션이 없으면 로그인 페이지로 이동
-		//List<CartProduct> list = new ArrayList<CartProduct>();
-		
-		String[] strPidList = request.getParameterValues("pids");
-		String[] strStockList = request.getParameterValues("stocks");
-		int i = 0;
-		for(i=0; i<strPidList.length; i++) {
-			CartProduct product = new CartProduct();
-			product.setPid(Integer.parseInt(strPidList[i]));
-			product.setStock(Integer.parseInt(strStockList[i]));
-			//list.add(product);
-		}
-		
-		//detailViewService.addToCart(list);
+		//model에 담아서 전해주기
 		return "redirect:/order";
 	}
 	

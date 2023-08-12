@@ -31,17 +31,6 @@ public class DetailViewServiceImpl implements DetailViewService {
 	@Override
 	public int addToCart(List<Cart> cartList) {
 		for(Cart cartProduct : cartList) {
-			log.info("SHOPPER_NO: " + cartProduct.getSHOPPER_NO());
-			log.info("PRODUCT_NO: " + cartProduct.getPRODUCT_NO());
-			log.info("CART_PRODUCT_STOCK: " + cartProduct.getCART_PRODUCT_STOCK());
-			
-			/*int result = detailViewDao.selectFromCart(cartProduct);
-			log.info("" + result);
-			if(result != 0) {
-				detailViewDao.updateToCart(cartProduct);
-			} else {
-				detailViewDao.insertToCart(cartProduct);
-			}*/
 			detailViewDao.updateCartStock(cartProduct);
 		}
 		return 0;

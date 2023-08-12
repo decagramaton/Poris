@@ -175,7 +175,10 @@ function addCart() {
 			pids.push(selectedItemsPid);
 			stocks.push(selectedItemsStock);
 		});
-		/*$.ajax({
+		/*location.href = "detailView/addCartProduct?"
+			+ "pids=" + encodeURIComponent(pids.join(','))
+			+ "&stocks=" + encodeURIComponent(stocks.join(','));*/
+		$.ajax({
 			url: "/fruitlight/detailView/addCartProduct",
 			method: "post",
 			traditional: true,
@@ -183,15 +186,9 @@ function addCart() {
 				pids:pids,
 				stocks:stocks
 			},
-			success: function(data) {
-				console.log(data);
-			}
-		});*/
-		console.log(pids);
-		console.log(stocks);
-		location.href = "detailView/addCartProduct?"
-			+ "pids=" + encodeURIComponent(pids.join(','))
-			+ "&stocks=" + encodeURIComponent(stocks.join(','));
+			success: function(data) {}
+		});
+		
 	}
 }
 //바로구매
@@ -202,22 +199,16 @@ function buy() {
 	} else {
 		var pids = [];
 		var stocks = [];
-		selectedItems.each((index, item) => {
+		selectedItems.each(function(index, item) {
 			let selectedItemsPid = $(item).find(".product-option-pid").val();
 			let selectedItemsStock = $(item).find(".product-quantity-input").val();
 			pids.push(selectedItemsPid);
 			stocks.push(selectedItemsStock);
 		});
-		$.ajax({
-			url: "buyDirect",
-			method: "post",
-			traditional: true,
-			data: {
-				pids:pids,
-				stocks:stocks
-			},
-			success: function(data) {}
-		});
+		
+		location.href = "detailView/buyDirect?"
+			+ "pids=" + encodeURIComponent(pids.join(','))
+			+ "&stocks=" + encodeURIComponent(stocks.join(','));
 	}
 }
 

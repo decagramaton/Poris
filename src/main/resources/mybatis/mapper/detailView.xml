@@ -13,22 +13,6 @@
       where PRODUCT_NAME = #{name}
    </select>
     
-   <select id="selectFromCart" parameterType="poris.fruitlight.dto.Cart" resultType="int">
-      select count(*) from CART
-      where SHOPPER_NO = #{SHOPPER_NO} and PRODUCT_NO = #{PRODUCT_NO}
-   </select>
-
-   <insert id="insertToCart" parameterType="poris.fruitlight.dto.Cart">
-      insert into CART
-      values(#{SHOPPER_NO}, #{PRODUCT_NO}, #{CART_PRODUCT_STOCK})
-   </insert>
-   
-   <update id="updateToCart" parameterType="poris.fruitlight.dto.Cart">
-      update CART
-      set CART_PRODUCT_STOCK = #{CART_PRODUCT_STOCK} + CART_PRODUCT_STOCK
-      where SHOPPER_NO = #{SHOPPER_NO} and PRODUCT_NO = #{PRODUCT_NO}
-   </update>
-   
    <update id="updateCartStock" parameterType="poris.fruitlight.dto.Cart">
       MERGE INTO CART
 	  USING DUAL
