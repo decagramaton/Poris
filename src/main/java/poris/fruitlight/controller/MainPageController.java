@@ -77,6 +77,12 @@ public class MainPageController {
       }
       session.setAttribute("catemainlists", cateMainlist);
       
+      List<ProductList>	cateSublist = mainService.getCateSubList();
+      for(ProductList cateSub : cateSublist) {
+    	  cateSub.setBase64Img(Base64.getEncoder().encodeToString(cateSub.getMEDIA_DATA()));
+      }
+      session.setAttribute("catesublists", cateSublist);
+      
       return "main";
    }
       

@@ -155,11 +155,11 @@
 					  	</ul>
 					  	<div class="carousel-inner">
 						    <div class="carousel-item active">
-						    	<ul id="cateAdvertiseCherryListList" class="cateAdvertiseCherryListList">
+						    	<ul id="cateAdvertiseCherryListList1" class="cateAdvertiseCherryListList">
 						    		<c:forEach var="catesublist" items="${catesublists}" varStatus="i">
 							    		<li id="cateAdvertiseCherryListItem" class="cateAdvertiseCherryListItem">
-							    			<a href="detailView">
-							    				<img src="${pageContext.request.contextPath}/resources/images/cherry${i.count}.jpg"/>
+							    			<a href="detailViewpid=${catesublist.PRODUCT_NO}">
+							    				<img src="data:${catesublist.MEDIA_DATA};base64, ${catesublist.base64Img}"/>
 							    				<span id="hoverUnderline" class="hoverUnderline">${catesublist.PRODUCT_NAME}</span>
 							    				<span>
 							    					<strong>${catesublist.PRODUCT_PRICE}</strong>원
@@ -170,8 +170,34 @@
 						    	</ul>
 							</div>
 							<div class="carousel-item">
+								<ul id="cateAdvertiseCherryListList2" class="cateAdvertiseCherryListList">
+						    		<c:forEach var="catesublist" items="${catesublists}" varStatus="i">
+							    		<li id="cateAdvertiseCherryListItem" class="cateAdvertiseCherryListItem">
+							    			<a href="detailViewpid=${catesublist.PRODUCT_NO}">
+							    				<img src="data:${catesublist.MEDIA_DATA};base64, ${catesublist.base64Img}"/>
+							    				<span id="hoverUnderline" class="hoverUnderline">${catesublist.PRODUCT_NAME}</span>
+							    				<span>
+							    					<strong>${catesublist.PRODUCT_PRICE}</strong>원
+							    				</span>	
+							    			</a>
+							    		</li>
+						    		</c:forEach>
+						    	</ul>
 						  	</div>
 						  	<div class="carousel-item">
+								<ul id="cateAdvertiseCherryListList3" class="cateAdvertiseCherryListList">
+						    		<c:forEach var="catesublist" items="${catesublists}" varStatus="i">
+							    		<li id="cateAdvertiseCherryListItem" class="cateAdvertiseCherryListItem">
+							    			<a href="detailViewpid=${catesublist.PRODUCT_NO}">
+							    				<img src="data:${catesublist.MEDIA_DATA};base64, ${catesublist.base64Img}"/>
+							    				<span id="hoverUnderline" class="hoverUnderline">${catesublist.PRODUCT_NAME}</span>
+							    				<span>
+							    					<strong>${catesublist.PRODUCT_PRICE}</strong>원
+							    				</span>	
+							    			</a>
+							    		</li>
+						    		</c:forEach>
+						    	</ul>
 							</div>
 						</div>
 						<a class="carousel-control-prev" href="#demo2" data-slide="prev">
