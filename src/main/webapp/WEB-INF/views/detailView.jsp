@@ -780,8 +780,8 @@
 		                                    <div class="inquiry-item-answer-wrap">
 		                                       <div class="inquiry-item-seller"><strong>[FRUITLIGHT]</strong></div>
 		                                       <div class="inquiry-item-answer-content">${productInquiry.ANSWER_CONTENT}</div>
-		                                       <div class="inquiry-item-answer-time">${productInquiry.ANSWER_DATE}</div>
-		                                    </div>
+		                                       <div class="inquiry-item-answer-time"><fmt:formatDate value="${productInquiry.ANSWER_DATE}" pattern="yyyy/MM/dd HH:mm:ss"/></div>
+		                                 	</div>
 		                                 </div>
 	                              	 </c:if>
                               	 </div>

@@ -1,5 +1,6 @@
 package poris.fruitlight.controller;
 
+import java.util.Base64;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -17,6 +18,7 @@ import oracle.net.aso.c;
 import poris.fruitlight.dto.Cart;
 import poris.fruitlight.dto.CartProduct;
 import poris.fruitlight.dto.Coupon;
+import poris.fruitlight.dto.ProductList;
 import poris.fruitlight.service.CartService;
 
 /**
@@ -38,6 +40,11 @@ public class CartController {
 	@RequestMapping("/cart")
 	public String cart(Model model) {
 		List<CartProduct> listProduct = cartProductService.getCartProduct(1);
+		
+		for(CartProduct cartProduct : listProduct) {
+			cartProduct.setBase64Img(Base64.getEncoder().encodeToString(cartProduct.getMEDIA_DATA()));
+	      }
+		
 		model.addAttribute("listProduct", listProduct);
 		
 		List<Coupon> listCoupon = cartProductService.getCoupon(1);

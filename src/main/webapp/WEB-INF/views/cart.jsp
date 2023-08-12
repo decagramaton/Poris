@@ -66,7 +66,8 @@
 						            	<td class="cartItem_check">
 						            		<input type="checkbox" class="cbox" value="${cartProduct.PRODUCT_NO}"/>
 						            	</td>
-						            	<td class="cartItem_img"><img src="${pageContext.request.contextPath}/resources/images/watermelon_cart.jpg" width="100%"></td>
+						            	<%-- <td class="cartItem_img"><img src="${pageContext.request.contextPath}/resources/images/watermelon_cart.jpg" width="100%"></td> --%>
+						            	<td class="cartItem_img"><img src="data:${cartProduct.MEDIA_DATA};base64, ${cartProduct.base64Img}" width="100%"/></td>
 						            	<td class="cartItem_product">
 						            		<div class="cartItem_product">
 						            			<div class="text-left">
