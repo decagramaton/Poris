@@ -56,10 +56,11 @@ public class DetailViewController {
 		model.addAttribute("productBoard", productBoard);
 		model.addAttribute("productOptionList", productOptionList);
 		
-		/*
+		
 		// Step5. 상품 게시판에 존재하는 상품문의 게시판 개수 load
 		int totalBoardNum = detailViewService.getTotalProductInquiryNum(bno);
 		
+		/*
 		// Step6. Pager 객체 생성 (게시글 행 수, 페이지 개수, 총 페이지 개수, 페이지 시작 번호)
 		Pager productInquiryPager = new Pager(5, 10, totalBoardNum, 1);
 		List<ProductInquiry> productInquiryList = detailViewService.getProductInquiryList(productInquiryPager, bno);

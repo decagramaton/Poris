@@ -86,7 +86,7 @@
 			      		<c:forEach var="sellerlist" items="${sellerlists}">
 				      		<div id="todaySellerProduct" class="todaySellerProduct col-md">
 				      			<div>
-				      				<a href="detailView?pid=${sellerlist.PRODUCT_NO}">
+				      				<a href="/fruitlight/main/SelectDetailView?pid=${sellerlist.PRODUCT_NO}">
 						      			<img class="productImage" src="data:${sellerlist.MEDIA_DATA};base64, ${sellerlist.base64Img}"/>
 				      				</a>
 					      		</div>
@@ -128,7 +128,7 @@
 								<div class="carousel-inner">
 							  		<c:forEach var="catemainlist" items="${catemainlists}" varStatus="i">
 									    <div id="carouselCateMainItem${i.count}" class="carousel-item">
-									    	<a href="detailView?pid=${catemainlist.PRODUCT_NO}">
+									    	<a href="/fruitlight/main/SelectDetailView?pid=${catemainlist.PRODUCT_NO}">
 										    	<img src="data:${catemainlist.MEDIA_DATA};base64, ${catemainlist.base64Img}" width="500" height="500">
 									    	</a>
 									    	<div class="carousel-caption" style="bottom:50px;">
@@ -158,7 +158,7 @@
 						    	<ul id="cateAdvertiseCherryListList1" class="cateAdvertiseCherryListList">
 						    		<c:forEach var="catesublist" items="${catesublists}" varStatus="i">
 							    		<li id="cateAdvertiseCherryListItem" class="cateAdvertiseCherryListItem">
-							    			<a href="detailView?pid=${catesublist.PRODUCT_NO}">
+							    			<a href="/fruitlight/main/SelectDetailView?pid=${catesublist.PRODUCT_NO}">
 							    				<img src="data:${catesublist.MEDIA_DATA};base64, ${catesublist.base64Img}"/>
 							    				<span id="hoverUnderline" class="hoverUnderline">${catesublist.PRODUCT_NAME}</span>
 							    				<span>
@@ -173,7 +173,7 @@
 								<ul id="cateAdvertiseCherryListList2" class="cateAdvertiseCherryListList">
 						    		<c:forEach var="catesublist" items="${catesublists}" varStatus="i">
 							    		<li id="cateAdvertiseCherryListItem" class="cateAdvertiseCherryListItem">
-							    			<a href="detailView?pid=${catesublist.PRODUCT_NO}">
+							    			<a href="/fruitlight/main/SelectDetailView?pid=${catesublist.PRODUCT_NO}">
 							    				<img src="data:${catesublist.MEDIA_DATA};base64, ${catesublist.base64Img}"/>
 							    				<span id="hoverUnderline" class="hoverUnderline">${catesublist.PRODUCT_NAME}</span>
 							    				<span>
@@ -188,7 +188,7 @@
 								<ul id="cateAdvertiseCherryListList3" class="cateAdvertiseCherryListList">
 						    		<c:forEach var="catesublist" items="${catesublists}" varStatus="i">
 							    		<li id="cateAdvertiseCherryListItem" class="cateAdvertiseCherryListItem">
-							    			<a href="detailView?pid=${catesublist.PRODUCT_NO}">
+							    			<a href="/fruitlight/main/SelectDetailView?pid=${catesublist.PRODUCT_NO}">
 							    				<img src="data:${catesublist.MEDIA_DATA};base64, ${catesublist.base64Img}"/>
 							    				<span id="hoverUnderline" class="hoverUnderline">${catesublist.PRODUCT_NAME}</span>
 							    				<span>
