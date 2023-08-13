@@ -1,6 +1,7 @@
 package poris.fruitlight.controller;
 
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -47,6 +48,7 @@ public class DetailViewController {
 		
 		// Step2. 게시판 번호에 해당하는 데이터 load
 		ProductBoard productBoard = detailViewService.getProduct(bno);
+		productBoard.setBase64Img(Base64.getEncoder().encodeToString(productBoard.getMediaData()));
 		
 		// Step3. 상품 이름을 기준으로 옵션 데이터 load
 		List<Product> productOptionList = detailViewService.getOptions(productBoard.getProductName());
@@ -65,12 +67,11 @@ public class DetailViewController {
 		// Step6-2. Pager 기반 상품 문의 게시판 생성
 		Pager productInquiryPager = new Pager(5, 10, totalBoardNum, 1);
 		List<ProductInquiry> productInquiryList = detailViewService.getProductInquiryList(productInquiryPager, bno);
-		log.info(productInquiryList.toString());
 		
 		model.addAttribute("productInquiryPager", productInquiryPager);
 		model.addAttribute("productInquiryList", productInquiryList);
 		
-		// Final. 게시판 번호 Session 제거
+		// Step7. 게시판 번호 Session 제거
 		session.removeAttribute("BoardNo");
 		
 		return "detailView";

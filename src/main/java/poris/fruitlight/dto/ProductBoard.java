@@ -16,4 +16,7 @@ public class ProductBoard {
 	private String productOption;		// 상품 옵션
 	private int discountRate;			// 할인 ( % , 원 )
 	private int discountPrice;			// 할인 금액
+	private String mediaName;			// 상품 사진 파일 이름
+	private byte[] mediaData;			// 상품 사진
+	private String base64Img;			// base64Img 인코딩
 }

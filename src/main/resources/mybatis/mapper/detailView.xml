@@ -5,16 +5,20 @@
 	<!-- 2023.08.13 고재승 -->
 	<!-- 게시글 번호를 기준으로 상품 정보를 조회하는 SQL문 -->
 	<select id="selectByBno" parameterType="int" resultType="ProductBoard">
-      select BOARD_NO as boardNo,
+      SELECT b.BOARD_NO as boardNo,
       p.PRODUCT_NO as productNo,
-      PRODUCT_NAME as productName,
-      PRODUCT_PRICE as productPrice,
-      PRODUCT_OPTION as productOption,
-      DISCOUNT_RATE as discountRate,
-      DISCOUNT_PRICE as discountPrice
-	  from PRODUCT p, PRODUCT_BOARD b
-	  where p.PRODUCT_NO = b.PRODUCT_NO
-	  and BOARD_NO = #{bno}
+      p.PRODUCT_NAME as productName,
+      p.PRODUCT_PRICE as productPrice,
+      p.PRODUCT_OPTION as productOption,
+      p.DISCOUNT_RATE as discountRate,
+      p.DISCOUNT_PRICE as discountPrice,
+      m.MEDIA_NAME as mediaName,
+      m.MEDIA_DATA as mediaData
+	  FROM PRODUCT p, PRODUCT_BOARD b, BOARD_MEDIA m
+	  WHERE p.PRODUCT_NO = b.PRODUCT_NO
+	  AND b.BOARD_NO = m.BOARD_NO
+	  AND b.BOARD_NO = #{bno}
+	  AND ROWNUM = 1
    </select>
    
 	<select id="selectByBnoTest" parameterType="int" resultType="poris.fruitlight.dto.Product">

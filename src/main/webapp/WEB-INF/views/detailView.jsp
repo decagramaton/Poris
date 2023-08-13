@@ -195,7 +195,7 @@
          <div class="top-product">
             <div class="top-product-main">
                <div class="product-image">
-                  <ul class="productItems">
+                  <%-- <ul class="productItems">
                      <li><img
                            src="${pageContext.request.contextPath}/resources/images/cherry_sm1.jpg"
                            id="cherry1">
@@ -220,9 +220,9 @@
                            src="${pageContext.request.contextPath}/resources/images/cherry_sm6.jpg"
                            id="cherry6">
                      </li>
-                  </ul>
-                  <img class="productMainImage"
-                     src="${pageContext.request.contextPath}/resources/images/cherry_main1.jpg">
+                  </ul> --%>
+                  <img class="productMainImage" src="data:${productBoard.mediaData};base64, ${productBoard.base64Img}"/>
+                     <%-- src="${pageContext.request.contextPath}/resources/images/cherry_main1.jpg"> --%>
                </div>
                <!-- 구매 선택 -->
                <div class="product-buy">
