@@ -81,7 +81,7 @@ function openOption() {
 	$(".product-options-list").toggleClass("closed");
 }
 function chooseOption() {
-	console.log($(event.target));
+	console.log($(event.target).attr("id"));
 	var pid = $(event.target).attr("id");
 	if(pid != undefined) {
 		$(".product-option-tableBody").children("." + pid).addClass("selected");

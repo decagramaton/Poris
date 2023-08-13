@@ -71,9 +71,6 @@ public class DetailViewController {
 		model.addAttribute("productInquiryPager", productInquiryPager);
 		model.addAttribute("productInquiryList", productInquiryList);
 		
-		// Step7. 게시판 번호 Session 제거
-		session.removeAttribute("BoardNo");
-		
 		return "detailView";
 	}
 	
