@@ -29,7 +29,7 @@
 			<div class="carousel-inner">
 				<c:forEach var="product" items="${productlist}" varStatus="i">
 					<div id="carouselMainItem${i.count}" class="carousel-item">
-						<a href="detailView?pid=${product.PRODUCT_NO}">
+						<a href="/fruitlight/main/SelectDetailView?pid=${product.PRODUCT_NO}">
 					        <img src="data:${product.MEDIA_DATA};base64, ${product.base64Img}" width="1100" height="500">
 						</a>
 				    </div>
