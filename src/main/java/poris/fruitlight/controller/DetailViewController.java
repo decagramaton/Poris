@@ -41,13 +41,10 @@ public class DetailViewController {
 	 */
 	@RequestMapping("/detailView")
 	public String detailView(Model model, HttpSession session) {
-		log.info("실행");
 		// Step1. Session에 있는 게시판 번호 get - ok
-		log.info(session.getAttribute("BoardNo").toString());
+		int bno = Integer.parseInt(session.getAttribute("BoardNo").toString());
+		log.info("detailView Step1.  bno : " + bno);
 		/*
-		//int bno = (int) session.getAttribute("BoardNo");
-		int bno = 1;
-		
 		// Step2. 게시판 번호에 해당하는 데이터 load
 		Product product = detailViewService.getProduct(bno);
 		
