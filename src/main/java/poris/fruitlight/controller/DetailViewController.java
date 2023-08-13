@@ -19,6 +19,7 @@ import lombok.extern.slf4j.Slf4j;
 import poris.fruitlight.dto.Cart;
 import poris.fruitlight.dto.CartProduct;
 import poris.fruitlight.dto.Product;
+import poris.fruitlight.dto.ProductBoard;
 import poris.fruitlight.dto.Pager;
 import poris.fruitlight.dto.ProductInquiry;
 import poris.fruitlight.service.DetailViewService;
@@ -43,11 +44,12 @@ public class DetailViewController {
 	public String detailView(Model model, HttpSession session) {
 		// Step1. Session에 있는 게시판 번호 get - ok
 		int bno = Integer.parseInt(session.getAttribute("BoardNo").toString());
-		log.info("detailView Step1.  bno : " + bno);
-		/*
-		// Step2. 게시판 번호에 해당하는 데이터 load
-		Product product = detailViewService.getProduct(bno);
 		
+		
+		// Step2. 게시판 번호에 해당하는 데이터 load
+		ProductBoard productBoard = detailViewService.getProduct(bno);
+		
+		/*
 		// Step3. 상품 이름을 기준으로 옵션 데이터 load
 		List<Product> optionList = detailViewService.getOptions(product.getPRODUCT_NAME());
 		

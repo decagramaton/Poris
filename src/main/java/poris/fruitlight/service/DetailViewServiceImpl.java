@@ -10,6 +10,7 @@ import poris.fruitlight.dao.DetailViewDao;
 import poris.fruitlight.dto.Cart;
 import poris.fruitlight.dto.Pager;
 import poris.fruitlight.dto.Product;
+import poris.fruitlight.dto.ProductBoard;
 import poris.fruitlight.dto.ProductInquiry;
 
 @Slf4j
@@ -19,9 +20,8 @@ public class DetailViewServiceImpl implements DetailViewService {
 	DetailViewDao detailViewDao;
 	
 	@Override
-	public Product getProduct(int bno) {
-		//Product product = detailViewDao.selectByBno(bno);
-		Product product = detailViewDao.selectByBnoTest(bno);
+	public ProductBoard getProduct(int bno) {
+		ProductBoard product = detailViewDao.selectByBno(bno);
 		return product;
 	}
 	@Override

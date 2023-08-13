@@ -5,20 +5,24 @@ import java.util.List;
 import poris.fruitlight.dto.Cart;
 import poris.fruitlight.dto.Pager;
 import poris.fruitlight.dto.Product;
+import poris.fruitlight.dto.ProductBoard;
 import poris.fruitlight.dto.ProductInquiry;
 
 /**
  * 
- * @author 이은지
+ * @author 고재승, 이은지
  *
  */
 public interface DetailViewService {
 	/**
-	 * 
-	 * @param pno(상품상세 페이지에서 보여줄 상품 no)
-	 * @return Product(상품 DTO)
+	 * @author 고재승
+	 * @since 2023.08.13
+	 * @param bno - 상품 게시글 번호
+	 * @return ProductBoard(상품 게시글 DTO)
 	 */
-	public Product getProduct(int bno);
+	public ProductBoard getProduct(int bno);
+	
+	
 	/**
 	 * 
 	 * @param name(상품상세 페이지에서 보여줄 옵션들을 가져오기 위한 기준인 현재 상품 name)

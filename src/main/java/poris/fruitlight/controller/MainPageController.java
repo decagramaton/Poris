@@ -91,16 +91,19 @@ public class MainPageController {
 		return "redirect:/";
 	}
 	
-	
+	/**
+	 * @author 고재승
+	 * @since 2023.08.13
+	 * @param pid - 제품 고유번호
+	 * @return - 요청 게시글 번호
+	 */
 	@RequestMapping("/main/SelectDetailView")
 	public String moveDetailViewPage(int pid, HttpSession session) {
-		log.info("실행");
 		// Step1. PRODUCT_ID를 기준으로 선택한 게시판 번호를 조회한다.
 		int boardNo = mainService.getSelectBoardNo(pid);
 		// Step2. Session에 게시판 번호를 저장한다.
 		session.setAttribute("BoardNo", boardNo);
 		// Step3. 페이지는 DetailView로 이동하되, Detail View에서 게시판 번호를 Session 객체로 조회해야한다.
-		
 		
 		return "redirect:/detailView";
 	}

@@ -7,11 +7,12 @@ import org.apache.ibatis.annotations.Mapper;
 import poris.fruitlight.dto.Cart;
 import poris.fruitlight.dto.Pager;
 import poris.fruitlight.dto.Product;
+import poris.fruitlight.dto.ProductBoard;
 import poris.fruitlight.dto.ProductInquiry;
 
 @Mapper
 public interface DetailViewDao {
-	public Product selectByBno(int bno);
+	public ProductBoard selectByBno(int bno);
 	public Product selectByBnoTest(int bno);
 	public List<Product> selectByName(String name);
 	public int updateCartStock(Cart cart);
