@@ -68,7 +68,7 @@ public class MainServiceImpl implements MainService{
 		
 		int dbResult = productDao.SelectDetailView(pid);
 		
-		return 0;
+		return dbResult;
 	}
 
 

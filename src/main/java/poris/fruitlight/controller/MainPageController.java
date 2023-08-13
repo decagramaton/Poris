@@ -94,7 +94,7 @@ public class MainPageController {
 	
 	@RequestMapping("/main/SelectDetailView")
 	public String moveDetailViewPage(int pid, HttpSession session) {
-		
+		log.info("실행");
 		// Step1. PRODUCT_ID를 기준으로 선택한 게시판 번호를 조회한다.
 		int boardNo = mainService.getSelectBoardNo(pid);
 		// Step2. Session에 게시판 번호를 저장한다.

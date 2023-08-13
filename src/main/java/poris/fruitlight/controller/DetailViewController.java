@@ -41,20 +41,29 @@ public class DetailViewController {
 	 */
 	@RequestMapping("/detailView")
 	public String detailView(Model model, HttpSession session) {
-		
-		// Step1. Session에 있는 게시판 번호 get
+		log.info("실행");
+		// Step1. Session에 있는 게시판 번호 get - ok
+		log.info(session.getAttribute("BoardNo").toString());
+		/*
 		//int bno = (int) session.getAttribute("BoardNo");
 		int bno = 1;
 		
+		// Step2. 게시판 번호에 해당하는 데이터 load
 		Product product = detailViewService.getProduct(bno);
+		
+		// Step3. 상품 이름을 기준으로 옵션 데이터 load
 		List<Product> optionList = detailViewService.getOptions(product.getPRODUCT_NAME());
 		
+		// Step4. 상품 정보와 옵션 정보를 JSP에 Model으로 전달
 		model.addAttribute("product", product);
 		model.addAttribute("optionList", optionList);
-		//상품문의
-		int totalBoardNum = detailViewService.getTotalProductInquiryNum(bno);
-		Pager productInquiryPager = new Pager(5, 10, totalBoardNum, 1);
 		
+		
+		// Step5. 상품 게시판에 존재하는 상품문의 게시판 개수 load
+		int totalBoardNum = detailViewService.getTotalProductInquiryNum(bno);
+		
+		// Step6. Pager 객체 생성 (게시글 행 수, 페이지 개수, 총 페이지 개수, 페이지 시작 번호)
+		Pager productInquiryPager = new Pager(5, 10, totalBoardNum, 1);
 		List<ProductInquiry> productInquiryList = detailViewService.getProductInquiryList(productInquiryPager, bno);
 		
 		model.addAttribute("productInquiryPager", productInquiryPager);
@@ -62,7 +71,7 @@ public class DetailViewController {
 		
 		// Final. 게시판 번호 Session 제거
 		session.removeAttribute("BoardNo");
-		
+		*/
 		return "detailView";
 	}
 	

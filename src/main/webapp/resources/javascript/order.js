@@ -89,20 +89,37 @@ function changeComma(data) {
     return data.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
 }
 
-
+/**
+ * 배송지 변경 자식 페이지를 생성 및 호출한 부모 페이지의 종류를 설정하는 메소드
+ * @author 고재승
+ * @returns 자식 페이지 윈도우 핸들러
+ */
 function deliveryAddressBtn() {
 	deliAddrChild = window.open("/fruitlight/addressBook", "_blank","top=10, left=10, width=500, height=600, status=no, menubar=no, toolbar=no, resizable=no", true);
 }
 
+/**
+ * 배송지 변경 자식 페이지의 윈도우 핸들러를 소멸하는 메소드
+ * @author 고재승
+ */
 function deliveryAddressCloseEvent() {
 	deliAddrChild.close();
 }
 
+/**
+ * 배송 요청사항 자식 페이지를 생성 및 호출한 부모 페이지의 종류를 설정하는 메소드
+ * @author 고재승
+ * @returns 자식 페이지 윈도우 핸들러
+ */
 function deliveryPreferencesBtn() {
     deliPreChild = window.open("/fruitlight/deliveryPreferences", "_blank","top=10, left=10, width=500, height=600, status=no, menubar=no, toolbar=no, resizable=no", true);
     deliPreChild.dataFromParent = "orderPage";
 }
 
+/**
+ * 자식 페이지의 윈도우 핸들러를 소멸하는 메소드
+ * @author 고재승
+ */
 function deliveryPreferencesCloseEvent() {
 	deliPreChild.close();
 }

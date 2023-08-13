@@ -35,7 +35,6 @@ function lockerClickEvent() {
  * 배송 요청사항을 호출한 부모 페이지의 종류에 따라 배송 요청사항을 전달하는 메소드
  */
 function windowClose() {
-	console.log(window.dataFromParent);
 	if(window.dataFromParent === "orderPage"){
 		// Step1. 부모 페이지의 요소에 자식 페이지의 요소 값 대입
 		$("#deliPre", opener.document).text($("input[name='requiredCheckType']:checked").val());
