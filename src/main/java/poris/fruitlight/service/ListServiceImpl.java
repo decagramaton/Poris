@@ -37,6 +37,6 @@ public class ListServiceImpl implements ListService{
 	public int getSelectBoardNo(int pid) {
 		int dbResult = productDao.SelectDetailView(pid);
 		
-		return 0;
+		return dbResult;
 	}
 }

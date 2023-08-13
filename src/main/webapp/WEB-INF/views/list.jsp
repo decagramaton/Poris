@@ -35,7 +35,7 @@
 							<c:forEach var="product" items="${productLists}" varStatus="i">
 								<div class="productList ${product.PRODUCT_NO} col-md col-sm-12">
 									<div>
-										<a href="detailView?pid=${product.PRODUCT_NO}">
+										<a href="/fruitlight/list/SelectDetailView?pid=${product.PRODUCT_NO}">
 											<img class="productImage ${i.count}" src="data:${product.MEDIA_DATA};base64, ${product.base64Img}"/>
 										</a>
 									</div>
