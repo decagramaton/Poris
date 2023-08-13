@@ -229,7 +229,7 @@
                   <!-- 상품 이름 -->
                   <div class="product-buy-header">
                      <div class="product-buy-header_left">
-                        <h2>${product.PRODUCT_NAME}</h2>
+                        <h2>${productBoard.productName}</h2>
                         <div class="prod-buy-header__info">
                            <span class="prod-buy-header__productreview" style="display:block;">
                               <a href="#product_review-form">
@@ -251,12 +251,12 @@
                      <div class="product-price">
                         <!-- 할인율 및 원래가격 -->
                         <div class="product-origin-price">
-                           <span class="discount-rate">${product.DISCOUNT_RATE}%</span>
-                           <span class="origin-price">${product.PRODUCT_PRICE}원</span>
+                           <span class="discount-rate">${productBoard.discountRate}%</span>
+                           <span class="origin-price">${productBoard.productPrice}원</span>
                         </div>
                         <!-- 총가격 -->
                         <div class="product-total-price">
-                           <span class="total-price">${product.DISCOUNT_PRICE}</span>
+                           <span class="total-price">${productBoard.discountPrice}</span>
                            <span class="unit-price">(100g당 <span>1,725원</span>)</span>
                         </div>
                      </div>
@@ -283,7 +283,7 @@
                      	</div>
                   	 </div>
 	                     <ul class="product-options-list closed">
-                  	 		<c:forEach var="optionProduct" items="${optionList}">
+                  	 		<c:forEach var="optionProduct" items="${productOptionList}">
 		                     	<li class="product-option-list-item">
 			                      <div id="${optionProduct.PRODUCT_NO}">
 			                      	<c:if test="${optionProduct.PRODUCT_OPTION == product.PRODUCT_OPTION}">

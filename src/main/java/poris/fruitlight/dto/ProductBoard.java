@@ -14,6 +14,6 @@ public class ProductBoard {
 	private String productName;			// 상품 이름
 	private int productPrice;			// 상품 가격
 	private String productOption;		// 상품 옵션
-	private int DiscountRate;			// 할인 ( % , 원 )
-	private int DiscountPrice;			// 할인 금액
+	private int discountRate;			// 할인 ( % , 원 )
+	private int discountPrice;			// 할인 금액
 }

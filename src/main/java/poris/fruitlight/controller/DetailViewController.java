@@ -36,7 +36,7 @@ public class DetailViewController {
 	private DetailViewService detailViewService;
 	
 	/**
-	 * 
+	 * @author 고재승, 이은지
 	 * @param model
 	 * @return 상세상품(detailView) 페이지
 	 */
@@ -50,14 +50,13 @@ public class DetailViewController {
 		
 		// Step3. 상품 이름을 기준으로 옵션 데이터 load
 		List<Product> productOptionList = detailViewService.getOptions(productBoard.getProductName());
-		log.info(productOptionList.toString());
+		
+		
+		// Step4. 상품 정보와 옵션 정보를 JSP에 Model으로 전달
+		model.addAttribute("productBoard", productBoard);
+		model.addAttribute("productOptionList", productOptionList);
 		
 		/*
-		// Step4. 상품 정보와 옵션 정보를 JSP에 Model으로 전달
-		model.addAttribute("product", product);
-		model.addAttribute("optionList", optionList);
-		
-		
 		// Step5. 상품 게시판에 존재하는 상품문의 게시판 개수 load
 		int totalBoardNum = detailViewService.getTotalProductInquiryNum(bno);
 		
