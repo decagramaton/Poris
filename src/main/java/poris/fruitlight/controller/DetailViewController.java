@@ -45,14 +45,14 @@ public class DetailViewController {
 		// Step1. Session에 있는 게시판 번호 get - ok
 		int bno = Integer.parseInt(session.getAttribute("BoardNo").toString());
 		
-		
 		// Step2. 게시판 번호에 해당하는 데이터 load
 		ProductBoard productBoard = detailViewService.getProduct(bno);
 		
-		/*
 		// Step3. 상품 이름을 기준으로 옵션 데이터 load
-		List<Product> optionList = detailViewService.getOptions(product.getPRODUCT_NAME());
+		List<Product> productOptionList = detailViewService.getOptions(productBoard.getProductName());
+		log.info(productOptionList.toString());
 		
+		/*
 		// Step4. 상품 정보와 옵션 정보를 JSP에 Model으로 전달
 		model.addAttribute("product", product);
 		model.addAttribute("optionList", optionList);

@@ -26,7 +26,8 @@
       and (MEDIA_NAME like '%sm%' or MEDIA_NAME like '%main%')
    </select>
    
-   <select id="selectByName" parameterType="String" resultType="poris.fruitlight.dto.Product">
+   <!-- 2023.08.13 고재승 - resultType의 값을 Mapper의 Alias으로 변경했습니다. -->
+   <select id="selectByName" parameterType="String" resultType="Product">
       select PRODUCT_NO, DISCOUNT_PRICE, PRODUCT_OPTION
       from PRODUCT
       where PRODUCT_NAME = #{name}
