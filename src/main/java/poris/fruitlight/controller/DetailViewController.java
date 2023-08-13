@@ -60,17 +60,19 @@ public class DetailViewController {
 		// Step5. 상품 게시판에 존재하는 상품문의 게시판 개수 load
 		int totalBoardNum = detailViewService.getTotalProductInquiryNum(bno);
 		
-		/*
-		// Step6. Pager 객체 생성 (게시글 행 수, 페이지 개수, 총 페이지 개수, 페이지 시작 번호)
+		
+		// Step6-1. Pager 객체 생성 (게시글 행 수, 페이지 개수, 총 페이지 개수, 페이지 시작 번호)
+		// Step6-2. Pager 기반 상품 문의 게시판 생성
 		Pager productInquiryPager = new Pager(5, 10, totalBoardNum, 1);
 		List<ProductInquiry> productInquiryList = detailViewService.getProductInquiryList(productInquiryPager, bno);
+		log.info(productInquiryList.toString());
 		
 		model.addAttribute("productInquiryPager", productInquiryPager);
 		model.addAttribute("productInquiryList", productInquiryList);
 		
 		// Final. 게시판 번호 Session 제거
 		session.removeAttribute("BoardNo");
-		*/
+		
 		return "detailView";
 	}
 	
