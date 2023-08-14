@@ -305,8 +305,6 @@ function calculateCoupon(price, delivery) {
 //구매동작
 function checkBuyProduct() {
 	var cboxsChecked = $(".cbox:checked");
-	var cboxCouponsChecked = $(".cboxCoupon:checked");
-	
 	
 	if(cboxsChecked.length == 0) {
 		alert("결제하실 상품을 선택해주세요.");
