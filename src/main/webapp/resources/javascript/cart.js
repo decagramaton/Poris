@@ -108,14 +108,6 @@ function deleteItem() {
 			pnosChecked.push($(item).val());
 		});
 		
-		/*$.ajax({
-			url: "deleteChecked",
-			method: "post",
-			traditional: true,
-			data: {pidsChecked:pidsChecked},
-			success: function(data) {}
-		});*/
-		
 		location.href = "cart/deleteChecked?pnos=" + encodeURIComponent(pnosChecked.join(','));
 	}
 }
