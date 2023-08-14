@@ -19,7 +19,7 @@
 		
 		
 		<div class="content-body__corset">
-		    <form method="post" class="_addressBookSaveForm" action="#">
+		    <form action="addressBook/addAddressBook" method="post" class="_addressBookSaveForm" accept-charset="UTF-8">
 		    
 		    	<!-- 받는 사람 입력 요소 -->
 			    <div class="icon-text-field__frame-box _addressBookRecipientRoot">

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import lombok.extern.slf4j.Slf4j;
-import poris.fruitlight.dto.AddressBookParam;
+import poris.fruitlight.dto.AddressBook;
 import poris.fruitlight.service.AddressBookService;
 import poris.fruitlight.util.AlertScript;
 
@@ -28,7 +28,7 @@ public class AddressBookController {
 	 */
 	@RequestMapping("/addressBook")
 	public String AddressBook(Model model) {
-		List<AddressBookParam> addrBookList = addrBookService.getAddressBookList();
+		List<AddressBook> addrBookList = addrBookService.getAddressBookList();
 		
 		if(addrBookList != null) {
 			model.addAttribute("addrBookList", addrBookList);
@@ -43,8 +43,8 @@ public class AddressBookController {
 	 * @return - 배송지 목록 페이지으로 리다이렉트 
 	 */
 	@GetMapping("/addressBook/changeAddressBook")
-	public String changeAddressBook(AddressBookParam changeAddressBook) {
-		boolean result = addrBookService.changeAddressBook(changeAddressBook);
+	public String changeAddressBook(AddressBook addressBook) {
+		boolean result = addrBookService.changeAddressBook(addressBook);
 		
 		// if(result) {
 		//	return "redirect:/addressBook"; }
@@ -57,9 +57,21 @@ public class AddressBookController {
 	 * @author 고재승
 	 * @return 배송지 추가 페이지 이동
 	 */
-	@GetMapping("/addressBook/addAddressBook")
-	public String addAddressBook() {
+	@GetMapping("/addressBook/newAddressBook")
+	public String newAddressBook() {
 		
 		return "newAddressBook";
+	}
+	
+	
+	/**
+	 * DB에 배송지 추가
+	 * @author 고재승
+	 * @return 배송지 추가 페이지 이동
+	 */
+	@GetMapping("/addressBook/addAddressBook")
+	public void addAddressBook(AddressBook addressBook) {
+		log.info("실행");
+		addrBookService.createAddressBook(addressBook);
 	}
 }
