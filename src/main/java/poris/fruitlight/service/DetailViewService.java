@@ -21,14 +21,18 @@ public interface DetailViewService {
 	 * @return ProductBoard(상품 게시글 DTO)
 	 */
 	public ProductBoard getProduct(int bno);
-	
-	
 	/**
 	 * 
 	 * @param name(상품상세 페이지에서 보여줄 옵션들을 가져오기 위한 기준인 현재 상품 name)
 	 * @return List<Product>(같은 이름을 가진 상품 리스트)
 	 */
 	public List<Product> getOptions(String name);
+	/**
+	 * 
+	 * @param bno(상품 게시글 번호)
+	 * @return List<Product>
+	 */
+	public List<ProductBoard> getImages(int bno);
 	/**
 	 * 
 	 * @param productList(장바구니에 추가될 상품 리스트)

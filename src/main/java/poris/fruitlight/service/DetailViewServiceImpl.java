@@ -30,6 +30,11 @@ public class DetailViewServiceImpl implements DetailViewService {
 		return list;
 	}
 	@Override
+	public List<ProductBoard> getImages(int bno) {
+		List<ProductBoard> list = detailViewDao.selectByBnoTest(bno);
+		return list;
+	}
+	@Override
 	public int addToCart(List<Cart> cartList) {
 		for(Cart cartProduct : cartList) {
 			detailViewDao.updateCartStock(cartProduct);
@@ -47,5 +52,4 @@ public class DetailViewServiceImpl implements DetailViewService {
 		int totalProductInquiryNum = detailViewDao.count(bno);
 		return totalProductInquiryNum;
 	}
-
 }

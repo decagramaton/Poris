@@ -169,23 +169,20 @@ function addCart() {
 	if(selectedItems.length == 0) {
 		alert("옵션을 선택해주세요.");
 	} else {
-		var pids = [];
+		var pnos = [];
 		var stocks = [];
 		selectedItems.each(function(index, item) {
-			let selectedItemsPid = $(item).find(".product-option-pid").val();
-			let selectedItemsStock = $(item).find(".product-quantity-input").val();
-			pids.push(selectedItemsPid);
-			stocks.push(selectedItemsStock);
+			let selectedItemPno = $(item).find(".product-option-pid").val();
+			let selectedItemStock = $(item).find(".product-quantity-input").val();
+			pnos.push(selectedItemPno);
+			stocks.push(selectedItemStock);
 		});
-		/*location.href = "detailView/addCartProduct?"
-			+ "pids=" + encodeURIComponent(pids.join(','))
-			+ "&stocks=" + encodeURIComponent(stocks.join(','));*/
 		$.ajax({
 			url: "/fruitlight/detailView/addCartProduct",
 			method: "post",
 			traditional: true,
 			data: {
-				pids:pids,
+				pnos:pnos,
 				stocks:stocks
 			},
 			success: function(data) {}
@@ -202,18 +199,42 @@ function buy() {
 	if(selectedItems.length == 0) {
 		alert("옵션을 선택해주세요.");
 	} else {
-		var pids = [];
+		var pnos = [];
+		var pnames = [];
 		var stocks = [];
+		var prices = [];
+		var totalPrice = 0;
 		selectedItems.each(function(index, item) {
-			let selectedItemsPid = $(item).find(".product-option-pid").val();
-			let selectedItemsStock = $(item).find(".product-quantity-input").val();
-			pids.push(selectedItemsPid);
-			stocks.push(selectedItemsStock);
+			let selectedItemPid = $(item).find(".product-option-pid").val();
+			let selectedItemPname = $(item).find(".product-option-pname").val();
+			let selectedItemStock = $(item).find(".product-quantity-input").val();
+			let selectedItemPrice = parseInt($(item).find(".product-option-originalPrice").val());
+			totalPrice += selectedItemPrice;
+			
+			pnos.push(selectedItemPid);
+			pnames.push(selectedItemPname);
+			stocks.push(selectedItemStock);
+			prices.push(selectedItemPrice);
 		});
 		
+		var shippingPrice = 0;
+		if(totalPrice > 30000) {
+			shippingPrice = 0;
+		} else {
+			shippingPrice = 3000;
+		}
+		
+		var orderPrice = totalPrice + shippingPrice;
+		
 		location.href = "detailView/buyDirect?"
-			+ "pids=" + encodeURIComponent(pids.join(','))
-			+ "&stocks=" + encodeURIComponent(stocks.join(','));
+			+ "pnos=" + encodeURIComponent(pnos.join(','))
+			+ "&pnames=" + encodeURIComponent(pnames.join(','))
+			+ "&stocks=" + encodeURIComponent(stocks.join(','))
+			+ "&prices=" + encodeURIComponent(prices.join(','))
+			+ "&totalPrice=" + encodeURIComponent(totalPrice)
+			+ "&shippingPrice=" + encodeURIComponent(shippingPrice)
+			+ "&orderPrice=" + encodeURIComponent(orderPrice);
+			
 	}
 }
 

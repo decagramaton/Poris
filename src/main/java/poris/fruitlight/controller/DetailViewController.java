@@ -49,6 +49,7 @@ public class DetailViewController {
 		// Step2. 게시판 번호에 해당하는 데이터 load
 		ProductBoard productBoard = detailViewService.getProduct(bno);
 		productBoard.setBase64Img(Base64.getEncoder().encodeToString(productBoard.getMediaData()));
+		//List<ProductBoard> productImageList = detailViewService.getImages(bno);
 		
 		// Step3. 상품 이름을 기준으로 옵션 데이터 load
 		List<Product> productOptionList = detailViewService.getOptions(productBoard.getProductName());
@@ -56,6 +57,7 @@ public class DetailViewController {
 		
 		// Step4. 상품 정보와 옵션 정보를 JSP에 Model으로 전달
 		model.addAttribute("productBoard", productBoard);
+		//model.addAttribute("productImageList", productImageList);
 		model.addAttribute("productOptionList", productOptionList);
 		
 		
@@ -85,13 +87,13 @@ public class DetailViewController {
 		//로그인 세션이 없으면 로그인 페이지로 이동
 		List<Cart> list = new ArrayList<>();
 		
-		String[] strPidList = request.getParameterValues("pids");
+		String[] strPnoList = request.getParameterValues("pnos");
 		String[] strStockList = request.getParameterValues("stocks");
 		
-		for(int i=0; i<strPidList.length; i++) {
+		for(int i=0; i<strPnoList.length; i++) {
 			Cart cartProduct = new Cart();
 			cartProduct.setSHOPPER_NO(1);
-			cartProduct.setPRODUCT_NO(Integer.parseInt(strPidList[i]));
+			cartProduct.setPRODUCT_NO(Integer.parseInt(strPnoList[i]));
 			cartProduct.setCART_PRODUCT_STOCK(Integer.parseInt(strStockList[i]));
 			
 			list.add(cartProduct);
@@ -117,21 +119,25 @@ public class DetailViewController {
 	 */
 	//바로구매
 	@RequestMapping("/detailView/buyDirect")
-	public String buyDirect(@RequestParam List<Integer> pids, @RequestParam List<Integer> stocks) {
-		//로그인 세션이 없으면 로그인 페이지로 이동
-		List<Cart> list = new ArrayList<>();
+	public String buyDirect(
+			HttpSession session,
+			@RequestParam List<Integer> pnos, 
+			@RequestParam List<String> pnames,
+			@RequestParam List<Integer> stocks,
+			@RequestParam List<Integer> prices,
+			@RequestParam int totalPrice,
+			@RequestParam int shippingPrice,
+			@RequestParam int orderPrice) {
 		
-		int i = 0;
-		for(i=0; i<pids.size(); i++) {
-			Cart cartProduct = new Cart();
-			cartProduct.setSHOPPER_NO(1);
-			cartProduct.setPRODUCT_NO(pids.get(i));
-			cartProduct.setCART_PRODUCT_STOCK(stocks.get(i));
-			
-			list.add(cartProduct);
-		}
+		session.setAttribute("pnoList", pnos);
+		session.setAttribute("pnameList", pnames);
+		session.setAttribute("stockList", stocks);
+		session.setAttribute("priceList", prices);
+		session.setAttribute("totalPrice", totalPrice);
+		session.setAttribute("couponList", null);
+		session.setAttribute("shippingPrice", shippingPrice);
+		session.setAttribute("orderPrice", orderPrice);
 		
-		//model에 담아서 전해주기
 		return "redirect:/order";
 	}
 	
