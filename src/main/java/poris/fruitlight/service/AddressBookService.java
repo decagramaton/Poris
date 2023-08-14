@@ -3,6 +3,7 @@ package poris.fruitlight.service;
 import java.util.List;
 
 import poris.fruitlight.dto.AddressBook;
+import poris.fruitlight.dto.Shopper;
 
 public interface AddressBookService {
 	/**
@@ -10,7 +11,7 @@ public interface AddressBookService {
 	 * @author 고재승
 	 * @return 배송지 정보의 목록을 반환합니다.
 	 */
-	public List<AddressBook> getAddressBookList();
+	public List<AddressBook> getAddressBookList(Shopper shopper);
 	
 	/**
 	 * 수정된 배송지 정보를 전달 후, 성공 여부를 반환받는 메소드

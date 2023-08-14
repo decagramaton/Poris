@@ -9,9 +9,7 @@ import org.springframework.stereotype.Service;
 
 import poris.fruitlight.dao.ShippingAddressDao;
 import poris.fruitlight.dto.AddressBook;
-import poris.fruitlight.dto.DeliveryParam;
-import poris.fruitlight.dto.ShippingAddressParam;
-import poris.fruitlight.dto.ShopperParam;
+import poris.fruitlight.dto.Shopper;
 
 @Service
 public class AddressBookServiceImpl implements AddressBookService{
@@ -20,17 +18,12 @@ public class AddressBookServiceImpl implements AddressBookService{
 	private ShippingAddressDao shippingAddressDao;
 	
 	@Override
-	public List<AddressBook> getAddressBookList() {
+	public List<AddressBook> getAddressBookList(Shopper shopper) {
 		
-		// 배송지 목록 JSP 화면 출력용 테스트 더미 데이터, 추후 DB 연결시 제거
-		List<AddressBook> AddrList = new ArrayList<>();
-		for(int i=1; i<=5; i++) {
-			AddressBook addrBook = new AddressBook();
-			addrBook.setShippingName("배송지 이름 테스트 내용"+i);
-			addrBook.setShippingAddress("받을주소 테스트 내용"+i);
-			addrBook.setShippingPreference("직접 받고 부재 시 문 앞"+i);
-			addrBook.setReceiverTel("010-1234-123"+i);
-			AddrList.add(addrBook);
+		List<AddressBook> AddrList = shippingAddressDao.selectShippingAddressListById(shopper);
+
+		if(AddrList == null) {
+			return null;
 		}
 		
 		return AddrList;

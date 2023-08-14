@@ -1,6 +1,9 @@
 package poris.fruitlight.controller;
 
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import lombok.extern.slf4j.Slf4j;
 import poris.fruitlight.dto.AddressBook;
+import poris.fruitlight.dto.Shopper;
 import poris.fruitlight.service.AddressBookService;
 import poris.fruitlight.util.AlertScript;
 
@@ -27,12 +31,20 @@ public class AddressBookController {
 	 * @return 배송지 목록 페이지 이동
 	 */
 	@RequestMapping("/addressBook")
-	public String AddressBook(Model model) {
-		List<AddressBook> addrBookList = addrBookService.getAddressBookList();
+	public String AddressBook(HttpSession session, Model model) {
 		
-		if(addrBookList != null) {
-			model.addAttribute("addrBookList", addrBookList);
+		// Step1. 회원 정보 조회 - 회원 고유번호 획득
+		Shopper shopper = (Shopper) session.getAttribute("ShopperInfo");
+		
+		// Step2. 회원 번호를 기준으로 배송지 목록 조회
+		List<AddressBook> addrBookList = addrBookService.getAddressBookList(shopper);
+		
+		if(addrBookList == null) {
+			return "addressBook";
 		}
+		log.info(addrBookList.toString());
+		// Step3. 배송지 목록을 JSP으로 전달
+		model.addAttribute("addrBookList", addrBookList);
 		
 		return "addressBook";
 	}
@@ -70,8 +82,10 @@ public class AddressBookController {
 	 * @return 배송지 추가 페이지 이동
 	 */
 	@PostMapping("/addressBook/addAddressBook")
-	public void addAddressBook(AddressBook addressBook) {
+	public String addAddressBook(AddressBook addressBook) {
 		log.info("addressBook :" + addressBook.toString());
 		addrBookService.createAddressBook(addressBook);
+		
+		return "redirect:/addressBook";
 	}
 }
