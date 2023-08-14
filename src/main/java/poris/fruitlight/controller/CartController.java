@@ -1,5 +1,6 @@
 package poris.fruitlight.controller;
 
+import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
 
@@ -20,6 +21,7 @@ import oracle.net.aso.c;
 import poris.fruitlight.dto.Cart;
 import poris.fruitlight.dto.CartProduct;
 import poris.fruitlight.dto.Coupon;
+import poris.fruitlight.dto.OrderParam;
 import poris.fruitlight.dto.ProductList;
 import poris.fruitlight.service.CartService;
 
@@ -116,10 +118,19 @@ public class CartController {
 			@RequestParam int shippingPrice,
 			@RequestParam int orderPrice) {
 		
-		session.setAttribute("pnoList", pnos);
-		session.setAttribute("pnameList", pnames);
-		session.setAttribute("stockList", stocks);
-		session.setAttribute("priceList", prices);
+		List<OrderParam> orderParamList = new ArrayList<>();
+		
+		for(int i=0; i<pnos.size(); i++) {
+			OrderParam oderParam = new OrderParam();
+			oderParam.setProductNo(pnos.get(i));
+			oderParam.setProductName(pnames.get(i));
+			oderParam.setProductStock(stocks.get(i));
+			oderParam.setProductPrice(prices.get(i));
+			
+			orderParamList.add(oderParam);
+		}
+		
+		session.setAttribute("orderParamList", orderParamList);
 		session.setAttribute("totalPrice", totalPrice);
 		session.setAttribute("discountPrice", discountPrice);
 		session.setAttribute("shippingPrice", shippingPrice);

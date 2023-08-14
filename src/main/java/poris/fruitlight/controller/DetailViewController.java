@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import lombok.extern.slf4j.Slf4j;
 import poris.fruitlight.dto.Cart;
 import poris.fruitlight.dto.CartProduct;
+import poris.fruitlight.dto.OrderParam;
 import poris.fruitlight.dto.Product;
 import poris.fruitlight.dto.ProductBoard;
 import poris.fruitlight.dto.Pager;
@@ -129,10 +130,19 @@ public class DetailViewController {
 			@RequestParam int shippingPrice,
 			@RequestParam int orderPrice) {
 		
-		session.setAttribute("pnoList", pnos);
-		session.setAttribute("pnameList", pnames);
-		session.setAttribute("stockList", stocks);
-		session.setAttribute("priceList", prices);
+		List<OrderParam> orderParamList = new ArrayList<>();
+		
+		for(int i=0; i<pnos.size(); i++) {
+			OrderParam oderParam = new OrderParam();
+			oderParam.setProductNo(pnos.get(i));
+			oderParam.setProductName(pnames.get(i));
+			oderParam.setProductStock(stocks.get(i));
+			oderParam.setProductPrice(prices.get(i));
+			
+			orderParamList.add(oderParam);
+		}
+		
+		session.setAttribute("orderParamList", orderParamList);
 		session.setAttribute("totalPrice", totalPrice);
 		session.setAttribute("discountPrice", 0);
 		session.setAttribute("shippingPrice", shippingPrice);
