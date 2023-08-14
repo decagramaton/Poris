@@ -18,7 +18,7 @@
 	  WHERE p.PRODUCT_NO = b.PRODUCT_NO
 	  AND b.BOARD_NO = m.BOARD_NO
 	  AND b.BOARD_NO = #{bno}
-	  AND ROWNUM = 1
+	  AND m.MEDIA_NAME like '%main1%'
    </select>
    
 	<select id="selectByBnoTest" parameterType="int" resultType="poris.fruitlight.dto.Product">

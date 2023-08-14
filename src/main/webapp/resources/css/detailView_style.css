@@ -266,7 +266,7 @@ header {
 	font-weight: 600;
 	flex: 8;
 }
-.product-option-ico {
+.product-option-ico.closed {
 	display: inline-block;
 	width: 16px;
     height: 16px;
@@ -278,9 +278,18 @@ header {
     background-size: 100%;
     /* background-image: url(https://www.brandi.co.kr/static/23.04.02/images/mo-ic-drop-up-black-16-pt@3x.png); */
 }
-/* .product-option-btn.clicked {
-	border: 1px solid #346aff;
-} */
+.product-option-ico {
+	display: inline-block;
+	width: 16px;
+    height: 16px;
+    margin-right: 20px;
+    /* background-image: url(https://www.brandi.co.kr/static/23.04.02/images/mo-ic-drop-down-black-16-pt@3x.png); */
+    margin: 16px 16px 0 0;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: 100%;
+    background-image: url(https://www.brandi.co.kr/static/23.04.02/images/mo-ic-drop-up-black-16-pt@3x.png);
+}
 .product-options-list {
 	box-sizing: border-box;
     position: absolute;

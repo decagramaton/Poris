@@ -8,7 +8,7 @@
         and p.PRODUCT_NO = b.PRODUCT_NO
 		and b.BOARD_NO = m.BOARD_NO
 		and SHOPPER_NO = 1
-        and MEDIA_NAME like '%cart%'
+        and MEDIA_NAME like '%main1%'
 	</select>
 	
 	<select id="selectCouponBySno" parameterType="int" resultType="poris.fruitlight.dto.Coupon">

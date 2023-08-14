@@ -309,8 +309,7 @@ function checkBuyProduct() {
 	
 	
 	if(cboxsChecked.length == 0) {
-		if(confirm("결제하실 상품을 선택해주세요.")) {
-		}
+		alert("결제하실 상품을 선택해주세요.");
 	} else {
 		var pidsChecked = [];
 		var cidsChecked = [];

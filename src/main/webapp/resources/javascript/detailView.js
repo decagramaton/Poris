@@ -78,6 +78,7 @@ function changeWish() {
 //옵션 선택 동작
 function openOption() {
 	$(event.target).toggleClass("clicked");
+	$(".product-option-ico").toggleClass("closed");
 	$(".product-options-list").toggleClass("closed");
 }
 function chooseOption() {
@@ -190,6 +191,9 @@ function addCart() {
 			success: function(data) {}
 		});
 		
+		if(confirm("선택하신 상품이 장바구니에 담겼습니다.\n장바구니로 이동하시겠습니까?")) {
+			location.href = "cart"
+		}
 	}
 }
 //바로구매

@@ -314,7 +314,7 @@
                               </tr>
                           </thead> -->
                           <tbody class="product-option-tableBody">
-                              <c:forEach var="optionProduct" items="${optionList}">
+                              <c:forEach var="optionProduct" items="${productOptionList}">
                               	<tr class="product-option-tableRow ${optionProduct.PRODUCT_NO}">
                                   <td class="product-option-table-name">
                                   	  <input type="hidden" class="product-option-pid" id="${optionProduct.PRODUCT_NO}" value="${optionProduct.PRODUCT_NO}"/>
