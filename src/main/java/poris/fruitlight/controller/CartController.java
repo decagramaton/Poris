@@ -129,8 +129,6 @@ public class CartController {
 			oderParam.setProductStock(stocks.get(i));
 			oderParam.setProductPrice(prices.get(i));
 			
-			log.info("" + oderParam);
-			
 			orderParamList.add(oderParam);
 		}
 		
