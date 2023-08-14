@@ -1,7 +1,6 @@
 window.onload = init;
 
 function init(){
-   console.log("init() 실행");
    if(catehandle1.matches === true){
       $("#menu-btn1").removeClass("d-block");
       $("#menu-btn2").removeClass("d-block");

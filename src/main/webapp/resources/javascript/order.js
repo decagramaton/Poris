@@ -1,8 +1,5 @@
 window.onload = init;
-
 function init() {
-    // 결제 정보 초기화
-    paymentInfoInit();
 
     // 배송지 변경 이벤트 버튼
     $(".delivery-address-list-btn").click(deliveryAddressBtn);
@@ -29,7 +26,15 @@ function init() {
     // 현금영수증 종류 선택
     $("#DEDUCTION").click(selectCashReceiptDeduction);
     $("#EXPENSE").click(selectCashReceiptExpense);
-
+    if(catehandle1.matches === true){
+        $("#menu-btn1").removeClass("d-block");
+        $("#menu-btn2").removeClass("d-block");
+        $("#menu-btn1").addClass("d-none");
+        $("#menu-btn2").addClass("d-none");
+        $("#menus").css("transform","translateX(0px)");
+        $("#menu-btn1").css("backgroundImage","url(//img1a.coupangcdn.com/image/coupang/common/pc_gnb_arrow-right@2x.png)");
+        $("#menu-btn2").css("backgroundImage","none");
+     }
 }
 
 function customerInfoInit() {
