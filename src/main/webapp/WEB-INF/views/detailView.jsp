@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!DOCTYPE html>
 <html>
@@ -747,46 +748,53 @@
                            </ul>
                         </div>
                         <div class="inquiry-item-container">
-                           <div class="inquiry-items">
-                              <c:forEach var="productInquiry" items="${productInquiryList}">
-                              	 <div class="inquiry-item">
-	                                 <span class="inquiry-item-question-label">질문</span>
-	                                 <div class="inquiry-item-question">
-	                                    <!-- <div class="inquiry-item-option">${Login.uid}</div> -->
-	                                    <div class="inquiry-item-content">${productInquiry.INQUIRY_CONTENT}</div>
-	                                    <div class="inquiry-item-time"><fmt:formatDate value="${productInquiry.INQUIRY_DATE}" pattern="yyyy/MM/dd HH:mm:ss"/></div>
-	                                 </div>
-	                             
-	                              	 <c:if test="${productInquiry.EMPTANSWER == false}">
-	                              	 	<div class="inquiry-item-answer">
-		                                    <i></i>
-		                                    <span class="inquiry-item-answer-label">답변</span>
-		                                    <div class="inquiry-item-answer-wrap">
-		                                       <div class="inquiry-item-seller"><strong>[FRUITLIGHT]</strong></div>
-		                                       <div class="inquiry-item-answer-content">${productInquiry.ANSWER_CONTENT}</div>
-		                                       <div class="inquiry-item-answer-time"><fmt:formatDate value="${productInquiry.ANSWER_DATE}" pattern="yyyy/MM/dd HH:mm:ss"/></div>
-		                                 	</div>
+                           <c:if test="${fn:length(productInquiryList) == 0}">
+                           	   <div class="inquiry-none-items">
+                           	  	  등록된 문의가 없습니다.
+                           	   </div>
+                           </c:if>
+                           <c:if test="${fn:length(productInquiryList) != 0}">
+	                           <div class="inquiry-items">
+	                              <c:forEach var="productInquiry" items="${productInquiryList}">
+	                              	 <div class="inquiry-item">
+		                                 <span class="inquiry-item-question-label">질문</span>
+		                                 <div class="inquiry-item-question">
+		                                    <!-- <div class="inquiry-item-option">${Login.uid}</div> -->
+		                                    <div class="inquiry-item-content">${productInquiry.INQUIRY_CONTENT}</div>
+		                                    <div class="inquiry-item-time"><fmt:formatDate value="${productInquiry.INQUIRY_DATE}" pattern="yyyy/MM/dd HH:mm:ss"/></div>
 		                                 </div>
-	                              	 </c:if>
-                              	 </div>
-                              </c:forEach>
-                           </div>
-                           <div class="inquiry-page-btns">
-								  <c:if test="${productInquiryPager.groupNo > 1}">
-									  <%-- <a class="page-prev" href="moveInquiryPage?pageNo=${productInquiryPager.startPageNo-1}">이전</a> --%>
-									  <button class="page-prev"></button>
-								  </c:if>
-								
-								  <c:forEach var="i" begin="${productInquiryPager.startPageNo}" end="${productInquiryPager.endPageNo}">
-									  <a class="page-num" href="moveInquiryPage?pageNo=${i}">${i}</a>
-								  </c:forEach>
-								  
-								  <c:if test="${productInquiryPager.groupNo < productInquiryPager.totalGroupNo}">
-									  <%-- <a class="page-next" href="moveInquiryPage?pageNo=${productInquiryPager.endPageNo+1}">다음</a> --%>
-									  <button class="page-next"></button>
-								  </c:if>
-							  <%-- <a class="btn btn-outline-primary btn-sm" href="getBoardList?pageNo=${pager.totalPageNo}">맨끝</a> --%>
-                           </div>
+		                             
+		                              	 <c:if test="${productInquiry.EMPTANSWER == false}">
+		                              	 	<div class="inquiry-item-answer">
+			                                    <i></i>
+			                                    <span class="inquiry-item-answer-label">답변</span>
+			                                    <div class="inquiry-item-answer-wrap">
+			                                       <div class="inquiry-item-seller"><strong>[FRUITLIGHT]</strong></div>
+			                                       <div class="inquiry-item-answer-content">${productInquiry.ANSWER_CONTENT}</div>
+			                                       <div class="inquiry-item-answer-time"><fmt:formatDate value="${productInquiry.ANSWER_DATE}" pattern="yyyy/MM/dd HH:mm:ss"/></div>
+			                                 	</div>
+			                                 </div>
+		                              	 </c:if>
+	                              	 </div>
+	                              </c:forEach>
+	                           </div>
+	                           <div class="inquiry-page-btns">
+									  <c:if test="${productInquiryPager.groupNo > 1}">
+										  <%-- <a class="page-prev" href="moveInquiryPage?pageNo=${productInquiryPager.startPageNo-1}">이전</a> --%>
+										  <button class="page-prev"></button>
+									  </c:if>
+									
+									  <c:forEach var="i" begin="${productInquiryPager.startPageNo}" end="${productInquiryPager.endPageNo}">
+										  <a class="page-num" href="moveInquiryPage?pageNo=${i}">${i}</a>
+									  </c:forEach>
+									  
+									  <c:if test="${productInquiryPager.groupNo < productInquiryPager.totalGroupNo}">
+										  <%-- <a class="page-next" href="moveInquiryPage?pageNo=${productInquiryPager.endPageNo+1}">다음</a> --%>
+										  <button class="page-next"></button>
+									  </c:if>
+								  <%-- <a class="btn btn-outline-primary btn-sm" href="getBoardList?pageNo=${pager.totalPageNo}">맨끝</a> --%>
+	                           </div>
+	                    	</c:if>
                         </div>
                         <div class="inquiry-report">
                            <p>판매 부적격 상품 또는 허위과장광고 및 지식재산권을 침해하는 상품의 경우 신고하여 주시기 바랍니다.</p>
