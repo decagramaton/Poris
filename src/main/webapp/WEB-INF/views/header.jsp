@@ -12,9 +12,9 @@
 					로그아웃
 				</a>
 			</c:if>
-			<a class="mr-2 mt-2 text-right" href="order">
-				장바구니
-			</a>
+				<a class="mr-2 mt-2 text-right" href="order">
+					장바구니
+				</a>
 			<c:if test="${ShopperInfo != null}">
             	<a class="mr-2 mt-2 text-right" href="mypageOrdered?sid=${ShopperInfo.shopperNo}">
             		마이페이지
@@ -25,14 +25,17 @@
 	<div id="header2" class="headerlogowrapper">
 		<div id="headerLogo" class="headerLogo">
 			<a href="main">
-				<img src="${pageContext.request.contextPath}/resources/images/fruitlight_logo.png" style="width:100%; margin: 0 auto"/>				
+				<img src="${pageContext.request.contextPath}/resources/images/fruitlight_logo.png" style="width:50%; margin: 0 auto"/>				
 			</a>
 	</div>
 	</div>
 	
 	<div id="menu" class="menu">
+		<div class="rowbtn2">
+        	<a id="menu-btn2" class="menu-btn2" onclick="menuprev()"></a>
+        </div>
 		<div class="gnb_menu_box">
-    		<ul class="depth0 gnb_menu0" style="overflow: visible; height: 100%;">
+    		<ul class="depth0 gnb_menu0" style="overflow: visible; height: 100%; width:940px">
     			<li>
 		            <a href="list?search=못난이" class="">못난이 과일</a>
 		        </li>
@@ -59,5 +62,8 @@
 		        </li>
 		     </ul>
 		</div>
+		<div class="rowbtn1">
+        	<a id="menu-btn1" class="menu-btn1" onclick="menunext()"></a>
+        </div>
 	</div>	
 </div>

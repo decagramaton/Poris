@@ -41,7 +41,7 @@
 			<a class="carousel-control-next" href="#mainproduct" data-slide="next">
 			    <span class="carousel-control-next-icon"></span>
 			</a>
-			</div>
+		</div>
 	      	
 	      	<div class="todayDiscoveryContainer">
 	      		<div class="todayDiscoveryHottext pt-4">

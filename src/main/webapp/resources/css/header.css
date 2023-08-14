@@ -51,6 +51,7 @@
 .menu {
 	width : 100%;
 	overflow: hidden;
+	text-align: center;
 }
 
 .rowbtn2 {
@@ -91,6 +92,7 @@
     background-size: contain;
     background-color : white;
     border : 1px solid transparent;
+    display: inline-block;
 }
 .menu-btn2 {
    width : 20px;
@@ -100,19 +102,22 @@
     background-size: contain;
     background-color : white;
     border : 1px solid transparent;
+    display: inline-block;
 }
-
-
-
-
-
-
-
+.rowbtn2 {
+	display: inline-block;
+	margin-top: 15px;
+}
+.rowbtn1 {
+	display: inline-block;
+	margin-top: 15px;
+}
 /* 실험용 코드 */
 .gnb_menu_box {
 	display: inline-block;
-    width: 1088px;
+    width: 85%;
     vertical-align: top;
+    overflow: hidden;
 }
 
 .depth0 > li {
@@ -123,7 +128,7 @@
 
 .depth0 > li > a {
     display: inline-block;
-    padding: 0 50px 0 50px;
+    padding: 0 36px 0 36px;
     font-size: 14px;
     font-weight: bold;
     text-align: center;
