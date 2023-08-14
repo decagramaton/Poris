@@ -32,7 +32,7 @@ function menuprev(){
 function menunext(){
 	$("#menu-btn1").css("backgroundImage","url(//img1a.coupangcdn.com/image/coupang/common/pc_gnb_arrow-right-gray@2x.png)");
 	$("#menu-btn2").css("backgroundImage","url(//img1a.coupangcdn.com/image/coupang/common/pc_gnb_arrow-left@2x.png)");
-	$("#menus").css("transform","translateX(-190px)")
+	$("#menus").css("transform","translateX(-1150px)")
 	$("#menu-btn1").attr("disabled",true);
 	$("#menu-btn2").attr("disabled",false);
 }
