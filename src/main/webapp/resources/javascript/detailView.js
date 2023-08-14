@@ -205,13 +205,13 @@ function buy() {
 		var prices = [];
 		var totalPrice = 0;
 		selectedItems.each(function(index, item) {
-			let selectedItemPid = $(item).find(".product-option-pid").val();
+			let selectedItemPno = $(item).find(".product-option-pid").val();
 			let selectedItemPname = $(item).find(".product-option-pname").val();
 			let selectedItemStock = $(item).find(".product-quantity-input").val();
 			let selectedItemPrice = parseInt($(item).find(".product-option-originalPrice").val());
 			totalPrice += selectedItemPrice;
 			
-			pnos.push(selectedItemPid);
+			pnos.push(selectedItemPno);
 			pnames.push(selectedItemPname);
 			stocks.push(selectedItemStock);
 			prices.push(selectedItemPrice);

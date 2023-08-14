@@ -5,9 +5,11 @@ import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -102,17 +104,36 @@ public class CartController {
 	 * @return 리다이렉트로 장바구니(cart) 페이지
 	 */
 	//구매
-	@RequestMapping("/cart/buyFromCart")
-	public String buyFromCart(HttpServletRequest request) {
-		//구매할 상품 리스트
-		String[] strPidList = request.getParameterValues("pidsChecked");
-		for(String strPid : strPidList) {
-			int pid = Integer.parseInt(strPid);
-			cartProductService.deleteProduct(pid);
-		}
-		//사용할 쿠폰 리스트
-		String[] strCidList = request.getParameterValues("cidsChecked");
+	@GetMapping("/cart/buyFromCart")
+	public String buyFromCart(
+			HttpSession session,
+			@RequestParam List<Integer> pnos, 
+			@RequestParam List<String> pnames,
+			@RequestParam List<Integer> stocks,
+			@RequestParam List<Integer> prices,
+			@RequestParam int totalPrice,
+			@RequestParam List<Integer> cnos,
+			@RequestParam int shippingPrice,
+			@RequestParam int orderPrice) {
 		
-		return "order";
+		session.setAttribute("pnoList", pnos);
+		session.setAttribute("pnameList", pnames);
+		session.setAttribute("stockList", stocks);
+		session.setAttribute("priceList", prices);
+		session.setAttribute("totalPrice", totalPrice);
+		session.setAttribute("couponList", cnos);
+		session.setAttribute("shippingPrice", shippingPrice);
+		session.setAttribute("orderPrice", orderPrice);
+		
+		log.info("" + pnos);
+		log.info("" + pnames);
+		log.info("" + stocks);
+		log.info("" + prices);
+		log.info("" + totalPrice);
+		log.info("" + cnos);
+		log.info("" + shippingPrice);
+		log.info("" + orderPrice);
+		
+		return "redirect:/order";
 	}
 }

@@ -312,32 +312,40 @@ function checkBuyProduct() {
 		alert("결제하실 상품을 선택해주세요.");
 	} else {
 		var pnosChecked = [];
+		var pnamesChecked = [];
+		var stocksChecked = [];
+		var pricesChecked = [];
 		var cnosChecked = [];
 		
 		cboxsChecked.each((index, item) => {
+			let cartItemChecked = $(item).parent().parent();
+			let cartItemPname = cartItemChecked.find(".product-name");
+			let cartItemStock = cartItemChecked.find(".productStock");
+			let cartItemPrice = parseInt(cartItemChecked.find(".cartItemProductPrice").html().replace(/[^0-9]/g, ""));
+			
 			pnosChecked.push($(item).val());
+			pnamesChecked.push(cartItemPname.val());
+			stocksChecked.push(cartItemStock.val());
+			pricesChecked.push(cartItemPrice);
 		});
 		cboxCouponsChecked.each((index, item) => {
 			cnosChecked.push($(item).val());
 		});
 		
-		/*$.ajax({
-			url: "buyFromCart",
-			method: "get",
-			traditional: true,
-			data: {pidsChecked:pidsChecked, cidsChecked:cidsChecked},
-			success: function(data) {
-			}
-		});*/
+		var totalPrice = parseInt($(".finalProductPrice").html().replace(/[^0-9]/g, ""));
+		var shippingPrice = parseInt($(".finalDeliveryPrice").html().replace(/[^0-9]/g, ""));
+		var orderPrice = parseInt($(".finalTotalPrice").html().replace(/[^0-9]/g, ""));
 		
 		location.href = "cart/buyFromCart?"
-			+ "pnos=" + encodeURIComponent(pnos.join(','))
-			+ "&pnames=" + encodeURIComponent(pnames.join(','))
-			+ "&stocks=" + encodeURIComponent(stocks.join(','))
-			+ "&prices=" + encodeURIComponent(prices.join(','))
+			+ "pnos=" + encodeURIComponent(pnosChecked.join(','))
+			+ "&pnames=" + encodeURIComponent(pnamesChecked.join(','))
+			+ "&stocks=" + encodeURIComponent(stocksChecked.join(','))
+			+ "&prices=" + encodeURIComponent(pricesChecked.join(','))
 			+ "&totalPrice=" + encodeURIComponent(totalPrice)
+			+ "&cnos=" + encodeURIComponent(cnosChecked.join(','))
 			+ "&shippingPrice=" + encodeURIComponent(shippingPrice)
 			+ "&orderPrice=" + encodeURIComponent(orderPrice);
+		
 	}
 	
 }
