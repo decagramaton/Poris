@@ -4,8 +4,10 @@ package poris.fruitlight.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import poris.fruitlight.dao.ShippingAddressDao;
 import poris.fruitlight.dto.AddressBook;
 import poris.fruitlight.dto.DeliveryParam;
 import poris.fruitlight.dto.ShippingAddressParam;
@@ -13,6 +15,9 @@ import poris.fruitlight.dto.ShopperParam;
 
 @Service
 public class AddressBookServiceImpl implements AddressBookService{
+	
+	@Autowired
+	private ShippingAddressDao shippingAddressDao;
 	
 	@Override
 	public List<AddressBook> getAddressBookList() {
@@ -63,7 +68,7 @@ public class AddressBookServiceImpl implements AddressBookService{
 	
 	@Override
 	public void createAddressBook(AddressBook addressBook) {
-		// TODO Auto-generated method stub
+		shippingAddressDao.insertShippingAddress(addressBook);
 		
 	}
 }

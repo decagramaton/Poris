@@ -69,9 +69,9 @@ public class AddressBookController {
 	 * @author 고재승
 	 * @return 배송지 추가 페이지 이동
 	 */
-	@GetMapping("/addressBook/addAddressBook")
+	@PostMapping("/addressBook/addAddressBook")
 	public void addAddressBook(AddressBook addressBook) {
-		log.info("실행");
+		log.info("addressBook :" + addressBook.toString());
 		addrBookService.createAddressBook(addressBook);
 	}
 }

@@ -19,7 +19,8 @@
 		
 		
 		<div class="content-body__corset">
-		    <form action="addressBook/addAddressBook" method="post" class="_addressBookSaveForm" accept-charset="UTF-8">
+		    <form action="addAddressBook" method="post" class="_addressBookSaveForm" accept-charset="UTF-8">
+		    	<input type="hidden" name="shopperNo" value="${ShopperInfo.shopperNo}">
 		    
 		    	<!-- 받는 사람 입력 요소 -->
 			    <div class="icon-text-field__frame-box _addressBookRecipientRoot">
@@ -29,7 +30,7 @@
 				        </div>
 				        <div class="icon-text-field__input-container">
 				            <label for="addressbookRecipient" class="icon-text-field__input-area">
-				                <input type="text" class="icon-text-field__input _addressBookRecipientInput" id="addressbookRecipient" name="recipientName" maxlength="40" placeholder="받는 사람" value="">
+				                <input type="text" class="icon-text-field__input _addressBookRecipientInput" id="addressbookRecipient" name="shippingName" maxlength="40" placeholder="받는 사람" value="">
 				            </label>
 				        </div>
 				    </div>
@@ -43,7 +44,7 @@
 				        </div>
 				        <div class="icon-text-field__input-container">
 				            <label for="addressbookRecipientLocation" class="icon-text-field__input-area">
-				                <input type="text" class="icon-text-field__input _addressBookRecipientInput" id="addressbookRecipientLocation" name="recipientLocation" maxlength="40" placeholder="받을 주소" value="">
+				                <input type="text" class="icon-text-field__input _addressBookRecipientInput" id="addressbookRecipientLocation" name="shippingAddress" maxlength="40" placeholder="받을 주소" value="">
 				            </label>
 				        </div>
 				    </div>
@@ -58,7 +59,7 @@
 				            </div>
 				            <div class="icon-text-field__input-container">
 				                <label for="addressbookCellphone" class="icon-text-field__input-area">
-				                    <input type="tel" class="icon-text-field__input _addressBookCellphoneInput" id="addressbookCellphone" name="recipientCellphone" placeholder="연락처" value="">
+				                    <input type="tel" class="icon-text-field__input _addressBookCellphoneInput" id="addressbookCellphone" name="receiverTel" placeholder="연락처" value="">
 				                </label>
 				            </div>
 				        </div>
@@ -76,7 +77,7 @@
 		                    	<span class="icon-text-field__text icon-text-field__text--button-label _addressBookDeliveryPreferencesDefaultSummary">배송 요청사항</span>
 		                    </button>
 		                    <label id="getDeliveryPreference" for="addressbookPreference" class="icon-text-field__input-area" style="display: none;">
-				                    <input type="text" class="icon-text-field__input _addressBookCellphoneInput" id="addressbookPreference" name="recipientPreference" value="">
+				                    <input type="text" class="icon-text-field__input _addressBookCellphoneInput" id="addressbookPreference" name="shippingPreference" value="">
 				            </label>
 			            </div>
 			        </div>
@@ -84,7 +85,7 @@
 				
 				<!-- 저장 버튼 -->
 			    <div class="addressbook__button-fixer">
-			        <button type="button" class="addressbook__button--save _addressBookFormSubmit">
+			        <button type="submit" class="addressbook__button--save _addressBookFormSubmit">
 			            <span class="addressbook__text">저장</span>
 			        </button>
 			    </div>

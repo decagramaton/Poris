@@ -8,6 +8,7 @@
 		<typeAlias alias="Shopper" type="poris.fruitlight.dto.Shopper"/><!-- 회원가입 정보 DTO -->
 		<typeAlias alias="Product" type="poris.fruitlight.dto.Product"/><!-- 상품 정보 DTO -->
 		<typeAlias alias="ProductBoard" type="poris.fruitlight.dto.ProductBoard"/><!-- 게시판 정보 DTO -->
+		<typeAlias alias="AddressBook" type="poris.fruitlight.dto.AddressBook"/><!-- 배송지 정보 DTO -->
 	</typeAliases>
 
 </configuration>
