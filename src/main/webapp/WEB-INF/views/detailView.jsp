@@ -279,7 +279,7 @@
                            <span class="product-option-title">
                                <strong>= 옵션 : 가격 =</strong>
                            </span>
-                           <span class="product-option-ico"></span>
+                           <span class="product-option-ico closed"></span>
                      	</div>
                   	 </div>
 	                     <ul class="product-options-list closed">
