@@ -315,7 +315,6 @@ function checkBuyProduct() {
 		var pnamesChecked = [];
 		var stocksChecked = [];
 		var pricesChecked = [];
-		var cnosChecked = [];
 		
 		cboxsChecked.each((index, item) => {
 			let cartItemChecked = $(item).parent().parent();
@@ -328,11 +327,9 @@ function checkBuyProduct() {
 			stocksChecked.push(cartItemStock.val());
 			pricesChecked.push(cartItemPrice);
 		});
-		cboxCouponsChecked.each((index, item) => {
-			cnosChecked.push($(item).val());
-		});
 		
 		var totalPrice = parseInt($(".finalProductPrice").html().replace(/[^0-9]/g, ""));
+		var discountPrice = parseInt($(".finalDiscountPrice").html().replace(/[^0-9]/g, ""));
 		var shippingPrice = parseInt($(".finalDeliveryPrice").html().replace(/[^0-9]/g, ""));
 		var orderPrice = parseInt($(".finalTotalPrice").html().replace(/[^0-9]/g, ""));
 		
@@ -342,7 +339,7 @@ function checkBuyProduct() {
 			+ "&stocks=" + encodeURIComponent(stocksChecked.join(','))
 			+ "&prices=" + encodeURIComponent(pricesChecked.join(','))
 			+ "&totalPrice=" + encodeURIComponent(totalPrice)
-			+ "&cnos=" + encodeURIComponent(cnosChecked.join(','))
+			+ "&discountPrice=" + encodeURIComponent(discountPrice)
 			+ "&shippingPrice=" + encodeURIComponent(shippingPrice)
 			+ "&orderPrice=" + encodeURIComponent(orderPrice);
 		

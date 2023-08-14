@@ -134,7 +134,7 @@ public class DetailViewController {
 		session.setAttribute("stockList", stocks);
 		session.setAttribute("priceList", prices);
 		session.setAttribute("totalPrice", totalPrice);
-		session.setAttribute("couponList", null);
+		session.setAttribute("discountPrice", 0);
 		session.setAttribute("shippingPrice", shippingPrice);
 		session.setAttribute("orderPrice", orderPrice);
 		

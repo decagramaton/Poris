@@ -168,7 +168,7 @@
 						</div>
 						<!-- 구매버튼 -->
 						<div class="orderBtns text-center">
-							<%-- <a class="shopping_btn" href="${pageContext.request.contextPath}">계속 쇼핑하기</a> --%>
+							<a class="shopping_btn" href="${pageContext.request.contextPath}">계속 쇼핑하기</a>
 							<span class="buyBtn">구매하기</span>
 						</div>
 					</div>

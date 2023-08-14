@@ -112,7 +112,7 @@ public class CartController {
 			@RequestParam List<Integer> stocks,
 			@RequestParam List<Integer> prices,
 			@RequestParam int totalPrice,
-			@RequestParam List<Integer> cnos,
+			@RequestParam int discountPrice,
 			@RequestParam int shippingPrice,
 			@RequestParam int orderPrice) {
 		
@@ -121,18 +121,9 @@ public class CartController {
 		session.setAttribute("stockList", stocks);
 		session.setAttribute("priceList", prices);
 		session.setAttribute("totalPrice", totalPrice);
-		session.setAttribute("couponList", cnos);
+		session.setAttribute("discountPrice", discountPrice);
 		session.setAttribute("shippingPrice", shippingPrice);
 		session.setAttribute("orderPrice", orderPrice);
-		
-		log.info("" + pnos);
-		log.info("" + pnames);
-		log.info("" + stocks);
-		log.info("" + prices);
-		log.info("" + totalPrice);
-		log.info("" + cnos);
-		log.info("" + shippingPrice);
-		log.info("" + orderPrice);
 		
 		return "redirect:/order";
 	}
