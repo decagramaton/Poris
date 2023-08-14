@@ -308,13 +308,13 @@ function checkBuyProduct() {
 		
 		cboxsChecked.each((index, item) => {
 			let cartItemChecked = $(item).parent().parent();
-			let cartItemPname = cartItemChecked.find(".product-name");
-			let cartItemStock = cartItemChecked.find(".productStock");
+			let cartItemPname = cartItemChecked.find(".product-name").val();
+			let cartItemStock = cartItemChecked.find(".productStock").val();
 			let cartItemPrice = parseInt(cartItemChecked.find(".cartItemProductPrice").html().replace(/[^0-9]/g, ""));
 			
 			pnosChecked.push($(item).val());
-			pnamesChecked.push(cartItemPname.val());
-			stocksChecked.push(cartItemStock.val());
+			pnamesChecked.push(cartItemPname);
+			stocksChecked.push(cartItemStock);
 			pricesChecked.push(cartItemPrice);
 		});
 		
