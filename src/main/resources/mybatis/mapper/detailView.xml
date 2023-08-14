@@ -21,12 +21,12 @@
 	  AND m.MEDIA_NAME like '%main1%'
    </select>
    
-	<select id="selectByBnoTest" parameterType="int" resultType="ProductBoard">
-      select b.BOARD_NO, p.PRODUCT_NO, PRODUCT_NAME, PRODUCT_PRICE, PRODUCT_OPTION, DISCOUNT_RATE, DISCOUNT_PRICE, MEDIA_NAME, MEDIA_DATA
-	  from PRODUCT p, PRODUCT_BOARD b, BOARD_MEDIA m
-	  where p.PRODUCT_NO = b.PRODUCT_NO
-      and b.BOARD_NO = m.BOARD_NO
-	  and b.BOARD_NO = 1
+	<select id="selectImgsByBno" parameterType="int" resultType="ProductBoard">
+      select MEDIA_NAME as mediaName, 
+      		 MEDIA_DATA as mediaData
+	  from PRODUCT_BOARD b, BOARD_MEDIA m
+	  where b.BOARD_NO = m.BOARD_NO
+	  and b.BOARD_NO = #{bno}
       and MEDIA_NAME like '%detailView_main%'
    </select>
    

@@ -31,7 +31,7 @@ public class DetailViewServiceImpl implements DetailViewService {
 	}
 	@Override
 	public List<ProductBoard> getImages(int bno) {
-		List<ProductBoard> list = detailViewDao.selectByBnoTest(bno);
+		List<ProductBoard> list = detailViewDao.selectImgsByBno(bno);
 		return list;
 	}
 	@Override

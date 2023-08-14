@@ -50,7 +50,11 @@ public class DetailViewController {
 		// Step2. 게시판 번호에 해당하는 데이터 load
 		ProductBoard productBoard = detailViewService.getProduct(bno);
 		productBoard.setBase64Img(Base64.getEncoder().encodeToString(productBoard.getMediaData()));
-		//List<ProductBoard> productImageList = detailViewService.getImages(bno);
+		List<ProductBoard> productImageList = detailViewService.getImages(bno);
+		
+		for(ProductBoard product : productImageList) {
+			product.setBase64Img(Base64.getEncoder().encodeToString(product.getMediaData()));
+		}
 		
 		// Step3. 상품 이름을 기준으로 옵션 데이터 load
 		List<Product> productOptionList = detailViewService.getOptions(productBoard.getProductName());
@@ -58,7 +62,7 @@ public class DetailViewController {
 		
 		// Step4. 상품 정보와 옵션 정보를 JSP에 Model으로 전달
 		model.addAttribute("productBoard", productBoard);
-		//model.addAttribute("productImageList", productImageList);
+		model.addAttribute("productImageList", productImageList);
 		model.addAttribute("productOptionList", productOptionList);
 		
 		

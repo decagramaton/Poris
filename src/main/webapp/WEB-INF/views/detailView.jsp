@@ -195,34 +195,16 @@
          <div class="top-product">
             <div class="top-product-main">
                <div class="product-image">
-                  <%-- <ul class="productItems">
-                     <li><img
-                           src="${pageContext.request.contextPath}/resources/images/cherry_sm1.jpg"
-                           id="cherry1">
-                     </li>
-                     <li><img
-                           src="${pageContext.request.contextPath}/resources/images/cherry_sm2.jpg"
-                           id="cherry2">
-                     </li>
-                     <li><img
-                           src="${pageContext.request.contextPath}/resources/images/cherry_sm3.jpg"
-                           id="cherry3">
-                     </li>
-                     <li><img
-                           src="${pageContext.request.contextPath}/resources/images/cherry_sm4.jpg"
-                           id="cherry4">
-                     </li>
-                     <li><img
-                           src="${pageContext.request.contextPath}/resources/images/cherry_sm5.jpg"
-                           id="cherry5">
-                     </li>
-                     <li><img
-                           src="${pageContext.request.contextPath}/resources/images/cherry_sm6.jpg"
-                           id="cherry6">
-                     </li>
-                  </ul> --%>
+                  	 <ul class="productItems">
+        		         <c:forEach var="productImage" items="${productImageList}">
+		                     <li><img
+		                           src="data:${productImage.mediaData};base64, ${productImage.base64Img}"
+		                           id="${productImage.mediaName}"
+		                           width="48px">
+		                     </li>
+		                 </c:forEach>
+	                  </ul>
                   <img class="productMainImage" src="data:${productBoard.mediaData};base64, ${productBoard.base64Img}"/>
-                     <%-- src="${pageContext.request.contextPath}/resources/images/cherry_main1.jpg"> --%>
                </div>
                <!-- 구매 선택 -->
                <div class="product-buy">

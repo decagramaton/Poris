@@ -37,26 +37,8 @@ function initPriceFormat() {
 
 //메인이미지 변경 동작
 function changeMain() {
-	imgId = $(event.target).attr("id");
-	switch (imgId) {
-	  case "cherry1":
-	    $(".productMainImage").attr("src", "/fruitlight/resources/images/cherry_main1.jpg");
-	    break;
-	  case "cherry2":
-		$(".productMainImage").attr("src", "/fruitlight/resources/images/cherry_main2.jpg");
-	    break;
-	  case "cherry3":
-		$(".productMainImage").attr("src", "/fruitlight/resources/images/cherry_main3.jpg");
-	    break;
-	  case "cherry4":
-		$(".productMainImage").attr("src", "/fruitlight/resources/images/cherry_main4.jpg");
-	    break;
-	  case "cherry5":
-		$(".productMainImage").attr("src", "/fruitlight/resources/images/cherry_main5.jpg");
-	    break;
-	  case "cherry6":
-		$(".productMainImage").attr("src", "/fruitlight/resources/images/cherry_main6.jpg");
-	}
+	var imgSrc = $(event.target).attr("src");
+	$(".productMainImage").attr("src", imgSrc);
 }
 
 //찜 동작
