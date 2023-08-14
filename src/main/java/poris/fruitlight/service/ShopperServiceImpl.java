@@ -38,7 +38,6 @@ public class ShopperServiceImpl implements ShopperService{
 	 */
 	@Override
 	public void insertMember(Shopper shopper) {
-		log.info(shopper.toString());
 		shopperDao.insertShopper(shopper);
 	}
 	

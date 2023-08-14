@@ -37,15 +37,15 @@
                   <div>
                      <div class="table-row">
                         <div class="table-colume">이름</div>
-                        <div id="customerName" class="table_content">${shopperInfo.name}</div>
+                        <div id="customerName" class="table_content">${shopperInfo.shopperName}</div>
                      </div>
                      <div class="table-row">
                         <div class="table-colume">이메일</div>
-                        <div id="customerEmail" class="table_content">${shopperInfo.email}</div>
+                        <div id="customerEmail" class="table_content">${shopperInfo.shopperId}</div>
                      </div>
                      <div class="table-row">
                         <div class="table-colume">휴대폰 번호</div>
-                        <div id="customerTel" class="table_content">${shopperInfo.tel}</div>
+                        <div id="customerTel" class="table_content">${shopperInfo.shopperTel}</div>
                      </div>
                   </div>
                </div>
