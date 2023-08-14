@@ -1,10 +1,9 @@
 @charset "UTF-8";
 
-body, div, dl, dt, dd, ul, ol, menu, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, blockquote, th, td, p {
+* {
     margin: 0;
     padding: 0;
 }
-
 .headerLogo{
 	text-align: center;	
 }
@@ -38,8 +37,12 @@ body, div, dl, dt, dd, ul, ol, menu, li, h1, h2, h3, h4, h5, h6, pre, form, fiel
 	margin-top: 15px;
 }
 .headerIcon > a {
-	padding-left : 7px;
-	border-left : 1px solid gray;
+   padding-left : 7px;
+   border-left : 1px solid gray;
+   color: black;
+}
+.headerIcon > a:hover {
+   color : black;
 }
 .headerIcon > a:first-child {
 	border-left : none;
@@ -49,25 +52,7 @@ body, div, dl, dt, dd, ul, ol, menu, li, h1, h2, h3, h4, h5, h6, pre, form, fiel
 	width : 100%;
 	overflow: hidden;
 }
-.menu-btn1 {
-	width : 20px;
-	height : 20px;
-	cursor: pointer;
-    background-image: url(//img1a.coupangcdn.com/image/coupang/common/pc_gnb_arrow-right@2x.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-color : white;
-    border : 1px solid transparent;
-}
-.menu-btn2 {
-	width : 20px;
-	height: 20px;
-    background-image: url(//img1a.coupangcdn.com/image/coupang/common/pc_gnb_arrow-left-gray@2x.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-color : white;
-    border : 1px solid transparent;
-}
+
 .rowbtn2 {
 	display: flex;
 	flex-wrap: nowrap;	
@@ -94,4 +79,54 @@ body, div, dl, dt, dd, ul, ol, menu, li, h1, h2, h3, h4, h5, h6, pre, form, fiel
 .menus > label > a:hover {
 	color : #4285f4;
 	text-decoration: underline;
+}
+
+
+.menu-btn1 {
+   width : 20px;
+   height : 20px;
+   cursor: pointer;
+    background-image: url(//img1a.coupangcdn.com/image/coupang/common/pc_gnb_arrow-right@2x.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color : white;
+    border : 1px solid transparent;
+}
+.menu-btn2 {
+   width : 20px;
+   height: 20px;
+    background-image: url(//img1a.coupangcdn.com/image/coupang/common/pc_gnb_arrow-left-gray@2x.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color : white;
+    border : 1px solid transparent;
+}
+
+
+
+
+
+
+
+/* 실험용 코드 */
+.gnb_menu_box {
+	display: inline-block;
+    width: 1088px;
+    vertical-align: top;
+}
+
+.depth0 > li {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.depth0 > li > a {
+    display: inline-block;
+    padding: 0 50px 0 50px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 49px;
+    color: #666666;
 }
