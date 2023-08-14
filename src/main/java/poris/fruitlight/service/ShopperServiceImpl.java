@@ -20,14 +20,26 @@ public class ShopperServiceImpl implements ShopperService{
 	
 	
 	@Override
-	public boolean isMember(String userId) {
-
-		return false;
+	public boolean isMember(Shopper shopper) {
+		
+		Shopper dbShopper = shopperDao.selectShopper(shopper);
+		
+		if(dbShopper == null) {
+			return false;
+		} else {
+			return true;
+		}
 	}
 	
+	/**
+	 * 신규 회원을 DB에 INSERT하는 메소드
+	 * @author 고재승
+	 * @since 2023.08.14
+	 */
 	@Override
 	public void insertMember(Shopper shopper) {
-		
+		log.info(shopper.toString());
+		shopperDao.insertShopper(shopper);
 	}
 	
 	
@@ -38,8 +50,6 @@ public class ShopperServiceImpl implements ShopperService{
 	@Override
 	public void getAllShopper() {
 		List<Shopper> shopperList = shopperDao.selectAllShopper();
-		
-		log.info(shopperList.toString());
 	}
 	
 	/**
@@ -52,7 +62,6 @@ public class ShopperServiceImpl implements ShopperService{
 		Shopper dbShopper = shopperDao.selectShopper(shopper);
 		
 		if(dbShopper != null) {
-			log.info(dbShopper.toString());
 			return dbShopper;
 		} else {
 			return null;
@@ -60,9 +69,13 @@ public class ShopperServiceImpl implements ShopperService{
 	}
 	
 	
+	/**
+	 * 자동 로그인 상태 정보를 DB에 UPDATE하는 메소드
+	 * @author 고재승
+	 * @since 2023.08.14 
+	 */
 	@Override
 	public void setShopperAutoLogin(Shopper shopper) {
 		shopperDao.updateShopperAutoLoginState(shopper);
-		
 	}
 }

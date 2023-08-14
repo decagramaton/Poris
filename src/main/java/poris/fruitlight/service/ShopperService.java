@@ -18,7 +18,7 @@ public interface ShopperService {
 	 * @return True or False
 	 * DB에 해당 회원의 존재 유무만 확인
 	 */
-	public boolean isMember(String userId);
+	public boolean isMember(Shopper shopper);
 	
 	
 	/**
