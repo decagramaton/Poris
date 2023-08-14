@@ -60,7 +60,7 @@
 							<div class="exist">
 								<c:forEach var="mypageOrdered" items="${mypageOrdered}">
 								<div class="order-date-line">
-									<div class="left" id="ordereddate"><fmt:formatDate value="${mypageOrdered.ordereddate}" pattern="yyyy.MM.dd"/> 주문</div>
+									<div class="left" id="ordereddate"><fmt:formatDate value="${mypageOrdered.ORDER_DATE}" pattern="yyyy.MM.dd"/> 주문</div>
 									<div class="right"></div>
 								</div>
 									<div class="order-product">
@@ -70,11 +70,10 @@
 													<td class="order-product-left">
 														<div class="top">
 															<div class="left">
-																<span>${mypageOrdered.deliverystate}</span>
+																<span>배송 완료</span>
 																<span class="dot">
 																	<span></span>
 																</span>
-																<span class="arrivedate"><fmt:formatDate value="${mypageOrdered.deliverydate}" pattern="yyyy년 MM월 dd일 	"/> 도착</span>
 															</div>
 														</div>
 														<div class="bottom">
@@ -87,12 +86,12 @@
 																			<div>
 																				<a href="#">
 																					<img height="16">
-																					<span style="color:#111111";>${mypageOrdered.name}</span>
+																					<span style="color:#111111";>${mypageOrdered.PRODUCT_NAME}</span>
 																				</a>
 																				<div>
 																					<div class="price-ammount">
-																						<span class="price">${mypageOrdered.price}원 &nbsp;</span>
-																						<span class="ammount">${mypageOrdered.stock}개</span>
+																						<span class="price">${mypageOrdered.DISCOUNT_PRICE}원 &nbsp;</span>
+																						<span class="ammount">${mypageOrdered.STOCK}개</span>
 																					</div>
 																					<div class="gotocart">
 																						<button>장바구니 담기</button>

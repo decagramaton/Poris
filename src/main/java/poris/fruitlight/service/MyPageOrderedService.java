@@ -2,8 +2,8 @@ package poris.fruitlight.service;
 
 import java.util.List;
 
-import poris.fruitlight.dto.MyPageOrdered;
+import poris.fruitlight.dto.OrderHistoryOrderList;
 
 public interface MyPageOrderedService {
-	public List<MyPageOrdered> getList(int pid);
+    public List<OrderHistoryOrderList> getList(int sid);
 }

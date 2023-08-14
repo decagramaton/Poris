@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="poris.fruitlight.dao.OrderHistoryDao">
+   <select id="SelectOrderHistory" resultType="poris.fruitlight.dto.OrderHistoryOrderList">
+       SELECT oh.ORDER_NO as ORDER_NO,
+             oh.SHOPPER_NO as SHOPPER_NO,
+             PRODUCT_NAME,
+             SHIPPING_NAME,
+             SHIPPING_ADDRESS,
+             ORDER_DATE,
+             MEDIA_DATA,
+             p.DISCOUNT_PRICE as DISCOUNT_PRICE,
+             STOCK 
+          FROM ORDER_HISTORY oh
+          JOIN RECEIPT_HISTORY rh ON oh.ORDER_NO = rh.ORDER_NO
+          JOIN SHIPPING_ADDRESS sa ON oh.ADDRESS_NO = sa.ADDRESS_NO
+          JOIN SHOPPER s ON oh.SHOPPER_NO = s.SHOPPER_NO
+          JOIN PRODUCT p ON rh.PRODUCT_NO = p.PRODUCT_NO
+            JOIN PRODUCT_BOARD pb ON p.PRODUCT_NO = pb.PRODUCT_NO
+          JOIN BOARD_MEDIA bm ON pb.BOARD_NO = bm.BOARD_NO
+          WHERE oh.SHOPPER_NO = #{pid} AND bm.MEDIA_NAME LIKE '%list_thumbnail%'
+   </select>
+ 
+</mapper>

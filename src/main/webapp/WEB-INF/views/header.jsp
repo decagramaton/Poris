@@ -29,10 +29,10 @@
 						<img src="${pageContext.request.contextPath}/resources/images/cart.png" width="40" height="40"/>
 					</a>
 					<c:if test="${ShopperInfo != null}">
-						<a class="mr-2 mt-2 text-right" href="mypageOrdered">
-							<img src="${pageContext.request.contextPath}/resources/images/person.png" width="40" height="40"/>
-						</a>
-					</c:if> 					
+		            	<a class="mr-2 mt-2 text-right" href="mypageOrdered?sid=${ShopperInfo.shopperNo}">
+		                	<img src="${pageContext.request.contextPath}/resources/images/person.png" width="40" height="40"/>
+		                </a>
+		            </c:if>				
 				</div>
 			</div>
 			<div id="menu" class="menu">
