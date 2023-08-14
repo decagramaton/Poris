@@ -67,12 +67,12 @@ public class DetailViewController {
 		
 		
 		// Step5. 상품 게시판에 존재하는 상품문의 게시판 개수 load
-		int totalBoardNum = detailViewService.getTotalProductInquiryNum(bno);
+		int totalProductInquiryNum = detailViewService.getTotalProductInquiryNum(bno);
 		
 		
 		// Step6-1. Pager 객체 생성 (게시글 행 수, 페이지 개수, 총 페이지 개수, 페이지 시작 번호)
 		// Step6-2. Pager 기반 상품 문의 게시판 생성
-		Pager productInquiryPager = new Pager(5, 10, totalBoardNum, 1);
+		Pager productInquiryPager = new Pager(5, 5, totalProductInquiryNum, 1);
 		List<ProductInquiry> productInquiryList = detailViewService.getProductInquiryList(productInquiryPager, bno);
 		
 		model.addAttribute("productInquiryPager", productInquiryPager);
@@ -166,32 +166,42 @@ public class DetailViewController {
 	 */
 	//상품문의 페이저
 	@GetMapping("/detailView/moveInquiryPage")
+	@ResponseBody
 	public String moveInquiryPage(String pageNo, Model model, HttpSession session) {
-		//브라우저에서 pageNo가 넘어오지 않았을 경우
-		if(pageNo == null) {
-			//세션에 저장되어 있는지 확인
-			pageNo = (String) session.getAttribute("pageNo");
-			//세선에 저장되어 있지 않다면 "1"로 초기화
-			if(pageNo == null) {
-				pageNo = "1";
-			}
+		/*
+		// Step1. Session에 있는 게시판 번호 get
+		int bno = Integer.parseInt(session.getAttribute("BoardNo").toString());
+		
+		// Step2. 게시판 번호에 해당하는 데이터 load
+		ProductBoard productBoard = detailViewService.getProduct(bno);
+		productBoard.setBase64Img(Base64.getEncoder().encodeToString(productBoard.getMediaData()));
+		List<ProductBoard> productImageList = detailViewService.getImages(bno);
+		
+		for(ProductBoard product : productImageList) {
+			product.setBase64Img(Base64.getEncoder().encodeToString(product.getMediaData()));
 		}
-		//문자열을 정수로 변환 후 세션에 pageNo 저장
-		int ProductInquiryPageNo = Integer.parseInt(pageNo);
-		session.setAttribute("ProductInquiryPageNo", ProductInquiryPageNo);
 		
-		/*int totalBoardNum = detailViewService.getTotalProductInquiryNum(bno);
-		Pager productInquiryPager = new Pager(5, 10, totalBoardNum, ProductInquiryPageNo);
+		// Step3. 상품 이름을 기준으로 옵션 데이터 load
+		List<Product> productOptionList = detailViewService.getOptions(productBoard.getProductName());
 		
+		
+		// Step4. 상품 정보와 옵션 정보를 JSP에 Model으로 전달
+		model.addAttribute("productBoard", productBoard);
+		model.addAttribute("productImageList", productImageList);
+		model.addAttribute("productOptionList", productOptionList);
+		*/
+		
+		// Step5. 상품 게시판에 존재하는 상품문의 게시판 개수 load
+		int bno = Integer.parseInt(session.getAttribute("BoardNo").toString());
+		int totalProductInquiryNum = detailViewService.getTotalProductInquiryNum(bno);
+		
+		// Step6-1. Pager 객체 생성 (게시글 행 수, 페이지 개수, 총 페이지 개수, 페이지 시작 번호)
+		// Step6-2. Pager 기반 상품 문의 게시판 생성
+		Pager productInquiryPager = new Pager(5, 5, totalProductInquiryNum, Integer.parseInt(pageNo));
 		List<ProductInquiry> productInquiryList = detailViewService.getProductInquiryList(productInquiryPager, bno);
 		
 		model.addAttribute("productInquiryPager", productInquiryPager);
 		model.addAttribute("productInquiryList", productInquiryList);
-		
-		Product product = detailViewService.getProduct(1);
-		model.addAttribute("product", product);*/
-		//List<Product> optionList = detailViewService.getOptions(product.getName());
-		//model.addAttribute("optionList", optionList);
 		return "detailView";
 	}
 }

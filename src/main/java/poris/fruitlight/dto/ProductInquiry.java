@@ -23,4 +23,5 @@ public class ProductInquiry {
 	private String ANSWER_CONTENT;	//답변내용
 	@DateTimeFormat(pattern="yyyy/MM/dd HH:mm:ss")
 	private Date ANSWER_DATE;		//답변날짜
+	private String SHOPPER_NAME;	//질문자
 }

@@ -1791,6 +1791,11 @@ a {
     border: 1px solid #95CF59;
     color: #95CF59;
 }
+.inquiry-page-btns .page-num.selected {
+	line-height: 29px;
+    border: 1px solid #95CF59;
+    color: #95CF59;
+}
 
 
 

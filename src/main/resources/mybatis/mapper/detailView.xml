@@ -62,14 +62,15 @@
    
    <select id="selectProductInquiryPager" parameterType="poris.fruitlight.dto.Pager" resultType="poris.fruitlight.dto.ProductInquiry">
       <![CDATA[
-         select rnum, INQUIRY_NO, INQUIRY_CONTENT, INQUIRY_DATE, EMPTANSWER, ANSWER_CONTENT, ANSWER_DATE
+         select rnum, INQUIRY_NO, INQUIRY_CONTENT, INQUIRY_DATE, EMPTANSWER, ANSWER_CONTENT, ANSWER_DATE, SHOPPER_NAME
          from (
-            select rownum as rnum, INQUIRY_NO, INQUIRY_CONTENT, INQUIRY_DATE, EMPTANSWER, ANSWER_CONTENT, ANSWER_DATE
+            select rownum as rnum, INQUIRY_NO, INQUIRY_CONTENT, INQUIRY_DATE, EMPTANSWER, ANSWER_CONTENT, ANSWER_DATE, SHOPPER_NAME
             from (
-               select INQUIRY_NO, INQUIRY_CONTENT, INQUIRY_DATE, EMPTANSWER, ANSWER_CONTENT, ANSWER_DATE
-               from PRODUCT_INQUIRY
-               where BOARD_NO = #{BOARD_NO}
-               order by INQUIRY_NO desc
+               select INQUIRY_NO, INQUIRY_CONTENT, INQUIRY_DATE, EMPTANSWER, ANSWER_CONTENT, ANSWER_DATE, SHOPPER_NAME
+               from PRODUCT_INQUIRY i, SHOPPER s
+               where i.SHOPPER_NO = s.SHOPPER_NO
+               and BOARD_NO = #{BOARD_NO}
+               order by INQUIRY_DATE desc
             )
             where rownum <= #{endRowNo}
          )

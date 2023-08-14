@@ -1,8 +1,36 @@
-$(init);
+$(document).ready(function () {
+  /*// 이전 페이지의 스크롤 위치를 저장하는 sessionStorage 사용
+  const scrollPosition = sessionStorage.getItem('scrollPosition');
+  if (scrollPosition) {
+    window.scrollTo(0, parseInt(scrollPosition));
+    sessionStorage.removeItem('scrollPosition');
+  }
+
+  // 이전 페이지의 스크롤 위치를 저장하는 함수
+  function saveScrollPosition() {
+    const currentPosition = window.scrollY;
+    sessionStorage.setItem('scrollPosition', currentPosition.toString());
+    
+    // 페이지를 떠난 후 1분(60000ms) 뒤에 스크롤 위치 정보를 삭제
+    setTimeout(function () {
+      sessionStorage.removeItem('scrollPosition');
+    }, 60000);
+  }
+
+  // 이동하기 전에 스크롤 위치를 저장
+  $(window).on('beforeunload', saveScrollPosition);*/
+
+  init(); // 초기화 함수 호출
+});
+
+//$(init);
 
 function init() {
 	//금액 xxx,xxx원 적용
 	initPriceFormat();
+	
+	//상품문의 페이저
+	//initProductInquiry();
 	
 	//메인이미지 변경 동작
 	$(".productItems li img").hover(changeMain);
@@ -19,6 +47,9 @@ function init() {
 	//상품옵션 삭제 동작
 	$(".productDelete").click(deleteOption);
 	
+	//상품문의 페이저 버튼
+	$(".inquiry-btn").click(changeInquiryPage);
+	
 	//장바구니 담기
 	$(".product-cart-btn").click(addCart);
 	//바로구매
@@ -26,7 +57,7 @@ function init() {
 }
 //금액 xxx,xxx원 적용
 function initPriceFormat() {
-	$(".total-price").html(parseInt($(".total-price").html()).toLocaleString("ko-KR") + "원")
+	$(".total-price").html(parseInt($(".total-price").html()).toLocaleString("ko-KR") + "원");
 	$(".option-item-price").each((index, item) => {
 		$(item).html(" : " + parseInt($(item).html().replace(/[^0-9]/g, "")).toLocaleString("ko-KR") + "원");
     });
@@ -145,6 +176,21 @@ function deleteOption() {
 	$(event.target).parent().parent().removeClass("selected");
 }
 
+function changeInquiryPage() {
+	var toGoPage = $(event.target).prev().val();
+	
+	$.ajax({
+		url: "/fruitlight/detailView/moveInquiryPage",
+		method: "get",
+		data: {
+			pageNo:toGoPage
+		},
+		success: function(data) {
+			
+		}
+	});
+}
+
 //장바구니 담기
 function addCart() {
 	var selectedItems = $(".product-option-tableRow.selected");
@@ -167,7 +213,9 @@ function addCart() {
 				pnos:pnos,
 				stocks:stocks
 			},
-			success: function(data) {}
+			success: function(data) {
+				
+			}
 		});
 		
 		if(confirm("선택하신 상품이 장바구니에 담겼습니다.\n장바구니로 이동하시겠습니까?")) {
