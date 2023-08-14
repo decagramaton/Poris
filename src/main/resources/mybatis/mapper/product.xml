@@ -17,7 +17,7 @@
          WHERE p.PRODUCT_NO = b.PRODUCT_NO AND b.BOARD_NO = m.BOARD_NO AND (p.PRODUCT_NO IN (
          SELECT DISTINCT BOARD_NO
          		FROM PRODUCT_BOARD
-                WHERE (p.PRODUCT_NO IN(21,26,29,33)) AND MEDIA_NAME LIKE '%list%'
+                WHERE (p.PRODUCT_NO IN(21,26,29,33)) AND MEDIA_NAME LIKE '%main_thumbnail%'
                 ))
    </select>
    
@@ -27,7 +27,7 @@
          WHERE p.PRODUCT_NO = b.PRODUCT_NO AND b.BOARD_NO = m.BOARD_NO AND (p.PRODUCT_NO IN (
           SELECT DISTINCT BOARD_NO
          		FROM PRODUCT_BOARD
-                WHERE (p.PRODUCT_NO IN(1,4,9,12,15,18,46,48)) AND MEDIA_NAME LIKE '%list%'
+                WHERE (p.PRODUCT_NO IN(1,4,9,12,15,18,46,48)) AND MEDIA_NAME LIKE '%main_thumbnail%'
                 ))
    </select>
    
@@ -37,7 +37,7 @@
          WHERE p.PRODUCT_NO = b.PRODUCT_NO AND b.BOARD_NO = m.BOARD_NO AND (p.PRODUCT_NO IN(
          	SELECT DISTINCT b.BOARD_NO
          		FROM PRODUCT_BOARD b
-                WHERE (p.PRODUCT_NO IN(1,29,43)) AND MEDIA_NAME LIKE '%list%'
+                WHERE (p.PRODUCT_NO IN(1,29,43)) AND MEDIA_NAME LIKE '%main_thumbnail%'
          ))
    </select>
    
@@ -47,7 +47,7 @@
          WHERE p.PRODUCT_NO = b.PRODUCT_NO AND b.BOARD_NO = m.BOARD_NO AND (p.PRODUCT_NO IN(
          	SELECT DISTINCT b.BOARD_NO
          		FROM PRODUCT_BOARD b
-                WHERE (p.PRODUCT_NO IN(1,29,43,50,53,56)) AND MEDIA_NAME LIKE '%list%'
+                WHERE (p.PRODUCT_NO IN(1,29,43,50,53,56)) AND MEDIA_NAME LIKE '%main_thumbnail%'
          ))
    </select>
    
