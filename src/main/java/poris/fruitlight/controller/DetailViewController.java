@@ -140,8 +140,6 @@ public class DetailViewController {
 			oderParam.setProductOption(options.get(i));
 			oderParam.setProductStock(stocks.get(i));
 			oderParam.setProductPrice(prices.get(i));
-			
-			orderParamList.add(oderParam);
 		}
 		
 		session.setAttribute("orderParamList", orderParamList);

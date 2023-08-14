@@ -309,14 +309,14 @@ function checkBuyProduct() {
 		
 		cboxsChecked.each((index, item) => {
 			let cartItemChecked = $(item).parent().parent();
-			let cartItemPname = cartItemChecked.find(".product_option").html();
-			let cartItemOption = cartItemChecked.find(".product-name").val();
+			let cartItemPname = cartItemChecked.find(".product-name").val();
+			let cartItemOption = cartItemChecked.find(".product_option").html();
 			let cartItemStock = cartItemChecked.find(".productStock").val();
 			let cartItemPrice = parseInt(cartItemChecked.find(".cartItemProductPrice").html().replace(/[^0-9]/g, ""));
 			
 			pnosChecked.push($(item).val());
 			pnamesChecked.push(cartItemPname);
-			options.push(selectedItemOption);
+			optionsChecked.push(cartItemOption);
 			stocksChecked.push(cartItemStock);
 			pricesChecked.push(cartItemPrice);
 		});
