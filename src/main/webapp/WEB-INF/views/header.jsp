@@ -12,7 +12,7 @@
 					로그아웃
 				</a>
 			</c:if>
-				<a class="mr-2 mt-2 text-right" href="order">
+				<a class="mr-2 mt-2 text-right" href="cart">
 					장바구니
 				</a>
 			<c:if test="${ShopperInfo != null}">

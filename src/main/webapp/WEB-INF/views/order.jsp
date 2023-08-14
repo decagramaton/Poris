@@ -99,12 +99,12 @@
                <div class="bundle-info-title">배송 목록</div>
                <div class="bundle-info-box">
                   <div class="bundle-info-item-list">
-                  <c:forEach var="item" items="${deliveryInfo}">
+                  <c:forEach var="item" items="${orderParamList}">
                   	<div class="bundle-info-item-box">
                   		<div class="bundle-info-item">
-                  			<p>${item.name}</p>
+                  			<p>${item.productName}, ${item.productOption}</p>
                   		</div>
-                  		<div class="bundle-info-item-descript">수량 ${item.stock}개 / ${item.productPrice}원 </div>
+                  		<div class="bundle-info-item-descript">수량 ${item.productStock}개 / ${item.productPrice}원 </div>
                   	</div>
                   </c:forEach>        
                   </div>
@@ -118,23 +118,43 @@
                <div>
                   <div class="table-row">
                      <div class="table-colume">총상품가격</div>
-                     <div id="total_price" class="table_content">21,710원</div>
+                     <c:if test="${totalPrice == null}">
+	                     <div id="total_price" class="table_content">0 원</div>
+                     </c:if>
+                     <c:if test="${totalPrice != null}">
+	                     <div id="total_price" class="table_content">${totalPrice}원</div>
+                     </c:if>
                   </div>
                   <div class="table-row">
                      <div class="table-colume">할인금액</div>
                      <div class="table_content">
-                        <div id="sale_coupon" style="display: inline-block; color:red; width: 100px;">0원</div>
+                     	<c:if test="${discountPrice == null}">
+	                     	<div id="sale_coupon" style="display: inline-block; color:red; width: 100px;">0 원</div>
+	                    </c:if>
+	                    <c:if test="${discountPrice != null}">
+		                     <div id="sale_coupon" style="display: inline-block; color:red; width: 100px;">${discountPrice} 원</div>
+	                    </c:if>
                      </div>
                   </div>
                   <div class="table-row">
                      <div class="table-colume">배송비</div>
                      <div class="table_content">
-                        <div id="delevery_price" style="display: inline-block; width: 100px;">0원</div>
+                     	<c:if test="${shippingPrice == null}">
+	                     	<div id="delevery_price" style="display: inline-block; width: 100px;">0 원</div>
+	                    </c:if>
+	                    <c:if test="${shippingPrice != null}">
+		                    <div id="delevery_price" style="display: inline-block; width: 100px;">${shippingPrice} 원</div>
+	                    </c:if>
                      </div>
                   </div>
                   <div class="table-row">
                      <div class="table-colume">총결제금액</div>
-                     <div id="total_payment_price" class="table_content">21,710원</div>
+                     <c:if test="${orderPrice == null}">
+                     	 <div id="total_payment_price" class="table_content">0 원</div>
+                     </c:if>
+                     <c:if test="${orderPrice != null}">
+	                     <div id="total_payment_price" class="table_content">${orderPrice} 원</div>
+                     </c:if>
                   </div>
                   <div class="table-row">
                      <div class="table-colume">결제방법</div>
