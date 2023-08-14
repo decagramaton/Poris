@@ -201,18 +201,21 @@ function buy() {
 	} else {
 		var pnos = [];
 		var pnames = [];
+		var options = [];
 		var stocks = [];
 		var prices = [];
 		var totalPrice = 0;
 		selectedItems.each(function(index, item) {
 			let selectedItemPno = $(item).find(".product-option-pid").val();
 			let selectedItemPname = $(item).find(".product-option-pname").val();
+			let selectedItemOption = $(item).find(".product-option-option").val();
 			let selectedItemStock = $(item).find(".product-quantity-input").val();
 			let selectedItemPrice = parseInt($(item).find(".product-option-originalPrice").val());
 			totalPrice += selectedItemPrice;
 			
 			pnos.push(selectedItemPno);
 			pnames.push(selectedItemPname);
+			options.push(selectedItemOption);
 			stocks.push(selectedItemStock);
 			prices.push(selectedItemPrice);
 		});
@@ -229,6 +232,7 @@ function buy() {
 		location.href = "detailView/buyDirect?"
 			+ "pnos=" + encodeURIComponent(pnos.join(','))
 			+ "&pnames=" + encodeURIComponent(pnames.join(','))
+			+ "&options=" + encodeURIComponent(options.join(','))
 			+ "&stocks=" + encodeURIComponent(stocks.join(','))
 			+ "&prices=" + encodeURIComponent(prices.join(','))
 			+ "&totalPrice=" + encodeURIComponent(totalPrice)

@@ -74,7 +74,7 @@
 						            				<a href="#">
 							             				${cartProduct.PRODUCT_NAME}, 
 							            				<span class="product_option">${cartProduct.PRODUCT_OPTION}</span>
-							            				<input type="hidden" class="product-name" value="${cartProduct.PRODUCT_NAME}, ${cartProduct.PRODUCT_OPTION}"/>
+							            				<input type="hidden" class="product-name" value="${cartProduct.PRODUCT_NAME}"/>
 							            			</a>
 						            			</div>
 						            		</div>

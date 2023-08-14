@@ -111,6 +111,7 @@ public class CartController {
 			HttpSession session,
 			@RequestParam List<Integer> pnos, 
 			@RequestParam List<String> pnames,
+			@RequestParam List<String> options,
 			@RequestParam List<Integer> stocks,
 			@RequestParam List<Integer> prices,
 			@RequestParam int totalPrice,
@@ -124,6 +125,7 @@ public class CartController {
 			OrderParam oderParam = new OrderParam();
 			oderParam.setProductNo(pnos.get(i));
 			oderParam.setProductName(pnames.get(i));
+			oderParam.setProductOption(options.get(i));
 			oderParam.setProductStock(stocks.get(i));
 			oderParam.setProductPrice(prices.get(i));
 			

@@ -318,7 +318,8 @@
                               	<tr class="product-option-tableRow ${optionProduct.PRODUCT_NO}">
                                   <td class="product-option-table-name">
                                   	  <input type="hidden" class="product-option-pid" id="${optionProduct.PRODUCT_NO}" value="${optionProduct.PRODUCT_NO}"/>
-                                  	  <input type="hidden" class="product-option-pname" id="${optionProduct.PRODUCT_OPTION}" value="${optionProduct.PRODUCT_NAME}, ${optionProduct.PRODUCT_OPTION}"/>
+                                  	  <input type="hidden" class="product-option-pname" id="${optionProduct.PRODUCT_OPTION}" value="${optionProduct.PRODUCT_NAME}"/>
+                                  	  <input type="hidden" class="product-option-option" id="${optionProduct.PRODUCT_OPTION}" value="${optionProduct.PRODUCT_OPTION}"/>
                                       ${optionProduct.PRODUCT_OPTION}
                                   </td>
                                   <td class="product-option-table-quantity">

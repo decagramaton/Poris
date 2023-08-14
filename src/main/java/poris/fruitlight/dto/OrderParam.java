@@ -11,6 +11,7 @@ import lombok.Data;
 public class OrderParam {
 	private int productNo;
 	private String productName;
+	private String productOption;
 	private int productStock;
 	private int productPrice;
 }
