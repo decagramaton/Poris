@@ -24,11 +24,11 @@ function init() {
 	validationAcceptAgreement = false;
 	
     $("#user_id").click(checkEmptyUserID);
-    $("#user_pw").mouseout(checkEmptyUserID);
+    $("#user_id").on("blur",checkEmptyUserID);
     $("#user_id").keyup(checkPattenUserID);
 
     $("#user_pw").click(checkEmptyPassword);
-    $("#user_pw").mouseout(checkEmptyPassword);
+    $("#user_pw").on("blur",checkEmptyUserID);
     $("#user_pw").keyup(checkPattenPassword);
     
     $("#user_pw_check").click(checkEmptyAgainPassword);
