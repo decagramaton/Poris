@@ -16,4 +16,5 @@ public interface ShopperDao {
 	public List<Shopper> selectAllShopper();
 	public Shopper selectShopper(Shopper shopper);
 	public void updateShopperAutoLoginState(Shopper shopper);
+	public void insertShopper(Shopper shopper);
 }

@@ -32,4 +32,9 @@
 		WHERE SHOPPER_NO=#{shopperNo}
 	</update>
 	
+	<insert id="insertShopper" parameterType="Shopper">
+		INSERT INTO SHOPPER
+		VALUES(SHOPPER_NO_SEQ.NEXTVAL, #{shopperId}, #{shopperPw}, #{shopperName}, #{shopperTel}, '0')
+	</insert>
+	
 </mapper>

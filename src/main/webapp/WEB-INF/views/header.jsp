@@ -15,15 +15,24 @@
 					</form>
 				</div>
 				<div id="headerIcon" class="headerIcon">
+					<c:if test="${ShopperInfo == null}">
+						<a class="mr-2 mt-2 text-right" href="login">
+							<img src="${pageContext.request.contextPath}/resources/images/loginicon.png" width="40" height="40"/>
+						</a>
+					</c:if>
+					<c:if test="${ShopperInfo != null}">
+						<a class="mr-2 mt-2 text-right" href="logout">
+							<img src="${pageContext.request.contextPath}/resources/images/logouticon.png" width="40" height="40"/>
+						</a>
+					</c:if>
 					<a class="mr-2 mt-2 text-right" href="order">
 						<img src="${pageContext.request.contextPath}/resources/images/cart.png" width="40" height="40"/>
 					</a>
-					<a class="mr-2 mt-2 text-right" href="login">
-						<img src="${pageContext.request.contextPath}/resources/images/loginicon.png" width="40" height="40"/>
-					</a>
-					<a class="mr-2 mt-2 text-right" href="mypageOrdered">
-						<img src="${pageContext.request.contextPath}/resources/images/person.png" width="40" height="40"/>
-					</a>   					
+					<c:if test="${ShopperInfo != null}">
+						<a class="mr-2 mt-2 text-right" href="mypageOrdered">
+							<img src="${pageContext.request.contextPath}/resources/images/person.png" width="40" height="40"/>
+						</a>
+					</c:if> 					
 				</div>
 			</div>
 			<div id="menu" class="menu">
