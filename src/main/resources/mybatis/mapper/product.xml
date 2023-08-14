@@ -7,7 +7,7 @@
          WHERE p.PRODUCT_NO = b.PRODUCT_NO AND b.BOARD_NO = m.BOARD_NO AND (p.PRODUCT_NO IN(
          	SELECT DISTINCT BOARD_NO
          		FROM PRODUCT_BOARD
-                WHERE (p.PRODUCT_NO IN(37,41,43)) AND MEDIA_NAME LIKE '%main%'
+                WHERE (p.PRODUCT_NO IN(37,41,43)) AND MEDIA_NAME LIKE '%banner%'
          ))
    </select>
    
