@@ -7,21 +7,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/main" type="image/x-icon" />
-    <title>쿠팡 주문/결제 페이지</title>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
+    <title>푸릇라이트 - 결제 페이지</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header.css">
+    <script src="${pageContext.request.contextPath}/resources/javascript/header.js"></script>
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/order_style.css">
     <script src="${pageContext.request.contextPath}/resources/javascript/order.js"></script>
+    
 
 </head>
 <body>
-    <header class="header-frame">
-      <div class="header-logo">
-         <a class="main-logo" href="http://www.coupang.com/">
-            <img src="/fruitlight/resources/images/fruitlight_logo.png" width="260">
-         </a>
-      </div>
-    </header>
+    <%@ include file="/WEB-INF/views/header.jsp" %>
 
     <section id="body">
       <div class="middle container">

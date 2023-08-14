@@ -127,7 +127,6 @@
     background-color: #A0DE5F;
     color: #fff;
     border: 0;
-    transition: box-shadow .25s ease;
     min-width: 70px;
     font-weight: bold;
     margin-left: 10px;
@@ -182,7 +181,6 @@
 }
 
 .addressbook__icon--plus {
-    background-image: url(https://static.coupangcdn.com/image/static/identity/sprite-identity.20180801.svg),none;
     background-size: 110px 110px;
     display: inline-block;
     overflow: hidden;
