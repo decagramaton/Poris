@@ -59,7 +59,7 @@ function menunext(){
       $("#menus").css("transform","translateX(-480px)");
    }
    if(catehandle5.matches === true) {
-      $("#menus").css("transform","translateX(-300px)");
+      $("#menus").css("transform","translateX(-320px)");
    }
 }
 
@@ -133,3 +133,16 @@ catehandle2.addEventListener("change", viewChangeHandler2);
 catehandle3.addEventListener("change", viewChangeHandler3);
 catehandle4.addEventListener("change", viewChangeHandler4);
 catehandle5.addEventListener("change", viewChangeHandler5);
+
+// 카테고리명에 맞는 검색기능에 ${searchKeyword}를 누르자마자 그에 맞게 직접 부여해주기 위한 js
+// searchLink가 붙은 모든 클래스를 찾아 클릭 시 data-search에 있는 값을 searchKeyword에 저장 후, 페이지 이동
+var searchLinks = document.querySelectorAll('.searchLink');
+for (var i = 0; i < searchLinks.length; i++) {
+    searchLinks[i].addEventListener('click', function(event) {
+        event.preventDefault();
+        var searchKeyword = this.getAttribute('data-search');
+        
+        // 검색어 값을 직접 설정하여 페이지 이동 처리
+        window.location.href = 'list?search=' + searchKeyword;
+    });
+}

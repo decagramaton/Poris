@@ -25,10 +25,8 @@
 						<h3>검색 내용 : </h3>
 					</div>
 					<div id="main-serve">
-						<span><a href="#">낮은가격순</a></span>
-						<span><a href="#">높은가격순</a></span>
-						<span><a href="#">리뷰순</a></span>
-						<span><a href="#">별점순</a></span>
+						<span><a href="/fruitlight/list?search=${searchKeyword}&sort=lowPrice">낮은가격순</a></span>
+						<span><a href="/fruitlight/list?search=${searchKeyword}&sort=highPrice">높은가격순</a></span>
 					</div>
 					<div class="productListContainer container">
 						<div class ="row">

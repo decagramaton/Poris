@@ -37,28 +37,28 @@
 		<div class="gnb_menu_box">
     		<ul id="menus" class="depth0 gnb_menu0" style="overflow: visible; height: 100%; width:940px">
     			<li>
-		            <a href="list?search=못난이" class="">못난이 과일</a>
+		            <a href="list?search=못난이" class="searchLink" data-search="못난이">못난이 과일</a>
 		        </li>
 		        <li>
-		            <a href="list?search=수박">수박</a>
+		            <a href="list?search=수박" class="searchLink" data-search="수박">수박</a>
 		        </li>
 		        <li>
-		            <a href="list?search=참외">참외</a>
+		            <a href="list?search=참외" class="searchLink" data-search="참외">참외</a>
 		        </li>
 		        <li>
-		            <a href="list?search=체리">체리</a>
+		            <a href="list?search=체리" class="searchLink" data-search="체리">체리</a>
 		        </li>
 		        <li>
-		            <a href="list?search=아보카도" class="">아보카도</a>
+		            <a href="list?search=아보카도" class="searchLink" data-search="아보카도">아보카도</a>
 		        </li>
 		        <li>
-		            <a href="list?search=망고" class="">망고</a>
+		            <a href="list?search=망고" class="searchLink" data-search="망고">망고</a>
 		        </li>
 		        <li>
-		            <a href="list?search=바나나" class="">바나나</a>
+		            <a href="list?search=바나나" class="searchLink" data-search="바나나">바나나</a>
 		        </li>
 		        <li>
-		            <a href="list?search=오렌지" class="">오렌지</a>
+		            <a href="list?search=오렌지" class="searchLink" data-search="오렌지">오렌지</a>
 		        </li>
 		     </ul>
 		</div>
