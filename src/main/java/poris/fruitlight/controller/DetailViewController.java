@@ -75,10 +75,8 @@ public class DetailViewController {
 		
 		//  -------------   [ 필수 표기 정보  ]  --------------------
 		
-		
 		FoodRequiredInfo foodRequiredInfo = detailViewService.getFoodRequiredInfoByBoardNo(bno);
 		model.addAttribute("foodRequiredInfo", foodRequiredInfo);
-		
 		
 		//  -------------   [ 상품 상세 정보  ]  --------------------
 		
@@ -87,8 +85,6 @@ public class DetailViewController {
 			productContent.setBase64Img(Base64.getEncoder().encodeToString(productContent.getMediaData()));
 	    }
 		model.addAttribute("productContentList", productContentList);
-		
-		
 		
 		
 		//  -------------   [ 상품 문의 페이저  ]  --------------------
@@ -105,8 +101,10 @@ public class DetailViewController {
 		model.addAttribute("productInquiryPager", productInquiryPager);
 		model.addAttribute("productInquiryList", productInquiryList);
 		
-		
 		//  -------------   [ 리뷰 페이저  ]  --------------------
+		
+		
+		
 		
 		return "detailView";
 	}
