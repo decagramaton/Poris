@@ -7,8 +7,8 @@
 		where c.PRODUCT_NO = p.PRODUCT_NO
         and p.PRODUCT_NO = b.PRODUCT_NO
 		and b.BOARD_NO = m.BOARD_NO
-		and SHOPPER_NO = 1
-        and MEDIA_NAME like '%main1%'
+		and SHOPPER_NO = #{SHOPPER_NO}
+        and MEDIA_NAME like '%detailView_main1%'
 	</select>
 	
 	<select id="selectCouponBySno" parameterType="int" resultType="poris.fruitlight.dto.Coupon">
@@ -17,9 +17,9 @@
 		where SHOPPER_NO = #{SHOPPER_NO}
 	</select>
 	
-	<delete id="deleteCart" parameterType="int">
+	<delete id="deleteCart" parameterType="poris.fruitlight.dto.Cart">
 		delete from CART
-		where PRODUCT_NO = #{PRODUCT_NO}
+		where SHOPPER_NO = #{SHOPPER_NO} and PRODUCT_NO = #{PRODUCT_NO}
 	</delete>
 	
 	<update id="updateStock" parameterType="poris.fruitlight.dto.Cart">

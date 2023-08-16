@@ -257,12 +257,17 @@ function addCart() {
 				stocks:stocks
 			},
 			success: function(data) {
-				
 			}
 		});
 		
-		if(confirm("선택하신 상품이 장바구니에 담겼습니다.\n장바구니로 이동하시겠습니까?")) {
-			location.href = "cart"
+		if($("#shopperInfo").val() == "") {
+			if(confirm("로그인을 해주세요")) {
+				location.href = "login";
+			}
+		} else {
+			if(confirm("선택하신 상품이 장바구니에 담겼습니다.\n장바구니로 이동하시겠습니까?")) {
+				location.href = "cart";
+			}
 		}
 	}
 }
