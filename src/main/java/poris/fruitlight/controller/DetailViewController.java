@@ -73,6 +73,7 @@ public class DetailViewController {
 		
 		//  -------------   [ 필수 표기 정보  ]  --------------------
 		
+		
 		FoodRequiredInfo foodRequiredInfo = detailViewService.getFoodRequiredInfoByBoardNo(bno);
 		model.addAttribute("foodRequiredInfo", foodRequiredInfo);
 		
