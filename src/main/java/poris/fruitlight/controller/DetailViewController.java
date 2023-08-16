@@ -1,5 +1,6 @@
 package poris.fruitlight.controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.HashMap;
@@ -7,6 +8,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -26,6 +28,7 @@ import poris.fruitlight.dto.ProductBoard;
 import poris.fruitlight.dto.Pager;
 import poris.fruitlight.dto.ProductInquiry;
 import poris.fruitlight.service.DetailViewService;
+import poris.fruitlight.util.AlertScript;
 
 /**
  * 
@@ -89,33 +92,31 @@ public class DetailViewController {
 	 */
 	//장바구니 담기
 	@RequestMapping("/detailView/addCartProduct")
-	public void addCartProduct(HttpServletRequest request) {
+	public void addCartProduct(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
 		//로그인 세션이 없으면 로그인 페이지로 이동
-		List<Cart> list = new ArrayList<>();
 		
-		String[] strPnoList = request.getParameterValues("pnos");
-		String[] strStockList = request.getParameterValues("stocks");
+		if(session.getAttribute("ShopperInfo") == null) {
+			try {
+				AlertScript.alertAndMovePage(response, "로그인을 해주세요", "/fruitlight/login");
+			} catch (IOException e) {}
+		} else {
 		
-		for(int i=0; i<strPnoList.length; i++) {
-			Cart cartProduct = new Cart();
-			cartProduct.setSHOPPER_NO(1);
-			cartProduct.setPRODUCT_NO(Integer.parseInt(strPnoList[i]));
-			cartProduct.setCART_PRODUCT_STOCK(Integer.parseInt(strStockList[i]));
+			List<Cart> list = new ArrayList<>();
 			
-			list.add(cartProduct);
+			String[] strPnoList = request.getParameterValues("pnos");
+			String[] strStockList = request.getParameterValues("stocks");
+			
+			for(int i=0; i<strPnoList.length; i++) {
+				Cart cartProduct = new Cart();
+				cartProduct.setSHOPPER_NO(1);
+				cartProduct.setPRODUCT_NO(Integer.parseInt(strPnoList[i]));
+				cartProduct.setCART_PRODUCT_STOCK(Integer.parseInt(strStockList[i]));
+				
+				list.add(cartProduct);
+			}
+
+			detailViewService.addToCart(list);
 		}
-		
-		/*int i = 0;
-		for(i=0; i<pids.size(); i++) {
-			Cart cartProduct = new Cart();
-			cartProduct.setSHOPPER_NO(1);
-			cartProduct.setPRODUCT_NO(pids.get(i));
-			cartProduct.setCART_PRODUCT_STOCK(stocks.get(i));
-			
-			list.add(cartProduct);
-		}*/
-		
-		detailViewService.addToCart(list);
 	}
 	
 	/**
