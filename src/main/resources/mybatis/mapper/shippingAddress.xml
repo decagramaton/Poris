@@ -13,6 +13,7 @@
 			SHIPPING_PREFERENCE as shippingPreference
 		FROM SHIPPING_ADDRESS
 		WHERE SHOPPER_NO = #{shopperNo}
+			AND ACTIVATE = 'Y'
 	</select>
 	
 	<insert id="insertShippingAddress" parameterType="AddressBook">
@@ -28,15 +29,16 @@
 			RECEIVER_TEL as tel
 		FROM SHIPPING_ADDRESS
 		WHERE SHOPPER_NO = #{shopperNo}
+			AND ACTIVATE = 'Y'
 			AND ROWNUM = 1
 	</select>
 	
 	
-	<!-- 2023.08.16 고재승 - 회원의 배송지 삭제 SQL문 -->
-	<delete id="deleteShippingAddress" parameterType="int">
-		DELETE
-  		FROM SHIPPING_ADDRESS
+	<!-- 2023.08.16 고재승 - 회원의 배송지 비활성화 업데이트 SQL문 -->
+	<update id="deleteShippingAddress" parameterType="int">
+		UPDATE SHIPPING_ADDRESS
+  		SET ACTIVATE = 'N'
  		WHERE ADDRESS_NO = #{addressNo}
-	</delete>
+	</update>
 	
 </mapper>
