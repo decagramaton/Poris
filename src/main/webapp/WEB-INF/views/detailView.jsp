@@ -779,34 +779,30 @@
 	                              </c:forEach>
 	                           </div>
 	                           <div class="inquiry-page-btns">
-									  <c:if test="${productInquiryPager.totalGroupNo > 1}">
-										  <c:if test="${productInquiryPager.groupNo > 1}">
-											  <%-- <a class="page-prev" href="${pageContext.request.contextPath}/detailView/moveInquiryPage?pageNo=${productInquiryPager.startPageNo-1}"></a> --%>
-											  <input type="hidden" value="${productInquiryPager.startPageNo-1}">
-											  <button class="page-prev inquiry-btn"></button>
-										  </c:if>
+								  <c:if test="${productInquiryPager.totalGroupNo > 1}">
+									  <c:if test="${productInquiryPager.groupNo > 1}">
+										  <input type="hidden" value="${productInquiryPager.startPageNo-1}">
+										  <button class="page-prev inquiry-btn"></button>
 									  </c:if>
-									
-									  <c:forEach var="i" begin="${productInquiryPager.startPageNo}" end="${productInquiryPager.endPageNo}">
-									      <c:if test="${productInquiryPager.pageNo != i}">
-										    <input type="hidden" value="${i}">
-									      	<a class="page-num inquiry-btn" href="${pageContext.request.contextPath}/detailView/moveInquiryPage?pageNo=${i}">${i}</a>
-										  </c:if>
-										  <c:if test="${productInquiryPager.pageNo == i}">
-											<input type="hidden" value="${i}">
-											<a class="page-num selected inquiry-btn" href="${pageContext.request.contextPath}/detailView/moveInquiryPage?pageNo=${i}">${i}</a>
-										  </c:if>
-									  </c:forEach>
-									  
-									  <c:if test="${productInquiryPager.totalGroupNo > 1}">
-										  <c:if test="${productInquiryPager.groupNo < productInquiryPager.totalGroupNo}">
-											  <%-- <a class="page-next" href="${pageContext.request.contextPath}/detailView/moveInquiryPage?pageNo=${productInquiryPager.endPageNo+1}"></a> --%>
-											  <input type="hidden" value="${productInquiryPager.endPageNo+1}">
-											  <button class="page-next inquiry-btn"></button>
-										  </c:if>
+								  </c:if>
+								
+								  <c:forEach var="i" begin="${productInquiryPager.startPageNo}" end="${productInquiryPager.endPageNo}">
+								      <c:if test="${productInquiryPager.pageNo != i}">
+									    <input type="hidden" value="${i}">
+										<button class="page-num inquiry-btn">${i}</button>
 									  </c:if>
-									  
-								  <%-- <a class="btn btn-outline-primary btn-sm" href="getBoardList?pageNo=${pager.totalPageNo}">맨끝</a> --%>
+									  <c:if test="${productInquiryPager.pageNo == i}">
+										<input type="hidden" value="${i}">
+										<button class="page-num selected inquiry-btn">${i}</button>
+									  </c:if>
+								  </c:forEach>
+								  
+								  <c:if test="${productInquiryPager.totalGroupNo > 1}">
+									  <c:if test="${productInquiryPager.groupNo < productInquiryPager.totalGroupNo}">
+										  <input type="hidden" value="${productInquiryPager.endPageNo+1}">
+										  <button class="page-next inquiry-btn"></button>
+									  </c:if>
+								  </c:if>
 	                           </div>
 	                    	</c:if>
                         </div>

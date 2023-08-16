@@ -2,6 +2,7 @@ package poris.fruitlight.controller;
 
 import java.util.ArrayList;
 import java.util.Base64;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -167,41 +168,17 @@ public class DetailViewController {
 	//상품문의 페이저
 	@GetMapping("/detailView/moveInquiryPage")
 	@ResponseBody
-	public String moveInquiryPage(String pageNo, Model model, HttpSession session) {
-		/*
-		// Step1. Session에 있는 게시판 번호 get
-		int bno = Integer.parseInt(session.getAttribute("BoardNo").toString());
-		
-		// Step2. 게시판 번호에 해당하는 데이터 load
-		ProductBoard productBoard = detailViewService.getProduct(bno);
-		productBoard.setBase64Img(Base64.getEncoder().encodeToString(productBoard.getMediaData()));
-		List<ProductBoard> productImageList = detailViewService.getImages(bno);
-		
-		for(ProductBoard product : productImageList) {
-			product.setBase64Img(Base64.getEncoder().encodeToString(product.getMediaData()));
-		}
-		
-		// Step3. 상품 이름을 기준으로 옵션 데이터 load
-		List<Product> productOptionList = detailViewService.getOptions(productBoard.getProductName());
-		
-		
-		// Step4. 상품 정보와 옵션 정보를 JSP에 Model으로 전달
-		model.addAttribute("productBoard", productBoard);
-		model.addAttribute("productImageList", productImageList);
-		model.addAttribute("productOptionList", productOptionList);
-		*/
-		
-		// Step5. 상품 게시판에 존재하는 상품문의 게시판 개수 load
+	public HashMap<String, Object> moveInquiryPage(String pageNo, HttpSession session) {
 		int bno = Integer.parseInt(session.getAttribute("BoardNo").toString());
 		int totalProductInquiryNum = detailViewService.getTotalProductInquiryNum(bno);
 		
-		// Step6-1. Pager 객체 생성 (게시글 행 수, 페이지 개수, 총 페이지 개수, 페이지 시작 번호)
-		// Step6-2. Pager 기반 상품 문의 게시판 생성
 		Pager productInquiryPager = new Pager(5, 5, totalProductInquiryNum, Integer.parseInt(pageNo));
 		List<ProductInquiry> productInquiryList = detailViewService.getProductInquiryList(productInquiryPager, bno);
 		
-		model.addAttribute("productInquiryPager", productInquiryPager);
-		model.addAttribute("productInquiryList", productInquiryList);
-		return "detailView";
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("productInquiryPager", productInquiryPager);
+		map.put("productInquiryList", productInquiryList);
+		
+		return map;
 	}
 }

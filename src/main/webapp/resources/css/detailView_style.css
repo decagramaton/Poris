@@ -1754,7 +1754,7 @@ a {
     width: 31px;
     height: 31px;
     background: url(../images/btn-productreview-pagingleft.png) no-repeat;
-    cursor: auto;
+    cursor: pointer;
 }
 
 .inquiry-page-btns .page-next {
@@ -1784,6 +1784,7 @@ a {
     color: #555;
     font-weight: bold;
     background-color: #fff;
+    cursor: pointer;
 }
 
 .inquiry-page-btns .page-num:hover {

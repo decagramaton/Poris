@@ -1,29 +1,4 @@
-$(document).ready(function () {
-  /*// 이전 페이지의 스크롤 위치를 저장하는 sessionStorage 사용
-  const scrollPosition = sessionStorage.getItem('scrollPosition');
-  if (scrollPosition) {
-    window.scrollTo(0, parseInt(scrollPosition));
-    sessionStorage.removeItem('scrollPosition');
-  }
-
-  // 이전 페이지의 스크롤 위치를 저장하는 함수
-  function saveScrollPosition() {
-    const currentPosition = window.scrollY;
-    sessionStorage.setItem('scrollPosition', currentPosition.toString());
-    
-    // 페이지를 떠난 후 1분(60000ms) 뒤에 스크롤 위치 정보를 삭제
-    setTimeout(function () {
-      sessionStorage.removeItem('scrollPosition');
-    }, 60000);
-  }
-
-  // 이동하기 전에 스크롤 위치를 저장
-  $(window).on('beforeunload', saveScrollPosition);*/
-
-  init(); // 초기화 함수 호출
-});
-
-//$(init);
+$(init);
 
 function init() {
 	//금액 xxx,xxx원 적용
@@ -179,6 +154,8 @@ function deleteOption() {
 function changeInquiryPage() {
 	var toGoPage = $(event.target).prev().val();
 	
+	console.log(toGoPage);
+	
 	$.ajax({
 		url: "/fruitlight/detailView/moveInquiryPage",
 		method: "get",
@@ -186,7 +163,73 @@ function changeInquiryPage() {
 			pageNo:toGoPage
 		},
 		success: function(data) {
+			let html = '';
 			
+			if(data.productInquiryList.length != 0) {
+				html += '	<div class="inquiry-items">';
+
+				$.each(data.productInquiryList, function(index, item) {
+					html += '			<div class="inquiry-item">';
+					html += '				<span class="inquiry-item-question-label">질문</span>';
+					html += '				<div class="inquiry-item-question">';
+					html += '					<div class="inquiry-item-shopper"><strong>' + item.shopper_NAME + '</strong></div>';
+					html += '					<div class="inquiry-item-content">' + item.inquiry_CONTENT + '</div>';
+					html += '					<div class="inquiry-item-time">' + item.strInquiryDate + '</div>';
+					html += '				</div>';
+					
+					if(item.emptanswer == false) {
+						html += '					<div class="inquiry-item-answer">';
+						html += '						<i></i>';
+						html += '						<span class="inquiry-item-answer-label">답변</span>';
+						html += '						<div class="inquiry-item-answer-wrap">';
+						html += '							<div class="inquiry-item-seller"><strong>[FRUITLIGHT]</strong></div>';
+						html += '							<div class="inquiry-item-answer-content">' + item.answer_CONTENT + '</div>';
+						html += '							<div class="inquiry-item-answer-time">' + item.strAnswerDate + '</div>';
+						html += '						</div>';
+						html += '					</div>';
+					}
+					html += '			</div>';
+				});
+				
+				html += '	</div>';
+				html += '	<div class="inquiry-page-btns">';
+				
+				if(data.productInquiryPager.totalGroupNo > 1) {
+					if(data.productInquiryPager.groupNo > 1) {
+						console.log(data.productInquiryPager.startPageNo-1)
+						var prevPage = data.productInquiryPager.startPageNo-1
+						html += '				<input type="hidden" value="' + prevPage + '">';
+						html += '				<button class="page-prev inquiry-btn"></button>';
+					}
+				}
+				
+				for(let i=data.productInquiryPager.startPageNo; i<=data.productInquiryPager.endPageNo; i++) {
+					if(data.productInquiryPager.pageNo != i) {
+						html += '				<input type="hidden" value="' + i + '">';
+						html += '				<button class="page-num inquiry-btn">' + i + '</button>';
+					}
+					if(data.productInquiryPager.pageNo == i) {
+						html += '				<input type="hidden" value="' + i + '">';
+						html += '				<button class="page-num selected inquiry-btn">' + i + '</button>';
+					}
+				}
+				
+				if(data.productInquiryPager.totalGroupNo > 1) {
+					if(data.productInquiryPager.groupNo < data.productInquiryPager.totalGroupNo) {
+						console.log(data.productInquiryPager.endPageNo+1)
+						var nextPage = data.productInquiryPager.endPageNo+1
+						html += '				<input type="hidden" value="' + nextPage + '">';
+						html += '				<button class="page-next inquiry-btn"></button>';
+					}
+				}
+				
+				html += '	</div>';
+
+				$(".inquiry-item-container").html(html);
+				
+				//상품문의 페이저 버튼
+				$(".inquiry-btn").click(changeInquiryPage);
+			}
 		}
 	});
 }
