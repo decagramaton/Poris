@@ -20,6 +20,24 @@
 	  AND b.BOARD_NO = #{bno}
 	  AND m.MEDIA_NAME like '%main1%'
    </select>
+       
+    <!-- 2023.08.16 고재승 - 게시글의 상품 필수 표기 정보 조회 SQL문 -->
+    <select id="SelectRequiredInfoByBoardNo" parameterType="int" resultType="FoodRequiredInfo">
+    	SELECT BOARD_NO as boardNo,
+    	ITEM as item,
+    	WEIGHT as weight,
+    	PRODUCER as producer,
+    	ORIGIN as origin,
+    	PRODUCTION_DATE as productionDate,
+    	DETAIL as detail,
+    	IMPORTED_FOOD_STATEMENT as importedFoodStatement,
+    	COMPOSITION as composition,
+    	STORAGE_TYPE as storageType,
+    	PRECAUTION as precaution,
+    	CS_CONTACT as csContact
+    	FROM FOOD_REQUIRED_INFO
+    	WHERE BOARD_NO = #{boardNo}
+    </select>
    
 	<select id="selectImgsByBno" parameterType="int" resultType="ProductBoard">
       select MEDIA_NAME as mediaName, 

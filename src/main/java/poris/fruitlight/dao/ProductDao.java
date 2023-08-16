@@ -4,11 +4,12 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import poris.fruitlight.dto.FoodRequiredInfo;
 import poris.fruitlight.dto.ProductList;
 
 /**
  * 상품 정보와 관련된 DAO.
- * @author 김진성
+ * @author 고재승, 김진성
  *
  */
 @Mapper

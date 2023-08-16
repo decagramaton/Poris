@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import lombok.extern.slf4j.Slf4j;
 import poris.fruitlight.dto.Cart;
 import poris.fruitlight.dto.CartProduct;
+import poris.fruitlight.dto.FoodRequiredInfo;
 import poris.fruitlight.dto.OrderParam;
 import poris.fruitlight.dto.Product;
 import poris.fruitlight.dto.ProductBoard;
@@ -51,6 +52,8 @@ public class DetailViewController {
 		// Step1. Session에 있는 게시판 번호 get - ok
 		int bno = Integer.parseInt(session.getAttribute("BoardNo").toString());
 		
+		//  -------------   [ 상품 정보  ]  --------------------
+		
 		// Step2. 게시판 번호에 해당하는 데이터 load
 		ProductBoard productBoard = detailViewService.getProduct(bno);
 		productBoard.setBase64Img(Base64.getEncoder().encodeToString(productBoard.getMediaData()));
@@ -69,6 +72,20 @@ public class DetailViewController {
 		model.addAttribute("productImageList", productImageList);
 		model.addAttribute("productOptionList", productOptionList);
 		
+		//  -------------   [ 필수 표기 정보  ]  --------------------
+		
+		FoodRequiredInfo foodRequiredInfo = detailViewService.getFoodRequiredInfoByBoardNo(bno);
+		model.addAttribute("foodRequiredInfo", foodRequiredInfo);
+		
+		
+		//  -------------   [ 상품 상세 정보  ]  --------------------
+		
+		
+		
+		
+		
+		
+		//  -------------   [ 상품 문의 페이저  ]  --------------------
 		
 		// Step5. 상품 게시판에 존재하는 상품문의 게시판 개수 load
 		int totalProductInquiryNum = detailViewService.getTotalProductInquiryNum(bno);
@@ -81,6 +98,9 @@ public class DetailViewController {
 		
 		model.addAttribute("productInquiryPager", productInquiryPager);
 		model.addAttribute("productInquiryList", productInquiryList);
+		
+		
+		//  -------------   [ 리뷰 페이저  ]  --------------------
 		
 		return "detailView";
 	}

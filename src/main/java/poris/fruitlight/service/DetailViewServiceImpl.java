@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import lombok.extern.slf4j.Slf4j;
 import poris.fruitlight.dao.DetailViewDao;
 import poris.fruitlight.dto.Cart;
+import poris.fruitlight.dto.FoodRequiredInfo;
 import poris.fruitlight.dto.Pager;
 import poris.fruitlight.dto.Product;
 import poris.fruitlight.dto.ProductBoard;
@@ -26,6 +27,13 @@ public class DetailViewServiceImpl implements DetailViewService {
 		ProductBoard product = detailViewDao.selectByBno(bno);
 		return product;
 	}
+	
+	
+	@Override
+	public FoodRequiredInfo getFoodRequiredInfoByBoardNo(int boardNo) {
+		return detailViewDao.SelectRequiredInfoByBoardNo(boardNo);
+	}
+	
 	@Override
 	public List<Product> getOptions(String name) {
 		List<Product> list = detailViewDao.selectByName(name);
