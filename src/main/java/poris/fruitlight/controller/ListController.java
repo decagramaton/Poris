@@ -33,6 +33,7 @@ public class ListController {
 			
 			if (searchKeyword != null) {
 	            productLists = listService.SearchProductsByPname(searchKeyword);
+	            
 	            for(ProductList listProduct : productLists) {
 	            	listProduct.setBase64Img(Base64.getEncoder().encodeToString(listProduct.getMEDIA_DATA()));
 	  	      }

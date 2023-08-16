@@ -39,7 +39,16 @@ function menuprev(){
       $("#menus").css("transform","translateX(0px)");
    }
    if(catehandle5.matches === true) {
-      $("#menus").css("transform","translateX(0px)");
+	  let btn = $("#prevnext").html(); 
+	  if(btn === "2"){
+		  $("#prevnext").html("1");
+		  $("#menu-btn2").css("backgroundImage","none");
+		  $("#menus").css("transform","translateX(0px)");
+	  } else if(btn === "3"){
+		  $("#prevnext").html("2");
+		  $("#menu-btn2").css("backgroundImage","url(//img1a.coupangcdn.com/image/coupang/common/pc_gnb_arrow-left@2x.png)");
+		  $("#menus").css("transform","translateX(-280px)");
+	  }
    }
 }
 function menunext(){
@@ -51,7 +60,7 @@ function menunext(){
    if(catehandle3.matches === true) {
       $("#menu-btn1").css("backgroundImage","none");
       $("#menu-btn2").css("backgroundImage","url(//img1a.coupangcdn.com/image/coupang/common/pc_gnb_arrow-left@2x.png)");
-      $("#menus").css("transform","translateX(-320px)");
+      $("#menus").css("transform","translateX(-323px)");
    }
    if(catehandle4.matches === true) {
       $("#menu-btn1").css("backgroundImage","none");
@@ -59,7 +68,17 @@ function menunext(){
       $("#menus").css("transform","translateX(-480px)");
    }
    if(catehandle5.matches === true) {
-      $("#menus").css("transform","translateX(-320px)");
+	  let btn = $("#prevnext").html(); 
+	  if(btn === "1"){
+		  $("#prevnext").html("2");
+		  $("#menu-btn1").css("backgroundImage","url(//img1a.coupangcdn.com/image/coupang/common/pc_gnb_arrow-right@2x.png)");
+		  $("#menu-btn2").css("backgroundImage","url(//img1a.coupangcdn.com/image/coupang/common/pc_gnb_arrow-left@2x.png)");
+		  $("#menus").css("transform","translateX(-280px)");
+	  } else if(btn === "2"){
+		  $("#prevnext").html("3");
+		  $("#menu-btn1").css("backgroundImage","none");
+		  $("#menus").css("transform","translateX(-630px)");
+	  }
    }
 }
 

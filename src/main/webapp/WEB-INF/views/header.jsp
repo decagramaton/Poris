@@ -25,9 +25,10 @@
 	<div id="header2" class="headerlogowrapper">
 		<div id="headerLogo" class="headerLogo">
 			<a href="main">
-				<img src="${pageContext.request.contextPath}/resources/images/fruitlight_logo.png" style="width:50%; margin: 0 auto"/>				
+				<img src="${pageContext.request.contextPath}/resources/images/fruitlight_logo.png" style="width:50%; margin: 0 auto"/>
+				<span id="prevnext" style="display:none">1</span>			
 			</a>
-	</div>
+		</div>
 	</div>
 	
 	<div id="menu" class="menu">
