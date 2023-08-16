@@ -180,6 +180,9 @@ dl, dt, dd, ul, ol, menu, li {
     margin-top: 16px;
     margin-bottom : 10px;
 }
+.productImage{
+	width:120px;
+}
 .order-product > table {
 
 }
