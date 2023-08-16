@@ -59,7 +59,7 @@
 	            </h2>
 	            <div class="table-frame">
 	               <div>
-	               	  <input type="hidden" name="dd" value="${shipAddress.shippingAddressNo}">
+	               	  <input type="hidden" id="addressNo" name="addressNo" value="${shipAddress.addressNo}">
 	                  <div class="table-row">
 	                     <div class="table-colume">이름</div>
 	                     <div id="recipientName" class="table_content">${shipAddress.name}</div>
@@ -397,12 +397,12 @@
 	                     </div>
 	                     <div class="cash-receipt__resiter-type__wrap">
 	                        <span>
-	                           <select name="cashReceiptRegisterType" class="cash-receipt__resiter-type__select">
+	                           <select id="cashReceiptRegisterType" name="cashReceiptRegisterType" class="cash-receipt__resiter-type__select">
 	                              <option value="PHONE_NUMBER" selected>휴대폰번호</option>
 	                              <option value="CASH_RECEIPT_CARD_NUMBER">현금영수증카드</option>
 	                           </select>
 	                        </span>
-	                        <span><input name="cashReceiptRequestNo" class="cash-receipt__resiter-type__text" type="tel" size="20" maxlength="18" placeholder="숫자만 입력해 주세요"></span>
+	                        <span><input name="cashReceiptRequestNo" class="cash-receipt__resiter-type__text" type="tel" size="20" maxlength="16" placeholder="010-1234-1234" pattern="/^(010)-[0-9]{4}-[0-9]{4}$/"></span>
 	                     </div>
 	                  </div>
 	               </div>

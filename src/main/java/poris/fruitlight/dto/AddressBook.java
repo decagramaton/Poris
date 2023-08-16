@@ -11,4 +11,5 @@ public class AddressBook {
 	private String shippingAddress;		// 받을 주소
 	private String receiverTel;			// 받는 사람의 연락처
 	private String shippingPreference;	// 배송 요청사항
+	private String activate;			// 활성화 여부
 }

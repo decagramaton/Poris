@@ -21,6 +21,7 @@
             <div class="content-body-corset">
             	<c:forEach var="item" items="${addrBookList}" varStatus="status">
 	            	<div class="address-card">
+	            		<input type="hidden" name="addressNo" value="${item.addressNo}">
 	            		<div class="address-card__head">
 							<div class="address-card__title">${item.shippingName}</div>
 						</div>
@@ -31,6 +32,7 @@
 						</div>
 						<div class="address-card__foot">
 						   <div class="address-card__form--pick">
+						       <input name="addressNo${status.count}" value="${item.addressNo}" type="hidden">
  						       <input name="recipientName${status.count}" value="${item.shippingName}" type="hidden">
 						       <input name="streetAddress${status.count}" value="${item.shippingAddress}" type="hidden">
 						       <input name="recipientTel${status.count}" value="${item.receiverTel}" type="hidden">
@@ -39,8 +41,8 @@
 						           <span class="addressbook__text">선택</span>
 						       </button>
 						   </div>
-					       <a href="/fruitlight/addressBook/changeAddressBook" class="address-card__button--edit">
-					           <span class="addressbook__text">수정</span>
+					       <a href="/fruitlight/addressBook/deleteAddressBook?addressNo=${item.addressNo}" class="address-card__button--edit">
+					           <span class="addressbook__text">삭제</span>
 					       </a>
 						</div>
 					</div>

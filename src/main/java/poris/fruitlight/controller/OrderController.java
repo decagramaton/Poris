@@ -47,29 +47,13 @@ public class OrderController {
 		} else {
 			Shopper shopper = (Shopper) session.getAttribute("ShopperInfo");
 			
-			// Step2.구매자 정보, 도착지 정보, 배송 목록을 DB에서 가져오기
+			// Step2.구매자 정보, 도착지 정보를 DB에서 가져오기
 			Shopper shopperInfo = shopperService.getShopperById(shopper);
-			ShippingAddressParam shipAddress = orderService.getShippingAddressInfo("1");
-			List<DeliveryParam> deliveryInfo = orderService.getDeliveryInfo();
-			
-			
-			// Step3. 상품 목록과 결제 정보를 Session으로 조회
-			List<OrderParam> orderParam = (List<OrderParam>) session.getAttribute("orderParamList");
-			int totalPrice = (int) session.getAttribute("totalPrice");
-			int discountPrice = (int) session.getAttribute("discountPrice");
-			int shippingPrice = (int) session.getAttribute("shippingPrice");
-			int orderPrice = (int) session.getAttribute("orderPrice");
-			
-			log.info(orderParam.toString());
-			log.info("totalPrice : " + totalPrice);
-			log.info("discountPrice : " + discountPrice);
-			log.info("shippingPrice : " + shippingPrice);
-			log.info("orderPrice : " + orderPrice);
+			ShippingAddressParam shipAddress = orderService.getShippingAddressInfo(shopper);
 			
 			// finish. 객체 설정 및 결제 페이지로 전송
 			model.addAttribute("shopperInfo", shopperInfo);
 			model.addAttribute("shipAddress", shipAddress);
-			model.addAttribute("deliveryInfo", deliveryInfo);
 		}
 		
 		return "order";
@@ -78,6 +62,7 @@ public class OrderController {
 	@RequestMapping("/order/buyOrder")
 	public String buyOrder(
 			HttpSession session,
+			int addressNo,
 			String payType, 
 			String payTypeBank, 
 			String payTypeCard, 
@@ -101,7 +86,7 @@ public class OrderController {
 		//유저 번호
 		order.setSHOPPER_NO(loginShopper.getShopperNo());
 		//배송지 번호
-		order.setADDRESS_NO(1);  //추후 수정
+		order.setADDRESS_NO(addressNo);  //추후 수정
 		//결제 날짜
 		order.setORDER_DATE(new Date());
 		//총 상품가격

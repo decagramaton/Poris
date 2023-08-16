@@ -83,7 +83,11 @@
 																<div style="display:none;"></div>
 																<div class="product-content">
 																	<div class="bottom-flex">
-																		<div class="image"><a><img src="${pageContext.request.contextPath}/resources/images/watermelon_cart.jpg"/></a></div>
+																		<div class="image">
+																			<a>
+																				<img class="productImage" src="data:${mypageOrdered.MEDIA_DATA};base64, ${mypageOrdered.base64Img}"/>
+																			</a>
+																		</div>
 																		<div class="content">
 																			<div>
 																				<a href="#">

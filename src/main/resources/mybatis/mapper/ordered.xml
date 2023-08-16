@@ -19,6 +19,7 @@
           JOIN PRODUCT_BOARD pb ON p.PRODUCT_NO = pb.PRODUCT_NO
           JOIN BOARD_MEDIA bm ON pb.BOARD_NO = bm.BOARD_NO
           WHERE oh.SHOPPER_NO = #{sid} AND bm.MEDIA_NAME LIKE '%list_thumbnail%'
+          ORDER BY ORDER_DATE DESC
    </select>
    
    <select id="SearchOrdersByPname" parameterType="OrderSearch" resultType="poris.fruitlight.dto.OrderHistoryOrderList">
@@ -39,6 +40,7 @@
         JOIN PRODUCT_BOARD pb ON p.PRODUCT_NO = pb.PRODUCT_NO
         JOIN BOARD_MEDIA bm ON pb.BOARD_NO = bm.BOARD_NO
         WHERE oh.SHOPPER_NO = #{shopperNo} AND p.PRODUCT_NAME LIKE '%' || #{searchKeyword} || '%' AND MEDIA_NAME LIKE '%list_thumbnail%'
+        ORDER BY ORDER_DATE DESC
     </select>
     
     <!-- 작정자: 이은지 -->
