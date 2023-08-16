@@ -272,7 +272,7 @@
 	                           </div>
                            </c:if>
                         </div>
-                        <div class="product_detail_content">
+                        <div class="product_detail_content" style="text-align: center;">
                            <div class="product_detail_content_inside">
                                <c:if test="${productContentList != null}">
 		                           <c:forEach var="Content" items="${productContentList}">
