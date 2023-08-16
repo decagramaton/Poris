@@ -6,6 +6,9 @@ function init() {
 
     // 배송 요청사항 변경 이벤트 버튼
     $(".delivery-request-popup-button").click(deliveryPreferencesBtn);
+    
+    // 연락처 패턴 유효성 검사 이벤트 버튼
+    $("#cashReceiptRegisterType").blur(checkPatternPhone);
 
     // 결제수단 초기화
     $("#rocketPayBox").change(radioChange);
@@ -184,4 +187,18 @@ function selectCashReceiptExpense() {
     $("#deductionRadio").addClass("cash-receipt__request-type__radio__unchecked");
 
     $("#proofExpenditure").attr("checked", true);
+}
+
+/**
+ * 연락처 패턴 유효성 검사 함수
+ * @author 고재승
+ */
+function checkPatternPhone () {
+    if($("#cashReceiptRegisterType option:selected").val() == "PHONE_NUMBER") {
+    	$("input[name='cashReceiptRequestNo']").attr("placeholder", "010-0000-0000");
+    	$("input[name='cashReceiptRequestNo']").attr("pattern", "/^(010)-[0-9]{4}-[0-9]{4}$/");
+    } else if ($("#cashReceiptRegisterType option:selected").val() == "CASH_RECEIPT_CARD_NUMBER") {
+    	$("input[name='cashReceiptRequestNo']").attr("placeholder", "0000-0000-0000-0000");
+    	$("input[name='cashReceiptRequestNo']").attr("pattern", "/^[0-9]{16}$/");
+    }
 }
