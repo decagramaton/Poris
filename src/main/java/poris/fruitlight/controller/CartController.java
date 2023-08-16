@@ -1,11 +1,13 @@
 package poris.fruitlight.controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -24,6 +26,7 @@ import poris.fruitlight.dto.Coupon;
 import poris.fruitlight.dto.OrderParam;
 import poris.fruitlight.dto.ProductList;
 import poris.fruitlight.service.CartService;
+import poris.fruitlight.util.AlertScript;
 
 /**
  * 
@@ -42,18 +45,25 @@ public class CartController {
 	 * @return 장바구니(cart) 페이지
 	 */
 	@RequestMapping("/cart")
-	public String cart(Model model) {
-		List<CartProduct> listProduct = cartProductService.getCartProduct(1);
-		
-		for(CartProduct cartProduct : listProduct) {
-			cartProduct.setBase64Img(Base64.getEncoder().encodeToString(cartProduct.getMEDIA_DATA()));
-	    }
-		
-		model.addAttribute("listProduct", listProduct);
-		
-		List<Coupon> listCoupon = cartProductService.getCoupon(1);
-		model.addAttribute("listCoupon", listCoupon);
-		
+	public String cart(HttpServletResponse response, HttpSession session,Model model) {
+		if(session.getAttribute("ShopperInfo") == null) {
+			try {
+				AlertScript.alertAndMovePage(response, "로그인을 해주세요", "/fruitlight/login");
+			} catch (IOException e) {
+				return "redirect:/main";
+			}
+		} else {
+			List<CartProduct> listProduct = cartProductService.getCartProduct(1);
+			
+			for(CartProduct cartProduct : listProduct) {
+				cartProduct.setBase64Img(Base64.getEncoder().encodeToString(cartProduct.getMEDIA_DATA()));
+		    }
+			
+			model.addAttribute("listProduct", listProduct);
+			
+			List<Coupon> listCoupon = cartProductService.getCoupon(1);
+			model.addAttribute("listCoupon", listCoupon);
+		}
 		return "cart";
 	}
 	
