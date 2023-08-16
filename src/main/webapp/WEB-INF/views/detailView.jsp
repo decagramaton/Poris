@@ -402,27 +402,6 @@
                            <div class="product_detail_content_inside"></div>
                         </div>
                      </div>
-                     <!-- 이런 상품은 어떄요 -->
-                     <div id="recomment_product_list_form">
-                        <div class="recomment_product_list_frame">
-                           <div
-                              style="display: flex; flex-direction: row; width: 100%; height: 54px; min-height: 54px; align-items: center">
-                              <div
-                                 style="-webkit-line-clamp: 1; overflow: hidden; display: -webkit-box!important; -webkit-box-orient: vertical; width: 100%; flex-grow: 1; padding: 0px 0px 0px 6px">
-                                 <span
-                                    style="font-size: 18px; font-weight: bold; color: rgba(33, 43, 54, 1); word-break: break-all; vertical-align: middle">이런
-                                    상품은 어때요?</span>
-                              </div>
-                              <div
-                                 style="-webkit-line-clamp: 1; overflow: hidden; display: -webkit-box!important; -webkit-box-orient: vertical; min-width: fit-content; margin: 0px 16px 0px 0px">
-                                 <span
-                                    style="font-size: 12px; font-weight: normal; color: rgba(17, 17, 17, 0.3); word-break: break-all; vertical-align: middle">AD</span>
-                              </div>
-                           </div>
-                           <!-- 상품 추천의 개별 상품 -->
-                           <div class="recommended_products"></div>
-                        </div>
-                     </div>
                   </li>
 
                   <!-- 상품평 -->
@@ -430,8 +409,7 @@
                      <div class="sdp-review">
                         <div class="sdp-review-guide">상품평 운영원칙</div>
                         <h4 class="sdp-review-title">상품평</h4>
-                        <div class="sdp-review-section-guide">동일한 상품에 대해 작성된 상품평으로, 판매자는 다를 수 있습니다.</div>
-
+                        <!-- <div class="sdp-review-section-guide">동일한 상품에 대해 작성된 상품평으로, 판매자는 다를 수 있습니다.</div> -->
                         <div>
                            <!-- 별점 -->
                            <div class="sdp-review-total-star">
@@ -494,7 +472,7 @@
                            <section class="sdp-review-summary"></section>
                         </div>
 
-                        <div style="margin-top:90px;">
+                        <div style="margin-top:30px;">
                            <!-- 리뷰 정렬 바 -->
                            <div class="sdp-review-article-order">
                               <div class="sdp-review-article-order-sort">
@@ -528,7 +506,7 @@
 
                            <!-- 리뷰 상세 글 -->
                            <div id="review-detail-list">
-                              <!--
+                              
                               <article class="sdp-review-article-list">
                                  <div class="list-info">
                                     <div class="list-info-profile">
@@ -710,7 +688,7 @@
                                     <div class="sdp-review__clear"></div>
                                  </div>
                               </article>
-                              -->
+                             
 
                               <div class="sdp-review-article-page">
                                  <button class="page-prev"></button>
