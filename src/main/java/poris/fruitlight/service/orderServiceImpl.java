@@ -42,20 +42,6 @@ public class orderServiceImpl implements orderService{
 		return shippingAddressDao.selectShippingAddressById(shopper);
 	}
 	
-	@Override
-	public List<DeliveryParam> getDeliveryInfo() {
-		
-		// JSP 화면 출력용 테스트 더미 데이터, 추후 DB 연결시 변경 필수
-		List<DeliveryParam> deleveryList = new ArrayList<>();
-		for(int i=1; i<=5; i++) {
-			DeliveryParam dp = new DeliveryParam();
-			dp.setName("제품"+i);
-			dp.setStock(i);
-			dp.setProductPrice(1000+i);
-			deleveryList.add(dp);
-		}
-		return deleveryList;
-	}
 
 	@Override
 	public void addOrder(OrderHistory orderHistory) {

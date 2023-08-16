@@ -12,7 +12,6 @@ import poris.fruitlight.dto.ShopperParam;
 public interface orderService {
 	public ShopperParam getShopperInfo(String userId);
 	public ShippingAddressParam getShippingAddressInfo(Shopper shopper);
-	public List<DeliveryParam> getDeliveryInfo();
 	
 	/**
 	 * 작성자: 이은지
