@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import poris.fruitlight.dto.OrderHistory;
+import poris.fruitlight.dto.OrderHistory;
 import poris.fruitlight.dto.OrderHistoryOrderList;
 
 /**

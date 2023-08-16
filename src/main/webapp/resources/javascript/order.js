@@ -173,6 +173,8 @@ function selectCashReceiptDeduction() {
 
     $("#deductionRadio").removeClass("cash-receipt__request-type__radio__unchecked");
     $("#deductionRadio").addClass("cash-receipt__request-type__radio__checked");
+    
+    $("#incomeDeduction").attr("checked", true);
 }
 function selectCashReceiptExpense() {
     $("#expenseRadio").removeClass("cash-receipt__request-type__radio__unchecked");
@@ -180,4 +182,6 @@ function selectCashReceiptExpense() {
 
     $("#deductionRadio").removeClass("cash-receipt__request-type__radio__checked");
     $("#deductionRadio").addClass("cash-receipt__request-type__radio__unchecked");
+
+    $("#proofExpenditure").attr("checked", true);
 }

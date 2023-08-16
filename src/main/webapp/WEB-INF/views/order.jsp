@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="/main" type="image/x-icon" />
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/images/favicon.ico" type="image/x-icon" />
     <title>푸릇라이트 - 결제 페이지</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
@@ -24,7 +24,7 @@
     <%@ include file="/WEB-INF/views/header.jsp" %>
 
     <section id="body">
-    	<form action="#" method="post" accept-charset="utf-8">
+    	<form action="order/buyOrder" method="post" accept-charset="utf-8">
 	      <div class="middle container">
 	         <div class="orderTitle row">
 	            <h3 class="title col">주문/결제</h3>
@@ -167,7 +167,7 @@
 	                              <ul id="payTypeList" class="type-selector-list">
 	                      
 	                                  <li id="rocketPayBox" class="type-selector-li selected-pay-type">
-	                                      <input class="type-selector-radio" type="radio" name="payType" id="payTypeBank" value="ROCKET_BANK">
+	                                      <input class="type-selector-radio" type="radio" name="payType" id="payTypeBank" value="ROCKET_BANK" checked>
 	                                      <label class="type-selector-label type-selector-label--bank" for="payTypeBank" style="font-weight: bold;">
 	                                          <span class="type-selector-label__text">계좌이체</span>
 	                                      </label>
@@ -210,7 +210,7 @@
 	                                    <li class="pay-type-section last-section">
 	                                       <label for="label_rocketBank_bankList" class="line-title">은행선택</label>
 	                                       <div class="line-data">
-	                                          <select id="label_rocketBank_bankList" data-node="bankList-select">
+	                                          <select id="label_rocketBank_bankList" name="payTypeBank" data-node="bankList-select">
 	                                             <option value="">선택</option>
 	                                             <option value="KAKAO@카카오뱅크@@">카카오뱅크</option>
 	                                             <option value="NH@농협은행@@">농협은행</option>
@@ -242,7 +242,7 @@
 	                           </div>
 	
 	                           <!-- 쿠페이머니 결제-->
-	                           <div class="rocketPayBalanceBox pay-box-content">
+	                           <!-- <div class="rocketPayBalanceBox pay-box-content">
 	                              <h3 class="title">쿠팡 간편결제(쿠페이 머니)</h3>
 	                              <div class="rocketpay-payment pay-type-content" data-controller="UnifiedMoney" data-node="pay-typeContent">
 	                                 <ul class="pay-type-sections">
@@ -258,7 +258,7 @@
 	                                    </li>
 	                                 </ul>
 	                              </div>
-	                           </div>
+	                           </div> -->
 	
 	                           <!-- 신용/체크카드 결제 -->
 	                           <div class="rocketPayCardBox pay-box-content">
@@ -268,7 +268,7 @@
 	                                    <li class="pay-type-section">
 	                                       <label for="rocketCard-select" class="line-title">카드선택</label>
 	                                       <div class="line-data">
-	                                          <select name="rocketCardCode" id="rocketCard-select" class="rocketpay-card__cardList">
+	                                          <select name="payTypeCard" id="rocketCard-select" class="rocketpay-card__cardList">
 	                                                <option value="">선택</option>
 	                                                <option value="KB">KB국민카드</option>
 	                                                <option value="LOTTE">롯데카드</option>
@@ -305,7 +305,7 @@
 	                                    <li class="pay-type-section">
 	                                       <label for="cellphoneTelecom" class="payment-cellphone__line-title">통신사 종류</label>
 	                                       <div class="payment-cellphone__line-data">
-	                                          <select name="cellphoneTelecom" id="cellphoneTelecom" class="payment-cellphone__select">
+	                                          <select name="payTypeTelecom" id="cellphoneTelecom" class="payment-cellphone__select">
 	                                             <option value="" selected="">선택</option>
 	                                             <option value="SKT">SKT</option>
 	                                             <option value="KT">KT</option>
@@ -327,7 +327,7 @@
 	                                    <li class="deposit-bank-wrap pay-type-section">
 	                                       <label for="depositBank" class="line-title">입금은행</label>
 	                                       <div class="line-data">
-	                                          <select id="depositBank" class="" name="depositBank">
+	                                          <select id="depositBank" class="" name="payTypeDepositBank">
 	                                             <option value="" selected="" data-limitmsg="">선택</option>
 	                                             <option value="NH">농협은행</option>
 	                                             <option value="KB">국민은행</option>
@@ -386,16 +386,18 @@
 	                        <span id="DEDUCTION">
 	                           <span id="deductionRadio" class="cash-receipt__request-type__radio cash-receipt__request-type__radio__checked"></span>
 	                           <span class="cash-receipt__request-type__desc">소득공제</span>
+	                           <input hidden type="radio" id="incomeDeduction" name="receiptPurpose" value="incomeDeduction" checked>
 	                        </span>
 	                        <span id="EXPENSE">
 	                           <span id="expenseRadio" class="cash-receipt__request-type__radio cash-receipt__request-type__radio__unchecked"></span>
 	                           <span class="cash-receipt__request-type__desc">지출증빙</span>
+	                           <input hidden type="radio" id="proofExpenditure" name="receiptPurpose" value="proofExpenditure">
 	                        </span>
 	                     </div>
 	                     <div class="cash-receipt__resiter-type__wrap">
 	                        <span>
 	                           <select name="cashReceiptRegisterType" class="cash-receipt__resiter-type__select">
-	                              <option value="PHONE_NUMBER">휴대폰번호</option>
+	                              <option value="PHONE_NUMBER" selected>휴대폰번호</option>
 	                              <option value="CASH_RECEIPT_CARD_NUMBER">현금영수증카드</option>
 	                           </select>
 	                        </span>
@@ -411,7 +413,7 @@
 	               	위 주문 내용을 확인 하였으며, 회원 본인은 개인정보 이용 및 제공 및 결제에 동의합니다.
 	            </div>
 	            <div class="agreeBtn hasRocketPayCheckoutButton" id="btn_all">
-		            <button class="custom-btn btn-3"><span>결제하기</span></button>
+		            <button class="custom-btn btn-3" type="submit"><span>결제하기</span></button>
 	            </div>
 	         </div>
 	      </div>
