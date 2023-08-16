@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import lombok.extern.slf4j.Slf4j;
 import poris.fruitlight.dao.DetailViewDao;
+import poris.fruitlight.dto.BoardMedia;
 import poris.fruitlight.dto.Cart;
 import poris.fruitlight.dto.FoodRequiredInfo;
 import poris.fruitlight.dto.Pager;
@@ -32,6 +33,11 @@ public class DetailViewServiceImpl implements DetailViewService {
 	@Override
 	public FoodRequiredInfo getFoodRequiredInfoByBoardNo(int boardNo) {
 		return detailViewDao.SelectRequiredInfoByBoardNo(boardNo);
+	}
+	
+	@Override
+	public List<BoardMedia> getProductContentList(int boardNo) {
+		return detailViewDao.SelectProductContentByBoardNo(boardNo);
 	}
 	
 	@Override
