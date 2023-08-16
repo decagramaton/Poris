@@ -44,9 +44,11 @@
 								<div class="mycoupang-main-search-it">
 									<div class="mycoupang-main-search-it-flex">
 										<form>
-											<div class="mycoupang-main-search-it-flexin1"><input value="" placeholder="주문한 상품을 검색할 수 있어요!"></div>
+											<div class="mycoupang-main-search-it-flexin1">
+												<input type="text" id="orderSearchKeyword" class="orderSearchKeyword" name="searcho" placeholder="주문한 상품을 검색할 수 있어요!">
+											</div>
 											<div class="mycoupang-main-search-it-flexin2">
-												<button id="headerSearchBtn" class="headerSearchBtn" type="button" onclick="searchOrdered()">
+												<button id="headerSearchBtn" class="headerSearchBtn" type="submit">
 													<img id="headerSearchBtnImage" class="headerSearchBtnImage" title="검색" src="${pageContext.request.contextPath}/resources/images/search.png">	                 	
 							                 	</button>
 											</div>

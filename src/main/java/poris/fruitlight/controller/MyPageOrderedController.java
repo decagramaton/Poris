@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import lombok.extern.slf4j.Slf4j;
 import poris.fruitlight.dto.MyPageOrdered;
 import poris.fruitlight.dto.OrderHistoryOrderList;
+import poris.fruitlight.dto.OrderSearchParam;
+import poris.fruitlight.dto.Shopper;
 import poris.fruitlight.service.MyPageOrderedService;
 
 @Slf4j
@@ -24,13 +26,36 @@ public class MyPageOrderedController {
 	public MyPageOrderedService myPageOrderedService;
 	
 	@RequestMapping("/mypageOrdered")
-	public String myPageOrdered(@RequestParam int sid, HttpSession session, Model model) {
+	public String myPageOrdered(
+			@RequestParam(name = "searcho", required = false) String searchKeyword,
+			HttpSession session,
+			Model model) {
 		
-		List<OrderHistoryOrderList> mypageOrdered = myPageOrderedService.getList(sid);
-	     for(OrderHistoryOrderList mpo : mypageOrdered) {
-	    	  mpo.setBase64Img(Base64.getEncoder().encodeToString(mpo.getMEDIA_DATA()));
-	      }
+		List<OrderHistoryOrderList> mypageOrdered;
+		OrderSearchParam orderSearch = new OrderSearchParam();
+		Shopper shopper = (Shopper) session.getAttribute("ShopperInfo");
+		
+	    if (searchKeyword != null) {
+	    	
+	    	
+	    	orderSearch.setShopperNo(shopper.getShopperNo());
+	    	orderSearch.setSearchKeyword(searchKeyword);
+	    	
+	    	mypageOrdered = myPageOrderedService.searchOrderList(orderSearch);
+	    	for(OrderHistoryOrderList mpo : mypageOrdered) {
+	    		mpo.setBase64Img(Base64.getEncoder().encodeToString(mpo.getMEDIA_DATA()));
+	    	} 
+	    }
+	    else {
+	    	
+	    	mypageOrdered = myPageOrderedService.getList(shopper.getShopperNo());
+	    	for(OrderHistoryOrderList mpo : mypageOrdered) {
+	    		mpo.setBase64Img(Base64.getEncoder().encodeToString(mpo.getMEDIA_DATA()));
+	    	} 
+	    }
+	    
 		model.addAttribute("mypageOrdered", mypageOrdered);
+		model.addAttribute("searchKeyword", searchKeyword);
 		
 		log.info("mypageOrdered" + mypageOrdered.toString());
 		
