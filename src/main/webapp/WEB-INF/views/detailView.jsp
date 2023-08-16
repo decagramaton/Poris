@@ -94,7 +94,8 @@
                            <span class="product-option-title">
                                <strong>= 옵션 : 가격 =</strong>
                            </span>
-                           <span class="product-option-ico closed"></span>
+                           <span class="product-option-ico closed" style="background-image: url(${pageContext.request.contextPath}/resources/images/option_drop_down.png)"></span>
+                           <span class="product-option-ico open" style="background-image: url(${pageContext.request.contextPath}/resources/images/option_drop_up.png)"></span>
                      	</div>
                   	 </div>
 	                     <ul class="product-options-list closed">
