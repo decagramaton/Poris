@@ -8,6 +8,7 @@ import poris.fruitlight.dto.OrderHistory;
 import poris.fruitlight.dto.OrderHistory;
 import poris.fruitlight.dto.OrderHistoryOrderList;
 import poris.fruitlight.dto.OrderSearchParam;
+import poris.fruitlight.dto.ReceiptHistory;
 
 /**
  * 상품 정보와 관련된 DAO.
@@ -20,4 +21,16 @@ public interface OrderHistoryDao {
    public List<OrderHistoryOrderList> SelectOrderHistory(int sid);
    public List<OrderHistoryOrderList> SearchOrdersByPname(OrderSearchParam orderSearch);
    
+   /**
+    * 작성자: 이은지
+    * 결제 시 ORDER_HISTORY에 추가
+    * @param orderHistory
+    */
+   public void insertOrderHistory(OrderHistory orderHistory);
+   /**
+    * 작성자: 이은지
+    * 결제 시 RECEIPT_HISTORY에 추가
+    * @param receiptHistory
+    */
+   public void insertReceiptHistory(ReceiptHistory receiptHistory);
 }

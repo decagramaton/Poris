@@ -124,7 +124,7 @@ section .middle {
     vertical-align: middle;
     border-bottom: 1px solid #e4e4e4;
     padding: 10px 16px;
-    width: 88%;
+    width: 90%;
 }
 
 /* 받는사람정보(배송지 주소) */
@@ -262,10 +262,6 @@ section .middle {
     font-size: 20px;
     font-weight: 700;
     color: #333;
-}
-
-.type-selector-list-wrapper {
-    width: 845px;
 }
 
 .type-selector-list {

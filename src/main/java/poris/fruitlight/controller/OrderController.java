@@ -161,10 +161,9 @@ public class OrderController {
 		order.setCASH_RECEIPT_NO(cashReceiptRequestNo);
 		
 		//order DB에 저장
+		orderService.addOrder(order);
 		
-		
-		//ReceiptHistory DTO List 생성
-		List<ReceiptHistory> receiptHistoryList = new ArrayList<>();
+		//ReceiptHistory
 		for(OrderParam orderParam : orderParamList) {
 			//ReceiptHistory DTO 객체 생성
 			ReceiptHistory receipt = new ReceiptHistory();
@@ -175,10 +174,9 @@ public class OrderController {
 			//상품수량
 			receipt.setSTOCK(orderParam.getProductStock());
 			
-			receiptHistoryList.add(receipt);
+			//receipt DB에 저장
+			orderService.addReceipt(receipt);
 		}
-		
-		//receiptHistoryList DB에 저장
 		
 		return "order";
 	}
