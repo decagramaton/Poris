@@ -6,11 +6,12 @@ import poris.fruitlight.dto.DeliveryParam;
 import poris.fruitlight.dto.OrderHistory;
 import poris.fruitlight.dto.ReceiptHistory;
 import poris.fruitlight.dto.ShippingAddressParam;
+import poris.fruitlight.dto.Shopper;
 import poris.fruitlight.dto.ShopperParam;
 
 public interface orderService {
 	public ShopperParam getShopperInfo(String userId);
-	public ShippingAddressParam getShippingAddressInfo(String userId);
+	public ShippingAddressParam getShippingAddressInfo(Shopper shopper);
 	public List<DeliveryParam> getDeliveryInfo();
 	
 	/**

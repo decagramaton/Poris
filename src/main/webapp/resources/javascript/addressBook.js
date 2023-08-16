@@ -5,6 +5,7 @@
  */
 function selectAddressBook(index) {
 	// 받을 사람, 받을 주소, 연락처를 부모 페이지 요소에 대입
+	window.opener.document.getElementById("addressNo").value = $("input[name='addressNo"+index+"']").val();
 	window.opener.document.getElementById("recipientName").innerHTML = $("input[name='recipientName"+index+"']").val();
 	window.opener.document.getElementById("deliveryDetailAddress").innerHTML = $("input[name='streetAddress"+index+"']").val();
 	window.opener.document.getElementById("deliveryTel").innerHTML = $("input[name='recipientTel"+index+"']").val();

@@ -49,7 +49,7 @@ public class OrderController {
 			
 			// Step2.구매자 정보, 도착지 정보, 배송 목록을 DB에서 가져오기
 			Shopper shopperInfo = shopperService.getShopperById(shopper);
-			ShippingAddressParam shipAddress = orderService.getShippingAddressInfo("1");
+			ShippingAddressParam shipAddress = orderService.getShippingAddressInfo(shopper);
 			List<DeliveryParam> deliveryInfo = orderService.getDeliveryInfo();
 			
 			
@@ -78,6 +78,7 @@ public class OrderController {
 	@RequestMapping("/order/buyOrder")
 	public String buyOrder(
 			HttpSession session,
+			int addressNo,
 			String payType, 
 			String payTypeBank, 
 			String payTypeCard, 
@@ -101,7 +102,7 @@ public class OrderController {
 		//유저 번호
 		order.setSHOPPER_NO(loginShopper.getShopperNo());
 		//배송지 번호
-		order.setADDRESS_NO(1);  //추후 수정
+		order.setADDRESS_NO(addressNo);  //추후 수정
 		//결제 날짜
 		order.setORDER_DATE(new Date());
 		//총 상품가격

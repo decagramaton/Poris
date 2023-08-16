@@ -59,7 +59,7 @@
 	            </h2>
 	            <div class="table-frame">
 	               <div>
-	               	  <input type="hidden" name="dd" value="${shipAddress.shippingAddressNo}">
+	               	  <input type="hidden" id="addressNo" name="addressNo" value="${shipAddress.addressNo}">
 	                  <div class="table-row">
 	                     <div class="table-colume">이름</div>
 	                     <div id="recipientName" class="table_content">${shipAddress.name}</div>
