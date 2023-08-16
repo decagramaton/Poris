@@ -1448,8 +1448,8 @@ a {
     height: 26px;
     margin-left: 5px;
     padding: 0;
-    border: 1px solid #346aff;
-    color: #346aff;
+    border: 1px solid #95CF59;
+    color: #95CF59;
     background-color: #fff;
     letter-spacing: -1px;
     outline: 0;
@@ -1457,9 +1457,9 @@ a {
 }
 
 .sdp-review-article-list .list-help .list-help-btn:hover {
-    border: 1px solid #346aff;
+    border: 1px solid #A0DE5F;
     color: #fff;
-    background-color: #346aff;
+    background-color: #A0DE5F;
 }
 
 .sdp-review-article-list .list-help .list-help-report-btn {
@@ -1470,7 +1470,7 @@ a {
     margin: 0;
     border: 0;
     background-color: #fff;
-    color: #346aff;
+    color: #1E9A4F;
     outline: 0;
 	cursor: pointer;
 }

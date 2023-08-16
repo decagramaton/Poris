@@ -298,50 +298,6 @@
                               </div>
                            </div>
 
-                           <!-- 리뷰 사진 -->
-                           <div class="sdp-review-gallery">
-                              <div>
-                                 <ul class="sdp-review-gallery-list">
-                                    <li class="sdp-review-gallery-list-item">
-                                       <img class="sdp-review-gallery-list-item-image"
-                                          src="https://thumbnail8.coupangcdn.com/thumbnails/local/320/image2/PRODUCTREVIEW/202306/14/8920372023070213512/9f497616-d5af-4d89-a8ec-5d1ffa246edc.jpg">
-                                    </li>
-                                    <li class="sdp-review-gallery-list-item">
-                                       <img class="sdp-review-gallery-list-item-image"
-                                          src="https://thumbnail6.coupangcdn.com/thumbnails/local/320/image2/PRODUCTREVIEW/202306/14/8920372023070213512/5d65389c-3e75-4a49-8fdf-fc6b4d5410b7.jpg">
-                                    </li>
-                                    <li class="sdp-review-gallery-list-item">
-                                       <img class="sdp-review-gallery-list-item-image"
-                                          src="https://thumbnail6.coupangcdn.com/thumbnails/local/320/image2/PRODUCTREVIEW/202306/14/8920372023070213512/d3f2d485-cae1-44ff-ac56-288e9124f05a.jpg">
-                                    </li>
-                                    <li class="sdp-review-gallery-list-item">
-                                       <img class="sdp-review-gallery-list-item-image"
-                                          src="https://thumbnail9.coupangcdn.com/thumbnails/local/320/image2/PRODUCTREVIEW/202306/14/8920372023070213512/e2ece8e7-7ade-4c80-abf9-39b2475c05aa.jpg">
-                                    </li>
-                                    <li class="sdp-review-gallery-list-item">
-                                       <img class="sdp-review-gallery-list-item-image"
-                                          src="https://thumbnail6.coupangcdn.com/thumbnails/local/320/image2/PRODUCTREVIEW/202306/14/8920372023070213512/d3f2d485-cae1-44ff-ac56-288e9124f05a.jpg">
-                                    </li>
-                                    <li class="sdp-review-gallery-list-item">
-                                       <img class="sdp-review-gallery-list-item-image"
-                                          src="https://thumbnail6.coupangcdn.com/thumbnails/local/320/image2/PRODUCTREVIEW/202306/14/8920372023070213512/5d65389c-3e75-4a49-8fdf-fc6b4d5410b7.jpg">
-                                    </li>
-                                    <li class="sdp-review-gallery-list-item">
-                                       <img class="sdp-review-gallery-list-item-image"
-                                          src="https://thumbnail8.coupangcdn.com/thumbnails/local/320/image2/PRODUCTREVIEW/202306/14/8920372023070213512/9f497616-d5af-4d89-a8ec-5d1ffa246edc.jpg">
-                                    </li>
-                                    <li class="sdp-review-gallery-list-item">
-                                       <img class="sdp-review-gallery-list-item-image"
-                                          src="https://thumbnail7.coupangcdn.com/thumbnails/local/320/image2/PRODUCTREVIEW/202306/9/6408141922936458392/b9740b88-1730-4c55-83f1-e6339fd3da8a.jpg">
-                                    </li>
-                                    <li class="sdp-review-gallery-list-item-more-btn">
-                                       <div class="sdp-review-gallery-list-item-more-btn-count"> 45</div>
-                                       <div class="sdp-review-gallery-list-item-more-btn-content">더보기 &gt;</div>
-                                    </li>
-                                 </ul>
-                              </div>
-                           </div>
-
                            <!-- 리뷰 통계 -->
                            <section class="sdp-review-summary"></section>
                         </div>
@@ -383,15 +339,8 @@
                               
                               <article class="sdp-review-article-list">
                                  <div class="list-info">
-                                    <div class="list-info-profile">
-                                       <img
-                                          src="//thumbnail10.coupangcdn.com/thumbnails/local/320/image2/PRODUCTREVIEW/202209/11/6408141922936458392/d3f6efa3-c0e6-46c2-9977-6e77c12caf4d.png"
-                                          style="width: auto; height: 100%; margin-left: -0.382166px; opacity: 1;">
-                                    </div>
                                     <div class="list-info-user">
                                        <span class="list-info-user-name">온바라기&nbsp;</span>
-                                       <img class="list-info-top-badge"
-                                          src="//img1a.coupangcdn.com/image/productreview/web/pdp/badges/TOP50_v1.png">
                                     </div>
                                     <div class="list-info-product-info">
                                        <div class="star-gray">
@@ -399,7 +348,6 @@
                                        </div>
                                        <div class="reg-date">2023.06.09</div>
                                     </div>
-                                    <div class="list-info-product-info-seller-name">판매자: 쿠팡(주)</div>
                                     <div class="list-info-product-info-name">과일엔 미국산 생체리, 800g,1팩</div>
                                  </div>
 
@@ -470,7 +418,6 @@
                                        명에게 도움 됨
                                     </div>
                                     <button class="list-help-btn">도움이돼요</button>
-                                    <button class="list-help-btn">도움 안돼요</button>
                                     <button class="list-help-report-btn">신고하기</button>
                                     <div class="sdp-review__clear"></div>
                                  </div>
@@ -478,15 +425,8 @@
 
                               <article class="sdp-review-article-list">
                                  <div class="list-info">
-                                    <div class="list-info-profile">
-                                       <img
-                                          src="//thumbnail7.coupangcdn.com/thumbnails/local/320/image2/PRODUCTREVIEW/202112/9/662383801868194448/1127fbc5-0585-4add-a103-4572510b2eaa.jpeg"
-                                          style="width: auto; height: 100%; margin-left: -0.382166px; opacity: 1;">
-                                    </div>
                                     <div class="list-info-user">
                                        <span class="list-info-user-name">장원석&nbsp;</span>
-                                       <img class="list-info-top-badge"
-                                          src="//img1a.coupangcdn.com/image/productreview/web/pdp/badges/REAL_NAME_REVIEWER_v1.png">
                                     </div>
                                     <div class="list-info-product-info">
                                        <div class="star-gray">
@@ -494,7 +434,6 @@
                                        </div>
                                        <div class="reg-date">2023.06.11</div>
                                     </div>
-                                    <div class="list-info-product-info-seller-name">판매자: 쿠팡(주)</div>
                                     <div class="list-info-product-info-name">과일엔 미국산 생체리, 800g,1팩</div>
                                  </div>
 
@@ -557,7 +496,6 @@
                                        명에게 도움 됨
                                     </div>
                                     <button class="list-help-btn">도움이돼요</button>
-                                    <button class="list-help-btn">도움 안돼요</button>
                                     <button class="list-help-report-btn">신고하기</button>
                                     <div class="sdp-review__clear"></div>
                                  </div>
