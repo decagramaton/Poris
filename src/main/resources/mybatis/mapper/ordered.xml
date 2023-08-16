@@ -40,4 +40,19 @@
         JOIN BOARD_MEDIA bm ON pb.BOARD_NO = bm.BOARD_NO
         WHERE oh.SHOPPER_NO = #{shopperNo} AND p.PRODUCT_NAME LIKE '%' || #{searchKeyword} || '%' AND MEDIA_NAME LIKE '%list_thumbnail%'
     </select>
+    
+    <!-- 작정자: 이은지 -->
+	<insert id="insertOrderHistory" parameterType="poris.fruitlight.dto.OrderHistory">
+		<selectKey keyProperty="ORDER_NO" resultType="int" order="BEFORE">
+			select ORDER_NO_SEQ.nextval from dual
+		</selectKey>
+		insert into ORDER_HISTORY (
+			ORDER_NO, SHOPPER_NO, ADDRESS_NO, ORDER_DATE, TOTAL_PRICE, DISCOUNT_PRICE, SHIPPING_PRICE, 
+			PAYMENT_PRICE, PAYMENT_TYPE, CASH_RECEIPT_PURPOSE, CASH_RECEIPT_TYPE, CASH_RECEIPT_NO
+		)
+		values(
+			#{ORDER_NO}, #{SHOPPER_NO}, #{ADDRESS_NO}, #{ORDER_DATE}, #{TOTAL_PRICE}, #{DISCOUNT_PRICE}, #{SHIPPING_PRICE}, 
+			#{PAYMENT_PRICE}, #{PAYMENT_TYPE}, #{CASH_RECEIPT_PURPOSE}, #{CASH_RECEIPT_TYPE}, #{CASH_RECEIPT_NO}
+		)
+	</insert>
 </mapper>
