@@ -273,7 +273,13 @@
                            </c:if>
                         </div>
                         <div class="product_detail_content">
-                           <div class="product_detail_content_inside"></div>
+                           <div class="product_detail_content_inside">
+                               <c:if test="${productContentList != null}">
+		                           <c:forEach var="Content" items="${productContentList}">
+		                               <img src="data:${Content.mediaData};base64, ${Content.base64Img}">
+		                           </c:forEach>
+	                           </c:if>
+                           </div>
                         </div>
                      </div>
                   </li>

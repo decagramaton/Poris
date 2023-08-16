@@ -2,6 +2,7 @@ package poris.fruitlight.service;
 
 import java.util.List;
 
+import poris.fruitlight.dto.BoardMedia;
 import poris.fruitlight.dto.Cart;
 import poris.fruitlight.dto.FoodRequiredInfo;
 import poris.fruitlight.dto.Pager;
@@ -31,6 +32,15 @@ public interface DetailViewService {
 	 * @return FoodRequiredInfo(상품 필수 표기 정보 DTO)
 	 */
 	public FoodRequiredInfo getFoodRequiredInfoByBoardNo(int boardNo);
+	
+	
+	/**
+	 * @author 고재승
+	 * @since 2023.08.16
+	 * @param bno - 상품 게시글 번호
+	 * @return BoardMedia(게시글 미디어 파일 정보 DTO)
+	 */
+	public List<BoardMedia> getProductContentList(int boardNo);
 	
 	/**
 	 * 

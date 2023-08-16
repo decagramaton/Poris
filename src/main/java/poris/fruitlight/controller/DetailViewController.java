@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import lombok.extern.slf4j.Slf4j;
+import poris.fruitlight.dto.BoardMedia;
 import poris.fruitlight.dto.Cart;
 import poris.fruitlight.dto.FoodRequiredInfo;
 import poris.fruitlight.dto.OrderParam;
@@ -26,6 +27,7 @@ import poris.fruitlight.dto.Pager;
 import poris.fruitlight.dto.Product;
 import poris.fruitlight.dto.ProductBoard;
 import poris.fruitlight.dto.ProductInquiry;
+import poris.fruitlight.dto.ProductList;
 import poris.fruitlight.dto.Shopper;
 import poris.fruitlight.service.DetailViewService;
 import poris.fruitlight.util.AlertScript;
@@ -80,7 +82,11 @@ public class DetailViewController {
 		
 		//  -------------   [ 상품 상세 정보  ]  --------------------
 		
-		
+		List<BoardMedia> productContentList = detailViewService.getProductContentList(bno);
+		for(BoardMedia productContent : productContentList) {
+			productContent.setBase64Img(Base64.getEncoder().encodeToString(productContent.getMediaData()));
+	    }
+		model.addAttribute("productContentList", productContentList);
 		
 		
 		
@@ -104,7 +110,7 @@ public class DetailViewController {
 		
 		return "detailView";
 	}
-	
+
 	/**
 	 * 
 	 * @param request(ajax로 장바구니에 담을 상품의 no리스트와 각 수량리스트)

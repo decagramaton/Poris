@@ -9,7 +9,9 @@
 		<typeAlias alias="Product" type="poris.fruitlight.dto.Product"/><!-- 상품 정보 DTO -->
 		<typeAlias alias="ProductBoard" type="poris.fruitlight.dto.ProductBoard"/><!-- 게시판 정보 DTO -->
 		<typeAlias alias="AddressBook" type="poris.fruitlight.dto.AddressBook"/><!-- 배송지 정보 DTO -->
-		<typeAlias alias="FoodRequiredInfo" type="poris.fruitlight.dto.FoodRequiredInfo"/><!-- 배송지 정보 DTO -->
+		<typeAlias alias="FoodRequiredInfo" type="poris.fruitlight.dto.FoodRequiredInfo"/><!-- 상품 필수 표기 정보 DTO -->
+      	<typeAlias alias="BoardMedia" type="poris.fruitlight.dto.BoardMedia"/><!-- 게시글 미디어 파일 정보 DTO -->
+      	<typeAlias alias="OrderSearch" type="poris.fruitlight.dto.OrderSearchParam"/><!-- 배송지 정보 DTO -->
 	</typeAliases>
 
 </configuration>
