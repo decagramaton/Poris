@@ -271,7 +271,6 @@ header {
 	width: 16px;
     height: 16px;
     margin-right: 20px;
-    background-image: url(${pageContext.request.contextPath}/resources/images/option_drop_up.png);
     background-image: url(https://www.brandi.co.kr/static/23.04.02/images/mo-ic-drop-down-black-16-pt@3x.png);
     margin: 16px 16px 0 0;
     background-repeat: no-repeat;
