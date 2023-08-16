@@ -25,6 +25,7 @@ import poris.fruitlight.dto.CartProduct;
 import poris.fruitlight.dto.Coupon;
 import poris.fruitlight.dto.OrderParam;
 import poris.fruitlight.dto.ProductList;
+import poris.fruitlight.dto.Shopper;
 import poris.fruitlight.service.CartService;
 import poris.fruitlight.util.AlertScript;
 
@@ -39,21 +40,24 @@ public class CartController {
 	@Resource
 	private CartService cartProductService;
 	
+	private Shopper loginShopper;
+	
 	/**
 	 * 
 	 * @param model
 	 * @return 장바구니(cart) 페이지
 	 */
 	@RequestMapping("/cart")
-	public String cart(HttpServletResponse response, HttpSession session,Model model) {
-		if(session.getAttribute("ShopperInfo") == null) {
+	public String cart(HttpServletResponse response, HttpSession session, Model model) {
+		loginShopper = (Shopper) session.getAttribute("ShopperInfo");
+		if(loginShopper == null) {
 			try {
 				AlertScript.alertAndMovePage(response, "로그인을 해주세요", "/fruitlight/login");
 			} catch (IOException e) {
 				return "redirect:/main";
 			}
 		} else {
-			List<CartProduct> listProduct = cartProductService.getCartProduct(1);
+			List<CartProduct> listProduct = cartProductService.getCartProduct(loginShopper.getShopperNo());
 			
 			for(CartProduct cartProduct : listProduct) {
 				cartProduct.setBase64Img(Base64.getEncoder().encodeToString(cartProduct.getMEDIA_DATA()));
@@ -75,7 +79,10 @@ public class CartController {
 	//개별삭제
 	@RequestMapping("/cart/delete")
 	public String delete(int pno) {
-		cartProductService.deleteProduct(pno);
+		Cart cart = new Cart();
+		cart.setSHOPPER_NO(loginShopper.getShopperNo());
+		cart.setPRODUCT_NO(pno);
+		cartProductService.deleteProduct(cart);
 		return "redirect:/cart";
 	}
 	
@@ -88,7 +95,10 @@ public class CartController {
 	@RequestMapping("/cart/deleteChecked")
 	public String deleteChecked(@RequestParam List<Integer> pnos) {
 		for(Integer pno : pnos) {
-			cartProductService.deleteProduct(pno);
+			Cart cart = new Cart();
+			cart.setSHOPPER_NO(loginShopper.getShopperNo());
+			cart.setPRODUCT_NO(pno);
+			cartProductService.deleteProduct(cart);
 		}
 		return "redirect:/cart";
 	}
@@ -103,7 +113,7 @@ public class CartController {
 	@RequestMapping("/cart/changeStock")
 	public void changeStock(int pno, int stock) {
 		Cart cart = new Cart();
-		cart.setSHOPPER_NO(1);
+		cart.setSHOPPER_NO(loginShopper.getShopperNo());
 		cart.setPRODUCT_NO(pno);
 		cart.setCART_PRODUCT_STOCK(stock);
 		

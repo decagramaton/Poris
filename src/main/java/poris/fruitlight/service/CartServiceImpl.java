@@ -38,8 +38,8 @@ public class CartServiceImpl implements CartService {
 	
 	//상품삭제
 	@Override
-	public void deleteProduct(int pno) {
-		cartDao.deleteCart(pno);
+	public void deleteProduct(Cart cart) {
+		cartDao.deleteCart(cart);
 	}
 	
 	//수량변경

@@ -331,6 +331,7 @@
                   <div class="product-buy-footer">
                      <!-- 장바구니/구매하기 -->
                      <div class="product-buy-btns">
+                     	<input type="hidden" id="shopperInfo" value="${ShopperInfo}">
                         <button class="product-cart-btn">
                            	장바구니 담기
                         </button>

@@ -14,19 +14,18 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import lombok.extern.slf4j.Slf4j;
 import poris.fruitlight.dto.Cart;
-import poris.fruitlight.dto.CartProduct;
 import poris.fruitlight.dto.OrderParam;
+import poris.fruitlight.dto.Pager;
 import poris.fruitlight.dto.Product;
 import poris.fruitlight.dto.ProductBoard;
-import poris.fruitlight.dto.Pager;
 import poris.fruitlight.dto.ProductInquiry;
+import poris.fruitlight.dto.Shopper;
 import poris.fruitlight.service.DetailViewService;
 import poris.fruitlight.util.AlertScript;
 
@@ -92,15 +91,9 @@ public class DetailViewController {
 	 */
 	//장바구니 담기
 	@RequestMapping("/detailView/addCartProduct")
-	public void addCartProduct(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
-		//로그인 세션이 없으면 로그인 페이지로 이동
-		
-		if(session.getAttribute("ShopperInfo") == null) {
-			try {
-				AlertScript.alertAndMovePage(response, "로그인을 해주세요", "/fruitlight/login");
-			} catch (IOException e) {}
-		} else {
-		
+	public void addCartProduct(HttpServletRequest request, HttpSession session) {
+		Shopper loginShopper = (Shopper) session.getAttribute("ShopperInfo");
+		if(loginShopper != null) {
 			List<Cart> list = new ArrayList<>();
 			
 			String[] strPnoList = request.getParameterValues("pnos");
@@ -108,7 +101,7 @@ public class DetailViewController {
 			
 			for(int i=0; i<strPnoList.length; i++) {
 				Cart cartProduct = new Cart();
-				cartProduct.setSHOPPER_NO(1);
+				cartProduct.setSHOPPER_NO(loginShopper.getShopperNo());
 				cartProduct.setPRODUCT_NO(Integer.parseInt(strPnoList[i]));
 				cartProduct.setCART_PRODUCT_STOCK(Integer.parseInt(strStockList[i]));
 				

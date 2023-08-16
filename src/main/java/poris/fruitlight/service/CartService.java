@@ -29,7 +29,7 @@ public interface CartService {
 	 * @param pid(장바구니에서 삭제될 상품) 
 	 * @return int
 	 */
-	public void deleteProduct(int pno);
+	public void deleteProduct(Cart cart);
 	/**
 	 * 
 	 * @param cartProduct(수량이 변경될 장바구니 상품)

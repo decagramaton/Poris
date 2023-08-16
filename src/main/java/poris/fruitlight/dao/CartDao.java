@@ -12,6 +12,6 @@ import poris.fruitlight.dto.Coupon;
 public interface CartDao {
 	public List<CartProduct> selectCartBySno(int sno);
 	public List<Coupon> selectCouponBySno(int sno);
-	public int deleteCart(int pno);
+	public int deleteCart(Cart cart);
 	public int updateStock(Cart cart);
 }
