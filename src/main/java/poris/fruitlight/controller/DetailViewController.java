@@ -19,12 +19,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import lombok.extern.slf4j.Slf4j;
+import poris.fruitlight.dto.BoardMedia;
 import poris.fruitlight.dto.Cart;
+import poris.fruitlight.dto.FoodRequiredInfo;
 import poris.fruitlight.dto.OrderParam;
 import poris.fruitlight.dto.Pager;
 import poris.fruitlight.dto.Product;
 import poris.fruitlight.dto.ProductBoard;
 import poris.fruitlight.dto.ProductInquiry;
+import poris.fruitlight.dto.ProductList;
 import poris.fruitlight.dto.Shopper;
 import poris.fruitlight.service.DetailViewService;
 import poris.fruitlight.util.AlertScript;
@@ -50,6 +53,8 @@ public class DetailViewController {
 		// Step1. Session에 있는 게시판 번호 get - ok
 		int bno = Integer.parseInt(session.getAttribute("BoardNo").toString());
 		
+		//  -------------   [ 상품 정보  ]  --------------------
+		
 		// Step2. 게시판 번호에 해당하는 데이터 load
 		ProductBoard productBoard = detailViewService.getProduct(bno);
 		productBoard.setBase64Img(Base64.getEncoder().encodeToString(productBoard.getMediaData()));
@@ -68,6 +73,25 @@ public class DetailViewController {
 		model.addAttribute("productImageList", productImageList);
 		model.addAttribute("productOptionList", productOptionList);
 		
+		//  -------------   [ 필수 표기 정보  ]  --------------------
+		
+		
+		FoodRequiredInfo foodRequiredInfo = detailViewService.getFoodRequiredInfoByBoardNo(bno);
+		model.addAttribute("foodRequiredInfo", foodRequiredInfo);
+		
+		
+		//  -------------   [ 상품 상세 정보  ]  --------------------
+		
+		List<BoardMedia> productContentList = detailViewService.getProductContentList(bno);
+		for(BoardMedia productContent : productContentList) {
+			productContent.setBase64Img(Base64.getEncoder().encodeToString(productContent.getMediaData()));
+	    }
+		model.addAttribute("productContentList", productContentList);
+		
+		
+		
+		
+		//  -------------   [ 상품 문의 페이저  ]  --------------------
 		
 		// Step5. 상품 게시판에 존재하는 상품문의 게시판 개수 load
 		int totalProductInquiryNum = detailViewService.getTotalProductInquiryNum(bno);
@@ -81,9 +105,12 @@ public class DetailViewController {
 		model.addAttribute("productInquiryPager", productInquiryPager);
 		model.addAttribute("productInquiryList", productInquiryList);
 		
+		
+		//  -------------   [ 리뷰 페이저  ]  --------------------
+		
 		return "detailView";
 	}
-	
+
 	/**
 	 * 
 	 * @param request(ajax로 장바구니에 담을 상품의 no리스트와 각 수량리스트)
