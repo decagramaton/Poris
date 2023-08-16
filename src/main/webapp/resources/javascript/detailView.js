@@ -66,7 +66,15 @@ function changeWish() {
 //옵션 선택 동작
 function openOption() {
 	$(event.target).toggleClass("clicked");
-	$(".product-option-ico").toggleClass("closed");
+	
+	if($(".product-option-ico.open").css("display") == "none") {
+		$(".product-option-ico.closed").css("display", "none");
+		$(".product-option-ico.open").css("display", "inline-block");
+	} else if($(".product-option-ico.closed").css("display") == "none") {
+		$(".product-option-ico.closed").css("display", "inline-block");
+		$(".product-option-ico.open").css("display", "none");
+	}
+	/*$(".product-option-ico").toggleClass("closed");*/
 	$(".product-options-list").toggleClass("closed");
 }
 function chooseOption() {
