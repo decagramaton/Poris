@@ -1,8 +1,5 @@
 package poris.fruitlight.service;
 
-import java.util.List;
-
-import poris.fruitlight.dto.DeliveryParam;
 import poris.fruitlight.dto.OrderHistory;
 import poris.fruitlight.dto.ReceiptHistory;
 import poris.fruitlight.dto.ShippingAddressParam;
@@ -10,7 +7,14 @@ import poris.fruitlight.dto.Shopper;
 import poris.fruitlight.dto.ShopperParam;
 
 public interface orderService {
-	public ShopperParam getShopperInfo(String userId);
+	
+	/**
+	 * 
+	 * @author 고재승
+	 * @since 2023.08.16
+	 * @param shopper
+	 * @return
+	 */
 	public ShippingAddressParam getShippingAddressInfo(Shopper shopper);
 	
 	/**

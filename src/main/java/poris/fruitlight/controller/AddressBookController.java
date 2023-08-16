@@ -51,16 +51,12 @@ public class AddressBookController {
 	
 	/**
 	 * @author 고재승
-	 * @param changeAddressBook - 변경할 배송지 정보(받는 사람, 받을 주소, 연락처, 배송 요청사항)
+	 * @param addressNo - 삭제할 배송지 고유번호
 	 * @return - 배송지 목록 페이지으로 리다이렉트 
 	 */
-	@GetMapping("/addressBook/changeAddressBook")
-	public String changeAddressBook(AddressBook addressBook) {
-		boolean result = addrBookService.changeAddressBook(addressBook);
-		
-		// if(result) {
-		//	return "redirect:/addressBook"; }
-		// else { return AlertScript.alert(response, "변경에 실패했습니다"); }
+	@GetMapping("/addressBook/deleteAddressBook")
+	public String deleteAddressBook(int addressNo) {
+		addrBookService.deleteAddressBook(addressNo);
 		
 		return "redirect:/addressBook";
 	}

@@ -47,7 +47,7 @@ public class OrderController {
 		} else {
 			Shopper shopper = (Shopper) session.getAttribute("ShopperInfo");
 			
-			// Step2.구매자 정보, 도착지 정보, 배송 목록을 DB에서 가져오기
+			// Step2.구매자 정보, 도착지 정보를 DB에서 가져오기
 			Shopper shopperInfo = shopperService.getShopperById(shopper);
 			ShippingAddressParam shipAddress = orderService.getShippingAddressInfo(shopper);
 			

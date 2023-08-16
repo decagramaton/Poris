@@ -3,6 +3,7 @@
 
 <mapper namespace="poris.fruitlight.dao.ShippingAddressDao">
 
+	<!-- 2023.08.14 고재승 - 회원 고유번호를 기준으로 기본 배송지 조회 SQL문 -->
 	<select id="selectShippingAddressListById" parameterType="Shopper" resultType="AddressBook">
 		SELECT ADDRESS_NO as addressNo,
 			SHOPPER_NO as shopperNo,
@@ -29,5 +30,13 @@
 		WHERE SHOPPER_NO = #{shopperNo}
 			AND ROWNUM = 1
 	</select>
+	
+	
+	<!-- 2023.08.16 고재승 - 회원의 배송지 삭제 SQL문 -->
+	<delete id="deleteShippingAddress" parameterType="int">
+		DELETE
+  		FROM SHIPPING_ADDRESS
+ 		WHERE ADDRESS_NO = #{addressNo}
+	</delete>
 	
 </mapper>

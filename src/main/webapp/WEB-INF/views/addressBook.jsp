@@ -41,8 +41,8 @@
 						           <span class="addressbook__text">선택</span>
 						       </button>
 						   </div>
-					       <a href="/fruitlight/addressBook/changeAddressBook" class="address-card__button--edit">
-					           <span class="addressbook__text">수정</span>
+					       <a href="/fruitlight/addressBook/deleteAddressBook?addressNo=${item.addressNo}" class="address-card__button--edit">
+					           <span class="addressbook__text">삭제</span>
 					       </a>
 						</div>
 					</div>

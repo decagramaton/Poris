@@ -14,11 +14,10 @@ public interface AddressBookService {
 	public List<AddressBook> getAddressBookList(Shopper shopper);
 	
 	/**
-	 * 수정된 배송지 정보를 전달 후, 성공 여부를 반환받는 메소드
-	 * @param ChangeAddressBook - 받을 사람, 받을 주소, 받는 사람 연락처, 배송 요청사항
-	 * @return true or false
+	 * 삭제할 배송지 정보를 전달하는 메소드
+	 * @param addressNo - 배송지 고유번호
 	 */
-	public boolean changeAddressBook(AddressBook ChangeAddressBook);
+	public void deleteAddressBook(int addressNo);
 	
 	/**
 	 * 새로운 배송지를 DB에 등록하는 메소드
