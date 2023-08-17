@@ -194,7 +194,7 @@ public class OrderController {
 			orderService.changeProductStock(orderParam);
 		}
 		
-		return "order";
+		return "redirect:/mypageOrdered";
 	}
 	
 }
