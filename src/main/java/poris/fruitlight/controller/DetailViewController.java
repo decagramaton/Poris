@@ -1,6 +1,5 @@
 package poris.fruitlight.controller;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.HashMap;
@@ -8,7 +7,6 @@ import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -27,10 +25,8 @@ import poris.fruitlight.dto.Pager;
 import poris.fruitlight.dto.Product;
 import poris.fruitlight.dto.ProductBoard;
 import poris.fruitlight.dto.ProductInquiry;
-import poris.fruitlight.dto.ProductList;
 import poris.fruitlight.dto.Shopper;
 import poris.fruitlight.service.DetailViewService;
-import poris.fruitlight.util.AlertScript;
 
 /**
  * 

@@ -11,7 +11,6 @@
 	<title>푸릇라이트</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/images/favicon.ico" type="image/x-icon" />
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -296,7 +295,6 @@
                      <div class="sdp-review">
                         <div class="sdp-review-guide">상품평 운영원칙</div>
                         <h4 class="sdp-review-title">상품평</h4>
-                        <!-- <div class="sdp-review-section-guide">동일한 상품에 대해 작성된 상품평으로, 판매자는 다를 수 있습니다.</div> -->
                         <div>
                            <!-- 별점 -->
                            <div class="sdp-review-total-star">
@@ -380,8 +378,8 @@
                                           src="https://thumbnail9.coupangcdn.com/thumbnails/local/320/image2/PRODUCTREVIEW/202306/9/6408141922936458392/61886e0c-1e09-43ca-a269-603ab0ff21a1.jpg">
                                     </div>
                                     <div class="list-attachment-list">
-                                       <img class="li<!-- tachment-img"
-                                          src="https://thumbnail10. -->angcdn.com/thumbnails/local/320/image2/PRODUCTREVIEW/202306/9/6408141922936458392/5edccf7f-cfc3-4cbf-8f3c-f1f330568d39.jpg">
+                                       <img class="list-attachment-list"
+                                          src="https://thumbnail10.coupangcdn.com/thumbnails/local/320/image2/PRODUCTREVIEW/202306/9/6408141922936458392/5edccf7f-cfc3-4cbf-8f3c-f1f330568d39.jpg">
                                     </div>
                                     <div class="list-attachment-list">
                                        <img class="list-attachment-img"
@@ -395,20 +393,11 @@
 
                                  <div class="list-review">
                                     <div class="list-review-content">
-                                       체리는 저희 엄마가 무척이나 좋아하시는 과일이에요<br><br>
-                                       요것도 나올때만 먹을수 있으니 살 수 있으면 사는 편인데요<br><br>
-                                       확실히 체리는 가격이 좀 비쌉니다ㅜ<br><br>
-                                       어디서 구입하던 마찬가지라 어쩔수 없는것 같아요<br><br>
-                                       아무래도 가격이 있는만큼 맛이 없으면 어쩌나 걱정했는데 나름 괜찮네요<br><br>
-                                       아주 달콤한 것도 있고 좀 새콤한것도 있고 그렇지만 전반적으로 괜찮아요<br><br>
-                                       신선도는 반정도는 꼭지까지 신선했고 반은 그냥저냥한 상태에요<br><br>
-                                       먹는데 지장은 없지만 맛이 살짝 떨어져요<br><br>
-                                       그래도 엄마가 맛나게 드셔서 좋습니다<br><br>
-                                       다음에도 구입할께요~^^
+                                       	체리는 저희 엄마가 무척이나 좋아하시는 과일이에요<br><br>
                                     </div>
                                  </div>
 
-                                 <div class="list-survey">
+                                 <!-- <div class="list-survey">
                                     <div class="list-survey-row">
                                        <span class="list-survey-row-question">맛 만족도</span>
                                        <span class="list-survey-row-answer">괜찮아요</span>
@@ -425,12 +414,11 @@
                                        <span class="list-survey-row-question">새콤함</span>
                                        <span class="list-survey-row-answer">적당히 새콤해요</span>
                                     </div>
-                                 </div>
+                                 </div> -->
 
                                  <div class="list-help">
                                     <div class="list-help-count">
-                                       <strong>8</strong>
-                                       명에게 도움 됨
+                                       <strong>8</strong>명에게 도움 됨
                                     </div>
                                     <button class="list-help-btn">도움이돼요</button>
                                     <button class="list-help-report-btn">신고하기</button>
@@ -452,63 +440,15 @@
                                     <div class="list-info-product-info-name">과일엔 미국산 생체리, 800g,1팩</div>
                                  </div>
 
-                                 <div class="list-attachment">
-                                    <div class="list-attachment-list">
-                                       <img class="list-attachment-img"
-                                          src="https://thumbnail10.coupangcdn.com/thumbnails/local/320/image2/PRODUCTREVIEW/203306/11/662383801868194448/d20d55a8-9b50-44b9-9e9d-0e75612b200c.jpg"
-                                          style="width: 100%; height: auto; margin-top: -14.5453px; opacity: 1;">
-                                    </div>
-                                    <div class="list-attachment-list">
-                                       <img class="list-attachment-img"
-                                          src="https://thumbnail10.coupangcdn.com/thumbnails/local/320/image2/PRODUCTREVIEW/202306/11/662383801868194448/18d7d01e-c2c4-4eba-b1cd-e98edbffbf5e.jpg"
-                                          style="width: 100%; height: auto; margin-top: -14.5453px; opacity: 1;">
-                                    </div>
-                                    <div class="list-attachment-list">
-                                       <img class="list-attachment-img"
-                                          src="https://thumbnail7.coupangcdn.com/thumbnails/local/320/image2/PRODUCTREVIEW/202306/11/662383801868194448/59732733-046a-4204-a584-c0e9f7e664e2.jpg"
-                                          style="width: 100%; height: auto; margin-top: -14.5453px; opacity: 1;">
-                                    </div>
-                                    <div class="list-attachment-list">
-                                       <img class="list-attachment-img"
-                                          src="https://thumbnail10.coupangcdn.com/thumbnails/local/320/image2/PRODUCTREVIEW/202306/11/662383801868194448/be6155f7-01f1-43e2-bd42-d4fdb39298f9.jpg"
-                                          style="width: 100%; height: auto; margin-top: -14.5453px; opacity: 1;">
-                                    </div>
-                                    <div class="list-attachment-list">
-                                       <img class="list-attachment-img"
-                                          src="https://thumbnail6.coupangcdn.com/thumbnails/local/320/image2/PRODUCTREVIEW/202306/11/662383801868194448/7bbf2eec-1a31-4d50-ab8a-86c1bdad1e9c.jpg"
-                                          style="width: 100%; height: auto; margin-top: -14.5453px; opacity: 1;">
-                                    </div>
-                                 </div>
-
                                  <div class="list-review">
                                     <div class="list-review-content">
                                        조식으로 샌드위치나 미니핫도그에 과일 하나씩 꼭 챙겨 먹이는데 이번에 가격 괜찮게 떠서 구매해봤는데 잘 먹네요.
                                     </div>
                                  </div>
 
-                                 <div class="list-survey">
-                                    <div class="list-survey-row">
-                                       <span class="list-survey-row-question">맛 만족도</span>
-                                       <span class="list-survey-row-answer">예상보다 맛있어요</span>
-                                    </div>
-                                    <div class="list-survey-row">
-                                       <span class="list-survey-row-question">싱싱함</span>
-                                       <span class="list-survey-row-answer">예상보다 싱싱해요</span>
-                                    </div>
-                                    <div class="list-survey-row">
-                                       <span class="list-survey-row-question">당도</span>
-                                       <span class="list-survey-row-answer">적당히 달아요</span>
-                                    </div>
-                                    <div class="list-survey-row">
-                                       <span class="list-survey-row-question">새콤함</span>
-                                       <span class="list-survey-row-answer">새콤하지 않아요</span>
-                                    </div>
-                                 </div>
-
                                  <div class="list-help">
                                     <div class="list-help-count">
-                                       <strong>2</strong>
-                                       명에게 도움 됨
+                                       <strong>2</strong>명에게 도움 됨
                                     </div>
                                     <button class="list-help-btn">도움이돼요</button>
                                     <button class="list-help-report-btn">신고하기</button>

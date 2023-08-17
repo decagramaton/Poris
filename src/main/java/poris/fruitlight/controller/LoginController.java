@@ -62,7 +62,7 @@ public class LoginController {
 	@PostMapping("/login/askLogin")
 	public String askLogin(Shopper shopper, HttpServletResponse response , HttpSession session, Model model) {
 		Shopper dbShopper = null;
-		log.info("JSP Shopper : " + shopper.toString());
+		
 		if( (shopper.getShopperId() != null) && (shopper.getShopperPw() != null) ) {
 			// Stpe1. JSP에서 유저 로그인 값을 얻고, userID 정보로 DB에서 Select로 회원 유무 확인
 			dbShopper = shopperService.getShopperById(shopper);
