@@ -700,6 +700,7 @@ a {
 .container .contents .bottom .detaile_product .detail_product_form_contents .product_detail_content_inside {
     box-sizing: border-box;
 	margin-bottom: 20px;
+	text-align: center;
 }
 
 .container .contents .bottom .detaile_product .detail_product_form_contents .product_detail_content_inside .content_image {

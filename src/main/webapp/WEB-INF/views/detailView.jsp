@@ -100,7 +100,8 @@
                            <span class="product-option-title">
                                <strong>= 옵션 : 가격 =</strong>
                            </span>
-                           <span class="product-option-ico closed"></span>
+                           <span class="product-option-ico closed" style="background-image: url(${pageContext.request.contextPath}/resources/images/option_drop_down.png)"></span>
+                           <span class="product-option-ico open" style="background-image: url(${pageContext.request.contextPath}/resources/images/option_drop_up.png)"></span>
                      	</div>
                   	 </div>
 	                     <ul class="product-options-list closed">
@@ -278,7 +279,7 @@
 	                           </div>
                            </c:if>
                         </div>
-                        <div class="product_detail_content" style="text-align: center;">
+                        <div class="product_detail_content">
                            <div class="product_detail_content_inside">
                                <c:if test="${productContentList != null}">
 		                           <c:forEach var="Content" items="${productContentList}">
@@ -305,9 +306,11 @@
                                  </div>
                                  <div class="sdp-review-total-star-info-count">183</div>
                                  <div class="sdp-review-total-star-info-detail">
-                                    <span class="sdp-review-total-star-info-detail-content">자세히보기 &gt;</span>
+                 
+                     	<input type="hidden" id="shopperInfo" value="${ShopperInfo}"></span>
                                  </div>
-                              </div>
+           
+                 </div>
                            </div>
 
                            <!-- 리뷰 통계 -->
@@ -377,8 +380,8 @@
                                           src="https://thumbnail9.coupangcdn.com/thumbnails/local/320/image2/PRODUCTREVIEW/202306/9/6408141922936458392/61886e0c-1e09-43ca-a269-603ab0ff21a1.jpg">
                                     </div>
                                     <div class="list-attachment-list">
-                                       <img class="list-attachment-img"
-                                          src="https://thumbnail10.coupangcdn.com/thumbnails/local/320/image2/PRODUCTREVIEW/202306/9/6408141922936458392/5edccf7f-cfc3-4cbf-8f3c-f1f330568d39.jpg">
+                                       <img class="li<!-- tachment-img"
+                                          src="https://thumbnail10. -->angcdn.com/thumbnails/local/320/image2/PRODUCTREVIEW/202306/9/6408141922936458392/5edccf7f-cfc3-4cbf-8f3c-f1f330568d39.jpg">
                                     </div>
                                     <div class="list-attachment-list">
                                        <img class="list-attachment-img"
@@ -452,7 +455,7 @@
                                  <div class="list-attachment">
                                     <div class="list-attachment-list">
                                        <img class="list-attachment-img"
-                                          src="https://thumbnail10.coupangcdn.com/thumbnails/local/320/image2/PRODUCTREVIEW/202306/11/662383801868194448/d20d55a8-9b50-44b9-9e9d-0e75612b200c.jpg"
+                                          src="https://thumbnail10.coupangcdn.com/thumbnails/local/320/image2/PRODUCTREVIEW/203306/11/662383801868194448/d20d55a8-9b50-44b9-9e9d-0e75612b200c.jpg"
                                           style="width: 100%; height: auto; margin-top: -14.5453px; opacity: 1;">
                                     </div>
                                     <div class="list-attachment-list">
