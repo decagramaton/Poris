@@ -1,5 +1,6 @@
 window.onload = init;
 function init() {
+	validationEmail = false;
 	validationPattenUserOriginalPW = false;
 	validationEmptyUserPW = false;
 	validationPattenUserPW = false;
@@ -17,6 +18,25 @@ function init() {
 	 $("#user_pw_check").keyup(checkEmptyAgainPassword);
 	 
 	 $("#btn_pwd").click(checkValidation);
+	 
+	 
+	 // ID 변경 이메일 유효성 검사
+	 $('input[name=shopperId]').keyup(() => {
+	        let email_pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+	        if(!email_pattern.test($('input[name=shopperId]').val())){
+	        	validationEmail = false;
+	        } else {
+	        	validationEmail = true;
+	        }
+	    });
+	 
+	// ID 변경 버튼 유효성 검사
+    $('#changeIdButton').click(() => {
+        if(!validationEmail) {
+            event.preventDefault();
+            alert("이메일을 제대로 적어라 ex) email@mycompany.com");
+        }
+    });
 }
 
 
