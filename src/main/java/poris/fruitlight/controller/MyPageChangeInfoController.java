@@ -56,18 +56,16 @@ public class MyPageChangeInfoController {
 	}
 	
 	@PostMapping("/mypageChangeInfo/updateId")
-	public String updateId(String shopperId , Shopper shopper , Model model, HttpSession session, HttpServletResponse response) throws IOException {
+	public String updateId(String shopperId , HttpSession session, HttpServletResponse response) throws IOException {
 		
-		shopper.setShopperId(shopperId);		
-		log.info(shopperId);
+		Shopper shopper = (Shopper) session.getAttribute("ShopperInfo");
+		shopper.setShopperId(shopperId);
 		
-		boolean result = myPageChangeInfoService.idCheck(shopper);
-		log.info("결과 : " + result);
+		boolean result = myPageChangeInfoService.shopperIdDuplicateCheck(shopper);
 		
 		if(result) {
 			AlertScript.alertAndBackPage(response, "중복된 아이디가 존재합니다.");
 		} else {
-			myPageChangeInfoService.modify(shopper);
 			AlertScript.alertAndMovePage(response, "개인정보가 변경되어 로그아웃 되었습니다.", "/fruitlight/login");
 			session.removeAttribute("ShopperInfo");
 		}

@@ -27,14 +27,19 @@ public class MyPageChangeInfoServiceImpl implements MyPageChangeInfoService{
 	}
 	
 	@Override
-	public boolean idCheck(Shopper shopper) {
-		Shopper result = shopperDao.selectShopper(shopper);
+	public boolean shopperIdDuplicateCheck(Shopper shopper) {
 		
-		if(result == null) {
+		// Step1. 중복 ID 조회
+		String resultId = shopperDao.selectShopperId(shopper.getShopperId());
+		
+		log.info("resultId : " + resultId);
+		
+		if(resultId == null) {
+			// Step2. 중복 ID 없으면 업데이트
+			log.info("중복 없는 이벤트 실행");
+			shopperDao.updateShopper(shopper);
 			return false;
-		} else {
-			return true;
-		}
+		} else return true;
 	}
 	
 	/**

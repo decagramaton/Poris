@@ -6,7 +6,15 @@ import poris.fruitlight.dto.Shopper;
 public interface MyPageChangeInfoService {
 	public Shopper getShopper(int shopperNo);
 	public void modify(Shopper shopper);
-	public boolean idCheck(Shopper shopper);
+	
+	
+	/**
+	 * 회원의 중복 ID를 검사하는 메소드
+	 * @since 2023.08.17
+	 * @param shopper - 유저 정보
+	 * @return 논리값
+	 */
+	public boolean shopperIdDuplicateCheck(Shopper shopper);
 	
 	/**
 	 * 유저가 입력한 데이터가 DB의 PW와 동일한지 확인 요청하는 메소드

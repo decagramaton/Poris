@@ -63,8 +63,7 @@
 											<span id="user_id">${mypageChangeInfo.shopperId}</span>
 											<button id="emailChange" class="d-inline-block" onclick="openEmailChange()">이메일 변경하기</button>
 											<button id="emailCancel" class="d-none" onclick="openEmailChangeCancel()">이메일 변경취소</button>
-											<form id="changeIdForm"class="d-none changeForm" action="/fruitlight/mypageChangeInfo/updateId?shopperNo=${ShopperInfo.shopperNo}" method="post">
-												<input type="hidden" name="shopperNo" value=""/>
+											<form id="changeIdForm"class="d-none changeForm" action="/fruitlight/mypageChangeInfo/updateId" method="post">
 												<input type="text" name="shopperId" value="">
 												<button type="submit">변경하기</button>
 											</form>

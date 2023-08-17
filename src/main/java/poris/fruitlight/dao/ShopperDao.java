@@ -18,5 +18,10 @@ public interface ShopperDao {
 	public void updateShopperAutoLoginState(Shopper shopper);
 	public void insertShopper(Shopper shopper);
 	public Shopper selectShopperBySid(int sid);
+	
+	
+	
+	public String selectShopperId(String shopperId);
+	
 	public void updateShopper(Shopper shopper);
 }

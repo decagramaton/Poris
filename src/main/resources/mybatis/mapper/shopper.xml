@@ -22,7 +22,7 @@
 		SHOPPER_TEL as shopperTel,
 		SHOPPER_AUTO_LOGIN as shopperAutoLogin
 		FROM SHOPPER
-		WHERE SHOPPER_ID=#{shopperId} AND SHOPPER_PW=#{shopperPw, jdbcType=VARCHAR}
+		WHERE SHOPPER_ID=#{shopperId} AND SHOPPER_PW=#{shopperPw}
 	</select>
 	
 	
@@ -49,9 +49,16 @@
 		WHERE SHOPPER_NO = #{shopperNo}
 	</select>
 	
+	
+	<select id="selectShopperId" parameterType="String" resultType="String">
+		SELECT SHOPPER_ID as shopperId
+		FROM SHOPPER
+		WHERE SHOPPER_ID= #{shopperId}
+	</select>
+	
 	<update id="updateShopper" parameterType="Shopper">
 		UPDATE SHOPPER
-		SET SHOPPER_ID = #{shopperId, jdbcType = VARCHAR}
+		SET SHOPPER_ID = #{shopperId}
 		WHERE SHOPPER_NO = #{shopperNo}
 	</update>
 	
