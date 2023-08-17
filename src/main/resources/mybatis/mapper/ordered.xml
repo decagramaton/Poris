@@ -1,25 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="poris.fruitlight.dao.OrderHistoryDao">
-   <select id="SelectOrderHistory" resultType="poris.fruitlight.dto.OrderHistoryOrderList">
-       SELECT oh.ORDER_NO as ORDER_NO,
-             oh.SHOPPER_NO as SHOPPER_NO,
+   <select id="SelectTotalOrderHistory" parameterType="int" resultType="int">
+   		SELECT COUNT(*)
+   		FROM ORDER_HISTORY
+   		WHERE SHOPPER_NO = #{shopperNo}
+   </select>
+   <select id="SelectOrderHistory" parameterType="Pager" resultType="poris.fruitlight.dto.OrderHistoryOrderList">
+       <![CDATA[
+       SELECT ORDER_NO,
+             SHOPPER_NO,
              PRODUCT_NAME,
              SHIPPING_NAME,
              SHIPPING_ADDRESS,
              ORDER_DATE,
              MEDIA_DATA,
-             p.DISCOUNT_PRICE as DISCOUNT_PRICE,
+             DISCOUNT_PRICE,
              STOCK 
-          FROM ORDER_HISTORY oh
-          JOIN RECEIPT_HISTORY rh ON oh.ORDER_NO = rh.ORDER_NO
-          JOIN SHIPPING_ADDRESS sa ON oh.ADDRESS_NO = sa.ADDRESS_NO
-          JOIN SHOPPER s ON oh.SHOPPER_NO = s.SHOPPER_NO
-          JOIN PRODUCT p ON rh.PRODUCT_NO = p.PRODUCT_NO
-          JOIN PRODUCT_BOARD pb ON p.PRODUCT_NO = pb.PRODUCT_NO
-          JOIN BOARD_MEDIA bm ON pb.BOARD_NO = bm.BOARD_NO
-          WHERE oh.SHOPPER_NO = #{sid} AND bm.MEDIA_NAME LIKE '%list_thumbnail%'
-          ORDER BY ORDER_DATE DESC
+          FROM (
+          	SELECT rownum as rnum, ORDER_NO, SHOPPER_NO, PRODUCT_NAME, SHIPPING_NAME, SHIPPING_ADDRESS, ORDER_DATE, MEDIA_DATA, DISCOUNT_PRICE, STOCK
+          	FROM (
+          		SELECT oh.ORDER_NO as ORDER_NO,
+			           oh.SHOPPER_NO as SHOPPER_NO,
+			           PRODUCT_NAME,
+			           SHIPPING_NAME,
+			           SHIPPING_ADDRESS,
+			           ORDER_DATE,
+			           MEDIA_DATA,
+			           p.DISCOUNT_PRICE as DISCOUNT_PRICE,
+			           STOCK
+			    FROM ORDER_HISTORY oh
+	            JOIN RECEIPT_HISTORY rh ON oh.ORDER_NO = rh.ORDER_NO
+	            JOIN SHIPPING_ADDRESS sa ON oh.ADDRESS_NO = sa.ADDRESS_NO
+	            JOIN SHOPPER s ON oh.SHOPPER_NO = s.SHOPPER_NO
+	            JOIN PRODUCT p ON rh.PRODUCT_NO = p.PRODUCT_NO
+	            JOIN PRODUCT_BOARD pb ON p.PRODUCT_NO = pb.PRODUCT_NO
+	            JOIN BOARD_MEDIA bm ON pb.BOARD_NO = bm.BOARD_NO
+	            WHERE oh.SHOPPER_NO = #{shopperNo} AND bm.MEDIA_NAME LIKE '%list_thumbnail%'
+	            ORDER BY ORDER_DATE DESC
+          		) WHERE rownum <= #{endRowNo}
+         ) where rnum >= #{startRowNo}
+          ]]>
    </select>
    
    <select id="SearchOrdersByPname" parameterType="OrderSearch" resultType="poris.fruitlight.dto.OrderHistoryOrderList">

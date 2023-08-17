@@ -124,6 +124,32 @@
 									</div>
 								</c:forEach>
 							</div>
+							<table class="table">
+						        <tr>
+						            <td colspan="4" class="text-center">
+						                <div>
+						                    <a class="btn btn-outline-primary btn-sm" href="mypageOrdered?pageNo=1">처음</a>
+						                    <c:if test="${OrderHistoryPager.groupNo > 1}">
+						                        <a class="btn btn-outline-info btn-sm" href="mypageOrdered?pageNo=${OrderHistoryPager.startPageNo - 1}">이전</a>
+						                    </c:if>
+						
+						                    <c:forEach var="i" begin="${OrderHistoryPager.startPageNo}" end="${OrderHistoryPager.endPageNo}">
+						                        <c:if test="${OrderHistoryPager.pageNo != i}">
+						                            <a class="btn btn-outline-success btn-sm" href="mypageOrdered?pageNo=${i}">${i}</a>
+						                        </c:if>
+						                        <c:if test="${OrderHistoryPager.pageNo == i}">
+						                            <a class="btn btn-danger btn-sm" href="mypageOrdered?pageNo=${i}">${i}</a>
+						                        </c:if>
+						                    </c:forEach>
+						
+						                    <c:if test="${OrderHistoryPager.groupNo < OrderHistoryPager.totalGroupNo}">
+						                        <a class="btn btn-outline-info btn-sm" href="mypageOrdered?pageNo=${OrderHistoryPager.endPageNo + 1}">다음</a>
+						                    </c:if>
+						                    <a class="btn btn-outline-primary btn-sm" href="mypageOrdered?pageNo=${OrderHistoryPager.totalPageNo}">맨끝</a>
+						                </div>
+						            </td>
+						        </tr>
+						    </table>
 							<div class="mycoupang-notice">
 								<div class="mycoupang-notice-delistatus">
 									<div class="delistatus-wrapper">

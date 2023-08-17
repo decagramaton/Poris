@@ -19,7 +19,8 @@ public class Pager {
 	private int endRowIndex;	//페이지의 마지막 행 인덱스
 	
 	private int BOARD_NO;		//상품게시글 번호 BOARD_NO
-
+	private int shopperNo;		
+	
 	public Pager(int rowsPerPage, int pagesPerGroup, int totalRows, int pageNo) {
 		this.rowsPerPage = rowsPerPage;
 		this.pagesPerGroup = pagesPerGroup;

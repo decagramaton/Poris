@@ -9,6 +9,7 @@ import poris.fruitlight.dto.OrderHistory;
 import poris.fruitlight.dto.OrderHistoryOrderList;
 import poris.fruitlight.dto.OrderParam;
 import poris.fruitlight.dto.OrderSearchParam;
+import poris.fruitlight.dto.Pager;
 import poris.fruitlight.dto.ReceiptHistory;
 
 /**
@@ -19,9 +20,9 @@ import poris.fruitlight.dto.ReceiptHistory;
 @Mapper
 public interface OrderHistoryDao {
    
-   public List<OrderHistoryOrderList> SelectOrderHistory(int sid);
+   public List<OrderHistoryOrderList> SelectOrderHistory(Pager pager);
    public List<OrderHistoryOrderList> SearchOrdersByPname(OrderSearchParam orderSearch);
-   
+   public int SelectTotalOrderHistory(int shopperNo);
    /**
     * 작성자: 이은지
     * 결제 시 ORDER_HISTORY에 추가

@@ -20,7 +20,7 @@
 	<body>
 <%@ include file="/WEB-INF/views/header.jsp" %>
 	<div id="body-container">
-   		<div id="mainproduct" class="carousel slide" data-ride="carousel">
+   		<div id="mainproduct" class="carousel slide" data-ride="carousel" style="height: 500px;">
 			<ul class="carousel-indicators">
 			    <li data-target="#mainproduct" data-slide-to="0" class="active"></li>
 			    <li data-target="#mainproduct" data-slide-to="1"></li>
@@ -28,7 +28,7 @@
 			</ul>
 			<div class="carousel-inner">
 				<c:forEach var="product" items="${productlist}" varStatus="i">
-					<div id="carouselMainItem${i.count}" class="carousel-item">
+					<div id="carouselMainItem${i.count}" class="carousel-item" style="height: 500px;">
 						<a href="/fruitlight/main/SelectDetailView?pid=${product.PRODUCT_NO}">
 					        <img src="data:${product.MEDIA_DATA};base64, ${product.base64Img}" width="1100" height="500">
 						</a>
