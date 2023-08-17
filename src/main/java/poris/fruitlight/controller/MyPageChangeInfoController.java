@@ -71,4 +71,16 @@ public class MyPageChangeInfoController {
 		}
 		return "mypageChangeInfo";
 	}
+	
+	
+	@PostMapping("/mypageChangeInfo/updateTel")
+	public String updateTel(String shopperTel , HttpSession session, HttpServletResponse response) throws IOException {
+		
+		Shopper shopper = (Shopper) session.getAttribute("ShopperInfo");
+		shopper.setShopperTel(shopperTel);
+		
+		myPageChangeInfoService.setShoolerTel(shopper);
+
+		return "mypageChangeInfo";
+	}
 }

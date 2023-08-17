@@ -83,9 +83,9 @@
 											<span>${mypageChangeInfo.shopperTel}</span>
 											<button id="telChange" class="d-inline-block" onclick="openTelChange()">휴대폰 번호 변경하기</button>
 											<button id="telCancel" class="d-none" onclick="openTelChangeCancel()">휴대폰 번호 변경취소</button>
-											<form id="changeTelForm" class="d-none changeForm">
-												<input type="text" value="">
-												<button type="submit">인증번호 보내기</button>
+											<form method="post" id="changeTelForm" class="d-none changeForm" action="/fruitlight/mypageChangeInfo/updateTel">
+												<input type="text" name="shopperTel" value="">
+												<button id="changeTelBtn" type="submit">번호 변경하기</button>
 											</form>
 										</div>
 									</td>

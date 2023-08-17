@@ -62,5 +62,12 @@
 		WHERE SHOPPER_NO = #{shopperNo}
 	</update>
 	
+	<!-- 2023.08.17 고재승 - 회원 연락처 갱신 SQL문 -->
+	<update id="updateShopperTel" parameterType="Shopper">
+		UPDATE SHOPPER
+		SET SHOPPER_TEL = #{shopperTel}
+		WHERE SHOPPER_NO = #{shopperNo}
+	</update>
+	
 	
 </mapper>

@@ -24,4 +24,6 @@ public interface ShopperDao {
 	public String selectShopperId(String shopperId);
 	
 	public void updateShopper(Shopper shopper);
+	
+	public void updateShopperTel(Shopper shopper);
 }

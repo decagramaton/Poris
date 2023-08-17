@@ -1,6 +1,7 @@
 window.onload = init;
 function init() {
 	validationEmail = false;
+	validationTel = false;
 	validationPattenUserOriginalPW = false;
 	validationEmptyUserPW = false;
 	validationPattenUserPW = false;
@@ -37,6 +38,26 @@ function init() {
             alert("이메일을 제대로 적어라 ex) email@mycompany.com");
         }
     });
+    
+    
+    
+     // 연락처 변경 유효성 검사
+	 $('input[name=shopperTel]').keyup(() => {
+	        let email_pattern = /^(010)-[0-9]{4}-[0-9]{4}$/;
+	        if(!email_pattern.test($('input[name=shopperTel]').val())){
+	        	validationTel = false;
+	        } else {
+	        	validationTel = true;
+	        }
+	    });
+	 
+	   // 연락처 변경  버튼 유효성 검사
+	   $('#changeTelBtn').click(() => {
+	       if(!validationTel) {
+	           event.preventDefault();
+	           alert("휴대폰 제대로 적어라 ex) 010-0000-0000");
+	       }
+	   });
 }
 
 
