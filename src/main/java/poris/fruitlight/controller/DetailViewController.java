@@ -229,11 +229,12 @@ public class DetailViewController {
 	
 	
 	@GetMapping("/detailView/addHelpPoint")
-	public void addHelpPoint(String ReviewNo) {
-		int reviewNo = Integer.parseInt(ReviewNo);
+	@ResponseBody
+	public Object addHelpPoint(String ReviewNo) {
+		log.info("ReviewNo : " + ReviewNo);
 		
+		detailViewService.addHelpPoint(ReviewNo);
 		
-		
-		
+		return Integer.parseInt(ReviewNo);
 	}
 }
