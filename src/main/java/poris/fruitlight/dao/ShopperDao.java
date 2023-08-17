@@ -26,4 +26,6 @@ public interface ShopperDao {
 	public void updateShopper(Shopper shopper);
 	
 	public void updateShopperTel(Shopper shopper);
+	
+	public void updateShopperPW(Shopper shopper);
 }

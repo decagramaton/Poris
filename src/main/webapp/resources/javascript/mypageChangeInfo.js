@@ -223,6 +223,8 @@ function checkValidation() {
 	console.log("validationPattenUserPW  :" + validationPattenUserPW );
 	console.log("validationEmptyAgainUserPW  :" + validationEmptyAgainUserPW );
     
+	event.preventDefault();
+	
 	// 유효성 검사에서 실패시 form의 제출기능 비활성화
 	if(validationPattenUserOriginalPW &&validationEmptyUserPW && validationPattenUserPW && validationEmptyAgainUserPW) {
 		alert("비밀번호가 변경되었습니다.");

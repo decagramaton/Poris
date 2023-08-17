@@ -66,8 +66,14 @@ public class MyPageChangeInfoServiceImpl implements MyPageChangeInfoService{
 	
 	
 	@Override
-	public void setShoolerTel(Shopper shopper) {
+	public void setShopperTel(Shopper shopper) {
 		shopperDao.updateShopperTel(shopper);
+	}
+	
+	
+	@Override
+	public void setShopperPassword(Shopper shopper) {
+		shopperDao.updateShopperPW(shopper);
 	}
 
 }

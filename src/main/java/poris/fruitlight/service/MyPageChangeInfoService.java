@@ -32,5 +32,14 @@ public interface MyPageChangeInfoService {
 	 * @since 2023.08.17
 	 * @param shopper - 회원 정보
 	 */
-	public void setShoolerTel(Shopper shopper);
+	public void setShopperTel(Shopper shopper);
+	
+	
+	/**
+	 * 유저가 입력한 비밀번호 데이터 갱신을 요청하는 메소드
+	 * @author 고재승
+	 * @since 2023.08.17
+	 * @param shopper - 회원 정보
+	 */
+	public void setShopperPassword(Shopper shopper);
 }
