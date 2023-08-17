@@ -74,12 +74,23 @@ public class MyPageChangeInfoController {
 	
 	
 	@PostMapping("/mypageChangeInfo/updateTel")
-	public String updateTel(String shopperTel , HttpSession session, HttpServletResponse response) throws IOException {
+	public String updateTel(String shopperTel , HttpSession session , HttpServletResponse response) throws IOException {
 		
 		Shopper shopper = (Shopper) session.getAttribute("ShopperInfo");
 		shopper.setShopperTel(shopperTel);
 		
-		myPageChangeInfoService.setShoolerTel(shopper);
+		myPageChangeInfoService.setShopperTel(shopper);
+
+		return "mypageChangeInfo";
+	}
+	
+	
+	@PostMapping("/mypageChangeInfo/updatePW")
+	public String updatePW(String updateShopperPw , HttpSession session, HttpServletResponse response) throws IOException {
+		Shopper shopper = (Shopper) session.getAttribute("ShopperInfo");
+		shopper.setShopperPw(updateShopperPw);
+		
+		myPageChangeInfoService.setShopperPassword(shopper);
 
 		return "mypageChangeInfo";
 	}

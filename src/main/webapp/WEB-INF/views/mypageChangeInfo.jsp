@@ -94,11 +94,11 @@
 									<th scope="row">비밀번호 변경</th>
 									<td>
 										<div class="pwForm">
-											<form>
+											<form action="/fruitlight/mypageChangeInfo/updatePW" method="post">
 												<div>
-													<input id="user_original_pw" type="hidden" value="${mypageChangeInfo.shopperPw}"/>
 													<span style="padding-right: 30px;">현재 비밀번호</span>
 													<input id="user_current_pw" type="password" value=""/>
+													<input id="user_original_pw" type="hidden" value="${mypageChangeInfo.shopperPw}"/>
 												</div>
 												<div>
 													<span id="user_pw_original_check" class="errorMsg">현재 비밀번호가 일치하지 않습니다.</span>
@@ -106,7 +106,7 @@
 												</div>
 												<div>
 													<span style="padding-right: 46px;">새 비밀번호</span>
-													<input id="user_pw" type="password" value=""><br>
+													<input id="user_pw" type="password" name="updateShopperPw" value=""><br>
 												</div>
 												<div>
 													<span id="user_pw_letter_combination" class="errorMsg">영문/숫자/특수문자 2가지 이상 조합 (8~20자)</span>
@@ -133,7 +133,7 @@
 										<div class="infoForm DeliverAddress">
 											<span>배송지 변경은 [배송지 선택/변경] 페이지로 이동합니다.</span>
 											<button id="daChange" class="d-inline-block" onclick="deliveryAddressBtn()">배송지 변경</button>
-										</div>	
+										</div>
 									</td>
 								</tr>
 							</tbody>

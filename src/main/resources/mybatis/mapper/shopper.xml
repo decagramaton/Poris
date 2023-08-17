@@ -70,4 +70,12 @@
 	</update>
 	
 	
+	<!-- 2023.08.17 고재승 - 회원 비밀번호 갱신 SQL문 -->
+	<update id="updateShopperPW" parameterType="Shopper">
+		UPDATE SHOPPER
+		SET SHOPPER_PW = #{shopperPw}
+		WHERE SHOPPER_NO = #{shopperNo}
+	</update>
+	
+	
 </mapper>

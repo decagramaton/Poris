@@ -17,7 +17,6 @@ public class MyPageChangeInfoServiceImpl implements MyPageChangeInfoService{
 	@Override
 	public Shopper getShopper(int shopperNo) {
 		Shopper shopperinfo = shopperDao.selectShopperBySid(shopperNo);
-		
 		return shopperinfo;
 	}
 
@@ -28,15 +27,11 @@ public class MyPageChangeInfoServiceImpl implements MyPageChangeInfoService{
 	
 	@Override
 	public boolean shopperIdDuplicateCheck(Shopper shopper) {
-		
 		// Step1. 중복 ID 조회
 		String resultId = shopperDao.selectShopperId(shopper.getShopperId());
 		
-		log.info("resultId : " + resultId);
-		
 		if(resultId == null) {
 			// Step2. 중복 ID 없으면 업데이트
-			log.info("중복 없는 이벤트 실행");
 			shopperDao.updateShopper(shopper);
 			return false;
 		} else return true;
@@ -60,14 +55,18 @@ public class MyPageChangeInfoServiceImpl implements MyPageChangeInfoService{
 				return true;
 			}
 		}
-		
 		return false;
 	}
 	
 	
 	@Override
-	public void setShoolerTel(Shopper shopper) {
+	public void setShopperTel(Shopper shopper) {
 		shopperDao.updateShopperTel(shopper);
+	}
+	
+	@Override
+	public void setShopperPassword(Shopper shopper) {
+		shopperDao.updateShopperPW(shopper);
 	}
 
 }
