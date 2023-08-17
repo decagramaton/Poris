@@ -1560,7 +1560,12 @@ a {
     left: 50%;
 }
 
-
+.review-none-items {
+	margin: 30px 0;
+	border-bottom: 2px solid #777;
+	text-align: center;
+	padding: 35px 0;
+}
 
 
 

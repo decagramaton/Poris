@@ -16,6 +16,7 @@ import poris.fruitlight.dto.Pager;
 import poris.fruitlight.dto.Product;
 import poris.fruitlight.dto.ProductBoard;
 import poris.fruitlight.dto.ProductInquiry;
+import poris.fruitlight.dto.Review;
 
 @Slf4j
 @Service
@@ -29,7 +30,6 @@ public class DetailViewServiceImpl implements DetailViewService {
 		return product;
 	}
 	
-	
 	@Override
 	public FoodRequiredInfo getFoodRequiredInfoByBoardNo(int boardNo) {
 		return detailViewDao.SelectRequiredInfoByBoardNo(boardNo);
@@ -38,6 +38,17 @@ public class DetailViewServiceImpl implements DetailViewService {
 	@Override
 	public List<BoardMedia> getProductContentList(int boardNo) {
 		return detailViewDao.SelectProductContentByBoardNo(boardNo);
+	}
+	
+	@Override
+	public int getTotalReviewStock(int boardNo) {
+		return detailViewDao.SelectTotalReviewStock(boardNo);
+	}
+	
+	@Override
+	public List<Review> getReviewList(Pager pager, int boardNo) {
+		pager.setBOARD_NO(boardNo);
+		return detailViewDao.selectReviewList(pager);
 	}
 	
 	@Override

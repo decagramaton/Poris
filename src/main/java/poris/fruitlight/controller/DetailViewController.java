@@ -25,6 +25,8 @@ import poris.fruitlight.dto.Pager;
 import poris.fruitlight.dto.Product;
 import poris.fruitlight.dto.ProductBoard;
 import poris.fruitlight.dto.ProductInquiry;
+import poris.fruitlight.dto.Review;
+import poris.fruitlight.dto.ReviewInfo;
 import poris.fruitlight.dto.Shopper;
 import poris.fruitlight.service.DetailViewService;
 
@@ -83,6 +85,38 @@ public class DetailViewController {
 		model.addAttribute("productContentList", productContentList);
 		
 		
+		//  -------------   [ 리뷰 페이저  ]  --------------------
+		
+		// Step1. 게시판 번호에 해당하는 리뷰의 총 개수 load
+		int totalReviewStock = detailViewService.getTotalReviewStock(bno);
+		
+		// Step2. Pager객체 생성 및 리뷰 게시판 생성
+		Pager ReviewPager = new Pager(4, 3, totalReviewStock, 1);
+		List<Review> ReviewList = detailViewService.getReviewList(ReviewPager, bno);
+		
+		log.info("ReviewList : " + ReviewList);
+		
+		// 리뷰 평균 점수 및 리뷰 개수 구하기
+		ReviewInfo reviewInfo = new ReviewInfo();
+		
+		if(ReviewList.size() != 0) {
+			int totalSumStarRate = 0;
+			
+			for(Review review : ReviewList) {
+				totalSumStarRate += review.getStarRate();
+			}
+			
+			reviewInfo.setStarRateAvg(totalSumStarRate/ReviewList.size());
+			reviewInfo.setTotalReviewStock(ReviewList.size());
+		}
+		
+		// Step3. Model객체로 JSP 전달
+		model.addAttribute("ReviewPager", ReviewPager);
+		model.addAttribute("ReviewList", ReviewList);
+		model.addAttribute("ReviewInfo", reviewInfo);
+		
+		
+		
 		//  -------------   [ 상품 문의 페이저  ]  --------------------
 		
 		// Step5. 상품 게시판에 존재하는 상품문의 게시판 개수 load
@@ -96,11 +130,6 @@ public class DetailViewController {
 		
 		model.addAttribute("productInquiryPager", productInquiryPager);
 		model.addAttribute("productInquiryList", productInquiryList);
-		
-		//  -------------   [ 리뷰 페이저  ]  --------------------
-		
-		
-		
 		
 		return "detailView";
 	}

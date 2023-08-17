@@ -13,6 +13,8 @@
       	<typeAlias alias="BoardMedia" type="poris.fruitlight.dto.BoardMedia"/><!-- 게시글 미디어 파일 정보 DTO -->
       	<typeAlias alias="OrderSearch" type="poris.fruitlight.dto.OrderSearchParam"/><!-- 주문 내역 검색 정보 DTO -->
       	<typeAlias alias="ShippingAddressParam" type="poris.fruitlight.dto.ShippingAddressParam"/><!-- 회원의 기본 배송지 정보 DTO -->
+      	<typeAlias alias="Pager" type="poris.fruitlight.dto.Pager"/><!-- 페이지 객체 정보 DTO -->
+      	<typeAlias alias="Review" type="poris.fruitlight.dto.Review"/><!-- 게시글 리뷰 정보 DTO -->
 	</typeAliases>
 
 </configuration>

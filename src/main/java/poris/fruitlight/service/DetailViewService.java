@@ -9,6 +9,7 @@ import poris.fruitlight.dto.Pager;
 import poris.fruitlight.dto.Product;
 import poris.fruitlight.dto.ProductBoard;
 import poris.fruitlight.dto.ProductInquiry;
+import poris.fruitlight.dto.Review;
 
 /**
  * 
@@ -37,10 +38,27 @@ public interface DetailViewService {
 	/**
 	 * @author 고재승
 	 * @since 2023.08.16
-	 * @param bno - 상품 게시글 번호
+	 * @param boardNo - 상품 게시글 번호
 	 * @return BoardMedia(게시글 미디어 파일 정보 DTO)
 	 */
 	public List<BoardMedia> getProductContentList(int boardNo);
+	
+	/**
+	 * @author 고재승
+	 * @since 2023.08.17
+	 * @param boardNo - 상품 게시글 번호
+	 * @return 리뷰 글 개수
+	 */
+	public int getTotalReviewStock(int boardNo);
+	
+	/**
+	 * @author 고재승
+	 * @since 2023.08.17
+	 * @param pager - 페이지 정보
+	 * @param boardNo - 출력할 게시글 번호
+	 * @return 페이지내 출력 개수만큼의 Review 객체 목록
+	 */
+	public List<Review> getReviewList(Pager pager, int boardNo);
 	
 	/**
 	 * 

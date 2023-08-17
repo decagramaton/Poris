@@ -299,20 +299,21 @@
                            <!-- 별점 -->
                            <div class="sdp-review-total-star">
                               <div class="sdp-review-total-star-info">
-                                 <div class="sdp-review-total-star-info-gray">
-                                    <div class="sdp-review-total-star-info-orange" style="width: 222px;"></div>
-                                 </div>
-                                 <div class="sdp-review-total-star-info-count">183</div>
-                                 <div class="sdp-review-total-star-info-detail">
-                 
-                     	<input type="hidden" id="shopperInfo" value="${ShopperInfo}"></span>
-                                 </div>
-           
-                 </div>
+                              
+                              	 <c:if test="${fn:length(ReviewList) == 0 }">
+	                              	<div class="sdp-review-total-star-info-gray">
+	                                    <div class="sdp-review-total-star-info-orange" style="width: 0px;"></div>
+	                                 </div>
+	                                 <div class="sdp-review-total-star-info-count">0</div>
+			                     </c:if>
+			                     <c:if test="${fn:length(ReviewList) != 0 }">
+	                              	<div class="sdp-review-total-star-info-gray">
+	                                    <div class="sdp-review-total-star-info-orange" style="width: ${ReviewInfo.starRateAvg}%;"></div>
+	                                 </div>
+	                                 <div class="sdp-review-total-star-info-count">${ReviewInfo.totalReviewStock}</div>
+			                     </c:if>
+                 			  </div>
                            </div>
-
-                           <!-- 리뷰 통계 -->
-                           <section class="sdp-review-summary"></section>
                         </div>
 
                         <div style="margin-top:30px;">
@@ -338,7 +339,12 @@
                                  <div class="sdp-review-article-order-star-all">
                                     <div style="display: inline-block;">
                                        <div class="all-content">모든 별점 보기</div>
-                                       <div class="all-count">183</div>
+                                       <c:if test="${fn:length(ReviewList) == 0 }">
+                                           <div class="all-count">0</div>
+                                       </c:if>
+                                       <c:if test="${fn:length(ReviewList) != 0 }">
+                                           <div class="all-count">${ReviewInfo.totalReviewStock}</div>
+                                       </c:if>
                                        <img class="all-arrow-down"
                                           src="//img1a.coupangcdn.com/image/productreview/web/pdp/article/star-select-down_v1.png"
                                           style="display: inline-block;">
@@ -349,128 +355,71 @@
 
                            <!-- 리뷰 상세 글 -->
                            <div id="review-detail-list">
-                              
-                              <article class="sdp-review-article-list">
-                                 <div class="list-info">
-                                    <div class="list-info-user">
-                                       <span class="list-info-user-name">온바라기&nbsp;</span>
-                                    </div>
-                                    <div class="list-info-product-info">
-                                       <div class="star-gray">
-                                          <div class="star-orange" style="width: 80%;"></div>
-                                       </div>
-                                       <div class="reg-date">2023.06.09</div>
-                                    </div>
-                                    <div class="list-info-product-info-name">과일엔 미국산 생체리, 800g,1팩</div>
-                                 </div>
-
-                                 <div class="list-attachment">
-                                    <div class="list-attachment-list">
-                                       <img class="list-attachment-img"
-                                          src="https://thumbnail7.coupangcdn.com/thumbnails/local/320/image2/PRODUCTREVIEW/202306/9/6408141922936458392/d16c7938-5618-4008-a438-1b1fdbf1bd53.jpg">
-                                    </div>
-                                    <div class="list-attachment-list">
-                                       <img class="list-attachment-img"
-                                          src="https://thumbnail9.coupangcdn.com/thumbnails/local/320/image2/PRODUCTREVIEW/202306/9/6408141922936458392/c8367b5a-0bf4-476e-addb-a5d2377b881c.jpg">
-                                    </div>
-                                    <div class="list-attachment-list">
-                                       <img class="list-attachment-img"
-                                          src="https://thumbnail9.coupangcdn.com/thumbnails/local/320/image2/PRODUCTREVIEW/202306/9/6408141922936458392/61886e0c-1e09-43ca-a269-603ab0ff21a1.jpg">
-                                    </div>
-                                    <div class="list-attachment-list">
-                                       <img class="list-attachment-list"
-                                          src="https://thumbnail10.coupangcdn.com/thumbnails/local/320/image2/PRODUCTREVIEW/202306/9/6408141922936458392/5edccf7f-cfc3-4cbf-8f3c-f1f330568d39.jpg">
-                                    </div>
-                                    <div class="list-attachment-list">
-                                       <img class="list-attachment-img"
-                                          src="https://thumbnail7.coupangcdn.com/thumbnails/local/320/image2/PRODUCTREVIEW/202306/9/6408141922936458392/b9740b88-1730-4c55-83f1-e6339fd3da8a.jpg">
-                                    </div>
-                                    <div class="list-attachment-list">
-                                       <img class="list-attachment-img"
-                                          src="https://thumbnail6.coupangcdn.com/thumbnails/local/320/image2/PRODUCTREVIEW/202306/9/6408141922936458392/aba5a0aa-c7ab-4662-a29a-47ae598279ab.jpg">
-                                    </div>
-                                 </div>
-
-                                 <div class="list-review">
-                                    <div class="list-review-content">
-                                       	체리는 저희 엄마가 무척이나 좋아하시는 과일이에요<br><br>
-                                    </div>
-                                 </div>
-
-                                 <!-- <div class="list-survey">
-                                    <div class="list-survey-row">
-                                       <span class="list-survey-row-question">맛 만족도</span>
-                                       <span class="list-survey-row-answer">괜찮아요</span>
-                                    </div>
-                                    <div class="list-survey-row">
-                                       <span class="list-survey-row-question">싱싱함</span>
-                                       <span class="list-survey-row-answer">보통이에요</span>
-                                    </div>
-                                    <div class="list-survey-row">
-                                       <span class="list-survey-row-question">당도</span>
-                                       <span class="list-survey-row-answer">적당히 달아요</span>
-                                    </div>
-                                    <div class="list-survey-row">
-                                       <span class="list-survey-row-question">새콤함</span>
-                                       <span class="list-survey-row-answer">적당히 새콤해요</span>
-                                    </div>
-                                 </div> -->
-
-                                 <div class="list-help">
-                                    <div class="list-help-count">
-                                       <strong>8</strong>명에게 도움 됨
-                                    </div>
-                                    <button class="list-help-btn">도움이돼요</button>
-                                    <button class="list-help-report-btn">신고하기</button>
-                                    <div class="sdp-review__clear"></div>
-                                 </div>
-                              </article>
-
-                              <article class="sdp-review-article-list">
-                                 <div class="list-info">
-                                    <div class="list-info-user">
-                                       <span class="list-info-user-name">장원석&nbsp;</span>
-                                    </div>
-                                    <div class="list-info-product-info">
-                                       <div class="star-gray">
-                                          <div class="star-orange" style="width: 80%;"></div>
-                                       </div>
-                                       <div class="reg-date">2023.06.11</div>
-                                    </div>
-                                    <div class="list-info-product-info-name">과일엔 미국산 생체리, 800g,1팩</div>
-                                 </div>
-
-                                 <div class="list-review">
-                                    <div class="list-review-content">
-                                       조식으로 샌드위치나 미니핫도그에 과일 하나씩 꼭 챙겨 먹이는데 이번에 가격 괜찮게 떠서 구매해봤는데 잘 먹네요.
-                                    </div>
-                                 </div>
-
-                                 <div class="list-help">
-                                    <div class="list-help-count">
-                                       <strong>2</strong>명에게 도움 됨
-                                    </div>
-                                    <button class="list-help-btn">도움이돼요</button>
-                                    <button class="list-help-report-btn">신고하기</button>
-                                    <div class="sdp-review__clear"></div>
-                                 </div>
-                              </article>
-                             
-
-                              <div class="sdp-review-article-page">
-                                 <button class="page-prev"></button>
-                                 <button class="page-num">1</button>
-                                 <button class="page-num">2</button>
-                                 <button class="page-num">3</button>
-                                 <button class="page-num">4</button>
-                                 <button class="page-num">5</button>
-                                 <button class="page-num">6</button>
-                                 <button class="page-num">7</button>
-                                 <button class="page-num">8</button>
-                                 <button class="page-num">9</button>
-                                 <button class="page-num">10</button>
-                                 <button class="page-next"></button>
-                              </div>
+                              <c:if test="${fn:length(ReviewList) == 0 }">
+                              	<div class="review-none-items">
+                           	  	  	등록된 리뷰가 없습니다.
+                           	   	</div>
+                              </c:if>
+                              <c:if test="${fn:length(ReviewList) != 0}">
+                              	<c:forEach var="Review" items="${ReviewList}">
+	                              	<article class="sdp-review-article-list">
+	                                 <div class="list-info">
+	                                    <div class="list-info-user">
+	                                       <span class="list-info-user-name">${Review.shopperName}&nbsp;</span>
+	                                    </div>
+	                                    <div class="list-info-product-info">
+	                                       <div class="star-gray">
+	                                          <div class="star-orange" style="width: ${Review.starRate}%;"></div>
+	                                       </div>
+	                                       <div class="reg-date"><fmt:formatDate value="${Review.writeDate}" pattern="yyyy.MM.dd"/></div>
+	                                    </div>
+	                                    <div class="list-info-product-info-name">${Review.productName}</div>
+	                                 </div>
+	
+	                                 <div class="list-review">
+	                                    <div class="list-review-content">
+	                                       	${Review.content}
+	                                    </div>
+	                                 </div>
+	
+	                                 <div class="list-help">
+	                                    <div class="list-help-count">
+	                                       <strong>${Review.helpPoint}</strong>명에게 도움 됨
+	                                    </div>
+	                                    <button class="list-help-btn">도움이돼요</button>
+	                                    <button class="list-help-report-btn">신고하기</button>
+	                                    <div class="sdp-review__clear"></div>
+	                                 </div>
+	                              </article>
+                              	</c:forEach>
+                              	
+                              	<div class="inquiry-page-btns">
+								  <c:if test="${ReviewPager.totalGroupNo > 1}">
+									  <c:if test="${ReviewPager.groupNo > 1}">
+										  <input type="hidden" value="${ReviewPager.startPageNo-1}">
+										  <button class="page-prev inquiry-btn"></button>
+									  </c:if>
+								  </c:if>
+								
+								  <c:forEach var="i" begin="${ReviewPager.startPageNo}" end="${ReviewPager.endPageNo}">
+								      <c:if test="${ReviewPager.pageNo != i}">
+									    <input type="hidden" value="${i}">
+										<button class="page-num inquiry-btn">${i}</button>
+									  </c:if>
+									  <c:if test="${ReviewPager.pageNo == i}">
+										<input type="hidden" value="${i}">
+										<button class="page-num selected inquiry-btn">${i}</button>
+									  </c:if>
+								  </c:forEach>
+								  
+								  <c:if test="${ReviewPager.totalGroupNo > 1}">
+									  <c:if test="${ReviewPager.groupNo < ReviewPager.totalGroupNo}">
+										  <input type="hidden" value="${ReviewPager.endPageNo+1}">
+										  <button class="page-next inquiry-btn"></button>
+									  </c:if>
+								  </c:if>
+	                            </div>
+                              </c:if>
                            </div>
                         </div>
                      </div>
@@ -496,7 +445,7 @@
                         <div class="inquiry-item-container">
                            <c:if test="${fn:length(productInquiryList) == 0}">
                            	   <div class="inquiry-none-items">
-                           	  	  등록된 문의가 없습니다.
+                           	  	  <p>등록된 문의가 없습니다.</p>
                            	   </div>
                            </c:if>
                            <c:if test="${fn:length(productInquiryList) != 0}">

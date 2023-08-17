@@ -17,8 +17,10 @@ public class Review {
 	private int productNo;				// 상품 고유 번호
 	private int boardNo;				// 게시글 고유번호
 	private int starRate;				// 평점 ( 0 ~ 100 )
+	private int helpPoint;				// 평점 ( 0 ~ 100 )
 	private String content;				// 리뷰 내용
 	private String shopperName;			// 리뷰 작성자
+	private String productName;			// 리뷰 작성자
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date writeDate;				// 리뷰 작성일
 }

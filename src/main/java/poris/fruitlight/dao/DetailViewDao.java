@@ -11,6 +11,7 @@ import poris.fruitlight.dto.Pager;
 import poris.fruitlight.dto.Product;
 import poris.fruitlight.dto.ProductBoard;
 import poris.fruitlight.dto.ProductInquiry;
+import poris.fruitlight.dto.Review;
 
 @Mapper
 public interface DetailViewDao {
@@ -32,6 +33,24 @@ public interface DetailViewDao {
 	 * @return 식품 필수 표기 정보 DTO
 	 */
 	public List<BoardMedia> SelectProductContentByBoardNo(int boardNo);
+	
+	/**
+	 * 게시글의 고유 번호를 기준으로 리뷰 글 개수를 조회하는 메소드
+	 * @author 고재승
+	 * @since 2023.08.17
+	 * @param boardNo - 게시판 번호
+	 * @return 총 리뷰 개수 정보
+	 */
+	public int SelectTotalReviewStock(int boardNo);
+	
+	/**
+	 * 페이저 객체로 페이지별 설정한 개수만큼 리뷰 목록을 조회하는 메소드
+	 * @author 고재승
+	 * @since 2023.08.17
+	 * @param pager
+	 * @return 리뷰 목록
+	 */
+	public List<Review> selectReviewList(Pager pager);
 	
 	
 	public List<ProductBoard> selectImgsByBno(int bno);
