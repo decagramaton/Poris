@@ -9,34 +9,12 @@
 		<link rel="icon" href="${pageContext.request.contextPath}/resources/images/favicon.ico" type="image/x-icon">
 		<title>마이페이지 - 주문내역</title>
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/mypageOrdered.css">
-		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header.css">
-		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/footer.css">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 		<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-		<script src="${pageContext.request.contextPath}/resources/javascript/header.js"></script>
-		<script src="${pageContext.request.contextPath}/resources/javascript/mypageOrdered.js"></script>
 	</head>
 	<body>
-<%@ include file="/WEB-INF/views/headersimple.jsp" %>
-		<div class="container">
-			<div class="bodycontainer">
-				<div class="leftside">
-					<nav>
-						<div class="mymenu">
-							<div class="text-left pb-2">
-								<h3>마이 페이지</h3>
-							</div>
-							<div class="mymenu-menu">
-								<a class="mymenu-menu-title" href="mypageOrdered">주문 내역</a>
-							</div>
-							<div class="mymenu-menu" style="border-bottom: 0px;">
-								<a class="mymenu-menu-title" href="mypageChangeInfo?shopperNo=${ShopperInfo.shopperNo}">내 정보 변경</a>
-							</div>
-						</div>
-					</nav>
-				</div>
 				<div class="content">
 					<div class="mycoupang-main-container">
 						<div class="mycoupang-main">
@@ -231,8 +209,5 @@
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-<%@ include file="/WEB-INF/views/footer.jsp" %>
 	</body>
 </html>

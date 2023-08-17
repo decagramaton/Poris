@@ -27,8 +27,40 @@
 	</head>
 	<body>
 		<%@ include file="/WEB-INF/views/headersimple.jsp" %>
-		<div class="wrap">
+		<div class="container">
 			
+			<div class="container">
+	            <div class="row">
+	               <div class="col-md-3 bg-light">
+	                     <!-- <div class="flex-grow-1" style="height: 0px; overflow-y: auto; overflow-x: hidden;"> -->
+	                       <nav class="navbar flex-column bg-light">
+	                       <h2>마이 페이지</h2>
+							<!-- Links -->
+							  <ul class="navbar-nav">
+							    <li class="nav-item">
+							      <a class="nav-link" href="#">주문목록</a>
+							    </li>
+							    <li class="nav-item">
+							      <a class="nav-link" href="#">회원정보 변경</a>
+							    </li>
+							    <li class="nav-item">
+							      <a class="nav-link" href="#">나의 상품문의</a>
+							    </li>
+							    <li class="nav-item">
+							      <a class="nav-link" href="#">나의 상품후기</a>
+							    </li>
+							  </ul>
+							</nav>
+	                     <!-- </div> -->
+	               </div>
+		           <div class="col-md-5 p-3">
+		           		<%@ include file="/WEB-INF/views/testMypageOrdered.jsp" %>
+		           </div>
+	               
+	            </div>
+	        </div>
+   
+                     
 		</div>
 		<%@ include file="/WEB-INF/views/footer.jsp" %>
 	</body>
