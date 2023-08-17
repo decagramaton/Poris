@@ -61,7 +61,7 @@
    
    <!-- 2023.08.13 고재승 - resultType의 값을 Mapper의 Alias으로 변경했습니다. -->
    <select id="selectByName" parameterType="String" resultType="Product">
-      select PRODUCT_NO, PRODUCT_NAME, PRODUCT_OPTION, DISCOUNT_PRICE
+      select PRODUCT_NO, PRODUCT_NAME, PRODUCT_STOCK, PRODUCT_OPTION, DISCOUNT_PRICE
       from PRODUCT
       where PRODUCT_NAME = #{name}
    </select>

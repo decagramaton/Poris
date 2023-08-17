@@ -4,9 +4,6 @@ function init() {
 	//금액 xxx,xxx원 적용
 	initPriceFormat();
 	
-	//상품문의 페이저
-	//initProductInquiry();
-	
 	//메인이미지 변경 동작
 	$(".productItems li img").hover(changeMain);
 	//찜 동작
@@ -128,6 +125,7 @@ function changeQuantityInput() {
 	//현재 수량
 	var quantityCurrent = $(event.target).val();
 	var quantityMin = $(event.target).attr("min");
+	var quantityMax = $(event.target).attr("max");
 	
 	if(quantityCurrent == "" || quantityCurrent <= quantityMin) {
 		quantityCurrent = quantityMin;
@@ -135,6 +133,9 @@ function changeQuantityInput() {
 		$(event.target).next().children(".product-quantity-minus-btn").attr("disabled", true);
 	}
 	else if(quantityCurrent > 1) {
+		if(quantityCurrent > quantityMax) {
+			quantityCurrent = quantityMax;
+		}
 		$(event.target).next().children(".product-quantity-minus-btn:disabled").prop("disabled", false);
 		$(event.target).next().children(".product-quantity-minus-btn:disabled").attr("disabled", false);
 	}
@@ -152,6 +153,7 @@ function changePrice(quantityCurrent, optionTablePrice) {
 	var unitPrice = optionTablePrice.children().val();
 	var newPrice = quantityCurrent * unitPrice;
 	optionTablePrice.children("span").html(newPrice.toLocaleString("ko-KR") + "원")
+	$(".product-option-originalPrice").attr("value", newPrice);
 }
 
 //상품옵션 삭제 동작
@@ -159,6 +161,7 @@ function deleteOption() {
 	$(event.target).parent().parent().removeClass("selected");
 }
 
+//상품문의 페이저
 function changeInquiryPage() {
 	var toGoPage = $(event.target).prev().val();
 	

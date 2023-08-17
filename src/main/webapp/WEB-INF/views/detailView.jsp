@@ -101,7 +101,7 @@
                                <strong>= 옵션 : 가격 =</strong>
                            </span>
                            <span class="product-option-ico closed" style="background-image: url(${pageContext.request.contextPath}/resources/images/option_drop_down.png)"></span>
-                           <span class="product-option-ico open" style="background-image: url(${pageContext.request.contextPath}/resources/images/option_drop_up.png)"></span>
+                           <span class="product-option-ico open" style="background-image: url(${pageContext.request.contextPath}/resources/images/option_drop_up.png); display: none;"></span>
                      	</div>
                   	 </div>
 	                     <ul class="product-options-list closed">
@@ -147,7 +147,7 @@
                                   <td class="product-option-table-quantity">
                                       <div class="product-quantity-container">
 				                         <div class="product-quantity">
-				                            <input class="product-quantity-input" type="number" value="1" min="1" max="50" name="stock"/>
+				                            <input class="product-quantity-input" type="number" value="1" min="1" max="${optionProduct.PRODUCT_STOCK}" name="stock"/>
 				                            <div class="product-quantity-btns">
 				                               <button class="product-quantity-plus-btn" type="button"></button>
 				                               <button class="product-quantity-minus-btn" type="button" disabled="disabled"></button>
