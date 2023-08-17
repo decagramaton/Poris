@@ -19,16 +19,6 @@ function init() {
 	 $("#btn_pwd").click(checkValidation);
 }
 
-function checkPassword() {
-    if (inputPassword === shopperPw) {
-    	//비밀번호가 일치하는 경우
-        $("#changeInfoTable").css("display","block"); // 내정보 변경 양식 display는 block
-        $("#noPasswordInfo").css("display","none"); // 비밀번호를 묻는 화면은 none
-    } else {
-        //비밀번호가 일치하지 않는경우
-        alert("비밀번호가 일치하지 않습니다.");
-    }
-}
 
 function openEmailChange(){
 	$("#emailChange").removeClass("d-inline-block");

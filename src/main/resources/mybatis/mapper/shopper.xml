@@ -22,7 +22,7 @@
 		SHOPPER_TEL as shopperTel,
 		SHOPPER_AUTO_LOGIN as shopperAutoLogin
 		FROM SHOPPER
-		WHERE SHOPPER_ID=#{shopperId} AND SHOPPER_PW=#{shopperPw}
+		WHERE SHOPPER_ID=#{shopperId} AND SHOPPER_PW=#{shopperPw, jdbcType=VARCHAR}
 	</select>
 	
 	
@@ -36,5 +36,24 @@
 		INSERT INTO SHOPPER
 		VALUES(SHOPPER_NO_SEQ.NEXTVAL, #{shopperId}, #{shopperPw}, #{shopperName}, #{shopperTel}, '0')
 	</insert>
+	
+	
+	<select id="selectShopperBySid" parameterType="Shopper" resultType="Shopper">
+		SELECT SHOPPER_NO as shopperNo,
+		SHOPPER_ID as shopperId,
+		SHOPPER_PW as shopperPw,
+		SHOPPER_NAME as shopperName,
+		SHOPPER_TEL as shopperTel,
+		SHOPPER_AUTO_LOGIN as shopperAutoLogin
+		FROM SHOPPER
+		WHERE SHOPPER_NO = #{shopperNo}
+	</select>
+	
+	<update id="updateShopper" parameterType="Shopper">
+		UPDATE SHOPPER
+		SET SHOPPER_ID = #{shopperId, jdbcType = VARCHAR}
+		WHERE SHOPPER_NO = #{shopperNo}
+	</update>
+	
 	
 </mapper>

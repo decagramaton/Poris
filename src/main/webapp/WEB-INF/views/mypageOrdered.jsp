@@ -29,7 +29,7 @@
 								<a class="mymenu-menu-title" href="mypageOrdered">주문 내역</a>
 							</div>
 							<div class="mymenu-menu" style="border-bottom: 0px;">
-								<a class="mymenu-menu-title" href="mypageChangeInfo">내 정보 변경</a>
+								<a class="mymenu-menu-title" href="mypageChangeInfo?shopperNo=${ShopperInfo.shopperNo}">내 정보 변경</a>
 							</div>
 						</div>
 					</nav>

@@ -29,7 +29,7 @@
 								<a class="mymenu-menu-title" href="mypageOrdered">주문 내역</a>
 							</div>
 							<div class="mymenu-menu" style="border-bottom: 0px;">
-								<a class="mymenu-menu-title" href="mypageChangeInfo">내 정보 변경</a>
+								<a class="mymenu-menu-title" href="mypageChangeInfo?shopperNo=${ShopperInfo.shopperNo}">내 정보 변경</a>
 							</div>
 						</div>
 					</nav>
@@ -42,7 +42,7 @@
 					</div>
 					<c:if test="${resultCheckPw == null || resultCheckPw == false}">
 						<div class="noPasswordInfo" id="noPasswordInfo">
-						    <form action="/fruitlight/mypageChangeInfo/checkPw" method="post">
+						    <form action="/fruitlight/mypageChangeInfo?shopperNo=${ShopperInfo.shopperNo}" method="post">
 						        <div class="passwordRequest">
 						            <span>비밀번호 확인</span>
 						            <input id="inputPassword" name="shopperPwd" type="password"/>
@@ -60,12 +60,13 @@
 									<th scope="row">아이디</th>
 									<td>
 										<div class="infoForm id">
-											<span id="user_id">${mypageChangeInfo[0].userId}</span>
+											<span id="user_id">${mypageChangeInfo.shopperId}</span>
 											<button id="emailChange" class="d-inline-block" onclick="openEmailChange()">이메일 변경하기</button>
 											<button id="emailCancel" class="d-none" onclick="openEmailChangeCancel()">이메일 변경취소</button>
-											<form id="changeIdForm"class="d-none changeForm">
-												<input type="text" value="">
-												<button type="submit" >변경하기</button>
+											<form id="changeIdForm"class="d-none changeForm" action="/fruitlight/mypageChangeInfo/updateId?shopperNo=${ShopperInfo.shopperNo}" method="post">
+												<input type="hidden" name="shopperNo" value=""/>
+												<input type="text" name="shopperId" value="">
+												<button type="submit">변경하기</button>
 											</form>
 										</div>
 									</td>
@@ -73,14 +74,14 @@
 								<tr>
 									<th scope="row">이름</th>
 									<td class="infoForm name"> 
-										<span>${mypageChangeInfo[0].userName}</span>
+										<span>${mypageChangeInfo.shopperName}</span>
 									</td>
 								</tr>
 								<tr>
 									<th scope="row">휴대폰 번호</th>
 									<td>
 										<div class="infoForm tel">
-											<span>01012345678</span>
+											<span>${mypageChangeInfo.shopperTel}</span>
 											<button id="telChange" class="d-inline-block" onclick="openTelChange()">휴대폰 번호 변경하기</button>
 											<button id="telCancel" class="d-none" onclick="openTelChangeCancel()">휴대폰 번호 변경취소</button>
 											<form id="changeTelForm" class="d-none changeForm">
@@ -96,7 +97,7 @@
 										<div class="pwForm">
 											<form>
 												<div>
-													<input id="user_original_pw" type="hidden" value="${mypageChangeInfo[0].userPassword}"/>
+													<input id="user_original_pw" type="hidden" value="${mypageChangeInfo.shopperPw}"/>
 													<span style="padding-right: 30px;">현재 비밀번호</span>
 													<input id="user_current_pw" type="password" value=""/>
 												</div>

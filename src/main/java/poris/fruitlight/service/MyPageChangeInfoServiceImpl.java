@@ -1,14 +1,10 @@
 package poris.fruitlight.service;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import lombok.extern.slf4j.Slf4j;
 import poris.fruitlight.dao.ShopperDao;
-import poris.fruitlight.dto.MyPageChangeInfo;
 import poris.fruitlight.dto.Shopper;
 
 @Service
@@ -19,26 +15,27 @@ public class MyPageChangeInfoServiceImpl implements MyPageChangeInfoService{
 	ShopperDao shopperDao;
 	
 	@Override
-	public List<MyPageChangeInfo> getList(String userId) {
-		log.info("MyPageChangeInfoImpl 실행");
-		List<MyPageChangeInfo> list = new ArrayList<>();
-		MyPageChangeInfo mpci = new MyPageChangeInfo();
-		mpci.setUserId("asddjas@poris.com");
-		mpci.setUserName("김진성");
-		mpci.setUserPassword("qqeett22!");
+	public Shopper getShopper(int shopperNo) {
+		Shopper shopperinfo = shopperDao.selectShopperBySid(shopperNo);
 		
-		list.add(mpci);
-		
-		/*List<MainProduct> list = listDao.selectByPage(pager);*/
-		return list;
+		return shopperinfo;
 	}
 
 	@Override
-	public void modify(MyPageChangeInfo mpci) {
-		//개인정보 수정 Query문 작성 후 사용 (DB 연동)
-		/*MyPageChangeInfoDao.update(mpci);*/
+	public void modify(Shopper shopper) {
+		shopperDao.updateShopper(shopper);
 	}
 	
+	@Override
+	public boolean idCheck(Shopper shopper) {
+		Shopper result = shopperDao.selectShopper(shopper);
+		
+		if(result == null) {
+			return false;
+		} else {
+			return true;
+		}
+	}
 	
 	/**
 	 * 유저가 입력한 데이터가 DB의 PW와 동일한지 확인 요청하는 메소드
@@ -61,4 +58,5 @@ public class MyPageChangeInfoServiceImpl implements MyPageChangeInfoService{
 		
 		return false;
 	}
+
 }
