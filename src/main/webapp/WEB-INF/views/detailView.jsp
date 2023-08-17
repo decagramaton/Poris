@@ -11,12 +11,13 @@
 	<title>푸릇라이트</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/images/favicon.ico" type="image/x-icon" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header.css">
-    <script src="${pageContext.request.contextPath}/resources/javascript/orderheader.js"></script>
    
+    <script src="${pageContext.request.contextPath}/resources/javascript/orderheader.js"></script>
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/detailView_style.css" />
 	<script src="${pageContext.request.contextPath}/resources/javascript/detailView.js"></script>
 </head>
@@ -24,10 +25,6 @@
 <body>
 	<%@ include file="/WEB-INF/views/header.jsp" %>
    <div class="container">
-      <header id="header">
-
-	  </header>
-
       <div class="contents">
          <input class="product-id" type="hidden" value="1">
          <div class="top-product">
@@ -539,8 +536,8 @@
                                  </div>
                                  <div class="delivery-item-content">
                                     <ul>
-                                       <li>무료배송</li>
-                                       <li>- 로켓프레시 상품 중 15,000원 이상 구매 시 무료배송</li>
+                                       <li>3,000원</li>
+                                       <li>- 30,000원 이상 구매 시 무료배송</li>
                                        <li>- 해당 서비스 가능 지역에 한함</li>
                                     </ul>
                                  </div>
@@ -573,8 +570,8 @@
                            </div>
                            <div class="return-item-content">
                               <ul>
-                                 <li>ㆍ와우멤버십 회원: 무료로 반품/교환 가능</li>
-                                 <li>ㆍ와우멤버십 회원 아닌 경우:</li>
+                                 <!-- <li>ㆍ와우멤버십 회원: 무료로 반품/교환 가능</li>
+                                 <li>ㆍ와우멤버십 회원 아닌 경우:</li> -->
                                  <li>1) [총 주문금액] - [반품 상품금액] = 19,800원 미만인 경우 반품비 5,000원</li>
                                  <li>2) [총 주문금액] - [반품 상품금액] = 19,800원 이상인 경우 반품비 2,500원</li>
                               </ul>
@@ -586,9 +583,7 @@
                            </div>
                            <div class="return-item-content">
                               <ul>
-                                 <li>ㆍ단순변심에 의한 로켓배송 상품의 교환/반품은 제품 수령 후 30일 이내까지, 교환/반품 제한사항에 해당하지 않는 경우에만 가능</li>
-                                 <li>&nbsp;&nbsp;&nbsp;※ 로켓프레시 상품의 경우 배송시작 후에는 취소가 불가하며, 배송완료 후 반품을 진행하실 수 있습니다. 단,
-                                    신선/냉장/냉동 상품의 단순변심의</li>
+                                 <li>ㆍ배송시작 후에는 취소가 불가하며, 배송완료 후 반품을 진행하실 수 있습니다. 단, 신선/냉장/냉동 상품의 단순변심의</li>
                                  <li>&nbsp;&nbsp;&nbsp;경우 재판매가 불가한 상품의 특성 상 단순변심에 의한 반품이 제한됩니다.</li>
                                  <li>ㆍ상품의 내용이 표시·광고의 내용과 다른 경우에는 상품을 수령한 날부터 3개월 이내, 그 사실을 안 날 또는 알 수 있었던 날부터
                                     <br /> 30일 이내에 청약철회 가능
@@ -605,65 +600,7 @@
                         <li>ㆍ세트상품 일부 사용, 구성품을 분실하였거나 취급 부주의로 인한 파손/고장/오염으로 재판매 불가한 경우</li>
                         <li>ㆍ모니터 해상도의 차이로 인해 색상이나 이미지가 실제와 달라, 고객이 단순 변심으로 교환/반품을 무료로 요청하는 경우</li>
                         <li>ㆍ제조사의 사정 (신모델 출시 등) 및 부품 가격 변동 등에 의해 무료 교환/반품으로 요청하는 경우</li>
-                        <p>※ 각 상품별로 아래와 같은 사유로 취소/반품이 제한될 수 있습니다.</p>
                      </ul>
-                     <div class="product-etc-limit">
-                        <div class="limit-item">
-                           <div class="limit-item-col">
-                              <span>의류/잡화/수입명품 </span>
-                           </div>
-                           <div class="limit-item-content">
-                              <ul>
-                                 <li>ㆍ상품의 택(TAG) 제거, 라벨 및 상품 훼손, 구성품 누락으로 상품의 가치가 현저히 감소된 경우</li>
-                              </ul>
-                           </div>
-                        </div>
-                        <div class="limit-item">
-                           <div class="limit-item-col">
-                              <span>계절상품/식품/화장품</span>
-                           </div>
-                           <div class="limit-item-content">
-                              <ul>
-                                 <li>ㆍ신선/냉장/냉동 상품의 단순변심의 경우</li>
-                                 <li>ㆍ뷰티 상품 이용 시 트러블(알러지, 붉은 반점, 가려움, 따가움)이 발생하는 경우,
-                                 <li>
-                                 <li>&nbsp;&nbsp;&nbsp;진료 확인서 및 소견서 등을 증빙하면 환불이 가능 (제반비용 고객부담)</li>
-                              </ul>
-                           </div>
-                        </div>
-                        <div class="limit-item">
-                           <div class="limit-item-col">
-                              <span>전자/가전/설치상품 </span>
-                           </div>
-                           <div class="limit-item-content">
-                              <ul>
-                                 <li>ㆍ설치 또는 사용하여 재판매가 어려운 경우</li>
-                                 <li>ㆍ상품의 시리얼 넘버 유출로 내장된 소프트웨어의 가치가 감소한 경우 (내비게이션, OS시리얼이 적힌 PMP)</li>
-                                 <li>ㆍ홀로그램 등을 분리, 분실, 훼손하여 상품의 가치가 현저히 감소하여 재판매가 불가할 경우 (노트북, 데스크탑 PC 등)</li>
-                              </ul>
-                           </div>
-                        </div>
-                        <div class="limit-item">
-                           <div class="limit-item-col">
-                              <span>자동차용품</span>
-                           </div>
-                           <div class="limit-item-content">
-                              <ul>
-                                 <li>ㆍ상품을 개봉하여 장착한 이후 단순변심인 경우</li>
-                              </ul>
-                           </div>
-                        </div>
-                        <div class="limit-item">
-                           <div class="limit-item-col">
-                              <span>CD/DVD/GAME/BOOK</span>
-                           </div>
-                           <div class="limit-item-content">
-                              <ul>
-                                 <li>ㆍ복제가 가능한 상품의 포장 등을 훼손한 경우</li>
-                              </ul>
-                           </div>
-                        </div>
-                     </div>
                      <h5>판매자 정보</h5>
                      <div class="product-etc-seller">
                         <div class="seller-item">
@@ -671,7 +608,7 @@
                               <span>판매자</span>
                            </div>
                            <div class="seller-item-content">
-                              쿠팡 1577-7011
+                              푸릇라이트 1588-8282
                            </div>
                         </div>
                      </div>
