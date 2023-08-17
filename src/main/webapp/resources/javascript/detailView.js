@@ -75,7 +75,6 @@ function openOption() {
 	$(".product-options-list").toggleClass("closed");
 }
 function chooseOption() {
-	console.log($(event.target).attr("id"));
 	var pid = $(event.target).attr("id");
 	if(pid != undefined) {
 		$(".product-option-tableBody").children("." + pid).addClass("selected");
@@ -134,6 +133,7 @@ function changeQuantityInput() {
 	}
 	else if(quantityCurrent > 1) {
 		if(quantityCurrent > quantityMax) {
+			console.log(quantityMax);
 			quantityCurrent = quantityMax;
 		}
 		$(event.target).next().children(".product-quantity-minus-btn:disabled").prop("disabled", false);
