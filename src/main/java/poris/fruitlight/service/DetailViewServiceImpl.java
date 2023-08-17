@@ -52,7 +52,8 @@ public class DetailViewServiceImpl implements DetailViewService {
 	}
 	
 	@Override
-	public void addHelpPoint(int reviewNo) {
+	public void addHelpPoint(String reviewNo) {
+		detailViewDao.updateAddHelpPoint(reviewNo);
 	}
 	
 	

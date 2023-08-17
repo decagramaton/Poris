@@ -103,7 +103,7 @@
       ]]>
    </select>
    
-   <update id="updateAddHelpPoint" parameterType="int">
+   <update id="updateAddHelpPoint" parameterType="String">
    		UPDATE REVIEW
 		SET HELP_POINT = HELP_POINT + 1
 		WHERE REVIEW_NO = #{reviewNo}

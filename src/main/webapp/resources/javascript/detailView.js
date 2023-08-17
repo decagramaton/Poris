@@ -346,12 +346,25 @@ function buy() {
 }
 
 function addHelpPoint(reviewNo) {
+	let helpPointValue = $(event.target).parent().find("#helpPointval").html();
+	let eventHandler = $(event.target).parent().find("#helpPointval");
+	
+	
 	$.ajax({
         type:"get",
         url:"/fruitlight/detailView/addHelpPoint",
         data:{ReviewNo:reviewNo},
         success: function(data) {
-        	$()
+        	
+        	helpPointValue = Number(helpPointValue) + 1;
+        	eventHandler.html(helpPointValue);
+        	
+        	
+        	/*let helpPointValue = $("#helpPointval").html();
+        	console.log(helpPointValue);
+        	helpPointValue = Number(helpPointValue) + 1;
+        	console.log(helpPointValue);
+        	$("#helpPoint").html(helpPointValue+"명에게 도움이 됨")*/
         }
     })
 }

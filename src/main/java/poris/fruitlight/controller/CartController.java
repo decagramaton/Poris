@@ -65,7 +65,7 @@ public class CartController {
 			
 			model.addAttribute("listProduct", listProduct);
 			
-			List<Coupon> listCoupon = cartProductService.getCoupon(1);
+			List<Coupon> listCoupon = cartProductService.getCoupon(loginShopper.getShopperNo());
 			model.addAttribute("listCoupon", listCoupon);
 		}
 		return "cart";

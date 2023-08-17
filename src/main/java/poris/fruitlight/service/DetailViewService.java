@@ -104,5 +104,5 @@ public interface DetailViewService {
 	/**
 	 * 
 	 */
-	public void addHelpPoint(int reviewNo);
+	public void addHelpPoint(String reviewNo);
 }

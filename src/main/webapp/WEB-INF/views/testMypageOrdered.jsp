@@ -9,34 +9,12 @@
 		<link rel="icon" href="${pageContext.request.contextPath}/resources/images/favicon.ico" type="image/x-icon">
 		<title>마이페이지 - 주문내역</title>
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/mypageOrdered.css">
-		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header.css">
-		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/footer.css">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 		<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-		<script src="${pageContext.request.contextPath}/resources/javascript/header.js"></script>
-		<script src="${pageContext.request.contextPath}/resources/javascript/mypageOrdered.js"></script>
 	</head>
 	<body>
-<%@ include file="/WEB-INF/views/headersimple.jsp" %>
-		<div class="container">
-			<div class="bodycontainer">
-				<div class="leftside">
-					<nav>
-						<div class="mymenu">
-							<div class="text-left pb-2">
-								<h3>마이 페이지</h3>
-							</div>
-							<div class="mymenu-menu">
-								<a class="mymenu-menu-title" href="mypageOrdered">주문 내역</a>
-							</div>
-							<div class="mymenu-menu" style="border-bottom: 0px;">
-								<a class="mymenu-menu-title" href="mypageChangeInfo?shopperNo=${ShopperInfo.shopperNo}">내 정보 변경</a>
-							</div>
-						</div>
-					</nav>
-				</div>
 				<div class="content">
 					<div class="mycoupang-main-container">
 						<div class="mycoupang-main">
@@ -127,32 +105,6 @@
 									</div>
 								</c:forEach>
 							</div>
-							<table class="table">
-						        <tr>
-						            <td colspan="4" class="text-center">
-						                <div>
-						                    <a class="btn btn-outline-primary btn-sm" href="mypageOrdered?pageNo=1">처음</a>
-						                    <c:if test="${OrderHistoryPager.groupNo > 1}">
-						                        <a class="btn btn-outline-info btn-sm" href="mypageOrdered?pageNo=${OrderHistoryPager.startPageNo - 1}">이전</a>
-						                    </c:if>
-						
-						                    <c:forEach var="i" begin="${OrderHistoryPager.startPageNo}" end="${OrderHistoryPager.endPageNo}">
-						                        <c:if test="${OrderHistoryPager.pageNo != i}">
-						                            <a class="btn btn-outline-success btn-sm" href="mypageOrdered?pageNo=${i}">${i}</a>
-						                        </c:if>
-						                        <c:if test="${OrderHistoryPager.pageNo == i}">
-						                            <a class="btn btn-danger btn-sm" href="mypageOrdered?pageNo=${i}">${i}</a>
-						                        </c:if>
-						                    </c:forEach>
-						
-						                    <c:if test="${OrderHistoryPager.groupNo < OrderHistoryPager.totalGroupNo}">
-						                        <a class="btn btn-outline-info btn-sm" href="mypageOrdered?pageNo=${OrderHistoryPager.endPageNo + 1}">다음</a>
-						                    </c:if>
-						                    <a class="btn btn-outline-primary btn-sm" href="mypageOrdered?pageNo=${OrderHistoryPager.totalPageNo}">맨끝</a>
-						                </div>
-						            </td>
-						        </tr>
-						    </table>
 							<div class="mycoupang-notice">
 								<div class="mycoupang-notice-delistatus">
 									<div class="delistatus-wrapper">
@@ -257,8 +209,5 @@
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-<%@ include file="/WEB-INF/views/footer.jsp" %>
 	</body>
 </html>

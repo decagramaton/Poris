@@ -53,7 +53,7 @@ public interface DetailViewDao {
 	public List<Review> selectReviewList(Pager pager);
 	
 	
-	public void updateAddHelpPoint(int reviewNo);
+	public void updateAddHelpPoint(String reviewNo);
 	
 	
 	public List<ProductBoard> selectImgsByBno(int bno);

@@ -8,9 +8,9 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
-public class MyPageController {
+public class MyPageTestController {
 	@RequestMapping("/myPageTest")
 	public String myPageTest() {
-		return "myPage";
+		return "myPageTest";
 	}
 }
