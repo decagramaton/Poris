@@ -20,11 +20,6 @@ function init() {
 }
 
 function checkPassword() {
-    var inputPassword = document.getElementById("inputPassword").value;
-    var shopperPw = $("#ShopperInfo.shopperPw").val();
-    
-    console.log(inputPassword);
-    console.log(shopperPw);
     if (inputPassword === shopperPw) {
     	//비밀번호가 일치하는 경우
         $("#changeInfoTable").css("display","block"); // 내정보 변경 양식 display는 block

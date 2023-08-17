@@ -51,15 +51,11 @@ public class MyPageChangeInfoServiceImpl implements MyPageChangeInfoService{
 	public boolean isShopperPw(Shopper shopper) {
 		// Step1. DB에서 ID를 기준으로 일치하는 유저 정보 조회
 		Shopper dbShopper = shopperDao.selectShopper(shopper);
-		
 		// Step2. 일치하는 유저 정보가 있는지 확인
 		if(dbShopper != null) {
-			
 			// Step3. 입력한 PW와  DB의 패스워드가 같은지 확인
-			if(dbShopper.getShopperPw() == shopper.getShopperPw()) {
+			if(dbShopper.getShopperPw().equals(shopper.getShopperPw())) {
 				return true;
-			} else {
-				return false;
 			}
 		}
 		

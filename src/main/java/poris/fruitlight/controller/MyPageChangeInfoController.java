@@ -32,17 +32,25 @@ public class MyPageChangeInfoController {
 	}
 	
 	@PostMapping("/mypageChangeInfo/checkPw")
-	public String checkPw(HttpSession session, Model model) {
+	public String checkPw(String shopperPwd, HttpSession session, Model model) {
 		
-		// Step1. 로그인 세션 정보 조회
-		Shopper shopper = (Shopper) session.getAttribute("ShopperInfo");
+		if(!shopperPwd.equals("")) {
+			// Step1. 로그인 세션 정보 조회
+			Shopper shopper = (Shopper) session.getAttribute("ShopperInfo");
+			shopper.setShopperPw(shopperPwd);
+			
+			// Step2. Service에 입력 PW와 DB에 저장된 PW 비교 요청 메소드 실행
+			boolean resultCheckPw = myPageChangeInfoService.isShopperPw(shopper);
+			
+			log.info("결과 : " + resultCheckPw);
+			
+			// Model에 결과 값을 넣어 JSP에 전달
+			model.addAttribute("resultCheckPw", resultCheckPw);
+			
+			return "mypageChangeInfo";
+		} else {
+			return "redirect:/mypageChangeInfo";
+		}
 		
-		// Step2. Service에 입력 PW와 DB에 저장된 PW 비교 요청 메소드 실행
-		boolean resultCheckPw = myPageChangeInfoService.isShopperPw(shopper);
-		
-		// Model에 결과 값을 넣어 JSP에 전달
-		model.addAttribute("resultCheckPw", resultCheckPw);
-		
-		return "mypageChangeInfo";
 	}
 }

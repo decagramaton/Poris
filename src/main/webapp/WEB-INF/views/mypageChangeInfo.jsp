@@ -40,20 +40,20 @@
 							<span>내 정보 변경</span>
 						</div>
 					</div>
-					<c:if test="${resultCheckPw == null}">
+					<c:if test="${resultCheckPw == null || resultCheckPw == false}">
 						<div class="noPasswordInfo" id="noPasswordInfo">
 						    <form action="/fruitlight/mypageChangeInfo/checkPw" method="post">
 						        <div class="passwordRequest">
 						            <span>비밀번호 확인</span>
 						            <input id="inputPassword" name="shopperPwd" type="password"/>
-						            <button id="checkPasswordBtn" class="headerSearchBtn" type="submit"">
+						            <button id="checkPasswordBtn" class="headerSearchBtn" type="submit">
 						                <img id="headerSearchBtnImage" class="headerSearchBtnImage" title="검색" src="${pageContext.request.contextPath}/resources/images/search.png">
 						            </button>
 						        </div>
 						    </form>
 						</div>
 					</c:if>
-					<c:if test="${resultCheckPw != null}">
+					<c:if test="${resultCheckPw != null && resultCheckPw == true}">
 						<table class="changeInfo" id="changeInfoTable">
 							<tbody>
 								<tr>
