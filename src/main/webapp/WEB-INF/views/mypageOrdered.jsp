@@ -60,9 +60,11 @@
 							</div>
 							
 							<div class="exist">
-								<c:forEach var="mypageOrdered" items="${mypageOrdered}">
-								<div class="order-date-line">
-									<div class="left" id="ordereddate"><fmt:formatDate value="${mypageOrdered.ORDER_DATE}" pattern="yyyy.MM.dd"/> 주문</div>
+								<c:forEach var="mypageOrdered" items="${mypageOrdered}" varStatus="i">
+								<div class="order-date-line date-${mypageOrdered.ORDER_DATE}">
+									<div class="left" id="ordereddate">
+										<fmt:formatDate value="${mypageOrdered.ORDER_DATE}" pattern="yyyy.MM.dd"/> 주문
+									</div>
 									<div class="right"></div>
 								</div>
 									<div class="order-product">

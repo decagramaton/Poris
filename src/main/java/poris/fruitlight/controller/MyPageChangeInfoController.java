@@ -74,7 +74,7 @@ public class MyPageChangeInfoController {
 	
 	
 	@PostMapping("/mypageChangeInfo/updateTel")
-	public String updateTel(String shopperTel , HttpSession session, HttpServletResponse response) throws IOException {
+	public String updateTel(String shopperTel , HttpSession session , HttpServletResponse response) throws IOException {
 		
 		Shopper shopper = (Shopper) session.getAttribute("ShopperInfo");
 		shopper.setShopperTel(shopperTel);
@@ -86,14 +86,10 @@ public class MyPageChangeInfoController {
 	
 	
 	@PostMapping("/mypageChangeInfo/updatePW")
-	public String updatePW(String updateShopperPw , HttpSession session, HttpServletResponse response) throws IOException {
-		
-		log.info("updateShopperPw : " + updateShopperPw);
+	public String updatePW(String updateShopperPw , HttpSession session , HttpServletResponse response) throws IOException {
 		
 		Shopper shopper = (Shopper) session.getAttribute("ShopperInfo");
 		shopper.setShopperPw(updateShopperPw);
-		
-		log.info(shopper.toString());
 		
 		myPageChangeInfoService.setShopperPassword(shopper);
 

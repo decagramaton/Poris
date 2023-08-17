@@ -119,13 +119,13 @@
    							<a href="list?search=체리">&nbsp;바로가기 ></a>
    						</dt>
    						<dd id="cateAdvertiseCherryPromotion" class="cateAdvertiseCherryPromotion">
-   							<div id="demo1" class="carousel slide" data-ride="carousel">
-								<ul class="carousel-indicators">
+   							<div id="demo1" class="carousel slide" data-ride="carousel" style="height:300px;">
+								<ul class="carousel-indicators" style="height:300px;">
 							    	<li data-target="#demo1" data-slide-to="0" class="active"></li>
 							    	<li data-target="#demo1" data-slide-to="1"></li>
 							    	<li data-target="#demo1" data-slide-to="2"></li>
 							  	</ul>
-								<div class="carousel-inner">
+								<div class="carousel-inner" style="height:300px;">
 							  		<c:forEach var="catemainlist" items="${catemainlists}" varStatus="i">
 									    <div id="carouselCateMainItem${i.count}" class="carousel-item">
 									    	<a href="/fruitlight/main/SelectDetailView?pid=${catemainlist.PRODUCT_NO}">
@@ -147,7 +147,7 @@
 							</div>
    						</dd>
    						<dd id="cateAdvertiseCherryList" class="cateAdvertiseCherryList">
-   							<div id="demo2" class="carousel slide" data-ride="carousel">
+   							<div id="demo2" class="carousel slide" data-ride="carousel" style="height:300px;">
 								<ul class="carousel-indicators">
 					    	<li data-target="#demo2" data-slide-to="0" class="active bg-dark"></li>
 					    	<li data-target="#demo2" data-slide-to="1" class="bg-dark"></li>

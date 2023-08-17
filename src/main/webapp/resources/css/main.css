@@ -136,7 +136,7 @@
 .cateAdvertise{
 	position: relative;
     margin: 40px auto 0 auto;
-    width: 1068px;
+    width: 1200px;
     padding-left: 48px;
 }
 .cateAdvertise > p {
@@ -150,15 +150,15 @@
 }
 .cateAdvertiseCherry{
 	border-top : 2px solid red;
-	width: 1020px;
-	height : 600px;
+	width: 1095px;
+	height : 300px;
     margin-bottom: 20px;
     background-color: #fff;
 }
 .cateAdvertiseCherry > dl {
 	position: relative;
 	border-bottom: 1px solid #ddd;
-	height : 600px;
+	height : 300px;
 }
 .cateAdvertiseCherryTitle {
 	position: absolute;
@@ -205,7 +205,7 @@
     float: left;
     margin-left: 145px;
     width: 324px;
-    height: 600px;
+    height: 300px;
     border-bottom: 1px solid #ddd;
     border-left: 1px solid #ddd;
     background: #fafafa;
@@ -216,7 +216,7 @@
     height: 100%;
 }
 .carousel-item {
-	height : 600px;
+	height : 300px;
 }
 .carousel-caption {
 	position: relative;
@@ -231,8 +231,8 @@
 .cateAdvertiseCherryList {
 	position: relative;
     float: left;
-    width: 548px;
-    height: 600px;
+    width: 625px;
+    height: 300px;
     overflow: hidden;
     border-bottom: 1px solid #ddd;
     border-left: 1px solid #ddd;
@@ -243,7 +243,7 @@
 }
 .cateAdvertiseCherryListItem {
 	display: block;
-    width: 182px;
+    width: 208px;
     height: 290px;
     padding: 22px 7px 0 15px;
     margin-top: -1px;
