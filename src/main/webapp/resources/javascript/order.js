@@ -38,6 +38,9 @@ function init() {
         $("#menu-btn1").css("backgroundImage","url(//img1a.coupangcdn.com/image/coupang/common/pc_gnb_arrow-right@2x.png)");
         $("#menu-btn2").css("backgroundImage","none");
      }
+    
+    //결제하기 버튼 클릭 시 유효성 검사
+    $(".custom-btn").click(checkSubmit);
 }
 
 function customerInfoInit() {
@@ -196,9 +199,85 @@ function selectCashReceiptExpense() {
 function checkPatternPhone () {
     if($("#cashReceiptRegisterType option:selected").val() == "PHONE_NUMBER") {
     	$("input[name='cashReceiptRequestNo']").attr("placeholder", "010-0000-0000");
-    	$("input[name='cashReceiptRequestNo']").attr("pattern", "/^(010)-[0-9]{4}-[0-9]{4}$/");
+    	/*$("input[name='cashReceiptRequestNo']").attr("pattern", "/^(010)-[0-9]{4}-[0-9]{4}$/");*/
     } else if ($("#cashReceiptRegisterType option:selected").val() == "CASH_RECEIPT_CARD_NUMBER") {
     	$("input[name='cashReceiptRequestNo']").attr("placeholder", "0000-0000-0000-0000");
-    	$("input[name='cashReceiptRequestNo']").attr("pattern", "/^[0-9]{16}$/");
+    	/*$("input[name='cashReceiptRequestNo']").attr("pattern", "/^[0-9]{16}$/");*/
     }
+}
+
+/**
+ * 결제하기 버튼 클릭 시 유효성 검사
+ * @author 이은지
+ */
+function checkSubmit() {
+	$(".errorMsg").css("display", "none");
+	var validation = true;
+	//결제방법
+	var payType = $("input[name=payType]:checked").val();
+	//현금영수증 타입
+	var cashReceiptType = $("#cashReceiptRegisterType option:selected").val();
+	//현금영수증 번호 입력
+	var cashReceiptInput = $("input[name=cashReceiptRequestNo]");
+	//전화번호 유효성 검사 패턴
+	var telPattern = /^(010)-[0-9]{4}-[0-9]{4}$/;
+	//카드번호 유효성 검사 패턴
+	var cardPattern = /^[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}$/;
+	
+	switch(payType) {
+		case "ROCKET_BANK":
+			if($("#label_rocketBank_bankList").val() == "") {
+				$("#bank-select-err").css("display", "inline-block");
+				validation = false;
+			} else {
+				if(cashReceiptType == "PHONE_NUMBER") {
+					cashReceiptInput.attr("placeholder", "010-0000-0000");
+					if( !telPattern.test(cashReceiptInput.val()) ){
+						$("#cash-receipt-err").css("display", "inline-block");
+						validation = false;
+					}
+			    } else if (cashReceiptType == "CASH_RECEIPT_CARD_NUMBER") {
+			    	if( !cardPattern.test(cashReceiptInput.val()) ){
+						$("#cash-receipt-err").css("display", "inline-block");
+						validation = false;
+					}
+			    }
+			}
+			break;
+		case "ROCKET_CARD":
+			if($("#rocketCard-select").val() == "") {
+				$("#card-select-err").css("display", "inline-block");
+				validation = false;
+			}
+			break;
+		case "PHONE":
+			if($("#cellphoneTelecom").val() == "") {
+				$("#telecom-select-err").css("display", "inline-block");
+				validation = false;
+			}
+			break;
+		case "VIRTUALACCOUNT":
+			if($("#depositBank").val() == "") {
+				$("#depositBank-select-err").css("display", "inline-block");
+				validation = false;
+			} else {
+				if(cashReceiptType == "PHONE_NUMBER") {
+					cashReceiptInput.attr("placeholder", "010-0000-0000");
+					if( !telPattern.test(cashReceiptInput.val()) ){
+						$("#cash-receipt-err").css("display", "inline-block");
+						validation = false;
+					}
+			    } else if (cashReceiptType == "CASH_RECEIPT_CARD_NUMBER") {
+			    	if( !cardPattern.test(cashReceiptInput.val()) ){
+						$("#cash-receipt-err").css("display", "inline-block");
+						validation = false;
+					}
+			    }
+			}
+			break;
+	}
+	
+	if(validation == false) {
+		event.preventDefault();
+	}
 }

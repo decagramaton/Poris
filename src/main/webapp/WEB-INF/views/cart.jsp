@@ -24,9 +24,9 @@
 	<body>
 		<%@ include file="/WEB-INF/views/headersimple.jsp" %>
 		<div class="wrap">
-			<header class="text-center pt-3">
+			<%-- <header class="text-center pt-3">
 				<a href="${pageContext.request.contextPath}"><img src="${pageContext.request.contextPath}/resources/images/fruitlight_logo.png" width="260px;"></a>
-			</header>
+			</header> --%>
 			<section class="container mb-5">
 				<div class="cart_title"><h2 class="p-3">장바구니</h2></div>
 				<!-- 장바구니에 담은 상품이 없을 경우 -->

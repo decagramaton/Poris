@@ -105,7 +105,7 @@
 	                  <c:forEach var="item" items="${orderParamList}">
 	                  	<div class="bundle-info-item-box">
 	                  		<div class="bundle-info-item">
-	                  			<p>${item.productName}, ${item.productOption}</p>
+	                  			<span>${item.productName}, ${item.productOption}</span>
 	                  		</div>
 	                  		<div class="bundle-info-item-descript">수량 ${item.productStock}개 / <fmt:formatNumber value="${item.productPrice}" pattern="#,###" /> 원 </div>
 	                  	</div>
@@ -206,7 +206,7 @@
 	                           
 	                           <!-- 계좌이체 결제 -->
 	                           <div class="rocketPayBox pay-box-content selected-pay-type">
-	                              <h3 class="title">쿠팡 간편결제(계좌이체)</h3>
+	                              <h3 class="title">계좌이체</h3>
 	                              <div class="rocketpay-payment pay-type-content" data-controller="RocketpayPayment">
 	                                 <ul class="pay-type-sections">
 	                                    <li class="pay-type-section last-section">
@@ -239,6 +239,7 @@
 	                                          </select>
 	                                       </div>
 	                                    </li>
+                                  		<span id="bank-select-err" class="errorMsg"> * 은행을 선택해주세요.</span>
 	                                 </ul>
 	                              </div>
 	                           </div>
@@ -288,6 +289,7 @@
 	                                          </select>
 	                                       </div>
 	                                    </li>
+	                                    <span id="card-select-err" class="errorMsg"> * 카드 종류를 선택해주세요.</span>
 	                                    <li class="pay-type-section last-section" style="border-top: 1px solid #e4e4e4;">
 	                                       <label for="rocketCard-select" class="line-title">할부기간</label>
 	                                       <div class="line-data">
@@ -316,6 +318,7 @@
 	                                          </select>
 	                                       </div>
 	                                    </li>
+	                                    <span id="telecom-select-err" class="errorMsg"> * 통신사 종류를 선택해주세요.</span>
 	                                 </ul>
 	                              </div>
 	                           </div>
@@ -347,6 +350,7 @@
 	                                          </select>
 	                                       </div>
 	                                    </li>
+	                                    <span id="depositBank-select-err" class="errorMsg"> * 은행을 선택해주세요.</span>
 	                                    <li class="payBox-section  pay-type-section" style="border-top: 1px solid #e4e4e4;">
 	                                       <span class="line-title">입금기한</span>
 	                                       <div class="line-data">
@@ -403,7 +407,8 @@
 	                              <option value="CASH_RECEIPT_CARD_NUMBER">현금영수증카드</option>
 	                           </select>
 	                        </span>
-	                        <span><input name="cashReceiptRequestNo" class="cash-receipt__resiter-type__text" type="tel" size="20" maxlength="16" placeholder="010-1234-1234" pattern="/^(010)-[0-9]{4}-[0-9]{4}$/"></span>
+	                        <span><input name="cashReceiptRequestNo" class="cash-receipt__resiter-type__text" type="tel" size="20" maxlength="" placeholder="010-1234-1234"></span>
+	                        <span id="cash-receipt-err" class="errorMsg"> * 올바른 번호를 입력해주세요.</span>
 	                     </div>
 	                  </div>
 	               </div>

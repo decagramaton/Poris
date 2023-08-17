@@ -14,6 +14,7 @@ label {
 
 ul {
     list-style: none;
+    margin: 0;
 }
 
 img {
@@ -222,9 +223,9 @@ section .middle {
 
 }
 
-.bundle-info-box .bundle-info-item-list .bundle-info-item > p {
+.bundle-info-box .bundle-info-item-list .bundle-info-item > span {
     color: #111;
-    font-size: 16px;
+    font-size: 14px;
 
 }
 
@@ -624,4 +625,11 @@ background: linear-gradient(0deg, rgba(149,207,89,1) 0%, rgba(149,207,89,1) 100%
 }
 .btn-3 span:hover:after {
   width: 100%;
+}
+
+.errorMsg {
+	display: none;
+    font-size: 11px;
+    line-height: 18px;
+    color: #e7223d;
 }
