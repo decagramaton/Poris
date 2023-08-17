@@ -86,8 +86,7 @@ public class MyPageChangeInfoController {
 	
 	
 	@PostMapping("/mypageChangeInfo/updatePW")
-	public String updatePW(String updateShopperPw , HttpSession session , HttpServletResponse response) throws IOException {
-		
+	public String updatePW(String updateShopperPw , HttpSession session, HttpServletResponse response) throws IOException {
 		Shopper shopper = (Shopper) session.getAttribute("ShopperInfo");
 		shopper.setShopperPw(updateShopperPw);
 		
