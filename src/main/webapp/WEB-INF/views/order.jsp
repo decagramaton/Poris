@@ -28,8 +28,8 @@
     	<form action="order/buyOrder" method="post" accept-charset="utf-8">
 	      <div class="middle container">
 	         <div class="orderTitle row">
-	            <h3 class="title col">주문/결제</h3>
-	            <span class="steps col">장바구니 ><em> 주문결제 ></em> 주문완료</span>
+	            <h3 class="title col-lg-9 col-md-8 col-sm col">주문/결제</h3>
+	            <span class="steps col-lg-3 col-md-4 col-sm col">장바구니 ><em> 주문결제 ></em> 주문완료</span>
 	         </div>
 	
 	         <div data-component="customerInfo">
@@ -179,7 +179,7 @@
 	                                    <input class="type-selector-radio" type="radio" name="payType" id="payTypeCard" value="ROCKET_CARD">
 	                                    <label class="type-selector-label type-selector-label--card" for="payTypeCard" style="font-weight: normal;">
 	                                          <span class="type-selector-label__text">신용/체크카드</span>
-	                                          <img class="rpay-badge rpay-icon-instant-discount" src="//image7.coupangcdn.com/image/rocketpay/order/icon_ccid_v2.png" width="66" height="14" alt="즉시 할인혜택">
+	                                          <!-- <img class="rpay-badge rpay-icon-instant-discount" src="//image7.coupangcdn.com/image/rocketpay/order/icon_ccid_v2.png" width="66" height="14" alt="즉시 할인혜택"> -->
 	                                    </label>
 	                                 </li>
 	                              
