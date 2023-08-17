@@ -26,7 +26,7 @@
 					<nav>
 						<div class="mymenu">
 							<div class="text-left pb-2">
-								<h3>마이 페이지</h3> 
+								<h3>마이 페이지</h3>
 							</div>
 							<div class="mymenu-menu">
 								<a class="mymenu-menu-title" href="mypageOrdered">주문 내역</a>
