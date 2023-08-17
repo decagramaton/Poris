@@ -378,7 +378,7 @@
 	                                       	${Review.content}
 	                                    </div>
 	                                 </div>
-	
+	 
 	                                 <div class="list-help">
 	                                    <div id="helpPoint"class="list-help-count">${Review.helpPoint}명에게 도움 됨</div>
 	                                    <button class="list-help-btn" onclick="addHelpPoint(${Review.reviewNo})">도움이돼요</button>
