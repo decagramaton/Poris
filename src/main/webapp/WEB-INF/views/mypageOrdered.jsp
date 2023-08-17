@@ -19,7 +19,7 @@
 		<script src="${pageContext.request.contextPath}/resources/javascript/mypageOrdered.js"></script>
 	</head>
 	<body>
-<%@ include file="/WEB-INF/views/header.jsp" %>
+<%@ include file="/WEB-INF/views/headersimple.jsp" %>
 		<div class="container">
 			<div class="bodycontainer">
 				<div class="leftside">

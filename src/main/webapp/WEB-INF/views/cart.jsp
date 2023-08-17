@@ -22,7 +22,7 @@
 		<script src="${pageContext.request.contextPath}/resources/javascript/cart.js"></script>
 	</head>
 	<body>
-		<%@ include file="/WEB-INF/views/header.jsp" %>
+		<%@ include file="/WEB-INF/views/headersimple.jsp" %>
 		<div class="wrap">
 			<header class="text-center pt-3">
 				<a href="${pageContext.request.contextPath}"><img src="${pageContext.request.contextPath}/resources/images/fruitlight_logo.png" width="260px;"></a>

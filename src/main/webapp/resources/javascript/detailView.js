@@ -26,6 +26,16 @@ function init() {
 	$(".product-cart-btn").click(addCart);
 	//바로구매
 	$(".product-buy-btn").click(buy);
+	const catehandle1 = window.matchMedia(`(min-width: 1200px)`);
+	if(catehandle1.matches === true){
+	      $("#menu-btn1").removeClass("d-block");
+	      $("#menu-btn2").removeClass("d-block");
+	      $("#menu-btn1").addClass("d-none");
+	      $("#menu-btn2").addClass("d-none");
+	      $("#menus").css("transform","translateX(0px)");
+	      $("#menu-btn1").css("backgroundImage","url(//img1a.coupangcdn.com/image/coupang/common/pc_gnb_arrow-right@2x.png)");
+	      $("#menu-btn2").css("backgroundImage","none");
+	   }
 }
 //금액 xxx,xxx원 적용
 function initPriceFormat() {

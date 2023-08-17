@@ -36,7 +36,7 @@
         	<a id="menu-btn2" class="menu-btn2" onclick="menuprev()"></a>
         </div>
 		<div class="gnb_menu_box">
-    		<ul id="menus" class="depth0 gnb_menu0" style="overflow: visible; height: 100%; width:940px">
+    		<ul id="menus" class="depth0 gnb_menu0" style="overflow: visible; height: 100%; width:950px">
     			<li>
 		            <a href="list?search=못난이" class="searchLink" data-search="못난이">못난이 과일</a>
 		        </li>

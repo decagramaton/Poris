@@ -22,7 +22,7 @@
 
 </head>
 <body>
-    <%@ include file="/WEB-INF/views/header.jsp" %>
+    <%@ include file="/WEB-INF/views/headersimple.jsp" %>
 
     <section id="body">
     	<form action="order/buyOrder" method="post" accept-charset="utf-8">
