@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -13,8 +14,8 @@
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header.css">
+    
     <script src="${pageContext.request.contextPath}/resources/javascript/orderheader.js"></script>
-
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/order_style.css">
     <script src="${pageContext.request.contextPath}/resources/javascript/order.js"></script>
     
@@ -106,7 +107,7 @@
 	                  		<div class="bundle-info-item">
 	                  			<p>${item.productName}, ${item.productOption}</p>
 	                  		</div>
-	                  		<div class="bundle-info-item-descript">수량 ${item.productStock}개 / ${item.productPrice}원 </div>
+	                  		<div class="bundle-info-item-descript">수량 ${item.productStock}개 / <fmt:formatNumber value="${item.productPrice}" pattern="#,###" /> 원 </div>
 	                  	</div>
 	                  </c:forEach>        
 	                  </div>
@@ -124,7 +125,7 @@
 		                     <div id="total_price" class="table_content">0 원</div>
 	                     </c:if>
 	                     <c:if test="${totalPrice != null}">
-		                     <div id="total_price" class="table_content">${totalPrice}원</div>
+		                     <div id="total_price" class="table_content"><fmt:formatNumber value="${totalPrice}" pattern="#,###" /> 원</div>
 	                     </c:if>
 	                  </div>
 	                  <div class="table-row">
@@ -134,7 +135,7 @@
 		                     	<div id="sale_coupon" style="display: inline-block; color:red; width: 100px;">0 원</div>
 		                    </c:if>
 		                    <c:if test="${discountPrice != null}">
-			                     <div id="sale_coupon" style="display: inline-block; color:red; width: 100px;">${discountPrice} 원</div>
+			                     <div id="sale_coupon" style="display: inline-block; color:red; width: 100px;"><fmt:formatNumber value="${discountPrice}" pattern="#,###" /> 원</div>
 		                    </c:if>
 	                     </div>
 	                  </div>
@@ -145,7 +146,7 @@
 		                     	<div id="delevery_price" style="display: inline-block; width: 100px;">0 원</div>
 		                    </c:if>
 		                    <c:if test="${shippingPrice != null}">
-			                    <div id="delevery_price" style="display: inline-block; width: 100px;">${shippingPrice} 원</div>
+			                    <div id="delevery_price" style="display: inline-block; width: 100px;"><fmt:formatNumber value="${shippingPrice}" pattern="#,###" /> 원</div>
 		                    </c:if>
 	                     </div>
 	                  </div>
@@ -155,7 +156,7 @@
 	                     	 <div id="total_payment_price" class="table_content">0 원</div>
 	                     </c:if>
 	                     <c:if test="${orderPrice != null}">
-		                     <div id="total_payment_price" class="table_content">${orderPrice} 원</div>
+		                     <div id="total_payment_price" class="table_content"><fmt:formatNumber value="${orderPrice}" pattern="#,###" /> 원</div>
 	                     </c:if>
 	                  </div>
 	                  <div class="table-row">
