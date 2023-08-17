@@ -153,7 +153,6 @@ function changePrice(quantityCurrent, optionTablePrice) {
 	var unitPrice = optionTablePrice.children().val();
 	var newPrice = quantityCurrent * unitPrice;
 	optionTablePrice.children("span").html(newPrice.toLocaleString("ko-KR") + "원")
-	$(".product-option-originalPrice").attr("value", newPrice);
 }
 
 //상품옵션 삭제 동작
@@ -299,7 +298,7 @@ function buy() {
 			let selectedItemPname = $(item).find(".product-option-pname").val();
 			let selectedItemOption = $(item).find(".product-option-option").val();
 			let selectedItemStock = $(item).find(".product-quantity-input").val();
-			let selectedItemPrice = parseInt($(item).find(".product-option-originalPrice").val());
+			let selectedItemPrice = parseInt($(item).find(".product-option-originalPrice").val()) * selectedItemStock;
 			totalPrice += selectedItemPrice;
 			
 			pnos.push(selectedItemPno);
