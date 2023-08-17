@@ -137,7 +137,8 @@ public class CartController {
 			@RequestParam int totalPrice,
 			@RequestParam int discountPrice,
 			@RequestParam int shippingPrice,
-			@RequestParam int orderPrice) {
+			@RequestParam int orderPrice,
+			@RequestParam List<Integer> cnos) {
 		
 		List<OrderParam> orderParamList = new ArrayList<>();
 		
@@ -157,6 +158,8 @@ public class CartController {
 		session.setAttribute("discountPrice", discountPrice);
 		session.setAttribute("shippingPrice", shippingPrice);
 		session.setAttribute("orderPrice", orderPrice);
+		session.setAttribute("couponList", cnos);
+		session.setAttribute("from", "cart");
 		
 		return "redirect:/order";
 	}

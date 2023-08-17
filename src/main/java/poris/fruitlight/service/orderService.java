@@ -1,10 +1,11 @@
 package poris.fruitlight.service;
 
+import poris.fruitlight.dto.Coupon;
 import poris.fruitlight.dto.OrderHistory;
+import poris.fruitlight.dto.OrderParam;
 import poris.fruitlight.dto.ReceiptHistory;
 import poris.fruitlight.dto.ShippingAddressParam;
 import poris.fruitlight.dto.Shopper;
-import poris.fruitlight.dto.ShopperParam;
 
 public interface orderService {
 	
@@ -29,4 +30,16 @@ public interface orderService {
 	 * @param receiptHistory
 	 */
 	public void addReceipt(ReceiptHistory receiptHistory);
+	/**
+	 * 작성자: 이은지
+	 * 결제 시 COUPON에서 사용한 쿠폰 제거
+	 * @param coupon
+	 */
+	public void useCoupon(Coupon coupon);
+	/**
+	 * 작성자: 이은지
+	 * 결제 후 PRODUCT에서 구매한 만큼 재고 변경
+	 * @param orderParam
+	 */
+	public void changeProductStock(OrderParam orderParam);
 }

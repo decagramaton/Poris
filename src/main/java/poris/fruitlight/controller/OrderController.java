@@ -1,7 +1,6 @@
 package poris.fruitlight.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -14,12 +13,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import lombok.extern.slf4j.Slf4j;
-import poris.fruitlight.dto.DeliveryParam;
+import poris.fruitlight.dto.Cart;
+import poris.fruitlight.dto.Coupon;
 import poris.fruitlight.dto.OrderHistory;
 import poris.fruitlight.dto.OrderParam;
 import poris.fruitlight.dto.ReceiptHistory;
 import poris.fruitlight.dto.ShippingAddressParam;
 import poris.fruitlight.dto.Shopper;
+import poris.fruitlight.service.CartService;
 import poris.fruitlight.service.ShopperService;
 import poris.fruitlight.service.orderService;
 import poris.fruitlight.util.AlertScript;
@@ -34,6 +35,11 @@ public class OrderController {
 	@Autowired
 	private ShopperService shopperService;
 	
+	@Autowired
+	private CartService cartProductService;
+	
+	private Shopper loginShopper;
+	
 	
 	@RequestMapping("/order")
 	public String DetailViewPage(HttpServletResponse response,HttpSession session, Model model) {
@@ -45,14 +51,13 @@ public class OrderController {
 				return "redirect:/main";
 			}
 		} else {
-			Shopper shopper = (Shopper) session.getAttribute("ShopperInfo");
+			loginShopper = (Shopper) session.getAttribute("ShopperInfo");
 			
 			// Step2.구매자 정보, 도착지 정보를 DB에서 가져오기
-			Shopper shopperInfo = shopperService.getShopperById(shopper);
-			ShippingAddressParam shipAddress = orderService.getShippingAddressInfo(shopper);
+			ShippingAddressParam shipAddress = orderService.getShippingAddressInfo(loginShopper);
 			
 			// finish. 객체 설정 및 결제 페이지로 전송
-			model.addAttribute("shopperInfo", shopperInfo);
+			model.addAttribute("shopperInfo", loginShopper);
 			model.addAttribute("shipAddress", shipAddress);
 		}
 		
@@ -72,8 +77,6 @@ public class OrderController {
 			String cashReceiptRegisterType,
 			String cashReceiptRequestNo) {
 		
-		//로그인 회원 정보(주문자)
-		Shopper loginShopper = (Shopper) session.getAttribute("ShopperInfo");
 		//상품 목록과 결제 정보
 		List<OrderParam> orderParamList = (List<OrderParam>) session.getAttribute("orderParamList");
 		int totalPrice = (int) session.getAttribute("totalPrice");
@@ -148,7 +151,6 @@ public class OrderController {
 		//order DB에 저장
 		orderService.addOrder(order);
 		
-		//ReceiptHistory
 		for(OrderParam orderParam : orderParamList) {
 			//ReceiptHistory DTO 객체 생성
 			ReceiptHistory receipt = new ReceiptHistory();
@@ -158,9 +160,38 @@ public class OrderController {
 			receipt.setPRICE(orderParam.getProductPrice());
 			//상품수량
 			receipt.setSTOCK(orderParam.getProductStock());
-			
 			//receipt DB에 저장
 			orderService.addReceipt(receipt);
+		}
+		
+		//장바구니에서 구매했을 경우 장바구니에 담긴 상품 제거
+		if((String) session.getAttribute("from") == "cart") {
+			for(OrderParam orderParam : orderParamList) {
+				//장바구니에서 삭제하기 위해 Cart DTO 객체 생성
+				Cart cart = new Cart();
+				cart.setSHOPPER_NO(loginShopper.getShopperNo());
+				cart.setPRODUCT_NO(orderParam.getProductNo());
+				//cart DB에서 제거
+				cartProductService.deleteProduct(cart);
+			}
+		}
+		
+		//사용한 쿠폰이 있을 경우 쿠폰 제거
+		List<Integer> couponList = (List<Integer>) session.getAttribute("couponList");
+		if(couponList != null) {
+			for(int couponNo : couponList) {
+				//쿠폰에서 삭제하기 위해 Coupon DTO 객체 생성
+				Coupon coupon = new Coupon();
+				coupon.setCOUPON_NO(couponNo);
+				coupon.setSHOPPER_NO(loginShopper.getShopperNo());
+				//coupon DB에서 제거
+				orderService.useCoupon(coupon);
+			}
+		}
+		
+		//구매한 상품의 구매수량만큼 재고 업데이트
+		for(OrderParam orderParam : orderParamList) {
+			orderService.changeProductStock(orderParam);
 		}
 		
 		return "order";

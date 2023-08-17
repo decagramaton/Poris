@@ -9,8 +9,10 @@ import org.springframework.stereotype.Service;
 
 import poris.fruitlight.dao.OrderHistoryDao;
 import poris.fruitlight.dao.ShippingAddressDao;
+import poris.fruitlight.dto.Coupon;
 import poris.fruitlight.dto.DeliveryParam;
 import poris.fruitlight.dto.OrderHistory;
+import poris.fruitlight.dto.OrderParam;
 import poris.fruitlight.dto.ReceiptHistory;
 import poris.fruitlight.dto.ShippingAddressParam;
 import poris.fruitlight.dto.Shopper;
@@ -40,5 +42,16 @@ public class orderServiceImpl implements orderService{
 	@Override
 	public void addReceipt(ReceiptHistory receiptHistory) {
 		orderHistoryDao.insertReceiptHistory(receiptHistory);
+	}
+
+	@Override
+	public void useCoupon(Coupon coupon) {
+		orderHistoryDao.deleteCoupon(coupon);
+	}
+
+
+	@Override
+	public void changeProductStock(OrderParam orderParam) {
+		orderHistoryDao.updateProductStock(orderParam);
 	}
 }

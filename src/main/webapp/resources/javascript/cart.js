@@ -297,6 +297,7 @@ function calculateCoupon(price, delivery) {
 //구매동작
 function checkBuyProduct() {
 	var cboxsChecked = $(".cbox:checked");
+	var cboxCouponsChecked = $(".cboxCoupon:checked");
 	
 	if(cboxsChecked.length == 0) {
 		alert("결제하실 상품을 선택해주세요.");
@@ -306,6 +307,7 @@ function checkBuyProduct() {
 		var optionsChecked = [];
 		var stocksChecked = [];
 		var pricesChecked = [];
+		var cnosChecked = [];
 		
 		cboxsChecked.each((index, item) => {
 			let cartItemChecked = $(item).parent().parent();
@@ -326,6 +328,10 @@ function checkBuyProduct() {
 		var shippingPrice = parseInt($(".finalDeliveryPrice").html().replace(/[^0-9]/g, ""));
 		var orderPrice = parseInt($(".finalTotalPrice").html().replace(/[^0-9]/g, ""));
 		
+		cboxCouponsChecked.each((index, item) => {
+			cnosChecked.push($(item).val());
+		});
+		
 		location.href = "cart/buyFromCart?"
 			+ "pnos=" + encodeURIComponent(pnosChecked.join(','))
 			+ "&pnames=" + encodeURIComponent(pnamesChecked.join(','))
@@ -335,7 +341,8 @@ function checkBuyProduct() {
 			+ "&totalPrice=" + encodeURIComponent(totalPrice)
 			+ "&discountPrice=" + encodeURIComponent(discountPrice)
 			+ "&shippingPrice=" + encodeURIComponent(shippingPrice)
-			+ "&orderPrice=" + encodeURIComponent(orderPrice);
+			+ "&orderPrice=" + encodeURIComponent(orderPrice)
+			+ "&cnos=" + encodeURIComponent(cnosChecked.join(','));
 		
 	}
 	

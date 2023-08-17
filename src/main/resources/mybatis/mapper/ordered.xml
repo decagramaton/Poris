@@ -66,4 +66,17 @@
 		insert into RECEIPT_HISTORY (ORDER_NO, PRODUCT_NO, PRICE, STOCK)
 		values(#{ORDER_NO}, #{PRODUCT_NO}, #{PRICE}, #{STOCK})
 	</insert>
+	
+	<!-- 작성자: 이은지 -->
+	<delete id="deleteCoupon" parameterType="poris.fruitlight.dto.Coupon">
+		delete from COUPON
+		where COUPON_NO = #{COUPON_NO} and SHOPPER_NO = #{SHOPPER_NO}
+	</delete>
+	
+	<!-- 작성자: 이은지 -->
+	<update id="updateProductStock" parameterType="poris.fruitlight.dto.OrderParam">
+		update PRODUCT
+		set PRODUCT_STOCK = PRODUCT_STOCK - #{productStock}
+		where PRODUCT_NO = #{productNo}
+	</update>
 </mapper>
