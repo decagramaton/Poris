@@ -3,7 +3,7 @@
 div, h2, header, img, section, table, colgroup, col, thead, tr, th, label, input, form, span, tbody, td, p, a, footer, em, dl, dt, dd, input {
 	margin: 0;
 	padding: 0;
-	font-family: sans-serif;
+	/* font-family: sans-serif; */
 }
 
 .wrap {
@@ -12,9 +12,42 @@ div, h2, header, img, section, table, colgroup, col, thead, tr, th, label, input
     font-size: 12px;
 }
 
-.cart_title {
-	border-bottom: 1px solid #ddd;
+.row {
+	margin: 0;
 }
+
+/* 장바구니 제목 */
+.orderTitle {
+    height: 70px;
+    overflow: hidden;
+    border-bottom: 2px solid #777;
+}
+
+.orderTitle .title{
+    margin-top: 5px;
+    padding-left: 0;
+    line-height: 70px;
+    font-size: 30px;
+    color: #111;
+}
+
+.orderTitle .steps{
+    margin-top: 20px;
+    padding-right: 5px;
+    line-height: 50px;
+    font-size: 15px;
+    color: #bbb;
+    font-weight: 700;
+}
+
+.orderTitle .steps em{
+    color: #1E9A4F;
+    font-style: normal;
+}
+
+/* .cart_title {
+	border-bottom: 1px solid #ddd;
+} */
 
 /* 장바구니에 담은 상품이 없을 경우 */
 .cartNoItem {

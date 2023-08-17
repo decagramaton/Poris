@@ -44,7 +44,7 @@ section {
     width: 90%;
     margin: 0 auto 20px;
     clear: both;
-    font-size: 12px;
+    font-size: 13px;
     z-index: 20;
 }
 section::after {
@@ -57,6 +57,10 @@ section .middle {
     clear: both;
     padding: 0 0 40px;
     background: #fff;
+}
+
+.row {
+	margin: 0;
 }
 
 /* 주문/결제 제목 */
@@ -111,12 +115,12 @@ section .middle {
 .table-frame .table-row .table-colume{
     display: table-cell;
     vertical-align: middle;
-    width: 104px;
+    width: 115px;
     border: solid #e4e4e4;
     border-width: 0 1px 1px 0;
     padding: 7px 10px 7px 15px;
     font-weight: bold;
-    text-align: right;
+    text-align: left;
     background: #f4f4f4;
 }
 

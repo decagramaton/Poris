@@ -28,7 +28,12 @@
 				<a href="${pageContext.request.contextPath}"><img src="${pageContext.request.contextPath}/resources/images/fruitlight_logo.png" width="260px;"></a>
 			</header> --%>
 			<section class="container mb-5">
-				<div class="cart_title"><h2 class="p-3">장바구니</h2></div>
+				<div class="orderTitle row">
+		            <h3 class="title col-xl-9 col-lg-8 col-md-7 col-sm col">장바구니</h3>
+		            <span class="steps col-xl-3 col-lg-4 col-md-5 col-sm col"><em>장바구니 ></em> 주문결제 > 주문완료</span>
+		         </div>
+		         
+				<!-- <div class="cart_title"><h2 class="p-3">장바구니</h2></div> -->
 				<!-- 장바구니에 담은 상품이 없을 경우 -->
 				<c:if test="${fn:length(listProduct) == 0}">
 					<div class="cartNoItem text-center">
