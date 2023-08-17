@@ -133,7 +133,7 @@
 										<div class="infoForm DeliverAddress">
 											<span>배송지 변경은 [배송지 선택/변경] 페이지로 이동합니다.</span>
 											<button id="daChange" class="d-inline-block" onclick="deliveryAddressBtn()">배송지 변경</button>
-										</div>	
+										</div>
 									</td>
 								</tr>
 							</tbody>
