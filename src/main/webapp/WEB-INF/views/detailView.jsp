@@ -383,10 +383,8 @@
 	                                 </div>
 	
 	                                 <div class="list-help">
-	                                    <div class="list-help-count">
-	                                       <strong>${Review.helpPoint}</strong>명에게 도움 됨
-	                                    </div>
-	                                    <button class="list-help-btn">도움이돼요</button>
+	                                    <div id="helpPoint"class="list-help-count">${Review.helpPoint}명에게 도움 됨</div>
+	                                    <button class="list-help-btn" onclick="addHelpPoint(${Review.reviewNo})">도움이돼요</button>
 	                                    <button class="list-help-report-btn">신고하기</button>
 	                                    <div class="sdp-review__clear"></div>
 	                                 </div>

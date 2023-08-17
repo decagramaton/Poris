@@ -99,4 +99,10 @@ public interface DetailViewService {
 	 * @return int(상품문의 총 개수)
 	 */
 	public int getTotalProductInquiryNum(int bno);
+	
+	
+	/**
+	 * 
+	 */
+	public void addHelpPoint(int reviewNo);
 }

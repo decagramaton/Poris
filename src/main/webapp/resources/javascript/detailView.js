@@ -345,6 +345,17 @@ function buy() {
 	}
 }
 
+function addHelpPoint(reviewNo) {
+	$.ajax({
+        type:"get",
+        url:"/fruitlight/detailView/addHelpPoint",
+        data:{ReviewNo:reviewNo},
+        success: function(data) {
+        	$()
+        }
+    })
+}
+
 /* 고재승
 - AJAX기반 데이터 출력 기능 구현
     - 신선제품 필수 표기정보

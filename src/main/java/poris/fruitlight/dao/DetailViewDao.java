@@ -53,6 +53,9 @@ public interface DetailViewDao {
 	public List<Review> selectReviewList(Pager pager);
 	
 	
+	public void updateAddHelpPoint(int reviewNo);
+	
+	
 	public List<ProductBoard> selectImgsByBno(int bno);
 	public List<Product> selectByName(String name);
 	public int updateCartStock(Cart cart);

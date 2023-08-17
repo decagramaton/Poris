@@ -225,4 +225,15 @@ public class DetailViewController {
 		
 		return map;
 	}
+	
+	
+	
+	@GetMapping("/detailView/addHelpPoint")
+	public void addHelpPoint(String ReviewNo) {
+		int reviewNo = Integer.parseInt(ReviewNo);
+		
+		
+		
+		
+	}
 }

@@ -52,6 +52,11 @@ public class DetailViewServiceImpl implements DetailViewService {
 	}
 	
 	@Override
+	public void addHelpPoint(int reviewNo) {
+	}
+	
+	
+	@Override
 	public List<Product> getOptions(String name) {
 		List<Product> list = detailViewDao.selectByName(name);
 		return list;
