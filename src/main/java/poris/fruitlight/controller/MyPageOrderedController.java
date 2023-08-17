@@ -46,6 +46,7 @@ public class MyPageOrderedController {
 	    		mpo.setBase64Img(Base64.getEncoder().encodeToString(mpo.getMEDIA_DATA()));
 	    	} 
 	    }
+	    
 	    else {
 	    	
 	    	mypageOrdered = myPageOrderedService.getList(shopper.getShopperNo());
@@ -56,8 +57,6 @@ public class MyPageOrderedController {
 	    
 		model.addAttribute("mypageOrdered", mypageOrdered);
 		model.addAttribute("searchKeyword", searchKeyword);
-		
-		log.info("mypageOrdered" + mypageOrdered.toString());
 		
 		return "mypageOrdered";
 	}

@@ -22,8 +22,6 @@ private OrderHistoryDao orderHistoryDao;
 	public List<OrderHistoryOrderList> getList(int sid) {
 		List<OrderHistoryOrderList> list = orderHistoryDao.SelectOrderHistory(sid);
 		      
-		log.info(list.toString());
-		      
 		return list;
 	}
 
