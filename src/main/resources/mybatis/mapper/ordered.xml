@@ -10,6 +10,7 @@
        <![CDATA[
        SELECT ORDER_NO,
              SHOPPER_NO,
+             PRODUCT_NO,
              PRODUCT_NAME,
              SHIPPING_NAME,
              SHIPPING_ADDRESS,
@@ -18,10 +19,11 @@
              DISCOUNT_PRICE,
              STOCK 
           FROM (
-          	SELECT rownum as rnum, ORDER_NO, SHOPPER_NO, PRODUCT_NAME, SHIPPING_NAME, SHIPPING_ADDRESS, ORDER_DATE, MEDIA_DATA, DISCOUNT_PRICE, STOCK
+          	SELECT rownum as rnum, PRODUCT_NO, ORDER_NO, SHOPPER_NO, PRODUCT_NAME, SHIPPING_NAME, SHIPPING_ADDRESS, ORDER_DATE, MEDIA_DATA, DISCOUNT_PRICE, STOCK
           	FROM (
           		SELECT oh.ORDER_NO as ORDER_NO,
 			           oh.SHOPPER_NO as SHOPPER_NO,
+			           p.PRODUCT_NO as PRODUCT_NO,
 			           PRODUCT_NAME,
 			           SHIPPING_NAME,
 			           SHIPPING_ADDRESS,
@@ -46,6 +48,7 @@
    <select id="SearchOrdersByPname" parameterType="OrderSearch" resultType="poris.fruitlight.dto.OrderHistoryOrderList">
         SELECT oh.ORDER_NO as ORDER_NO,
              oh.SHOPPER_NO as SHOPPER_NO,
+             p.PRODUCT_NO as PRODUCT_NO,
              PRODUCT_NAME,
              SHIPPING_NAME,
              SHIPPING_ADDRESS,

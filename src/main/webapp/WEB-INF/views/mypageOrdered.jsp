@@ -101,7 +101,7 @@
 																			</div>
 																			<div class="content">
 																				<div>
-																					<a href="#">
+																					<a href="/fruitlight/main/SelectDetailView?pid=${mypageOrdered.PRODUCT_NO}">
 																						<img height="16">
 																						<span style="color:#111111";>${mypageOrdered.PRODUCT_NAME}</span>
 																					</a>

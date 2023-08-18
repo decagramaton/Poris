@@ -16,6 +16,7 @@ public class OrderHistoryOrderList {
    
    private int ORDER_NO;
    private int SHOPPER_NO;
+   private int PRODUCT_NO;
    private String PRODUCT_NAME;
    private String SHIPPING_NAME;
    private String SHIPPING_ADDRESS;
