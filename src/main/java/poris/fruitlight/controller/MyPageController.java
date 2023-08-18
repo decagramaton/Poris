@@ -1,9 +1,10 @@
 package poris.fruitlight.controller;
 
 import java.io.IOException;
+import java.util.Base64;
+import java.util.List;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -11,35 +12,26 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import lombok.extern.slf4j.Slf4j;
+import poris.fruitlight.dto.OrderHistoryOrderList;
+import poris.fruitlight.dto.OrderSearchParam;
+import poris.fruitlight.dto.Pager;
 import poris.fruitlight.dto.Shopper;
 import poris.fruitlight.service.MyPageChangeInfoService;
+import poris.fruitlight.service.MyPageOrderedService;
 import poris.fruitlight.util.AlertScript;
 
 @Slf4j
 @Controller
-public class MyPageChangeInfoController {
+public class MyPageController {
 	
 	@Resource
 	public MyPageChangeInfoService myPageChangeInfoService;
 	
-	@RequestMapping("/mypageChangeInfo")
-	public String mypageChangeInfo(Model model, int shopperNo, HttpSession session, HttpServletResponse response) {
-		Shopper shopper = (Shopper) session.getAttribute("ShopperInfo");
-		if(shopper == null) {
-			try {
-				AlertScript.alertAndMovePage(response, "로그인을 해주세요", "/fruitlight/login");
-			} catch (IOException e) {
-				return "redirect:/main";
-			}
-		} else {
-			Shopper shopperinfo = myPageChangeInfoService.getShopper(shopperNo);
-			model.addAttribute("mypageChangeInfo", shopperinfo);
-			
-		}
-		return "mypageChangeInfo";
-	}
+	@Resource
+	public MyPageOrderedService myPageOrderedService;
 	
 	@PostMapping("/mypageChangeInfo")
 	public String checkPw(String shopperPwd, HttpSession session, Model model, int shopperNo, HttpServletResponse response) throws IOException {
