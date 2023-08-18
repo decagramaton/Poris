@@ -39,13 +39,14 @@ public class MyPageSideShopperDeleteController {
 		return "mypageShopperDelete";
 	}
 	
-	@GetMapping("/mypageShopperDelete/deleteAgree")
+	@PostMapping("/mypageShopperDelete/deleteAgree")
 	public void deleteAgree(String acceptAgreement, HttpServletResponse response, HttpSession session) throws IOException {
 		Shopper shopper = (Shopper) session.getAttribute("ShopperInfo");
 		
 		if(acceptAgreement != null ) {
 			shopperService.deleteShopper(shopper);
 			session.removeAttribute("ShopperInfo");
+			AlertScript.alertAndMovePage(response, "회원 탈퇴가 완료되었습니다", "/fruitlight");
 		} else {
 			AlertScript.alertAndBackPage(response, "필수 동의를 체크해주세요.");
 		}

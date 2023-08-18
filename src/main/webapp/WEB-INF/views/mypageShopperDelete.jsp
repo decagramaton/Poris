@@ -26,7 +26,7 @@
 				<%@ include file="/WEB-INF/views/mypageleftside.jsp" %>
 				
 				<h1>회원 탈퇴</h1>
-				<form method="post" action="">
+				<form method="post" action="/fruitlight/mypageShopperDelete/deleteAgree">
 					<div class="agree_form">			
 						<div class="controls">
 							<div class="text" id="agreement_content_1">
