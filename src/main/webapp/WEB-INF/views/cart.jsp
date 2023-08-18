@@ -72,7 +72,7 @@
 						            	<td class="cartItem_product">
 						            		<div class="cartItem_product">
 						            			<div class="text-left">
-						            				<a href="#">
+						            				<a href="cart/goToDetailView?pno=${cartProduct.PRODUCT_NO}">
 							             				${cartProduct.PRODUCT_NAME}, 
 							            				<span class="product_option">${cartProduct.PRODUCT_OPTION}</span>
 							            				<input type="hidden" class="product-name" value="${cartProduct.PRODUCT_NAME}"/>

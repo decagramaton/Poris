@@ -14,4 +14,5 @@ public interface CartDao {
 	public List<Coupon> selectCouponBySno(int sno);
 	public int deleteCart(Cart cart);
 	public int updateStock(Cart cart);
+	public int selectFirstBnoByPno(int pno);
 }

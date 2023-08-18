@@ -47,4 +47,10 @@ public class CartServiceImpl implements CartService {
 	public void changeStock(Cart cart) {
 		cartDao.updateStock(cart);
 	}
+
+	@Override
+	public int getBoardNo(int pno) {
+		int bno = cartDao.selectFirstBnoByPno(pno);
+		return bno;
+	}
 }

@@ -27,13 +27,17 @@ public interface CartService {
 	/**
 	 * 
 	 * @param pid(장바구니에서 삭제될 상품) 
-	 * @return int
 	 */
 	public void deleteProduct(Cart cart);
 	/**
 	 * 
 	 * @param cartProduct(수량이 변경될 장바구니 상품)
-	 * @return int
 	 */
 	public void changeStock(Cart cart);
+	/**
+	 * 
+	 * @param pno(장바구니에 담긴 상품의 상품번호)
+	 * @return int(장바구니에 담긴 상품의 상품게시글번호)
+	 */
+	public int getBoardNo(int pno);
 }

@@ -163,4 +163,11 @@ public class CartController {
 		
 		return "redirect:/order";
 	}
+	
+	@GetMapping("/cart/goToDetailView") 
+	public String goToDetailView(int pno, HttpSession session) {
+		int bno = cartProductService.getBoardNo(pno);
+		session.setAttribute("BoardNo", bno);
+		return "redirect:/detailView";
+	}
 }
