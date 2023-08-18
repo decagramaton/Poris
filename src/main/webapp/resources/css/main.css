@@ -27,7 +27,7 @@
 	box-shadow : 5px 5px 5px 5px rgba(0,0,0,0.3);
 	cursor: pointer;
 }
-.todayDiscoveryProduct:hover > div > a {
+.todayDiscoveryProduct:hover .productName {
 	color : #1E9A4F;
 }
 .productImage{
@@ -266,7 +266,7 @@
 	text-decoration: none;	
 }
 .cateAdvertiseCherryListItem:hover > a > .hoverUnderline {
-	color : #4285f4;
+	color : red;
 	text-decoration: underline;
 }
 .cateAdvertiseCherryListItem > a > img {
@@ -388,7 +388,7 @@
 	text-decoration: none;	
 }
 .cateAdvertiseWatermelonListItem:hover > a > .hoverUnderline {
-	color : #4285f4;
+	color : #0B8A1A;
 	text-decoration: underline;
 }
 .cateAdvertiseWatermelonListItem > a > img {
