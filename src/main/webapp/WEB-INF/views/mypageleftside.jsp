@@ -17,6 +17,9 @@
 			<div class="mymenu-menu">
 				<a class="mymenu-menu-title" href="mypageChangeInfo?shopperNo=${ShopperInfo.shopperNo}">내 정보 변경</a>
 			</div>
+			<div class="mymenu-menu">
+				<a class="mymenu-menu-title" href="addressBook">배송지 변경</a>
+			</div>
 			<div class="mymenu-menu" style="border-bottom: 0px;">
 				<a class="mymenu-menu-title" href="mypageUserDelete?shopperNo=${ShopperInfo.shopperNo}">회원 탈퇴</a>
 			</div>
