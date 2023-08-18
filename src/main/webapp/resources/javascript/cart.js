@@ -184,7 +184,7 @@ function calculatePrice() {
 		var discountDelivery = coupon.Ddis;
 		
 		//최종가격
-		var priceFinal = totalPrice;
+		var priceFinal = totalPrice; 
 		var deliveryFinal = totalDelivery - discountDelivery;
 		discountFinal = discountProduct + discountDelivery;
 		var orderPriceFinal = priceFinal + deliveryFinal - discountProduct;
