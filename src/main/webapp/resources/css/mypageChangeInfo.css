@@ -1,39 +1,34 @@
 @charset "UTF-8";
+
 dl, dt, dd, ul, ol, menu, li {
     list-style: none;
 }
 .leftside {
-	width : 230px;
+	width : 200px;
 	float : left;
 	position: relative;
-}
+} 
 .mymenu{
-	background-color: rgb(249, 249, 249);
-    border-width: 1px;
-    border-style: solid;
-    border-color: rgb(225, 228, 230);
     border-image: initial;
     color: rgb(17, 17, 17);
     margin: 0px;
 }
 
 .mymenu-menu {
-	padding: 15px 10px 16px 17px;
-    border-bottom: 1px solid rgb(225, 228, 230);
-    height: 150px;
-    text-align: center;
-    padding-top: 60px;
+	padding: 20px 0;
+    border-top: 1px solid #dee2e6;
+    text-align: left;
 }
 .mymenu-menu-title {
 	display: block;
-    font-weight: bold;
-    font-size: 28px;
+    /* font-weight: bold; */
+    font-size: 20px;
     line-height: 30px;
     color: rgb(17, 17, 17);
 }
 .mymenu-menu-title:hover {
 	text-decoration: none;
-	color : rgb(17, 17, 17);
+	color : #95CF59;
 }
 .mymenu-menu > div > ul > li:hover > a{
 	color: rgb(61, 130, 247);
@@ -65,6 +60,14 @@ dl, dt, dd, ul, ol, menu, li {
 	font-weight : 700;
 	padding-right : 20px;
 }
+.headerSearchBtn{
+	background: transparent;
+	border: none;
+}
+.headerSearchBtnImage {
+	margin : 0 0 5px 5px;
+}
+
 .changeInfo {
 	margin-left : 50px;
 	width : 100%;
@@ -77,6 +80,8 @@ dl, dt, dd, ul, ol, menu, li {
 	text-align : center;
 	padding : 15px 30px;
 	background-color: #f0f0f0;
+	font-size: 12px;
+    font-weight: 600;
 }
 .changeInfo > tbody > tr > td {
 	padding : 15px 30px;
@@ -89,6 +94,16 @@ dl, dt, dd, ul, ol, menu, li {
 .infoForm > form {
 	padding : 10px;
 	margin-top : 15px;
+}
+.changeBtn {
+	border: 1px solid #dbdbdb;
+    vertical-align: middle;
+    font-size: 12px;
+    padding: 5px 12px;
+    background-color: white;
+}
+.hidden {
+	background-color: white;
 }
 .changeForm {
 	background-color: #f0f0f0;

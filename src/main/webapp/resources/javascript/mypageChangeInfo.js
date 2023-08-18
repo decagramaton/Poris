@@ -35,7 +35,7 @@ function init() {
     $('#changeIdButton').click(() => {
         if(!validationEmail) {
             event.preventDefault();
-            alert("이메일을 제대로 적어라 ex) email@mycompany.com");
+            alert("이메일 형식에 맞지 않습니다 다시 작성해주세요. ex)email@mycompany.com");
         }
     });
     
@@ -55,7 +55,7 @@ function init() {
 	   $('#changeTelBtn').click(() => {
 	       if(!validationTel) {
 	           event.preventDefault();
-	           alert("휴대폰 제대로 적어라 ex) 010-0000-0000");
+	           alert("휴대폰 번호 형식에 맞지 않습니다 다시 작성해주세요. ex) 010-1234-5678");
 	       }
 	   });
 }

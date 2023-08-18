@@ -33,7 +33,7 @@ public class MyPageChangeInfoController {
 	}
 	
 	@PostMapping("/mypageChangeInfo")
-	public String checkPw(String shopperPwd, HttpSession session, Model model, int shopperNo) {
+	public String checkPw(String shopperPwd, HttpSession session, Model model, int shopperNo, HttpServletResponse response) throws IOException {
 		
 		if(!shopperPwd.equals("")) {
 			// Step1. 로그인 세션 정보 조회
@@ -43,15 +43,17 @@ public class MyPageChangeInfoController {
 			
 			// Step2. Service에 입력 PW와 DB에 저장된 PW 비교 요청 메소드 실행
 			boolean resultCheckPw = myPageChangeInfoService.isShopperPw(shopper);
-			
-			// Model에 결과 값을 넣어 JSP에 전달
-			model.addAttribute("resultCheckPw", resultCheckPw);
-			model.addAttribute("mypageChangeInfo", shopperinfo);
-			
+			if(resultCheckPw) {
+				// Model에 결과 값을 넣어 JSP에 전달
+				model.addAttribute("resultCheckPw", resultCheckPw);
+				model.addAttribute("mypageChangeInfo", shopperinfo);
+			} else {
+				AlertScript.alertAndBackPage(response, "입력한 비밀번호를 다시 확인해주세요.");
+			}
 			return "mypageChangeInfo";
 		} else {
-			model.addAttribute("error", "비밀번호 값이 다릅니다.");
-			return "redirect:/mypageChangeInfo";
+			AlertScript.alertAndBackPage(response, "비밀번호를 입력하세요.");
+			return "mypageChangeInfo";
 		}
 	}
 	
@@ -91,6 +93,9 @@ public class MyPageChangeInfoController {
 		shopper.setShopperPw(updateShopperPw);
 		
 		myPageChangeInfoService.setShopperPassword(shopper);
+		
+		AlertScript.alertAndMovePage(response, "개인정보가 변경되어 로그아웃 되었습니다.", "/fruitlight/login");
+		session.removeAttribute("ShopperInfo");
 
 		return "mypageChangeInfo";
 	}

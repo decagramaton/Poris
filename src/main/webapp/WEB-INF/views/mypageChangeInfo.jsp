@@ -19,12 +19,15 @@
 		<script src="${pageContext.request.contextPath}/resources/javascript/mypageChangeInfo.js"></script>
 	</head>
 	<body>
-<%@ include file="/WEB-INF/views/header.jsp" %>
+<%@ include file="/WEB-INF/views/headersimple.jsp" %>
 		<div class="container">
 			<div class="bodycontainer">
 				<div class="leftside">
 					<nav>
 						<div class="mymenu">
+							<div class="text-left pb-2">
+								<h3>마이 페이지</h3>
+							</div>
 							<div class="mymenu-menu">
 								<a class="mymenu-menu-title" href="mypageOrdered">주문 내역</a>
 							</div>
@@ -61,11 +64,11 @@
 									<td>
 										<div class="infoForm id">
 											<span id="user_id">${mypageChangeInfo.shopperId}</span>
-											<button id="emailChange" class="d-inline-block" onclick="openEmailChange()">이메일 변경하기</button>
-											<button id="emailCancel" class="d-none" onclick="openEmailChangeCancel()">이메일 변경취소</button>
+											<button id="emailChange" class="d-inline-block changeBtn" onclick="openEmailChange()">이메일 변경하기</button>
+											<button id="emailCancel" class="d-none changeBtn" onclick="openEmailChangeCancel()">이메일 변경취소</button>
 											<form id="changeIdForm"class="d-none changeForm" action="/fruitlight/mypageChangeInfo/updateId" method="post">
 												<input type="email" name="shopperId">
-												<button id="changeIdButton" type="submit">변경하기</button>
+												<button id="changeIdButton" class="changeBtn hidden" type="submit">변경하기</button>
 											</form>
 										</div>
 									</td>
@@ -81,11 +84,11 @@
 									<td>
 										<div class="infoForm tel">
 											<span>${mypageChangeInfo.shopperTel}</span>
-											<button id="telChange" class="d-inline-block" onclick="openTelChange()">휴대폰 번호 변경하기</button>
-											<button id="telCancel" class="d-none" onclick="openTelChangeCancel()">휴대폰 번호 변경취소</button>
+											<button id="telChange" class="d-inline-block changeBtn" onclick="openTelChange()">휴대폰 번호 변경하기</button>
+											<button id="telCancel" class="d-none changeBtn" onclick="openTelChangeCancel()">휴대폰 번호 변경취소</button>
 											<form method="post" id="changeTelForm" class="d-none changeForm" action="/fruitlight/mypageChangeInfo/updateTel">
 												<input type="text" name="shopperTel" value="">
-												<button id="changeTelBtn" type="submit">번호 변경하기</button>
+												<button id="changeTelBtn" class="changeBtn hidden" type="submit">번호 변경하기</button>
 											</form>
 										</div>
 									</td>
@@ -122,7 +125,7 @@
 													<span id="pw_no_match" class="errorMsg">새 비밀번호가 일치하지 않습니다.</span>
 				                    				<span id="pw_match" class="errorMsg">새 비밀번호가 일치합니다.</span>
 												</div>
-												<button id="btn-pwd" type="submit">비밀번호 변경</button>
+												<button id="btn-pwd" class="changeBtn" type="submit">비밀번호 변경</button>
 											</form>
 										</div>
 									</td>
@@ -132,7 +135,7 @@
 									<td>
 										<div class="infoForm DeliverAddress">
 											<span>배송지 변경은 [배송지 선택/변경] 페이지로 이동합니다.</span>
-											<button id="daChange" class="d-inline-block" onclick="deliveryAddressBtn()">배송지 변경</button>
+											<button id="daChange" class="d-inline-block changeBtn" onclick="deliveryAddressBtn()">배송지 변경</button>
 										</div>
 									</td>
 								</tr>
