@@ -71,6 +71,16 @@ public interface DetailViewDao {
 	 */
 	public List<Review> selectBestReviewList(Pager pager);
 	
+	
+	/**
+	 * 페이저 객체로 페이지별 설정한 개수만큼 리뷰 목록을 조회하는 메소드
+	 * @author 고재승
+	 * @since 2023.08.18
+	 * @param pager
+	 * @return 최신순 리뷰 목록
+	 */
+	public List<Review> selectRecentReviewList(Pager pager);
+	
 	public void updateAddHelpPoint(String reviewNo);
 	
 	

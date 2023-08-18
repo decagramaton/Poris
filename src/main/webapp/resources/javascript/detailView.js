@@ -26,7 +26,10 @@ function init() {
 	$(".sdp-review-article-order-search-btn").click(searchReviewPage);
 	
 	//상품리뷰 베스트 순 정렬 버튼
-	$("sdp-review-article-order-sort-best-btn").click(bestReviewPage);
+	$("#bestReviewBtn").click(bestReviewPage);
+	
+	//상품리뷰 최신순 정렬 버튼
+	$("#recentReviewBtn").click(recentReviewPage);
 	
 	//상품문의 페이저 버튼
 	$(".inquiry-btn").click(changeInquiryPage);
@@ -538,8 +541,8 @@ function bestReviewPage() {
 
 
 
-//리뷰 좋아요 많은 순 필터 검색 기능
-function bestReviewPage() {
+//리뷰 최신순  필터 검색 기능
+function recentReviewPage() {
 	$("#bestReviewBtn").attr("class","sdp-review-article-order-sort-newest-btn");
 	$("#recentReviewBtn").attr("class","sdp-review-article-order-sort-best-btn");
 	
