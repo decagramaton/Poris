@@ -65,7 +65,7 @@
    			FROM PRODUCT p
    			JOIN PRODUCT_BOARD b ON p.PRODUCT_NO = n.PRODUCT_NO
    			JOIN BOARD_MEDIA m ON b.BOARD_NO = m.BOARD_NO
-         	WHERE p.PRODUCT_NAME LIKE '%' || #{searchKeyword} || '%' AND MEDIA_NAME LIKE '%list%'
+         	WHERE p.PRODUCT_NAME LIKE '%' || #{searchKeyword} || '%' AND MEDIA_NAME LIKE '%list_thumbnail1%'
    </select>
 	
 	<select id="SearchProductsByPname" parameterType="String" resultType="poris.fruitlight.dto.ProductList">
@@ -73,7 +73,7 @@
         FROM PRODUCT p
         JOIN PRODUCT_BOARD b ON p.PRODUCT_NO = b.PRODUCT_NO
         JOIN BOARD_MEDIA m ON b.BOARD_NO = m.BOARD_NO
-        WHERE p.PRODUCT_NAME LIKE '%' || #{searchKeyword} || '%' AND MEDIA_NAME LIKE '%list%'
+        WHERE p.PRODUCT_NAME LIKE '%' || #{searchKeyword} || '%' AND MEDIA_NAME LIKE '%list_thumbnail1%'
     </select>
     
     <select id="SearchProducts" resultType="poris.fruitlight.dto.ProductList">
@@ -81,6 +81,6 @@
         FROM PRODUCT p
         JOIN PRODUCT_BOARD b ON p.PRODUCT_NO = b.PRODUCT_NO
         JOIN BOARD_MEDIA m ON b.BOARD_NO = m.BOARD_NO
-        WHERE MEDIA_NAME LIKE '%list%'
+        WHERE MEDIA_NAME LIKE '%list_thumbnail1%'
     </select>
 </mapper>
