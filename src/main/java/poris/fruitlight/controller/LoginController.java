@@ -22,10 +22,6 @@ import poris.fruitlight.util.AlertScript;
 @Controller
 public class LoginController {
 	
-
-	@Autowired
-	private LoginService loginservice;
-	
 	@Autowired
 	private ShopperService shopperService;
 	
@@ -65,13 +61,17 @@ public class LoginController {
 			return "redirect:/login";
 		}
 		
-		
 		// Step3. 회원 정보가 없으면 JSP에 에러 콘솔 출력 (에러 처리)
 		if(dbShopper == null) {
 			AlertScript.alertAndBackPage(response, "회원정보를 찾을 수 없습니다.");
 			session.setAttribute("Shopper", shopper);
 			return "redirect:/login";
 		} else {
+			
+			if(dbShopper.getActivate().equals("N")) {
+				return "redirect:/login";
+			}
+			
 			shopper.setShopperNo(dbShopper.getShopperNo());
 			if(shopper.getShopperAutoLogin() != null) {
 				shopperService.setShopperAutoLogin(shopper);
@@ -86,8 +86,6 @@ public class LoginController {
 			
 			// Step4-2. 자동로그인이 체크되었다면, 클라이언트에게 쿠키 생성
 			if(shopper.getShopperAutoLogin().equals("0")) {
-				
-				
 				
 				Cookie cookie = new Cookie("ShopperID", Integer.toString(dbShopper.getShopperNo()));
 				cookie.setPath("/");
