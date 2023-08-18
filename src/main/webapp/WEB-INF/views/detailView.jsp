@@ -171,11 +171,11 @@
          </div>
          <div class="bottom">
             <!-- 상품내용 목차 -->
-            <div id="detail_product_form" class="detaile_product">
+            <div id="detail_product_form" class="detaile_product tab-dock-top">
                <ul class="detail_product_form_title">
                   <li name="detail" class="active">상품 상세</li>
                   <li name="review"><a href="#product_review-form" style="color: #555;">상품평</a></li>
-                  <li namme="qna"><a href="#prduct_qna_form" style="color: #555;">상품 문의</a></li>
+                  <li name="qna"><a href="#prduct_qna_form" style="color: #555;">상품 문의</a></li>
                   <li name="etc"><a href="#product-etc-inquery" style="color: #555;">배송/교환/반품 안내</a></li>
                </ul>
                <ul class="detail_product_form_contents">
