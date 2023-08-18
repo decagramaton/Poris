@@ -388,7 +388,7 @@
 	                              </article>
                               	</c:forEach>
                               	
-                              	<div class="inquiry-page-btns">
+                              	<div class="review-page-btns">
 								  <c:if test="${ReviewPager.totalGroupNo > 1}">
 									  <c:if test="${ReviewPager.groupNo > 1}">
 										  <input type="hidden" value="${ReviewPager.startPageNo-1}">

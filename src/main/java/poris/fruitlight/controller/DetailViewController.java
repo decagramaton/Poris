@@ -268,11 +268,14 @@ public class DetailViewController {
 	 */
 	@GetMapping("/detailView/searchReviewPage")
 	@ResponseBody
-	public HashMap<String, Object> searchReviewPage(String reviewSearchKeyword, HttpSession session) {
+	public HashMap<String, Object> searchReviewPage(@RequestParam("reviewSearchKeyword")String reviewSearchKeyword, @RequestParam("pageNo")String pageNo, HttpSession session) {
 		int bno = Integer.parseInt(session.getAttribute("BoardNo").toString());
 		int totalReviewCount = detailViewService.getTotalReviewStock(bno);
 		
-		Pager reviewPager = new Pager(10, 1, totalReviewCount, 1);
+		if(pageNo == null || pageNo.equals("")) {pageNo = "1";}
+		log.info("pageNo : " + pageNo);
+		log.info("reviewSearchKeyword : " + reviewSearchKeyword);
+		Pager reviewPager = new Pager(2, 2, totalReviewCount, Integer.parseInt(pageNo));
 		List<Review> reviewList = detailViewService.getSearchReviewList(reviewPager, reviewSearchKeyword, bno);
 		
 		HashMap<String, Object> map = new HashMap<String, Object>();
