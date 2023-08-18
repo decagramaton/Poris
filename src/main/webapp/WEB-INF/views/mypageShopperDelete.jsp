@@ -17,6 +17,7 @@
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 		<script src="${pageContext.request.contextPath}/resources/javascript/header.js"></script>
+		<script src="${pageContext.request.contextPath}/resources/javascript/mypageShopperDelete.js"></script>
 	</head>
 	<body>
 <%@ include file="/WEB-INF/views/headersimple.jsp" %>
@@ -25,35 +26,27 @@
 				<%@ include file="/WEB-INF/views/mypageleftside.jsp" %>
 				
 				<h1>회원 탈퇴</h1>
-				
-				<div class="agree_form">			
-					<div class="controls">
-						<div class="text" id="agreement_content_1">
-							<p><span style="font-size:18px;"><strong>회원 탈퇴&nbsp;동의</strong></span></p>
-							<p><strong>수집하는 개인정보의 항목</strong></p>
-							<ul>
-								<li>회사는 회원가입, 상담, 콘텐츠구매, 서비스 신청 등을 위해 아래와 같은 개인정보를 수집하고 있습니다.
-								<p>- 필수사항 : 아이디, 비밀번호, 이름, 휴대폰 번호</p>
-								</li>
-							</ul>
-							<p><strong>자동수집하는 개인정보의 항목</strong></p>
-							<ul>
-								<li>서비스 이용과정이나 사업처리 과정에서 아래와 같은 정보들이 자동으로 생성되어 수집될 수 있습니다.
-								<p>- IP Address, 쿠키, 접속로그, 서비스 이용 기록, 불량 이용 기록, 결제기록, OS버전, 브라우저 모델명</p>
-								</li>
-							</ul>
-						</div>
-						<div class="confirm">			
-							<label for="accept_agreement_1">						
-								<input type="checkbox" name="acceptAgreement" value="Y" id="acceptAgreement">
-								[필수] 개인정보수집 이용.동의에 동의합니다.
-							</label>
+				<form method="post" action="">
+					<div class="agree_form">			
+						<div class="controls">
+							<div class="text" id="agreement_content_1">
+								<p><span class="delete_user_title">회원 탈퇴를 신청하기 전, 다음 내용을 꼭 확인해주세요!</span></p>
+								<p><strong>고객 정보 및 개인형 서비스 이용 기록은 개인 정보보호 처리 방침 기준에 따라 삭제됩니다.</strong></p>
+								<p><strong>회원 탈퇴 시 보유한 쿠폰 등 할인 혜택은 모두 삭제되며 재가입 시에도 제공되지 않습니다.</strong></p>
+								<p><strong>회원 탈퇴 시 더 이상 푸릇라이트 이용이 불가능하며, 탈퇴 처리됩니다.</strong></p>
+							</div>
+							<div class="confirm">			
+								<label for="accept_agreement_1">						
+									<input type="checkbox" name="acceptAgreement" value="Y" id="acceptAgreement" style="margin-top: 20px;">
+									<strong>안내 사항을 모두 확인하였으며, 이에 동의에 동의합니다.</strong>
+								</label>
+							</div>
 						</div>
 					</div>
-				</div>
-                <div class="join_btn">
-                    <button type="submit" id="join_btn">회원 탈퇴</button>
-                </div>
+	                <div class="join_btn">
+	                    <button type="submit" id="join_btn">회원 탈퇴</button>
+	                </div>
+				</form>
 			</div>
 		</div>
 <%@ include file="/WEB-INF/views/footer.jsp" %>

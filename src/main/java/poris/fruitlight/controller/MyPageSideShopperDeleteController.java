@@ -8,6 +8,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,17 +23,31 @@ import poris.fruitlight.dto.Pager;
 import poris.fruitlight.dto.Shopper;
 import poris.fruitlight.service.MyPageChangeInfoService;
 import poris.fruitlight.service.MyPageOrderedService;
+import poris.fruitlight.service.ShopperService;
 import poris.fruitlight.util.AlertScript;
 
 @Slf4j
 @Controller
 public class MyPageSideShopperDeleteController {
 	
+	@Autowired
+	ShopperService shopperService;
+	
 	@GetMapping("/mypageShopperDelete")
 	public String mypageShopperDelete() {
 		
-		
-		
 		return "mypageShopperDelete";
+	}
+	
+	@GetMapping("/mypageShopperDelete/deleteAgree")
+	public void deleteAgree(String acceptAgreement, HttpServletResponse response, HttpSession session) throws IOException {
+		Shopper shopper = (Shopper) session.getAttribute("ShopperInfo");
+		
+		if(acceptAgreement != null ) {
+			shopperService.deleteShopper(shopper);
+			session.removeAttribute("ShopperInfo");
+		} else {
+			AlertScript.alertAndBackPage(response, "필수 동의를 체크해주세요.");
+		}
 	}
 }
