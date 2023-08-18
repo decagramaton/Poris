@@ -14,7 +14,37 @@ function init(){
    $("#carouselMainItem1").addClass("active");
    $("#carouselCate1MainItem1").addClass("active");
    $("#carouselCate2MainItem1").addClass("active");
+   
+   const changeHandler1 = (cateAdvertiseHide) => {
+	   if(cateAdvertiseHide.matches === true){
+	      $("#cateAdvertise").addClass("disabled-div");
+	      $("#cateAdvertise").removeClass("d-block");
+	      $("#cateAdvertise").addClass("d-none");
+	   } else {
+	      $("#cateAdvertise").removeClass("disabled-div");
+	      $("#cateAdvertise").removeClass("d-none");
+	      $("#cateAdvertise").addClass("d-block");
+	   }
+	}
+
+	const changeHandler2 = (cateMainBannerHide) => {
+	   if(cateMainBannerHide.matches === true){
+	      $("#mainproduct").addClass("disabled-div");
+	      $("#mainproduct").removeClass("d-block");
+	      $("#mainproduct").addClass("d-none");
+	   } else {
+	      $("#mainproduct").removeClass("disabled-div");
+	      $("#mainproduct").removeClass("d-none");
+	      $("#mainproduct").addClass("d-block");
+	   }
+	}
+
+	cateAdvertiseHide.addEventListener("change", changeHandler1);
+	cateMainBannerHide.addEventListener("change", changeHandler2);
 }
+const cateAdvertiseHide = window.matchMedia(`(max-width: 1100px)`);
+const cateMainBannerHide = window.matchMedia(`(max-width: 768px)`);
+
 const catehandle1 = window.matchMedia(`(min-width: 1200px)`);
 const catehandle2 = window.matchMedia(`(max-width: 1200px)`);
 const catehandle3 = window.matchMedia(`(max-width: 992px)`);

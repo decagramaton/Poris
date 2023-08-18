@@ -1,8 +1,3 @@
-
-
-const cateAdvertiseHide = window.matchMedia(`(max-width: 1100px)`);
-const cateMainBannerHide = window.matchMedia(`(max-width: 768px)`);
-
 const changeHandler1 = (cateAdvertiseHide) => {
    if(cateAdvertiseHide.matches === true){
       $("#cateAdvertise").addClass("disabled-div");
