@@ -77,7 +77,7 @@ public class MyPageChangeInfoController {
 		if(result) {
 			AlertScript.alertAndBackPage(response, "중복된 아이디가 존재합니다.");
 		} else {
-			AlertScript.alertAndMovePage(response, "개인정보가 변경되어 로그아웃 되었습니다.", "/fruitlight/login");
+			AlertScript.alertAndMovePage(response, "아이디(이메일)가 변경되어 로그아웃 되었습니다.", "/fruitlight/login");
 			session.removeAttribute("ShopperInfo");
 		}
 		return "mypageChangeInfo";
@@ -91,7 +91,8 @@ public class MyPageChangeInfoController {
 		shopper.setShopperTel(shopperTel);
 		
 		myPageChangeInfoService.setShopperTel(shopper);
-
+		AlertScript.alertAndBackPage(response, "휴대폰 번호가 변경되었습니다.");
+		
 		return "mypageChangeInfo";
 	}
 	
@@ -103,7 +104,7 @@ public class MyPageChangeInfoController {
 		
 		myPageChangeInfoService.setShopperPassword(shopper);
 		
-		AlertScript.alertAndMovePage(response, "개인정보가 변경되어 로그아웃 되었습니다.", "/fruitlight/login");
+		AlertScript.alertAndMovePage(response, "비밀번호가 변경되어 로그아웃 되었습니다.", "/fruitlight/login");
 		session.removeAttribute("ShopperInfo");
 
 		return "mypageChangeInfo";
