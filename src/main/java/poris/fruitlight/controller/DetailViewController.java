@@ -91,15 +91,16 @@ public class DetailViewController {
 		int totalReviewStock = detailViewService.getTotalReviewStock(bno);
 		
 		// Step2. Pager객체 생성 및 리뷰 게시판 생성
-		Pager ReviewPager = new Pager(4, 3, totalReviewStock, 1);
+		Pager ReviewPager = new Pager(2, 2, totalReviewStock, 1);
 		List<Review> ReviewList = detailViewService.getReviewList(ReviewPager, bno);
 		
 		log.info("ReviewList : " + ReviewList);
 		
 		// 리뷰 평균 점수 및 리뷰 개수 구하기
-		ReviewInfo reviewInfo = new ReviewInfo();
+		ReviewInfo reviewInfo = null;
 		
 		if(ReviewList.size() != 0) {
+			reviewInfo = new ReviewInfo();
 			int totalSumStarRate = 0;
 			
 			for(Review review : ReviewList) {
@@ -107,7 +108,7 @@ public class DetailViewController {
 			}
 			
 			reviewInfo.setStarRateAvg(totalSumStarRate/ReviewList.size());
-			reviewInfo.setTotalReviewStock(ReviewList.size());
+			reviewInfo.setTotalReviewScore((float)(totalSumStarRate/40.0));
 		}
 		
 		// Step3. Model객체로 JSP 전달
@@ -236,5 +237,30 @@ public class DetailViewController {
 		detailViewService.addHelpPoint(ReviewNo);
 		
 		return Integer.parseInt(ReviewNo);
+	}
+	
+	
+	
+	/**
+	 * @author 고재승
+	 * @since 2023.08.18
+	 * @param pageNo - 이동할 페이지 번호
+	 * @param session - 게시글 번호
+	 * @return Map<"키", 객체>
+	 */
+	@GetMapping("/detailView/moveReviewPage")
+	@ResponseBody
+	public HashMap<String, Object> moveReviewPage(String pageNo, HttpSession session) {
+		int bno = Integer.parseInt(session.getAttribute("BoardNo").toString());
+		int totalReviewCount = detailViewService.getTotalReviewStock(bno);
+		
+		Pager reviewPager = new Pager(2, 2, totalReviewCount, Integer.parseInt(pageNo));
+		List<Review> reviewList = detailViewService.getReviewList(reviewPager, bno);
+		
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("ReviewPager", reviewPager);
+		map.put("ReviewList", reviewList);
+		
+		return map;
 	}
 }

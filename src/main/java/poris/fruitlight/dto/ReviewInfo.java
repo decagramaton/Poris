@@ -5,5 +5,5 @@ import lombok.Data;
 @Data
 public class ReviewInfo {
 	private int starRateAvg;
-	private int totalReviewStock;
+	private float totalReviewScore;
 }

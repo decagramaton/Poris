@@ -297,17 +297,17 @@
                            <div class="sdp-review-total-star">
                               <div class="sdp-review-total-star-info">
                               
-                              	 <c:if test="${fn:length(ReviewList) == 0 }">
+                              	 <c:if test="${ReviewInfo == null}">
 	                              	<div class="sdp-review-total-star-info-gray">
 	                                    <div class="sdp-review-total-star-info-orange" style="width: 0px;"></div>
 	                                 </div>
 	                                 <div class="sdp-review-total-star-info-count">0</div>
 			                     </c:if>
-			                     <c:if test="${fn:length(ReviewList) != 0 }">
+			                     <c:if test="${ReviewInfo != null}">
 	                              	<div class="sdp-review-total-star-info-gray">
 	                                    <div class="sdp-review-total-star-info-orange" style="width: ${ReviewInfo.starRateAvg}%;"></div>
 	                                 </div>
-	                                 <div class="sdp-review-total-star-info-count">${ReviewInfo.totalReviewStock}</div>
+	                                 <div class="sdp-review-total-star-info-count">${ReviewInfo.totalReviewScore}</div>
 			                     </c:if>
                  			  </div>
                            </div>
@@ -336,11 +336,11 @@
                                  <div class="sdp-review-article-order-star-all">
                                     <div style="display: inline-block;">
                                        <div class="all-content">모든 별점 보기</div>
-                                       <c:if test="${fn:length(ReviewList) == 0 }">
+                                       <c:if test="${ReviewInfo == null}">
                                            <div class="all-count">0</div>
                                        </c:if>
-                                       <c:if test="${fn:length(ReviewList) != 0 }">
-                                           <div class="all-count">${ReviewInfo.totalReviewStock}</div>
+                                       <c:if test="${ReviewInfo != null}">
+                                           <div class="all-count">${ReviewInfo.totalReviewScore}</div>
                                        </c:if>
                                        <img class="all-arrow-down"
                                           src="//img1a.coupangcdn.com/image/productreview/web/pdp/article/star-select-down_v1.png"
@@ -392,25 +392,25 @@
 								  <c:if test="${ReviewPager.totalGroupNo > 1}">
 									  <c:if test="${ReviewPager.groupNo > 1}">
 										  <input type="hidden" value="${ReviewPager.startPageNo-1}">
-										  <button class="page-prev inquiry-btn"></button>
+										  <button class="page-prev review-btn"></button>
 									  </c:if>
 								  </c:if>
 								
 								  <c:forEach var="i" begin="${ReviewPager.startPageNo}" end="${ReviewPager.endPageNo}">
 								      <c:if test="${ReviewPager.pageNo != i}">
 									    <input type="hidden" value="${i}">
-										<button class="page-num inquiry-btn">${i}</button>
+										<button class="page-num review-btn">${i}</button>
 									  </c:if>
 									  <c:if test="${ReviewPager.pageNo == i}">
 										<input type="hidden" value="${i}">
-										<button class="page-num selected inquiry-btn">${i}</button>
+										<button class="page-num selected review-btn">${i}</button>
 									  </c:if>
 								  </c:forEach>
 								  
 								  <c:if test="${ReviewPager.totalGroupNo > 1}">
 									  <c:if test="${ReviewPager.groupNo < ReviewPager.totalGroupNo}">
 										  <input type="hidden" value="${ReviewPager.endPageNo+1}">
-										  <button class="page-next inquiry-btn"></button>
+										  <button class="page-next review-btn"></button>
 									  </c:if>
 								  </c:if>
 	                            </div>
