@@ -131,7 +131,7 @@
 									    	<a href="/fruitlight/main/SelectDetailView?pid=${catemainlist.PRODUCT_NO}">
 										    	<img src="data:${catemainlist.MEDIA_DATA};base64, ${catemainlist.base64Img}" width="500" height="500">
 									    	</a>
-									    	<div class="carousel-caption cherry" style="bottom:50px;">
+									    	<div class="carousel-caption cherry">
 									      		<h3>체리 특가!</h3>
 									        	<p>신선하고 맛있는 체리 특가 판매중</p>
 									      	</div>  
@@ -229,7 +229,7 @@
 									    	<a href="/fruitlight/main/SelectDetailView?pid=${catemainlist.PRODUCT_NO}">
 										    	<img src="data:${catemainlist.MEDIA_DATA};base64, ${catemainlist.base64Img}" width="500" height="500">
 									    	</a>
-									    	<div class="carousel-caption watermelon" style="bottom:50px;">
+									    	<div class="carousel-caption watermelon">
 									      		<h3>수박 특가!</h3>
 									        	<p>여름철 더위를 날려줄 수박 판매!</p>
 									      	</div>  
