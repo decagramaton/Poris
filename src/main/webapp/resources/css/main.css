@@ -254,7 +254,7 @@
 	display: block;
     width: 208px;
     height: 290px;
-    padding: 22px 7px 0 15px;
+    padding: 46px 1px 0 27px;
     margin-top: -1px;
     border-bottom: 1px solid #ddd;
     font-size: 12px;
@@ -288,7 +288,7 @@
 
 /* 수박 추천 카테고리*/
 .cateAdvertiseWatermelon{
-	border-top : 2px solid green;
+	border-top : 2px solid #0B8A1A;
 	width: 1095px;
 	height : 300px;
     margin-bottom: 20px;
@@ -307,7 +307,7 @@
     width: 114px;
     padding: 40px 0 0 22px;
     font-size: 30px;
-    color : green;
+    color : #0B8A1A;
 }
 .cateAdvertiseWatermelonTitle > a {
 	display: block;
@@ -353,8 +353,8 @@
 
 .watermelon{
 	position: relative;
-	height : 120px;
-	background-color : green;
+	height : 105px;
+	background-color : #0B8A1A;
 	font-size : 16px;
 	font-weight : 500;
 }
@@ -376,7 +376,7 @@
 	display: block;
     width: 208px;
     height: 290px;
-    padding: 22px 7px 0 15px;
+    padding: 46px 1px 0 27px;
     margin-top: -1px;
     border-bottom: 1px solid #ddd;
     font-size: 12px;
