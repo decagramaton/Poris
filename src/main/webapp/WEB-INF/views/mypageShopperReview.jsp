@@ -8,7 +8,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="icon" href="${pageContext.request.contextPath}/resources/images/favicon.ico" type="image/x-icon">
 		<title>마이페이지 - 내정보 변경</title>
-		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/mypageChangeInfo.css">
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/mypageleftside.css">
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header.css">
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/footer.css">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
