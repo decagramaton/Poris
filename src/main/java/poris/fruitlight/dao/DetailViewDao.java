@@ -62,6 +62,15 @@ public interface DetailViewDao {
 	 */
 	public List<Review> selectSearchReviewList(@Param("Pager") Pager pager, @Param("Keyword") String searchKeyword);
 	
+	/**
+	 * 페이저 객체로 페이지별 설정한 개수만큼 리뷰 목록을 조회하는 메소드
+	 * @author 고재승
+	 * @since 2023.08.18
+	 * @param pager
+	 * @return 베스트 리뷰 목록
+	 */
+	public List<Review> selectBestReviewList(Pager pager);
+	
 	public void updateAddHelpPoint(String reviewNo);
 	
 	

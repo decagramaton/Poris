@@ -14,6 +14,8 @@
 window.onload = init;
 
 function init() {
+	console.log($("#acceptAgreement").is(":checked"));
+	
 	validationEmptyUserID = false;
 	validationPattenUserID = false;
 	validationEmptyUserPW = false;
@@ -36,7 +38,6 @@ function init() {
 
     $("#user_name").click(checkEmptyUserName);
     $("#user_name").keyup(checkEmptyUserName);
-    $("#user_name").keyup(checkPattenUserName);
     
     $("#user_tel").click(checkEmptyPhone);
     $("#user_tel").keyup(checkEmptyPhone);
@@ -187,6 +188,9 @@ function checkValidation() {
 	} else {
 		validationAcceptAgreement = false;
 	}
+	
+	console.log($("#acceptAgreement").is(":checked"));
+	console.log(validationAcceptAgreement);
 
     // 유효성 검사에서 실패시 form의 제출기능 비활성화
 	if(validationEmptyUserID && validationPattenUserID && validationEmptyUserPW && validationPattenUserPW && validationEmptyAgainUserPW && validationPattenUserName && validationEmptyUserTel && validationAcceptAgreement) {

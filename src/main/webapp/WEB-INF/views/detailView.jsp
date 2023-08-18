@@ -309,11 +309,11 @@
                            <div class="sdp-review-article-order">
                               <div class="sdp-review-article-order-sort">
 
-                                 <button class="sdp-review-article-order-sort-best-btn">베스트순</button>
+                                 <button id="bestReviewBtn" class="sdp-review-article-order-sort-best-btn" onclick="bestReviewPage()">베스트순</button>
 
                                  <div class="sdp-review-article-order-sort-bar">|</div>
 
-                                 <button class="sdp-review-article-order-sort-newest-btn">최신순</button>
+                                 <button id="recentReviewBtn" class="sdp-review-article-order-sort-newest-btn">최신순</button>
                               </div>
                               <div class="sdp-review-article-order-search">
                                  <input class="sdp-review-article-order-search-input" type="text"

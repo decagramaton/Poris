@@ -106,6 +106,38 @@
    </select>
    
    
+   <!-- 2023.08.18 고재승 - 베스트 리뷰 페이저 -->
+   <select id="selectBestReviewList" parameterType="Pager" resultType="Review">
+      <![CDATA[
+         select REVIEW_NO as reviewNo,
+         	ORDER_NO as orderNo,
+         	PRODUCT_NO as productNo,
+			BOARD_NO as boardNo,
+			STAR_RATE as starRate,
+			HELP_POINT as helpPoint,
+			CONTENT as content,
+			SHOPPER_NAME as shopperName,
+			PRODUCT_NAME as productName,
+			WRITE_DATE as writeDate
+         from (
+            select rownum as rnum, REVIEW_NO, ORDER_NO, PRODUCT_NO, BOARD_NO, STAR_RATE, HELP_POINT, CONTENT, SHOPPER_NAME, PRODUCT_NAME, WRITE_DATE
+            from (
+               SELECT r.REVIEW_NO, r.ORDER_NO, r.PRODUCT_NO, r.BOARD_NO, r.STAR_RATE, r.HELP_POINT, r.CONTENT, s.SHOPPER_NAME, p.PRODUCT_NAME, r.WRITE_DATE
+               FROM REVIEW r, ORDER_HISTORY o, SHOPPER s, RECEIPT_HISTORY rh, PRODUCT p
+               WHERE r.ORDER_NO = o.ORDER_NO
+               	AND o.SHOPPER_NO = s.SHOPPER_NO
+               	AND r.ORDER_NO = rh.ORDER_NO
+               	AND rh.PRODUCT_NO = p.PRODUCT_NO
+               	AND BOARD_NO = #{BOARD_NO}
+               	ORDER BY r.HELP_POINT DESC
+            )
+            where rownum <= #{endRowNo}
+         )
+         where rnum >= #{startRowNo}
+      ]]>
+   </select>
+   
+   
    <!-- 2023.08.18 고재승 - 리뷰 검색 페이저 -->
    <select id="selectSearchReviewList" parameterType="map" resultType="Review">
       <![CDATA[
