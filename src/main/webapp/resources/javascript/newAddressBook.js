@@ -8,7 +8,6 @@ function openDeliveryPreferencesPage() {
 	deliPreChild.dataFromParent = "newAddressBookPage";
 }
 
-
 /**
  * 배송 요청사항 자식 페이지 소멸 메소드
  * @author 고재승

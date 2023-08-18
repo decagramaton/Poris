@@ -18,7 +18,7 @@
 	
 	<insert id="insertShippingAddress" parameterType="AddressBook">
 		INSERT INTO SHIPPING_ADDRESS
-		VALUES(ADDRESS_NO_SEQ.NEXTVAL, #{shopperNo}, #{shippingName}, #{shippingAddress}, #{receiverTel}, #{shippingPreference})
+		VALUES(ADDRESS_NO_SEQ.NEXTVAL, #{shopperNo}, #{shippingName}, #{shippingAddress}, #{receiverTel}, #{shippingPreference}, 'Y')
 	</insert>
 	
 	<!-- 2023.08.16 고재승 - 회원의 기본 배송지 정보 조회 SQL문 -->
