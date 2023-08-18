@@ -29,9 +29,6 @@
 		            <h3 class="title col-xl-9 col-lg-8 col-md-7 col-sm col">장바구니</h3>
 		            <span class="steps col-xl-3 col-lg-4 col-md-5 col-sm col"><em>장바구니 ></em> 주문결제 > 주문완료</span>
 		         </div>
-		         <div>
-		         	<a href="${pageContext.request.contextPath}/myPageTest">테스트 페이지</a>
-		         </div>
 				<!-- 장바구니에 담은 상품이 없을 경우 -->
 				<c:if test="${fn:length(listProduct) == 0}">
 					<div class="cartNoItem text-center">

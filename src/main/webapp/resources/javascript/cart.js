@@ -187,7 +187,7 @@ function calculatePrice() {
 		var priceFinal = totalPrice;
 		var deliveryFinal = totalDelivery - discountDelivery;
 		discountFinal = discountProduct + discountDelivery;
-		var orderPriceFinal = priceFinal + deliveryFinal - discountFinal;
+		var orderPriceFinal = priceFinal + deliveryFinal - discountProduct;
 		
 		$(".finalProductPrice").html(priceFinal.toLocaleString("ko-KR"));
 		$(".finalDeliveryPrice").html(deliveryFinal.toLocaleString("ko-KR"));

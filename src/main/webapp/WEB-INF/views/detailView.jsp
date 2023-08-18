@@ -53,7 +53,7 @@
                                  <span class="rating-star-container" style="float:left;">
                                     <span class="rating-star-num" style="width: 90.0%;"></span>
                                  </span>
-                                 <span class="count">183개 상품평</span>
+                                 <span class="count">${ReviewPager.totalRows}개 상품평</span>
                               </a>
                            </span>
                         </div>
@@ -67,30 +67,21 @@
                   <div class="product-price-container">
                      <div class="product-price">
                         <!-- 할인율 및 원래가격 -->
-                        <div class="product-origin-price">
-                           <span class="discount-rate">${productBoard.discountRate}%</span>
-                           <span class="origin-price">${productBoard.productPrice}원</span>
-                        </div>
+                        <c:if test="${productBoard.discountRate != 0}">
+	                        <div class="product-origin-price">
+	                           <span class="discount-rate">${productBoard.discountRate}%</span>
+	                           <span class="origin-price"><fmt:formatNumber value="${productBoard.productPrice}" pattern="#,###"/>원</span>
+	                        </div>
+	                    </c:if>
                         <!-- 총가격 -->
                         <div class="product-total-price">
                            <span class="total-price">${productBoard.discountPrice}</span>
-                           <span class="unit-price">(100g당 <span>1,725원</span>)</span>
+                           <!-- <span class="unit-price">(100g당 <span>1,725원</span>)</span> -->
                         </div>
                      </div>
                   </div>
-                  <!-- 상품 배송비 -->
-                  <%-- <div class="product-shipping-container">
-                     <div class="product-shipping-fee">
-                     	<c:if test="${product.shippingPrice == 0}">
-	                        <span>무료배송</span>
-                     	</c:if>
-                     	<c:if test="${product.shippingPrice != 0}">
-	                        <span>${product.shippingPrice}</span>
-                     	</c:if>
-                     </div>
-                  </div> --%>
                   <!-- 상품 옵션 -->
-                  <div class="product-option-container">
+                  <div class="product-option-container mt-3">
                   	 <div class="product-option-btn-container">
                   	 	<div class="product-option-btn">
                            <span class="product-option-title">
