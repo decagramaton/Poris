@@ -21,7 +21,7 @@
 				<a class="mymenu-menu-title" href="mypageAddressBook">배송지 변경</a>
 			</div>
 			<div class="mymenu-menu" style="border-bottom: 0px;">
-				<a class="mymenu-menu-title" href="mypageShopperDelete?shopperNo=${ShopperInfo.shopperNo}">회원 탈퇴</a>
+				<a class="mymenu-menu-title" href="mypageShopperDelete">회원 탈퇴</a>
 			</div>
 		</div>
 	</nav>

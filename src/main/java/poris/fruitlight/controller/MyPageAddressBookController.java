@@ -55,7 +55,7 @@ public class MyPageAddressBookController {
 	@GetMapping("/mypageAddressBook/deleteAddressBook")
 	public String deleteAddressBook(int addressNo) {
 		addrBookService.deleteAddressBook(addressNo);
-		
+		log.info("실행");
 		return "redirect:/mypageAddressBook";
 	}
 	
