@@ -38,4 +38,6 @@ public interface ShopperService {
 	public Shopper getShopperById(Shopper shopper);
 	
 	public void setShopperAutoLogin(Shopper shopper);
+	
+	public void deleteShopper(Shopper shopper);
 }

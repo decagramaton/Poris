@@ -77,4 +77,14 @@ public class ShopperServiceImpl implements ShopperService{
 	public void setShopperAutoLogin(Shopper shopper) {
 		shopperDao.updateShopperAutoLoginState(shopper);
 	}
+	
+	/**
+	 * 회원 탈퇴를 위해 DB의 회원 상태를 비활성화로 UPDATE하는 메소드
+	 * @author 고재승
+	 * @since 2023.08.18
+	 */
+	@Override
+	public void deleteShopper(Shopper shopper) {
+		shopperDao.deleteShopper(shopper);
+	}
 }

@@ -9,7 +9,8 @@
 		SHOPPER_PW as shopperPw,
 		SHOPPER_NAME as shopperName,
 		SHOPPER_TEL as shopperTel,
-		SHOPPER_AUTO_LOGIN as shopperAutoLogin
+		SHOPPER_AUTO_LOGIN as shopperAutoLogin,
+		ACTIVATE as activate
 		FROM SHOPPER
 	</select>
 	
@@ -20,7 +21,8 @@
 		SHOPPER_PW as shopperPw,
 		SHOPPER_NAME as shopperName,
 		SHOPPER_TEL as shopperTel,
-		SHOPPER_AUTO_LOGIN as shopperAutoLogin
+		SHOPPER_AUTO_LOGIN as shopperAutoLogin,
+		ACTIVATE as activate
 		FROM SHOPPER
 		WHERE SHOPPER_ID=#{shopperId} AND SHOPPER_PW=#{shopperPw}
 	</select>
@@ -34,7 +36,7 @@
 	
 	<insert id="insertShopper" parameterType="Shopper">
 		INSERT INTO SHOPPER
-		VALUES(SHOPPER_NO_SEQ.NEXTVAL, #{shopperId}, #{shopperPw}, #{shopperName}, #{shopperTel}, '0')
+		VALUES(SHOPPER_NO_SEQ.NEXTVAL, #{shopperId}, #{shopperPw}, #{shopperName}, #{shopperTel}, '0', 'Y')
 	</insert>
 	
 	
@@ -44,7 +46,8 @@
 		SHOPPER_PW as shopperPw,
 		SHOPPER_NAME as shopperName,
 		SHOPPER_TEL as shopperTel,
-		SHOPPER_AUTO_LOGIN as shopperAutoLogin
+		SHOPPER_AUTO_LOGIN as shopperAutoLogin,
+		ACTIVATE as activate
 		FROM SHOPPER
 		WHERE SHOPPER_NO = #{shopperNo}
 	</select>
@@ -77,5 +80,10 @@
 		WHERE SHOPPER_NO = #{shopperNo}
 	</update>
 	
-	
+	<!-- 2023.08.18 고재승 - 회원 탈퇴 - 회원 비활성화 갱신 SQL문 -->
+	<update id="deleteShopper" parameterType="Shopper">
+		UPDATE SHOPPER
+		SET ACTIVATE = 'N'
+		WHERE SHOPPER_NO = #{shopperNo}
+	</update>
 </mapper>

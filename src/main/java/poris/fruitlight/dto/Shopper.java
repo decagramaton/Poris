@@ -14,4 +14,5 @@ public class Shopper {
 	private String shopperName;			// 회원 실명
 	private String shopperTel;			// 회원 연락처
 	private String shopperAutoLogin;	// 회원 자동로그인 여부
+	private String activate;			// 활성화 여부
 }
