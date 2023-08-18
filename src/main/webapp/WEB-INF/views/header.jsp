@@ -12,14 +12,12 @@
 					로그아웃
 				</a>
 			</c:if>
-				<a class="mr-2 mt-2 text-right" href="cart">
-					장바구니
-				</a>
-			<c:if test="${ShopperInfo != null}">
-            	<a class="mr-2 mt-2 text-right" href="mypageOrdered?sid=${ShopperInfo.shopperNo}">
-            		마이페이지
-                </a>
-            </c:if>				
+			<a class="mr-2 mt-2 text-right" href="cart">
+				장바구니
+			</a>
+           	<a class="mr-2 mt-2 text-right" href="mypageOrdered?sid=${ShopperInfo.shopperNo}">
+           		마이페이지
+            </a>
 		</div>
 	</div>
 	<div id="header2" class="headerlogowrapper">

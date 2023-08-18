@@ -3,6 +3,7 @@ package poris.fruitlight.controller;
 import java.io.IOException;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -12,7 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import lombok.extern.slf4j.Slf4j;
-import poris.fruitlight.dto.ChangeShopperInfo;
 import poris.fruitlight.dto.Shopper;
 import poris.fruitlight.service.MyPageChangeInfoService;
 import poris.fruitlight.util.AlertScript;
@@ -25,10 +25,19 @@ public class MyPageChangeInfoController {
 	public MyPageChangeInfoService myPageChangeInfoService;
 	
 	@RequestMapping("/mypageChangeInfo")
-	public String mypageChangeInfo(Model model, int shopperNo) {
-		Shopper shopperinfo = myPageChangeInfoService.getShopper(shopperNo);
-		model.addAttribute("mypageChangeInfo", shopperinfo);
-		
+	public String mypageChangeInfo(Model model, int shopperNo, HttpSession session, HttpServletResponse response) {
+		Shopper shopper = (Shopper) session.getAttribute("ShopperInfo");
+		if(shopper == null) {
+			try {
+				AlertScript.alertAndMovePage(response, "로그인을 해주세요", "/fruitlight/login");
+			} catch (IOException e) {
+				return "redirect:/main";
+			}
+		} else {
+			Shopper shopperinfo = myPageChangeInfoService.getShopper(shopperNo);
+			model.addAttribute("mypageChangeInfo", shopperinfo);
+			
+		}
 		return "mypageChangeInfo";
 	}
 	
