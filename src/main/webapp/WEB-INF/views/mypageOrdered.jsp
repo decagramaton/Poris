@@ -23,21 +23,7 @@
 <%@ include file="/WEB-INF/views/headersimple.jsp" %>
 		<div class="container">
 			<div class="bodycontainer">
-				<div class="leftside">
-					<nav>
-						<div class="mymenu">
-							<div class="text-left pb-2">
-								<h3>마이 페이지</h3>
-							</div>
-							<div class="mymenu-menu">
-								<a class="mymenu-menu-title" href="mypageOrdered">주문 내역</a>
-							</div>
-							<div class="mymenu-menu" style="border-bottom: 0px;">
-								<a class="mymenu-menu-title" href="mypageChangeInfo?shopperNo=${ShopperInfo.shopperNo}">내 정보 변경</a>
-							</div>
-						</div>
-					</nav>
-				</div>
+				<%@ include file="/WEB-INF/views/mypageleftside.jsp" %>
 				<div class="content">
 					<div class="mycoupang-main-container">
 						<div class="mycoupang-main">
