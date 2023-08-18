@@ -22,6 +22,9 @@ function init() {
 	//상품리뷰 페이저 버튼
 	$(".review-btn").click(changeReviewPage);
 	
+	//상품리뷰 검색 버튼
+	$(".sdp-review-article-order-search-btn").click(searchReviewPage);
+	
 	//상품문의 페이저 버튼
 	$(".inquiry-btn").click(changeInquiryPage);
 	
@@ -349,6 +352,94 @@ function changeReviewPage() {
 }
 
 
+//리뷰 검색 기능
+function searchReviewPage() {
+	var searchKeyword = $(".sdp-review-article-order-search-input").val();
+	
+	console.log(searchKeyword);
+	
+	$.ajax({
+		url: "/fruitlight/detailView/searchReviewPage",
+		method: "get",
+		data: {
+			reviewSearchKeyword:searchKeyword
+		},
+		success: function(data) {
+			let html = '';
+			
+			if(data.ReviewList.length != 0) {
+
+				$.each(data.ReviewList, function(index, item) {
+					html += '		<article class="sdp-review-article-list">';
+					html += '			<div class="list-info">';
+					html += '				<div class="list-info-user">';
+					html += '					<span class="list-info-user-name">'+ item.shopperName + '&nbsp;</span>';
+					html += '				</div>';
+					html += '				<div class="list-info-product-info">';
+					html += '					<div class="star-gray">';
+					html += '						<div class="star-orange" style="width: ' + item.starRate + '%;"></div>';
+					html += '					</div>';
+					html += '					<div class="reg-date"><fmt:formatDate value="' + item.writeDate + '" pattern="yyyy.MM.dd"/></div>';
+					html += '				</div>';
+					html += '				<div class="list-info-product-info-name">' + item.productName + '</div>';
+					html += '			</div>';
+					html += '			<div class="list-review">';
+					html += '				<div class="list-review-content">' + item.content + '</div>';
+					html += '			</div>';
+					html += '			<div class="list-help">';
+					html += '				<div id="helpPoint"class="list-help-count"><strong id="helpPointval">' + item.helpPoint + '</strong>명에게 도움 됨</div>';
+					html += '				<button class="list-help-btn" onclick="addHelpPoint('+ item.reviewNo + ')">도움이돼요</button>';
+					html += '				<button class="list-help-report-btn">신고하기</button>';
+					html += '				<div class="sdp-review__clear"></div>';
+					html += '			</div>';
+					html += '		</article>';
+					
+				});
+				
+				html += '	<div class="inquiry-page-btns">';
+				if(data.ReviewPager.totalGroupNo > 1) {
+					if(data.ReviewPager.groupNo > 1) {
+						console.log(data.ReviewPager.startPageNo-1)
+						var prevPage = data.ReviewPager.startPageNo-1
+						html += '				<input type="hidden" value="' + prevPage + '">';
+						html += '				<button class="page-prev review-btn"></button>';
+					}
+				}
+				
+				for(let i=data.ReviewPager.startPageNo; i<=data.ReviewPager.endPageNo; i++) {
+					if(data.ReviewPager.pageNo != i) {
+						html += '				<input type="hidden" value="' + i + '">';
+						html += '				<button class="page-num review-btn">' + i + '</button>';
+					}
+					if(data.ReviewPager.pageNo == i) {
+						html += '				<input type="hidden" value="' + i + '">';
+						html += '				<button class="page-num selected review-btn">' + i + '</button>';
+					}
+				}
+				
+				if(data.ReviewPager.totalGroupNo > 1) {
+					if(data.ReviewPager.groupNo < data.ReviewPager.totalGroupNo) {
+						console.log(data.ReviewPager.endPageNo+1)
+						var nextPage = data.ReviewPager.endPageNo+1
+						html += '				<input type="hidden" value="' + nextPage + '">';
+						html += '				<button class="page-next review-btn"></button>';
+					}
+				}
+				
+				html += '	</div>';
+
+				$("#review-detail-list").html(html);
+				
+				//상품 리뷰 페이저 버튼
+				$(".sdp-review-article-order-search-btn").click(searchReviewPage);
+			}
+		}
+	});
+}
+
+
+
+
 //장바구니 담기
 function addCart() {
 	var selectedItems = $(".product-option-tableRow.selected");
@@ -448,13 +539,6 @@ function addHelpPoint(reviewNo) {
         	
         	helpPointValue = Number(helpPointValue) + 1;
         	eventHandler.html(helpPointValue);
-        	
-        	
-        	/*let helpPointValue = $("#helpPointval").html();
-        	console.log(helpPointValue);
-        	helpPointValue = Number(helpPointValue) + 1;
-        	console.log(helpPointValue);
-        	$("#helpPoint").html(helpPointValue+"명에게 도움이 됨")*/
         }
     })
 }

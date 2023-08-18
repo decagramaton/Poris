@@ -52,6 +52,12 @@ public class DetailViewServiceImpl implements DetailViewService {
 	}
 	
 	@Override
+	public List<Review> getSearchReviewList(Pager pager, String searchKeyword, int boardNo) {
+		pager.setBOARD_NO(boardNo);
+		return detailViewDao.selectSearchReviewList(pager, searchKeyword);
+	}
+	
+	@Override
 	public void addHelpPoint(String reviewNo) {
 		detailViewDao.updateAddHelpPoint(reviewNo);
 	}

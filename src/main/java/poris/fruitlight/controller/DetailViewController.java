@@ -257,4 +257,28 @@ public class DetailViewController {
 		
 		return map;
 	}
+	
+	
+	/**
+	 * @author 고재승
+	 * @since 2023.08.18
+	 * @param pageNo - 이동할 페이지 번호
+	 * @param session - 게시글 번호
+	 * @return Map<"키", 객체>
+	 */
+	@GetMapping("/detailView/searchReviewPage")
+	@ResponseBody
+	public HashMap<String, Object> searchReviewPage(String reviewSearchKeyword, HttpSession session) {
+		int bno = Integer.parseInt(session.getAttribute("BoardNo").toString());
+		int totalReviewCount = detailViewService.getTotalReviewStock(bno);
+		
+		Pager reviewPager = new Pager(10, 1, totalReviewCount, 1);
+		List<Review> reviewList = detailViewService.getSearchReviewList(reviewPager, reviewSearchKeyword, bno);
+		
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("ReviewPager", reviewPager);
+		map.put("ReviewList", reviewList);
+		
+		return map;
+	}
 }

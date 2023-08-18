@@ -61,6 +61,17 @@ public interface DetailViewService {
 	public List<Review> getReviewList(Pager pager, int boardNo);
 	
 	/**
+	 * @author 고재승
+	 * @since 2023.08.18
+	 * @param pager - 페이지 정보
+	 * @param searchKeyword - 검색 키워드
+	 * @param boardNo - 출력할 게시글 번호
+	 * @return 페이지내 출력 개수만큼의 Review 객체 목록
+	 */
+	public List<Review> getSearchReviewList(Pager pager, String searchKeyword, int boardNo);
+	
+	
+	/**
 	 * 
 	 * @param name(상품상세 페이지에서 보여줄 옵션들을 가져오기 위한 기준인 현재 상품 name)
 	 * @return List<Product>(같은 이름을 가진 상품 리스트)

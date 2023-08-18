@@ -1208,7 +1208,7 @@ a {
 }
 
 .sdp-review-article-order .sdp-review-article-order-search .sdp-review-article-order-search-input {
-	width: 350px;
+	width: 300px;
     height: 30px;
     padding: 8px 0 7px 13px;
     border: 0;
@@ -1230,6 +1230,7 @@ a {
 }
 
 .sdp-review-article-order .sdp-review-article-order-search .sdp-review-article-order-search-btn .sdp-review-article-order-search-btn-img {
+	margin-bottom: 7px;
 	width: 12px;
     height: 12px;
 }

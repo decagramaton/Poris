@@ -3,6 +3,7 @@ package poris.fruitlight.dao;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import poris.fruitlight.dto.BoardMedia;
 import poris.fruitlight.dto.Cart;
@@ -52,6 +53,14 @@ public interface DetailViewDao {
 	 */
 	public List<Review> selectReviewList(Pager pager);
 	
+	/**
+	 * 페이저 객체로 페이지별 설정한 개수만큼 리뷰 목록을 조회하는 메소드
+	 * @author 고재승
+	 * @since 2023.08.18
+	 * @param pager
+	 * @return 검색 조건에 해당하는 리뷰 목록
+	 */
+	public List<Review> selectSearchReviewList(@Param("Pager") Pager pager, @Param("Keyword") String searchKeyword);
 	
 	public void updateAddHelpPoint(String reviewNo);
 	
