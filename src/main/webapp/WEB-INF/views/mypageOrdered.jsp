@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -61,51 +62,57 @@
 							</div>
 							<div class="mycoupang-product-search">
 							</div>
-							
-							<div class="exist">
-								<c:forEach var="mypageOrdered" items="${mypageOrdered}" varStatus="i">
-								<div class="order-date-line date-${mypageOrdered.ORDER_DATE}">
-									<div class="left" id="ordereddate">
-										<fmt:formatDate value="${mypageOrdered.ORDER_DATE}" pattern="yyyy.MM.dd"/> 주문
-									</div>
-									<div class="right"></div>
+							<c:if test="${fn:length(mypageOrdered) == 0}">
+								<div class="noexist">
+									주문한 상품이 없습니다.
 								</div>
-									<div class="order-product">
-										<table>
-											<tbody>
-												<tr>
-													<td class="order-product-left">
-														<div class="top">
-															<div class="left">
-																<span>배송 완료</span>
-																<span class="dot">
-																	<span></span>
-																</span>
+							</c:if>
+							<c:if test="${fn:length(mypageOrdered) != 0}">
+								<div class="exist">
+									<c:forEach var="mypageOrdered" items="${mypageOrdered}" varStatus="i">
+									<div class="order-date-line date-${mypageOrdered.ORDER_DATE}">
+										<div class="left" id="ordereddate">
+											<fmt:formatDate value="${mypageOrdered.ORDER_DATE}" pattern="yyyy.MM.dd"/> 주문
+										</div>
+										<div class="right"></div>
+									</div>
+										<div class="order-product">
+											<table>
+												<tbody>
+													<tr>
+														<td class="order-product-left">
+															<div class="top">
+																<div class="left">
+																	<span>배송 완료</span>
+																	<span class="dot">
+																		<span></span>
+																	</span>
+																</div>
 															</div>
-														</div>
-														<div class="bottom">
-															<div>
-																<div style="display:none;"></div>
-																<div class="product-content">
-																	<div class="bottom-flex">
-																		<div class="image">
-																			<a>
-																				<img class="productImage" src="data:${mypageOrdered.MEDIA_DATA};base64, ${mypageOrdered.base64Img}"/>
-																			</a>
-																		</div>
-																		<div class="content">
-																			<div>
-																				<a href="#">
-																					<img height="16">
-																					<span style="color:#111111";>${mypageOrdered.PRODUCT_NAME}</span>
+															<div class="bottom">
+																<div>
+																	<div style="display:none;"></div>
+																	<div class="product-content">
+																		<div class="bottom-flex">
+																			<div class="image">
+																				<a>
+																					<img class="productImage" src="data:${mypageOrdered.MEDIA_DATA};base64, ${mypageOrdered.base64Img}"/>
 																				</a>
+																			</div>
+																			<div class="content">
 																				<div>
-																					<div class="price-ammount">
-																						<span class="price">${mypageOrdered.DISCOUNT_PRICE}원 &nbsp;</span>
-																						<span class="ammount">${mypageOrdered.STOCK}개</span>
-																					</div>
-																					<div class="gotocart">
-																						<button>장바구니 담기</button>
+																					<a href="#">
+																						<img height="16">
+																						<span style="color:#111111";>${mypageOrdered.PRODUCT_NAME}</span>
+																					</a>
+																					<div>
+																						<div class="price-ammount">
+																							<span class="price">${mypageOrdered.DISCOUNT_PRICE}원 &nbsp;</span>
+																							<span class="ammount">${mypageOrdered.STOCK}개</span>
+																						</div>
+																						<div class="gotocart">
+																							<button>장바구니 담기</button>
+																						</div>
 																					</div>
 																				</div>
 																			</div>
@@ -113,147 +120,54 @@
 																	</div>
 																</div>
 															</div>
-														</div>
-													</td>
-													<td class="order-product-right">
-														<div class="buttons">
-															<button class="delisearch">배송조회</button>
-															<button class="trade">교환, 반품 신청</button>
-														</div>
-													</td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-								</c:forEach>
-							</div>
-							<table class="table">
-						        <tr>
-						            <td colspan="4" class="text-center">
-						                <div>
-						                    <a class="btn btn-outline-primary btn-sm" href="mypageOrdered?pageNo=1">처음</a>
-						                    <c:if test="${OrderHistoryPager.groupNo > 1}">
-						                        <a class="btn btn-outline-info btn-sm" href="mypageOrdered?pageNo=${OrderHistoryPager.startPageNo - 1}">이전</a>
-						                    </c:if>
-						
-						                    <c:forEach var="i" begin="${OrderHistoryPager.startPageNo}" end="${OrderHistoryPager.endPageNo}">
-						                        <c:if test="${OrderHistoryPager.pageNo != i}">
-						                            <a class="btn btn-outline-success btn-sm" href="mypageOrdered?pageNo=${i}">${i}</a>
-						                        </c:if>
-						                        <c:if test="${OrderHistoryPager.pageNo == i}">
-						                            <a class="btn btn-danger btn-sm" href="mypageOrdered?pageNo=${i}">${i}</a>
-						                        </c:if>
-						                    </c:forEach>
-						
-						                    <c:if test="${OrderHistoryPager.groupNo < OrderHistoryPager.totalGroupNo}">
-						                        <a class="btn btn-outline-info btn-sm" href="mypageOrdered?pageNo=${OrderHistoryPager.endPageNo + 1}">다음</a>
-						                    </c:if>
-						                    <a class="btn btn-outline-primary btn-sm" href="mypageOrdered?pageNo=${OrderHistoryPager.totalPageNo}">맨끝</a>
-						                </div>
-						            </td>
-						        </tr>
-						    </table>
-							<div class="mycoupang-notice">
-								<div class="mycoupang-notice-delistatus">
-									<div class="delistatus-wrapper">
-										<div class="left"><h4>배송상품 주문상태 안내</h4></div>
-										<div class="right"><a href="#">자세한 내용 더보기</a></div>
-									</div>
-									<div class="delistatus-content">
-										<div>
-											<i class="content-image1"></i>
-											<div class="content-wrapper">
-												<span>
-													<span style="color: #111;">주문,결제,확인</span><br>
-													<span>이 완료되었습니다.</span>
-												</span>
-											</div>
+														</td>
+														<td class="order-product-right">
+															<div class="buttons">
+																<button class="delisearch">배송조회</button>
+																<button class="trade">교환, 반품 신청</button>
+															</div>
+														</td>
+													</tr>
+												</tbody>
+											</table>
 										</div>
-										<div>
-											<i class="content-image2"></i>
-											<div class="content-wrapper">
-												<span>
-													<span style="color: #111;">주문,결제,확인</span><br>
-													<span>이 완료되었습니다.</span>
-												</span>
-											</div>
-										</div>
-										<div>
-											<i class="content-image3"></i>
-											<div class="content-wrapper">
-												<span>
-													<span style="color: #111;">주문,결제,확인</span><br>
-													<span>이 완료되었습니다.</span>
-												</span>
-											</div>
-										</div>
-										<div>
-											<i class="content-image4"></i>
-											<div class="content-wrapper">
-												<span>
-													<span style="color: #111;">주문,결제,확인</span><br>
-													<span>이 완료되었습니다.</span>
-												</span>
-											</div>
-										</div>
-										<div style="width:145px;">
-											<i class="content-image5"></i>
-											<div class="content-wrapper">
-												<span>
-													<span style="color: #111;">주문,결제,확인</span><br>
-													<span>이 완료되었습니다.</span>
-												</span>
-											</div>
-										</div>
-									</div>
+									</c:forEach>
 								</div>
-								<div class="mycoupang-notice-cancel">
-									<div class="cancel-title">
-										<b>
-											<i class="notice-icon"></i>
-											<span>
-												<span style="color:#e52628;">취소/반품/교환 신청</span>
-												전 확인해주세요!
-											</span>
-											
-										</b>
-									</div>
-									<div class="cancel-content">
-										<strong>취소</strong>
-									</div>
-									<div class="cancel-content">
-										-
-										<span>
-											여행/레저/숙박 상품은 취소 시 수수료가 발생할 수 있으며,<br>
-											<span style="margin-left: 7px;">취소수수료를 확인하여 2일 이내(주말,공휴일 제외) 처리결과를 문자로 안내해드립니다.</span>
-										</span>
-										(당일 접수 기준, 마감시간 오후 4시)
-									</div>
-									<div class="cancel-content">
-										- 문화 상품은 사용 전날 24시까지 취소 신청 시 취소수수료가 발생되지 않습니다.
-									</div>
-									<div class="cancel-content">
-										<strong>반품</strong>
-									</div>
-									<div class="cancel-content">
-										- 상품 수령 후 7일 이내 신청하여 주세요.
-									</div>
-									<div class="cancel-content">
-										- 상품이 출고된 이후에는 배송 완료 후, 반품 상품을 회수합니다.
-									</div>
-									<div class="cancel-content">
-										- 설치상품/주문제작/해외배송/신선냉동 상품 등은 고객센터에서만 반품 신청이 가능합니다.
-										<a href="#">1:1문의하기</a>
-									</div>
-									<div class="cancel-content">
-										<strong>교환</strong>
-									</div>
-									<div class="cancel-content">
-										- 상품의 교환 신청은 고객센터로 문의하여 주세요.
-										<a href="#">1:1문의하기</a>
-									</div>
-								</div>
-							</div>
+								<div class="inquiry-page-btns">
+								  <c:if test="${OrderHistoryPager.totalGroupNo > 1}">
+									  <c:if test="${OrderHistoryPager.groupNo > 1}">
+										  <input type="hidden" value="${OrderHistoryPager.startPageNo-1}">
+										  <a href="mypageOrdered?pageNo=${OrderHistoryPager.startPageNo - 1}">
+											  <button class="page-prev inquiry-btn"></button>
+										  </a>
+									  </c:if>
+								  </c:if>
+								
+								  <c:forEach var="i" begin="${OrderHistoryPager.startPageNo}" end="${OrderHistoryPager.endPageNo}">
+								      <c:if test="${OrderHistoryPager.pageNo != i}">
+									    <input type="hidden" value="${i}">
+									    <a href="mypageOrdered?pageNo=${i}">
+											<button class="page-num inquiry-btn">${i}</button>
+									    </a>
+									  </c:if>
+									  <c:if test="${OrderHistoryPager.pageNo == i}">
+										<input type="hidden" value="${i}">
+										<a href="mypageOrdered?pageNo=${i}">
+											<button class="page-num selected inquiry-btn">${i}</button>
+										</a>
+									  </c:if>
+								  </c:forEach>
+								  
+								  <c:if test="${OrderHistoryPager.totalGroupNo > 1}">
+									  <c:if test="${OrderHistoryPager.groupNo < OrderHistoryPager.totalGroupNo}">
+										  <input type="hidden" value="${OrderHistoryPager.endPageNo+1}">
+										  <a href="mypageOrdered?pageNo=${OrderHistoryPager.endPageNo + 1}">
+											  <button class="page-next inquiry-btn"></button>
+										  </a>
+									  </c:if>
+								  </c:if>
+	                            </div>
+							</c:if>
 						</div>
 					</div>
 				</div>

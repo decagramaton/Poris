@@ -46,10 +46,10 @@ public class MyPageOrderedController {
 	            mpo.setBase64Img(Base64.getEncoder().encodeToString(mpo.getMEDIA_DATA()));
 	        }
 	    } else {
-	    	
 	        int totalOrderHistory = myPageOrderedService.SelectTotalOrderHistory(shopper.getShopperNo());
-
 	        Pager OrderHistoryPager = new Pager(5, 5, totalOrderHistory, pageNo);
+
+	        
 	        mypageOrdered = myPageOrderedService.getList(OrderHistoryPager, shopper.getShopperNo());
 	        for (OrderHistoryOrderList mpo : mypageOrdered) {
 	            mpo.setBase64Img(Base64.getEncoder().encodeToString(mpo.getMEDIA_DATA()));
