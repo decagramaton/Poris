@@ -30,11 +30,6 @@ import poris.fruitlight.dto.ReviewInfo;
 import poris.fruitlight.dto.Shopper;
 import poris.fruitlight.service.DetailViewService;
 
-/**
- * 
- * @author 이은지, 고재승
- *
- */
 @Slf4j
 @Controller
 public class DetailViewController {
@@ -42,18 +37,18 @@ public class DetailViewController {
 	private DetailViewService detailViewService;
 	
 	/**
+	 * 상품 상세 페이지 초기화면 출력
 	 * @author 고재승, 이은지
 	 * @param model
 	 * @return 상세상품(detailView) 페이지
 	 */
 	@RequestMapping("/detailView")
 	public String detailView(Model model, HttpSession session) {
-		// Step1. Session에 있는 게시판 번호 get - ok
+		// Step1. Session에 있는 게시판 번호 얻기
 		int bno = Integer.parseInt(session.getAttribute("BoardNo").toString());
 		
 		//  -------------   [ 상품 정보  ]  --------------------
-		
-		// Step2. 게시판 번호에 해당하는 데이터 load
+		// Step2-1. 게시판 번호에 해당하는 데이터 load
 		ProductBoard productBoard = detailViewService.getProduct(bno);
 		productBoard.setBase64Img(Base64.getEncoder().encodeToString(productBoard.getMediaData()));
 		List<ProductBoard> productImageList = detailViewService.getImages(bno);
@@ -62,41 +57,42 @@ public class DetailViewController {
 			product.setBase64Img(Base64.getEncoder().encodeToString(product.getMediaData()));
 		}
 		
-		// Step3. 상품 이름을 기준으로 옵션 데이터 load
+		// Step2-2. 상품 이름을 기준으로 옵션 데이터 load
 		List<Product> productOptionList = detailViewService.getOptions(productBoard.getProductName());
 		
 		
-		// Step4. 상품 정보와 옵션 정보를 JSP에 Model으로 전달
+		// Step2-3. 상품 정보와 옵션 정보를 JSP에 Model으로 전달
 		model.addAttribute("productBoard", productBoard);
 		model.addAttribute("productImageList", productImageList);
 		model.addAttribute("productOptionList", productOptionList);
 		
-		//  -------------   [ 필수 표기 정보  ]  --------------------
-		
+		//  -------------   [ 상품 필수 표기 정보  ]  --------------------
+		// Step3-1. 게시글 번호를 기준으로 필수 표기 정보 데이터 load
 		FoodRequiredInfo foodRequiredInfo = detailViewService.getFoodRequiredInfoByBoardNo(bno);
+		// Step3-2. 상품 필수 표기 정보를 JSP에 Model으로 전달
 		model.addAttribute("foodRequiredInfo", foodRequiredInfo);
 		
 		//  -------------   [ 상품 상세 정보  ]  --------------------
-		
+		// Step4-1. 게시글 번호를 기준으로 상품 상세 정보 데이터 load
 		List<BoardMedia> productContentList = detailViewService.getProductContentList(bno);
+		
+		// Step4-2. 이미지 데이터 Base64 인코딩 진행
 		for(BoardMedia productContent : productContentList) {
 			productContent.setBase64Img(Base64.getEncoder().encodeToString(productContent.getMediaData()));
 	    }
+		// Step4-3. 상품 상세정보를 JSP에 Model으로 전달
 		model.addAttribute("productContentList", productContentList);
 		
 		
 		//  -------------   [ 리뷰 페이저  ]  --------------------
-		
-		// Step1. 게시판 번호에 해당하는 리뷰의 총 개수 load
+		// Step5-1. 게시판 번호에 해당하는 리뷰의 총 개수 load
 		int totalReviewStock = detailViewService.getTotalReviewStock(bno);
 		
-		// Step2. Pager객체 생성 및 리뷰 게시판 생성
+		// Step5-2. Pager객체 생성 및 리뷰 게시판 생성
 		Pager ReviewPager = new Pager(2, 2, totalReviewStock, 1);
 		List<Review> ReviewList = detailViewService.getReviewList(ReviewPager, bno);
 		
-		log.info("ReviewList : " + ReviewList);
-		
-		// 리뷰 평균 점수 및 리뷰 개수 구하기
+		// Step5-3. 리뷰 평균 점수 처리
 		ReviewInfo reviewInfo = null;
 		
 		if(ReviewList.size() != 0) {
@@ -108,27 +104,25 @@ public class DetailViewController {
 			}
 			
 			reviewInfo.setStarRateAvg(totalSumStarRate/ReviewList.size());
-			reviewInfo.setTotalReviewScore((float)(totalSumStarRate/40.0));
+			reviewInfo.setTotalReviewScore((float)(Math.round((totalSumStarRate/40.0)*10)/10.0));
 		}
 		
-		// Step3. Model객체로 JSP 전달
+		// Step5-4. Model객체로 JSP 전달
 		model.addAttribute("ReviewPager", ReviewPager);
 		model.addAttribute("ReviewList", ReviewList);
 		model.addAttribute("ReviewInfo", reviewInfo);
 		
-		
-		
 		//  -------------   [ 상품 문의 페이저  ]  --------------------
-		
-		// Step5. 상품 게시판에 존재하는 상품문의 게시판 개수 load
+		// Step6-1. 상품 게시판에 존재하는 상품문의 게시판 개수 load
 		int totalProductInquiryNum = detailViewService.getTotalProductInquiryNum(bno);
 		
-		
-		// Step6-1. Pager 객체 생성 (게시글 행 수, 페이지 개수, 총 페이지 개수, 페이지 시작 번호)
-		// Step6-2. Pager 기반 상품 문의 게시판 생성
+		// Step6-2. Pager 객체 생성 (게시글 행 수, 페이지 개수, 총 페이지 개수, 페이지 시작 번호)
 		Pager productInquiryPager = new Pager(5, 5, totalProductInquiryNum, 1);
+		
+		// Step6-3. Pager 기반 상품 문의 게시판 생성
 		List<ProductInquiry> productInquiryList = detailViewService.getProductInquiryList(productInquiryPager, bno);
 		
+		// Step6-4. Model객체로 JSP 전달
 		model.addAttribute("productInquiryPager", productInquiryPager);
 		model.addAttribute("productInquiryList", productInquiryList);
 		
