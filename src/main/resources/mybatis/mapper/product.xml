@@ -37,8 +37,9 @@
          WHERE p.PRODUCT_NO = b.PRODUCT_NO AND b.BOARD_NO = m.BOARD_NO AND (p.PRODUCT_NO IN(
          	SELECT DISTINCT b.BOARD_NO
          		FROM PRODUCT_BOARD b
-                WHERE (p.PRODUCT_NO IN(1,29,43)) AND MEDIA_NAME LIKE '%main_thumbnail%'
+                WHERE (p.PRODUCT_NO IN(1,29,43,105,106,111)) AND MEDIA_NAME LIKE '%main_thumbnail%'
          ))
+         ORDER BY p.PRODUCT_NO ASC
    </select>
    
    <select id="CategorySub" resultType="poris.fruitlight.dto.ProductList">
@@ -47,8 +48,9 @@
          WHERE p.PRODUCT_NO = b.PRODUCT_NO AND b.BOARD_NO = m.BOARD_NO AND (p.PRODUCT_NO IN(
          	SELECT DISTINCT b.BOARD_NO
          		FROM PRODUCT_BOARD b
-                WHERE (p.PRODUCT_NO IN(50,53,56)) AND MEDIA_NAME LIKE '%main_thumbnail%'
+                WHERE (p.PRODUCT_NO IN(1,29,43,50,53,56,90,91,4,12,105,106,110,111,113,115)) AND MEDIA_NAME LIKE '%main_thumbnail%'
          ))
+         ORDER BY p.PRODUCT_NO ASC
    </select>
    
    <select id="SelectDetailView" parameterType="int" resultType="int">

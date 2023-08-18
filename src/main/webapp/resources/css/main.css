@@ -218,7 +218,7 @@
 .carousel-item {
 	height : 300px;
 }
-.carousel-caption {
+.cherry{
 	position: relative;
 	height : 120px;
 	background-color : red;
@@ -273,6 +273,128 @@
     display : block;
 }
 .cateAdvertiseCherryListItem > a > span > span > img{
+	width: 59px;
+	height : 14px;
+}
+
+/* 수박 추천 카테고리*/
+.cateAdvertiseWatermelon{
+	border-top : 2px solid green;
+	width: 1095px;
+	height : 300px;
+    margin-bottom: 20px;
+    background-color: #fff;
+}
+.cateAdvertiseWatermelon > dl {
+	position: relative;
+	border-bottom: 1px solid #ddd;
+	height : 300px;
+}
+.cateAdvertiseWatermelonTitle {
+	position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    width: 114px;
+    padding: 40px 0 0 22px;
+    font-size: 30px;
+    color : green;
+}
+.cateAdvertiseWatermelonTitle > a {
+	display: block;
+    margin-top: 9px;
+    font-size: 11px;
+    color: #888;
+}
+.cateAdvertiseWatermelonHotkey {
+	position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 2;
+    width: 124px;
+    padding: 22px 10px;
+}
+.cateAdvertiseWatermelonHotkey > strong {
+	display: block;
+    font-size: 16px;
+    padding-bottom: 4px;
+}
+.cateAdvertiseWatermelonHotkey > a{
+	float: left;
+    clear: left;
+    display: block;
+    line-height: 28px;
+    padding: 0 10px;
+    margin-top: 6px;
+    border: 1px solid #ccc;
+    white-space: nowrap;
+    font-size: 12px;
+}
+.cateAdvertiseWatermelonPromotion{
+	position: relative;
+    float: left;
+    margin-left: 145px;
+    width: 324px;
+    height: 300px;
+    border-bottom: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    background: #fafafa;
+    text-align: center;
+}
+
+.watermelon{
+	position: relative;
+	height : 120px;
+	background-color : green;
+	font-size : 16px;
+	font-weight : 500;
+}
+
+.cateAdvertiseWatermelonList {
+	position: relative;
+    float: left;
+    width: 625px;
+    height: 300px;
+    overflow: hidden;
+    border-bottom: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+}
+.cateAdvertiseWatermelonListList {
+	display : inline-block;
+	list-style : none;
+}
+.cateAdvertiseWatermelonListItem {
+	display: block;
+    width: 208px;
+    height: 290px;
+    padding: 22px 7px 0 15px;
+    margin-top: -1px;
+    border-bottom: 1px solid #ddd;
+    font-size: 12px;
+    color: #111;
+    display: list-item;
+    float : left;
+}
+.cateAdvertiseWatermelonListItem:hover > a{
+	text-decoration: none;	
+}
+.cateAdvertiseWatermelonListItem:hover > a > .hoverUnderline {
+	color : #4285f4;
+	text-decoration: underline;
+}
+.cateAdvertiseWatermelonListItem > a > img {
+    width: 160px;
+    height: 160px;
+}
+.cateAdvertiseWatermelonListItem > a > span {
+	max-height: 28px;
+    overflow: hidden;
+    line-height: 14px;
+    margin: 6px 0 1px;
+    color: #111;
+    display : block;
+}
+.cateAdvertiseWatermelonListItem > a > span > span > img{
 	width: 59px;
 	height : 14px;
 }

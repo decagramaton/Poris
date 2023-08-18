@@ -12,7 +12,8 @@ function init(){
    }
    
    $("#carouselMainItem1").addClass("active");
-   $("#carouselCateMainItem1").addClass("active");
+   $("#carouselCate1MainItem1").addClass("active");
+   $("#carouselCate2MainItem1").addClass("active");
 }
 const catehandle1 = window.matchMedia(`(min-width: 1200px)`);
 const catehandle2 = window.matchMedia(`(max-width: 1200px)`);

@@ -120,18 +120,18 @@
    						</dt>
    						<dd id="cateAdvertiseCherryPromotion" class="cateAdvertiseCherryPromotion">
    							<div id="demo1" class="carousel slide" data-ride="carousel" style="height:300px;">
-								<ul class="carousel-indicators" style="height:300px;">
+								<ul class="carousel-indicators">
 							    	<li data-target="#demo1" data-slide-to="0" class="active"></li>
 							    	<li data-target="#demo1" data-slide-to="1"></li>
 							    	<li data-target="#demo1" data-slide-to="2"></li>
 							  	</ul>
 								<div class="carousel-inner" style="height:300px;">
-							  		<c:forEach var="catemainlist" items="${catemainlists}" varStatus="i">
-									    <div id="carouselCateMainItem${i.count}" class="carousel-item">
+							  		<c:forEach var="catemainlist" items="${catemainlists}" varStatus="i" begin="0" end="2">
+									    <div id="carouselCate1MainItem${i.count}" class="carousel-item">
 									    	<a href="/fruitlight/main/SelectDetailView?pid=${catemainlist.PRODUCT_NO}">
 										    	<img src="data:${catemainlist.MEDIA_DATA};base64, ${catemainlist.base64Img}" width="500" height="500">
 									    	</a>
-									    	<div class="carousel-caption" style="bottom:50px;">
+									    	<div class="carousel-caption cherry" style="bottom:50px;">
 									      		<h3>체리 특가!</h3>
 									        	<p>신선하고 맛있는 체리 특가 판매중</p>
 									      	</div>  
@@ -156,7 +156,7 @@
 					  	<div class="carousel-inner">
 						    <div class="carousel-item active">
 						    	<ul id="cateAdvertiseCherryListList1" class="cateAdvertiseCherryListList">
-						    		<c:forEach var="catesublist" items="${catesublists}" varStatus="i">
+						    		<c:forEach var="catesublist" items="${catesublists}" begin="0" step="3" end="6">
 							    		<li id="cateAdvertiseCherryListItem" class="cateAdvertiseCherryListItem">
 							    			<a href="/fruitlight/main/SelectDetailView?pid=${catesublist.PRODUCT_NO}">
 							    				<img src="data:${catesublist.MEDIA_DATA};base64, ${catesublist.base64Img}"/>
@@ -171,7 +171,7 @@
 							</div>
 							<div class="carousel-item">
 								<ul id="cateAdvertiseCherryListList2" class="cateAdvertiseCherryListList">
-						    		<c:forEach var="catesublist" items="${catesublists}" varStatus="i">
+						    		<c:forEach var="catesublist" items="${catesublists}" begin="4" end="6">
 							    		<li id="cateAdvertiseCherryListItem" class="cateAdvertiseCherryListItem">
 							    			<a href="/fruitlight/main/SelectDetailView?pid=${catesublist.PRODUCT_NO}">
 							    				<img src="data:${catesublist.MEDIA_DATA};base64, ${catesublist.base64Img}"/>
@@ -186,7 +186,7 @@
 						  	</div>
 						  	<div class="carousel-item">
 								<ul id="cateAdvertiseCherryListList3" class="cateAdvertiseCherryListList">
-						    		<c:forEach var="catesublist" items="${catesublists}" varStatus="i">
+						    		<c:forEach var="catesublist" items="${catesublists}" begin="7" end="9">
 							    		<li id="cateAdvertiseCherryListItem" class="cateAdvertiseCherryListItem">
 							    			<a href="/fruitlight/main/SelectDetailView?pid=${catesublist.PRODUCT_NO}">
 							    				<img src="data:${catesublist.MEDIA_DATA};base64, ${catesublist.base64Img}"/>
@@ -210,8 +210,115 @@
    						</dd>
    					</dl>
    				</div>
-	      		</div>
-      		</div>
+   				<div id="cateAdvertiseWatermelon" class="cateAdvertiseWatermelon">
+   					<dl>
+   						<dt id="cateAdvertiseWatermelonTitle" class="cateAdvertiseWatermelonTitle">
+   							<span>수박</span>
+   							<a href="list?search=수박">&nbsp;바로가기 ></a>
+   						</dt>
+   						<dd id="cateAdvertiseWatermelonPromotion" class="cateAdvertiseWatermelonPromotion">
+   							<div id="demo3" class="carousel slide" data-ride="carousel" style="height:300px;">
+								<ul class="carousel-indicators">
+							    	<li data-target="#demo3" data-slide-to="0" class="active"></li>
+							    	<li data-target="#demo3" data-slide-to="1"></li>
+							    	<li data-target="#demo3" data-slide-to="2"></li>
+							  	</ul>
+								<div class="carousel-inner" style="height:300px;">
+							  		<c:forEach var="catemainlist" items="${catemainlists}" varStatus="i" begin="3" end="5">
+									    <div id="carouselCate2MainItem${i.count}" class="carousel-item">
+									    	<a href="/fruitlight/main/SelectDetailView?pid=${catemainlist.PRODUCT_NO}">
+										    	<img src="data:${catemainlist.MEDIA_DATA};base64, ${catemainlist.base64Img}" width="500" height="500">
+									    	</a>
+									    	<div class="carousel-caption watermelon" style="bottom:50px;">
+									      		<h3>수박 특가!</h3>
+									        	<p>여름철 더위를 날려줄 수박 판매!</p>
+									      	</div>  
+										</div>
+							  		</c:forEach>
+								</div>
+								<a class="carousel-control-prev" href="#demo3" data-slide="prev">
+									<span class="carousel-control-prev-icon"></span>
+								</a>
+								<a class="carousel-control-next" href="#demo3" data-slide="next">
+									<span class="carousel-control-next-icon"></span>
+								</a>
+							</div>
+   						</dd>
+   						<dd id="cateAdvertiseWatermelonList" class="cateAdvertiseWatermelonList">
+   							<div id="demo4" class="carousel slide" data-ride="carousel" style="height:300px;">
+								<ul class="carousel-indicators">
+					    	<li data-target="#demo4" data-slide-to="0" class="active bg-dark"></li>
+					    	<li data-target="#demo4" data-slide-to="1" class="bg-dark"></li>
+					    	<li data-target="#demo4" data-slide-to="2" class="bg-dark"></li>
+					  	</ul>
+					  	<div class="carousel-inner">
+						    <div class="carousel-item active">
+						    	<ul id="cateAdvertiseWatermelonListList1" class="cateAdvertiseWatermelonListList">
+						    		<c:forEach var="catesublist" items="${catesublists}" begin="1" step="1" end="2">
+							    		<li id="cateAdvertiseWatermelonListItem" class="cateAdvertiseWatermelonListItem">
+							    			<a href="/fruitlight/main/SelectDetailView?pid=${catesublist.PRODUCT_NO}">
+							    				<img src="data:${catesublist.MEDIA_DATA};base64, ${catesublist.base64Img}"/>
+							    				<span id="hoverUnderline" class="hoverUnderline">${catesublist.PRODUCT_NAME}</span>
+							    				<span>
+							    					<strong>${catesublist.PRODUCT_PRICE}</strong>원
+							    				</span>	
+							    			</a>
+							    		</li>
+						    		</c:forEach>
+						    		<li id="cateAdvertiseWatermelonListItem" class="cateAdvertiseWatermelonListItem">
+						    			<a href="/fruitlight/main/SelectDetailView?pid=${catesublists[10].PRODUCT_NO}">
+						    				<img src="data:${catesublists[10].MEDIA_DATA};base64, ${catesublists[10].base64Img}"/>
+						    				<span id="hoverUnderline" class="hoverUnderline">${catesublists[10].PRODUCT_NAME}</span>
+						    				<span>
+						    					<strong>${catesublists[10].PRODUCT_PRICE}</strong>원
+						    				</span>	
+						    			</a>
+						    		</li>
+						    	</ul>
+							</div>
+							<div class="carousel-item">
+								<ul id="cateAdvertiseWatermelonListList2" class="cateAdvertiseWatermelonListList">
+						    		<c:forEach var="catesublist" items="${catesublists}" begin="11" end="13">
+							    		<li id="cateAdvertiseWatermelonListItem" class="cateAdvertiseWatermelonListItem">
+							    			<a href="/fruitlight/main/SelectDetailView?pid=${catesublist.PRODUCT_NO}">
+							    				<img src="data:${catesublist.MEDIA_DATA};base64, ${catesublist.base64Img}"/>
+							    				<span id="hoverUnderline" class="hoverUnderline">${catesublist.PRODUCT_NAME}</span>
+							    				<span>
+							    					<strong>${catesublist.PRODUCT_PRICE}</strong>원
+							    				</span>	
+							    			</a>
+							    		</li>
+						    		</c:forEach>
+						    	</ul>
+						  	</div>
+						  	<div class="carousel-item">
+								<ul id="cateAdvertiseWatermelonListList3" class="cateAdvertiseWatermelonListList">
+						    		<c:forEach var="catesublist" items="${catesublists}" begin="13" end="15">
+							    		<li id="cateAdvertiseWatermelonListItem" class="cateAdvertiseWatermelonListItem">
+							    			<a href="/fruitlight/main/SelectDetailView?pid=${catesublist.PRODUCT_NO}">
+							    				<img src="data:${catesublist.MEDIA_DATA};base64, ${catesublist.base64Img}"/>
+							    				<span id="hoverUnderline" class="hoverUnderline">${catesublist.PRODUCT_NAME}</span>
+							    				<span>
+							    					<strong>${catesublist.PRODUCT_PRICE}</strong>원
+							    				</span>	
+							    			</a>
+							    		</li>
+						    		</c:forEach>
+						    	</ul>
+							</div>
+						</div>
+						<a class="carousel-control-prev" href="#demo4" data-slide="prev">
+							<span class="carousel-control-prev-icon bg-dark"></span>
+						</a>
+						<a class="carousel-control-next" href="#demo4" data-slide="next">
+							<span class="carousel-control-next-icon bg-dark"></span>
+						</a>
+					</div>
+   						</dd>
+   					</dl>
+   				</div>
+    		</div>
+   		</div>
 <%@ include file="/WEB-INF/views/footer.jsp" %>
 	</body>
 </html>
