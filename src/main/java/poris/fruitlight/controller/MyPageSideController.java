@@ -8,9 +8,9 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -19,6 +19,7 @@ import poris.fruitlight.dto.OrderHistoryOrderList;
 import poris.fruitlight.dto.OrderSearchParam;
 import poris.fruitlight.dto.Pager;
 import poris.fruitlight.dto.Shopper;
+import poris.fruitlight.service.AddressBookService;
 import poris.fruitlight.service.MyPageChangeInfoService;
 import poris.fruitlight.service.MyPageOrderedService;
 import poris.fruitlight.util.AlertScript;
@@ -32,6 +33,9 @@ public class MyPageSideController {
 	
 	@Resource
 	public MyPageOrderedService myPageOrderedService;
+	
+	@Autowired
+	private AddressBookService addrBookService;
 	
 	@RequestMapping("/mypageChangeInfo")
 	public String mypageChangeInfo(Model model, int shopperNo, HttpSession session, HttpServletResponse response) {
