@@ -323,7 +323,7 @@ header {
 /* 상품옵션 테이블 */
 .product-option {
 	margin-top: 10px;
-	max-height: 140px;
+	max-height: 151px;
 	overflow: auto;
 }
 .product-option-table {
@@ -354,10 +354,8 @@ header {
 /* 상품 수량 */
 .product-quantity-container {
 	display: inline;
-	/* float: left; */
 }
 .product-quantity {
-	/* width: 80px; */
     height: 20px;
 	border: 1px solid #ccc;
 	display: table;

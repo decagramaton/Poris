@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -64,12 +65,10 @@
 										<c:if test="${todaylist.DISCOUNT_RATE != 0}">
 											<div id="productPriceArea" class="productPriceArea">
 												<span id="productDisrate" class="productDisrate">${todaylist.DISCOUNT_RATE}%</span>
-												<del id="productDiscountPrice"class="productDiscountPrice">${todaylist.PRODUCT_PRICE}원</del>
+												<del id="productDiscountPrice"class="productDiscountPrice"><fmt:formatNumber value="${todaylist.PRODUCT_PRICE}" pattern="#,###"/>원</del>
 											</div>
 										</c:if>
-										<em>
-											<span id="productPrice" class="productPrice">${todaylist.DISCOUNT_PRICE}원</span>
-										</em>
+											<span id="productPrice" class="productPrice"><fmt:formatNumber value="${todaylist.DISCOUNT_PRICE}" pattern="#,###"/>원</span>
 									</div>
 								</div>
 				      		</div>
@@ -92,16 +91,16 @@
 					      		</div>
 					      		<c:if test="${sellerlist.DISCOUNT_RATE != 0}">
 						      		<div class="productDiscountHolder">
-						      			<span>지금 ${sellerlist.DISCOUNT_RATE}% 할인중!</span>
+						      		<em>
+						      			지금 <span>${sellerlist.DISCOUNT_RATE}%</span> 할인중!
+						      		</em>
 						      		</div>
 					      		</c:if>
 					      		<div class="productNameHolder">
 					      			<a href="detailView?pid=${sellerlist.PRODUCT_NO}"id="productName" class="productName">${sellerlist.PRODUCT_NAME}</a>
 					      		</div>
 					      		<div id="price" class="price">
-									<em>
-										<span id="productPrice" class="productPrice">${sellerlist.DISCOUNT_PRICE}원</span>
-									</em>
+										<span id="productPrice" class="productPrice"><fmt:formatNumber value="${sellerlist.DISCOUNT_PRICE}" pattern="#,###"/>원</span>
 								</div>
 				      		</div>
 			      		</c:forEach>
@@ -162,7 +161,7 @@
 							    				<img src="data:${catesublist.MEDIA_DATA};base64, ${catesublist.base64Img}"/>
 							    				<span id="hoverUnderline" class="hoverUnderline">${catesublist.PRODUCT_NAME}</span>
 							    				<span>
-							    					<strong>${catesublist.PRODUCT_PRICE}</strong>원
+							    					<strong><fmt:formatNumber value="${catesublist.PRODUCT_PRICE}" pattern="#,###"/></strong>원
 							    				</span>	
 							    			</a>
 							    		</li>
@@ -177,7 +176,7 @@
 							    				<img src="data:${catesublist.MEDIA_DATA};base64, ${catesublist.base64Img}"/>
 							    				<span id="hoverUnderline" class="hoverUnderline">${catesublist.PRODUCT_NAME}</span>
 							    				<span>
-							    					<strong>${catesublist.PRODUCT_PRICE}</strong>원
+							    					<strong><fmt:formatNumber value="${catesublist.PRODUCT_PRICE}" pattern="#,###"/></strong>원
 							    				</span>	
 							    			</a>
 							    		</li>
@@ -192,7 +191,7 @@
 							    				<img src="data:${catesublist.MEDIA_DATA};base64, ${catesublist.base64Img}"/>
 							    				<span id="hoverUnderline" class="hoverUnderline">${catesublist.PRODUCT_NAME}</span>
 							    				<span>
-							    					<strong>${catesublist.PRODUCT_PRICE}</strong>원
+							    					<strong><fmt:formatNumber value="${catesublist.PRODUCT_PRICE}" pattern="#,###"/></strong>원
 							    				</span>	
 							    			</a>
 							    		</li>
@@ -260,7 +259,7 @@
 							    				<img src="data:${catesublist.MEDIA_DATA};base64, ${catesublist.base64Img}"/>
 							    				<span id="hoverUnderline" class="hoverUnderline">${catesublist.PRODUCT_NAME}</span>
 							    				<span>
-							    					<strong>${catesublist.PRODUCT_PRICE}</strong>원
+							    					<strong><fmt:formatNumber value="${catesublist.PRODUCT_PRICE}" pattern="#,###"/></strong>원
 							    				</span>	
 							    			</a>
 							    		</li>
@@ -270,7 +269,7 @@
 						    				<img src="data:${catesublists[10].MEDIA_DATA};base64, ${catesublists[10].base64Img}"/>
 						    				<span id="hoverUnderline" class="hoverUnderline">${catesublists[10].PRODUCT_NAME}</span>
 						    				<span>
-						    					<strong>${catesublists[10].PRODUCT_PRICE}</strong>원
+						    					<strong><fmt:formatNumber value="${catesublists[10].PRODUCT_PRICE}" pattern="#,###"/></strong>원
 						    				</span>	
 						    			</a>
 						    		</li>
@@ -284,7 +283,7 @@
 							    				<img src="data:${catesublist.MEDIA_DATA};base64, ${catesublist.base64Img}"/>
 							    				<span id="hoverUnderline" class="hoverUnderline">${catesublist.PRODUCT_NAME}</span>
 							    				<span>
-							    					<strong>${catesublist.PRODUCT_PRICE}</strong>원
+							    					<strong><fmt:formatNumber value="${catesublist.PRODUCT_PRICE}" pattern="#,###"/></strong>원
 							    				</span>	
 							    			</a>
 							    		</li>
@@ -299,7 +298,7 @@
 							    				<img src="data:${catesublist.MEDIA_DATA};base64, ${catesublist.base64Img}"/>
 							    				<span id="hoverUnderline" class="hoverUnderline">${catesublist.PRODUCT_NAME}</span>
 							    				<span>
-							    					<strong>${catesublist.PRODUCT_PRICE}</strong>원
+							    					<strong><fmt:formatNumber value="${catesublist.PRODUCT_PRICE}" pattern="#,###"/></strong>원
 							    				</span>	
 							    			</a>
 							    		</li>

@@ -48,6 +48,7 @@
     	FROM BOARD_MEDIA
     	WHERE BOARD_NO = #{boardNo}
     		AND MEDIA_NAME LIKE '%content%'
+    	order by MEDIA_NAME
     </select>
    
 	<select id="selectImgsByBno" parameterType="int" resultType="ProductBoard">
@@ -57,6 +58,7 @@
 	  where b.BOARD_NO = m.BOARD_NO
 	  and b.BOARD_NO = #{bno}
       and MEDIA_NAME like '%detailView_main%'
+      order by MEDIA_NAME
    </select>
    
    <!-- 2023.08.13 고재승 - resultType의 값을 Mapper의 Alias으로 변경했습니다. -->
