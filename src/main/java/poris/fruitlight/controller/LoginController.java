@@ -1,28 +1,22 @@
 package poris.fruitlight.controller;
 
-import java.util.Date;
+import java.io.IOException;
 
 import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.websocket.Session;
 
-import org.apache.ibatis.type.IntegerTypeHandler;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import lombok.extern.slf4j.Slf4j;
-import poris.fruitlight.dto.LoginParam;
-import poris.fruitlight.dto.Member;
 import poris.fruitlight.dto.Shopper;
 import poris.fruitlight.service.LoginService;
 import poris.fruitlight.service.ShopperService;
+import poris.fruitlight.util.AlertScript;
 
 @Slf4j
 @Controller
@@ -58,9 +52,10 @@ public class LoginController {
 	 * @param session - 로그인 성공 시 유저 정보를 브라우저 내 공유하기 위해 사용
 	 * @param model - 로그인 실패 시, 에러 사유 메세지와 유저가 입력한 값을 전달하기 위해 사용
 	 * @return 메인 페이지로 리다이렉트
+	 * @throws IOException 
 	 */
 	@PostMapping("/login/askLogin")
-	public String askLogin(Shopper shopper, HttpServletResponse response , HttpSession session, Model model) {
+	public String askLogin(Shopper shopper, HttpServletResponse response , HttpSession session, Model model) throws IOException {
 		Shopper dbShopper = null;
 		
 		if( (shopper.getShopperId() != null) && (shopper.getShopperPw() != null) ) {
@@ -73,7 +68,7 @@ public class LoginController {
 		
 		// Step3. 회원 정보가 없으면 JSP에 에러 콘솔 출력 (에러 처리)
 		if(dbShopper == null) {
-			model.addAttribute("error", "정보가 잘못됨. 다시입력");
+			AlertScript.alertAndBackPage(response, "회원정보를 찾을 수 없습니다.");
 			session.setAttribute("Shopper", shopper);
 			return "redirect:/login";
 		} else {
