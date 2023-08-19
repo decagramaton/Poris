@@ -164,6 +164,12 @@ public class CartController {
 		return "redirect:/order";
 	}
 	
+	/**
+	 * 
+	 * @param pno(이동할 상품 번호)
+	 * @param session
+	 * @return 리다이렉트로 상품 상세(DetailView) 페이지
+	 */
 	@GetMapping("/cart/goToDetailView") 
 	public String goToDetailView(int pno, HttpSession session) {
 		int bno = cartProductService.getBoardNo(pno);

@@ -16,6 +16,7 @@ public class ProductInquiry {
 	//상품문의 관련 DTO
 	private int INQUIRY_NO;			//상품문의 no(PK)
 	private int BOARD_NO;			//상품게시글 no(FK)
+	private String PRODUCT_NAME;	//상품이름
 	private String INQUIRY_CONTENT;	//문의내용
 	@DateTimeFormat(pattern="yyyy/MM/dd HH:mm:ss")
 	private Date INQUIRY_DATE;		//문의날짜

@@ -51,6 +51,7 @@
     	order by MEDIA_NAME
     </select>
    
+   <!-- 상품 이미지 조회 -->
 	<select id="selectImgsByBno" parameterType="int" resultType="ProductBoard">
       select MEDIA_NAME as mediaName, 
       		 MEDIA_DATA as mediaData
@@ -61,7 +62,7 @@
       order by MEDIA_NAME
    </select>
    
-   <!-- 2023.08.13 고재승 - resultType의 값을 Mapper의 Alias으로 변경했습니다. -->
+   <!-- 상품 옵션 조회 -->
    <select id="selectByName" parameterType="String" resultType="Product">
       select PRODUCT_NO, PRODUCT_NAME, PRODUCT_STOCK, PRODUCT_OPTION, DISCOUNT_PRICE
       from PRODUCT
@@ -208,7 +209,7 @@
    </update>
    
    
-   
+   <!-- 장바구니 추가 -->
    <update id="updateCartStock" parameterType="poris.fruitlight.dto.Cart">
       MERGE INTO CART
 	  USING DUAL
@@ -220,6 +221,7 @@
 	      VALUES (#{SHOPPER_NO}, #{PRODUCT_NO}, #{CART_PRODUCT_STOCK})
    </update>
    
+   <!-- 상품문의 게시글 조회 -->
    <select id="selectProductInquiryPager" parameterType="poris.fruitlight.dto.Pager" resultType="poris.fruitlight.dto.ProductInquiry">
       <![CDATA[
          select rnum, INQUIRY_NO, INQUIRY_CONTENT, INQUIRY_DATE, EMPTANSWER, ANSWER_CONTENT, ANSWER_DATE, SHOPPER_NAME
@@ -238,6 +240,7 @@
       ]]>
    </select>
    
+   <!-- 상품문의 페이저를 위한 총 게시글 조회 -->
    <select id="count" parameterType="int" resultType="int">
       select count(*) from PRODUCT_INQUIRY
       where BOARD_NO = #{BOARD_NO}

@@ -7,7 +7,7 @@
 				</div>
 				<div class="footerLayer2">
 					<h4>고객 센터</h4>
-					<span>010-1234-5678</span><br>
+					<span>1588-8282</span><br>
 					<span>주중 : 오전9시 ~ 오후 6시</span><br>
 					<span>주말 : 휴무</span>
 				</div>
