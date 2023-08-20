@@ -64,6 +64,21 @@ public class OrderController {
 		return "order";
 	}
 	
+	/**
+	 * 구매하기 클릭시 주문 관련 데이터 db에 저장 및 업데이트
+	 * @author 이은지
+	 * @param session
+	 * @param addressNo(주문번호)
+	 * @param payType(결제유형 - 계좌이체, 신용/체크카드, 휴대폰, 무통장입금)
+	 * @param payTypeBank(계좌이체 시 은행먕)
+	 * @param payTypeCard(신용/체크키드 시 카드사명)
+	 * @param payTypeTelecom(휴대폰 시 통신사명)
+	 * @param payTypeDepositBank(무통장입금 시 은행명)
+	 * @param receiptPurpose(현금영수증 발행목적 - 소득공제, 지출증빙)
+	 * @param cashReceiptRegisterType(현금영수증 종류 - 휴대폰번호, 현금영수증카드)
+	 * @param cashReceiptRequestNo(현금영수증 번호)
+	 * @return 내 주문목록(mypageOrdered) 페이지
+	 */
 	@RequestMapping("/order/buyOrder")
 	public String buyOrder(
 			HttpSession session,
@@ -77,13 +92,15 @@ public class OrderController {
 			String cashReceiptRegisterType,
 			String cashReceiptRequestNo) {
 		
+		//  =============   장바구니 및 바로구매로부터 받은 데이터  ====================
 		//상품 목록과 결제 정보
 		List<OrderParam> orderParamList = (List<OrderParam>) session.getAttribute("orderParamList");
-		int totalPrice = (int) session.getAttribute("totalPrice");
-		int discountPrice = (int) session.getAttribute("discountPrice");
-		int shippingPrice = (int) session.getAttribute("shippingPrice");
-		int orderPrice = (int) session.getAttribute("orderPrice");
+		int totalPrice = (int) session.getAttribute("totalPrice");			//총 상품가격
+		int discountPrice = (int) session.getAttribute("discountPrice");	//총 할인가격
+		int shippingPrice = (int) session.getAttribute("shippingPrice");	//총 배송비
+		int orderPrice = (int) session.getAttribute("orderPrice");			//총 주문가격
 		
+		//  =============   ORDER_HISTORY(주문내역) 데이터  ====================
 		//OrderHistory DTO 객체 생성
 		OrderHistory order = new OrderHistory();
 		//유저 번호
@@ -148,9 +165,10 @@ public class OrderController {
 		//현금영수증 번호
 		order.setCASH_RECEIPT_NO(cashReceiptRequestNo);
 		
-		//order DB에 저장
+		//DB에 저장
 		orderService.addOrder(order);
 		
+		//  =============   RECEIPT_HISTORY(주문 상세 내역) 데이터  ====================
 		for(OrderParam orderParam : orderParamList) {
 			//ReceiptHistory DTO 객체 생성
 			ReceiptHistory receipt = new ReceiptHistory();
@@ -160,10 +178,11 @@ public class OrderController {
 			receipt.setPRICE(orderParam.getProductPrice());
 			//상품수량
 			receipt.setSTOCK(orderParam.getProductStock());
-			//receipt DB에 저장
+			//DB에 저장
 			orderService.addReceipt(receipt);
 		}
 		
+		//  =============   CART(장바구니) 데이터  ====================
 		//장바구니에서 구매했을 경우 장바구니에 담긴 상품 제거
 		if((String) session.getAttribute("from") == "cart") {
 			for(OrderParam orderParam : orderParamList) {
@@ -171,24 +190,26 @@ public class OrderController {
 				Cart cart = new Cart();
 				cart.setSHOPPER_NO(loginShopper.getShopperNo());
 				cart.setPRODUCT_NO(orderParam.getProductNo());
-				//cart DB에서 제거
+				//DB에서 제거
 				cartProductService.deleteProduct(cart);
 			}
 		}
 		
-		//사용한 쿠폰이 있을 경우 쿠폰 제거
+		//  =============   COUPON(쿠폰) 데이터  ====================
+		//사용한 쿠폰이 있을 경우 사용완료로 변경
 		List<Integer> couponList = (List<Integer>) session.getAttribute("couponList");
 		if(couponList != null) {
 			for(int couponNo : couponList) {
-				//쿠폰에서 삭제하기 위해 Coupon DTO 객체 생성
+				//사용완료로 변경하기 위해 Coupon DTO 객체 생성
 				Coupon coupon = new Coupon();
 				coupon.setCOUPON_NO(couponNo);
 				coupon.setSHOPPER_NO(loginShopper.getShopperNo());
-				//coupon DB에서 제거
+				//DB에 업데이트
 				orderService.useCoupon(coupon);
 			}
 		}
 		
+		//  =============   PRODUCT(상품) 데이터  ====================
 		//구매한 상품의 구매수량만큼 재고 업데이트
 		for(OrderParam orderParam : orderParamList) {
 			orderService.changeProductStock(orderParam);

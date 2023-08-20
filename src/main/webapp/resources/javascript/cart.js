@@ -17,7 +17,6 @@ function init() {
 	$(".productStock").change(changeItemQuantity);
 	$(".quantityChange").click(changeStock);
 	
-	
 	//할인쿠폰 동작
 	$(".cboxCoupon").click(calculatePrice);
 	

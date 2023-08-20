@@ -5,7 +5,7 @@ import java.util.Date;
 import lombok.Data;
 
 /**
- * ORDER_HISTORY (주문내역) DTO
+ * ORDER_HISTORY (주문내역) 테이블 DTO
  * @author 이은지
  *
  */

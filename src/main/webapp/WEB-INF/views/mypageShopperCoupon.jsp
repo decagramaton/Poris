@@ -8,7 +8,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="icon" href="${pageContext.request.contextPath}/resources/images/favicon.ico" type="image/x-icon">
-		<title>마이페이지 - 상품 문의</title>
+		<title>마이페이지 - 내 쿠폰함</title>
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/mypageleftside.css">
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/mypageShopperInquiry.css">
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header.css">

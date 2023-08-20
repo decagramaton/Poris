@@ -11,12 +11,18 @@ import poris.fruitlight.dto.Coupon;
 import poris.fruitlight.dto.Pager;
 import poris.fruitlight.dto.ProductInquiry;
 
+/**
+ * 
+ * @author 이은지
+ *
+ */
 @Slf4j
 @Service
 public class MyPageShopperInquiryServiceImpl implements MyPageShopperInquiryService {
 	@Autowired
 	MyPageShopperInquiryDao myPageShopperInquiryDao;
 	
+	//회원별 상품문의 목록 가져오기
 	@Override
 	public List<ProductInquiry> getShopperInquiryList(Pager pager, int sno) {
 		pager.setShopperNo(sno);
@@ -24,18 +30,20 @@ public class MyPageShopperInquiryServiceImpl implements MyPageShopperInquiryServ
 		return list;
 	}
 
+	//회원별 총 상품문의 수 가져오기
 	@Override
 	public int getTotalShopperInquiryNum(int sno) {
 		int totalProductInquiryNum = myPageShopperInquiryDao.countShopperInquiry(sno);
 		return totalProductInquiryNum;
 	}
 
+	//상품문의 글 삭제
 	@Override
 	public void deleteShopperInquiry(int ino) {
 		myPageShopperInquiryDao.deleteShopperInquiry(ino);
 	}
 	
-	//쿠폰 목록 가져오기
+	//회원별 쿠폰 목록 가져오기
 	@Override
 	public List<Coupon> getCoupon(int sno) {
 		List<Coupon> list = myPageShopperInquiryDao.selectCouponBySno(sno);

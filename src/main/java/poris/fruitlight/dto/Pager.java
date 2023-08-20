@@ -18,7 +18,7 @@ public class Pager {
 	private int endRowNo;		//페이지의 마지막 행 번호
 	private int endRowIndex;	//페이지의 마지막 행 인덱스
 	
-	private int BOARD_NO;		//상품게시글 번호 BOARD_NO
+	private int BOARD_NO;		//상품게시글 번호
 	private int shopperNo;		//주문목록 회원 번호
 	private String searchKeyword; //검색어
 	

@@ -210,7 +210,7 @@
    
    
    <!-- 장바구니 추가 -->
-   <update id="updateCartStock" parameterType="poris.fruitlight.dto.Cart">
+   <update id="updateCart" parameterType="poris.fruitlight.dto.Cart">
       MERGE INTO CART
 	  USING DUAL
 	     ON (SHOPPER_NO = #{SHOPPER_NO} and PRODUCT_NO = #{PRODUCT_NO})

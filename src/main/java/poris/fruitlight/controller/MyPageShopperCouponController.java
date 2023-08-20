@@ -28,8 +28,16 @@ public class MyPageShopperCouponController {
 	@Resource
 	private MyPageShopperInquiryService pageShopperInquiryService;
 	
+	/**
+	 * 내 쿠폰함 초기화면 출력
+	 * @param response
+	 * @param session
+	 * @param model
+	 * @return 내 쿠폰함(mypageShopperCoupon) 페이지
+	 */
 	@RequestMapping("/mypageShopperCoupon")
 	public String mypageShopperCoupon(HttpServletResponse response, HttpSession session, Model model) {
+		// Step1. Session에 있는 로그인한 회원 정보 얻기
 		Shopper loginShopper = (Shopper) session.getAttribute("ShopperInfo");
 		if(loginShopper == null) {
 			try {
@@ -38,7 +46,9 @@ public class MyPageShopperCouponController {
 				return "redirect:/main";
 			}
 		} else {
+			// Step2. 로그인한 회원의 쿠폰 데이터 얻기
 			List<Coupon> listCoupon = pageShopperInquiryService.getCoupon(loginShopper.getShopperNo());
+			// Step2-2. 쿠폰 정보를 JSP에 Model으로 전달
 			model.addAttribute("listCoupon", listCoupon);
 		}
 		return "mypageShopperCoupon";

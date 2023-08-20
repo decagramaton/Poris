@@ -92,41 +92,46 @@ public interface DetailViewService {
 	
 	
 	/**
-	 * 
-	 * @param name(상품상세 페이지에서 보여줄 옵션들을 가져오기 위한 기준인 현재 상품 name)
-	 * @return List<Product>(같은 이름을 가진 상품 리스트)
+	 * 상품상세 페이지에서 보여줄 옵션 상품들 조회
+	 * @author 이은지
+	 * @param name(현재 상품 이름)
+	 * @return List<Product>(같은 이름을 가진 상품 DTO 리스트)
 	 */
 	public List<Product> getOptions(String name);
 	
 	
 	/**
-	 * 
+	 * 상품상세 페이지에서 보여줄 이미지 조회
+	 * @author 이은지
 	 * @param bno(상품 게시글 번호)
-	 * @return List<Product>
+	 * @return List<ProductBoard>(상품 이미지 정보를 담은 상품 게시글 DTO 리스트)
 	 */
 	public List<ProductBoard> getImages(int bno);
 	
 	
 	/**
-	 * 
-	 * @param productList(장바구니에 추가될 상품 리스트)
-	 * @return int
+	 * 장바구니에 상품 추가
+	 * @author 이은지
+	 * @param productList(장바구니에 추가될 상품 DTO 리스트)
+	 * @return
 	 */
 	public int addToCart(List<Cart> cart);
 	
 	
 	/**
-	 * 
-	 * @param pager(상품문의 페이저)
-	 * @param pno(상품문의 목록을 보여줄 상품 no)
-	 * @return List<ProductInquiry>(상품문의 리스트)
+	 * 페이징된 상품문의 게시글 목록 조회
+	 * @author 이은지
+	 * @param pager(상품문의 페이저 DTO)
+	 * @param pno(상품문의 목록을 보여줄 상품번호)
+	 * @return List<ProductInquiry>(상품문의 DTO 리스트)
 	 */
 	public List<ProductInquiry> getProductInquiryList(Pager pager, int bno);
 	
 	
 	/**
-	 * 
-	 * @param pno(상품문의 총 개수를 보여줄 상품 no)
+	 * 상품문의 게시글 페이징을 위한 총 상품문의 개수 조회
+	 * @author 이은지
+	 * @param pno(상품 번호)
 	 * @return int(상품문의 총 개수)
 	 */
 	public int getTotalProductInquiryNum(int bno);

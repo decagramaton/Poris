@@ -17,12 +17,18 @@ import poris.fruitlight.dto.ProductBoard;
 import poris.fruitlight.dto.ProductInquiry;
 import poris.fruitlight.dto.Review;
 
+/**
+ * 
+ * @author 이은지, 고재승
+ *
+ */
 @Slf4j
 @Service
 public class DetailViewServiceImpl implements DetailViewService {
 	@Autowired
 	DetailViewDao detailViewDao;
 	
+	//상품게시글 가져오기
 	@Override
 	public ProductBoard getProduct(int bno) {
 		ProductBoard product = detailViewDao.selectByBno(bno);
@@ -75,29 +81,36 @@ public class DetailViewServiceImpl implements DetailViewService {
 		detailViewDao.updateAddHelpPoint(reviewNo);
 	}
 	
-	
+	//옵션 가져오기
 	@Override
 	public List<Product> getOptions(String name) {
 		List<Product> list = detailViewDao.selectByName(name);
 		return list;
 	}
+	
+	//이미지 가져오기
 	@Override
 	public List<ProductBoard> getImages(int bno) {
 		List<ProductBoard> list = detailViewDao.selectImgsByBno(bno);
 		return list;
 	}
+	
+	//장바구니에 추가하기
 	@Override
 	public int addToCart(List<Cart> cartList) {
 		for(Cart cartProduct : cartList) {
-			detailViewDao.updateCartStock(cartProduct);
+			detailViewDao.updateCart(cartProduct);
 		}
 		return 0;
 	}
+	
+	//상품문의 게시글 가져오기
 	@Override
 	public List<ProductInquiry> getProductInquiryList(Pager pager, int bno) {
 		pager.setBOARD_NO(bno);
 		List<ProductInquiry> list = detailViewDao.selectProductInquiryPager(pager);
 		
+		//날짜 포맷팅
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss"); 
 		for(ProductInquiry productInquiry : list) {
 			String strInquiryDate = sdf.format(productInquiry.getINQUIRY_DATE());
@@ -109,6 +122,8 @@ public class DetailViewServiceImpl implements DetailViewService {
 		}
 		return list;
 	}
+	
+	//총 상품문의 수 가져오기
 	@Override
 	public int getTotalProductInquiryNum(int bno) {
 		int totalProductInquiryNum = detailViewDao.count(bno);

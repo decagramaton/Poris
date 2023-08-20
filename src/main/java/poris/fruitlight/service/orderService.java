@@ -19,27 +19,30 @@ public interface orderService {
 	public ShippingAddressParam getShippingAddressInfo(Shopper shopper);
 	
 	/**
-	 * 작성자: 이은지
-	 * 결제 시 ORDER_HISTORY에 추가
-	 * @param orderHistory
+	 * 결제 시 ORDER_HISTORY에 데이터 추가
+	 * @author 이은지
+	 * @param orderHistory(주문내역 DTO)
 	 */
 	public void addOrder(OrderHistory orderHistory);
+	
 	/**
-	 * 작성자: 이은지
-	 * 결제 시 RECEIPT_HISTORY에 추가
-	 * @param receiptHistory
+	 * 결제 시 RECEIPT_HISTORY에 데이터 추가
+	 * @author 이은지
+	 * @param receiptHistory(영수증 내역 DTO)
 	 */
 	public void addReceipt(ReceiptHistory receiptHistory);
+	
 	/**
-	 * 작성자: 이은지
-	 * 결제 시 COUPON에서 사용한 쿠폰 제거
-	 * @param coupon
+	 * 결제 시 사용한 쿠폰을 사용완료로 변경
+	 * @author 이은지
+	 * @param coupon(쿠폰 DTO)
 	 */
 	public void useCoupon(Coupon coupon);
+	
 	/**
-	 * 작성자: 이은지
-	 * 결제 후 PRODUCT에서 구매한 만큼 재고 변경
-	 * @param orderParam
+	 * 결제 후 구매한 상품수량만큼 상품의 재고 변경
+	 * @author 이은지
+	 * @param orderParam(결제 관련 정보 DTO)
 	 */
 	public void changeProductStock(OrderParam orderParam);
 }

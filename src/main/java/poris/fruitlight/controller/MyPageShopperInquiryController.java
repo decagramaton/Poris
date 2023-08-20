@@ -1,6 +1,5 @@
 package poris.fruitlight.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -17,6 +16,11 @@ import poris.fruitlight.dto.ProductInquiry;
 import poris.fruitlight.dto.Shopper;
 import poris.fruitlight.service.MyPageShopperInquiryService;
 
+/**
+ * 
+ * @author 이은지
+ *
+ */
 @Slf4j
 @Controller
 public class MyPageShopperInquiryController {
@@ -25,11 +29,12 @@ public class MyPageShopperInquiryController {
    private MyPageShopperInquiryService pageShopperInquiryService;
    
    /**
-    * 
-    * @param shopperNo(상품문의 페이지를 볼 회원 번호)
+    * 내 상품문의 초기화면 출력
+    * @param pageNo(상품문의 페이저 페이지번호, default=1)
+    * @param searchKeyword(상품 검색어, default="")
     * @param model
     * @param session
-    * @return
+    * @return 상품문의(mypageShopperInquiry) 페이지
     */
    @RequestMapping("/mypageShopperInquiry")
    public String myPageShopperInquiry(
@@ -56,52 +61,25 @@ public class MyPageShopperInquiryController {
    }
    
    /**
-    * 
+    * 상품 이름 클릭시 해당 게시글로 이동
     * @param bno(상품 게시글로 이동할 상품 번호)
     * @param session
-    * @return
+    * @return redirect로 상품 상세(detailView) 페이지
     */
    @RequestMapping("/mypageShopperInquiry/goToDetailView")
    public String goToDetailView(int bno, HttpSession session) {
-	   	log.info(bno + "");
 		session.setAttribute("BoardNo", bno);
 		return "redirect:/detailView";
    }
    
    /**
-    * 
+    * 상품문의 게시글 삭제
     * @param ino(삭제될 상품문의 번호)
-    * @return
+    * @return redirect로 상품문의(mypageShopperInquiry) 페이지
     */
    @RequestMapping("/mypageShopperInquiry/deleteInquiry")
    public String deleteInquiry(int ino) {
 	   pageShopperInquiryService.deleteShopperInquiry(ino);
 	   return "redirect:/mypageShopperInquiry?shopperNo=" + 1;
    }
-   
-   /**
-    * 
-    * @param pageNo(이동할 상품문의 페이지 번호)
-    * @param model
-    * @param session
-    * @return
-    */
-   /*@RequestMapping("/mypageShopperInquiry/getShopperInquiry")
-   public String getShopperInquiry(int pageNo, Model model, HttpSession session) {
-	   Shopper loginShopper = (Shopper) session.getAttribute("ShopperInfo");
-	   //  -------------   [ 상품 문의 페이저  ]  --------------------
-	   // Step1-1. 상품 게시판에 존재하는 회원별 상품문의 게시판 개수 load
-	   int totalProductInquiryNum = pageShopperInquiryService.getTotalShopperInquiryNum(loginShopper.getShopperNo());
-		
-	   // Step2-2. Pager 객체 생성 (게시글 행 수, 페이지 개수, 총 페이지 개수, 페이지 시작 번호)
-	   Pager productInquiryPager = new Pager(3, 5, totalProductInquiryNum, pageNo);
-		
-	   // Step1-3. Pager 기반 상품 문의 게시판 생성
-	   List<ProductInquiry> productInquiryList = pageShopperInquiryService.getShopperInquiryList(productInquiryPager, loginShopper.getShopperNo());
-		
-	   // Step1-4. Model객체로 JSP 전달
-	   model.addAttribute("productInquiryPager", productInquiryPager);
-	   model.addAttribute("productInquiryList", productInquiryList);
-	   return "mypageShopperInquiry";
-   }*/
 }

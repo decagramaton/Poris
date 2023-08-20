@@ -13,31 +13,35 @@ import poris.fruitlight.dto.Coupon;
  */
 public interface CartService {
 	/**
-	 * 
-	 * @param sno(보여줄 장바구니 목록을 가진 현재 로그인한 회원 id)
-	 * @return List<CartProduct>(장바구니 상품 리스트)
+	 * 회원번호로 장바구니 리스트 조회
+	 * @param sno(현재 로그인한 회원 번호)
+	 * @return List<CartProduct>(장바구니상품 DTO 리스트)
 	 */
 	public List<CartProduct> getCartProduct(int sno);
+	
 	/**
-	 * 
-	 * @param sno(보여줄 쿠폰 목록을 가진 현재 로그인한 회원 id)
-	 * @return List<Coupon>(보유 쿠폰 리스트)
+	 * 회원번호로 보유쿠폰 조회
+	 * @param sno(현재 로그인한 회원 번호)
+	 * @return List<Coupon>(쿠폰 DTO 리스트)
 	 */
 	public List<Coupon> getCoupon(int sno);
+	
 	/**
-	 * 
-	 * @param pid(장바구니에서 삭제될 상품) 
+	 * 장바구니에 담긴 상품 삭제
+	 * @param cart(삭제될 장바구니 상품 DTO)
 	 */
 	public void deleteProduct(Cart cart);
+	
 	/**
-	 * 
-	 * @param cartProduct(수량이 변경될 장바구니 상품)
+	 * 장바구니에 담긴 상품 수량 변경
+	 * @param cartProduct(수량이 변경될 장바구니 상품 DTO)
 	 */
 	public void changeStock(Cart cart);
+	
 	/**
-	 * 
-	 * @param pno(장바구니에 담긴 상품의 상품번호)
-	 * @return int(장바구니에 담긴 상품의 상품게시글번호)
+	 * 장바구니에 담긴 상품의 게시글 번호
+	 * @param pno(장바구니에 담긴 상품 번호)
+	 * @return int(장바구니에 담긴 상품의 상품게시글 번호)
 	 */
 	public int getBoardNo(int pno);
 }

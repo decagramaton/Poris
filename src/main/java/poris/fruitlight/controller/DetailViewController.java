@@ -130,9 +130,10 @@ public class DetailViewController {
 	}
 
 	/**
-	 * 
-	 * @param request(ajax로 장바구니에 담을 상품의 no리스트와 각 수량리스트)
-	 * @return 상세상품(detailView) 페이지
+	 * 장바구니에 상품 추가
+	 * @author 이은지
+	 * @param request
+	 * @param session
 	 */
 	//장바구니 담기
 	@RequestMapping("/detailView/addCartProduct")
@@ -158,9 +159,18 @@ public class DetailViewController {
 	}
 	
 	/**
-	 * 
-	 * @param request(ajax로 장바구니에 담을 상품의 id리스트와 각 수량리스트)
-	 * @return 리다이렉트로 결제(order) 페이지
+	 * 바로구매 클릭시 ajax로 받은 상품정보를 결제 controller에 전달
+	 * @author 이은지
+	 * @param session
+	 * @param pnos(상품 번호 리스트)
+	 * @param pnames(상품 이름 리스트)
+	 * @param options(상품 옵션 리스트)
+	 * @param stocks(상품 수량 리스트)
+	 * @param prices(상품 가격 리스트)
+	 * @param totalPrice(총 상품 가격)
+	 * @param shippingPrice(배송비)
+	 * @param orderPrice(총 주문 가격)
+	 * @return redirect로 주문/결제(order) 페이지
 	 */
 	//바로구매
 	@RequestMapping("/detailView/buyDirect")
@@ -198,11 +208,11 @@ public class DetailViewController {
 	}
 	
 	/**
-	 * 
-	 * @param pageNo(현재 상품문의 pageNo)
-	 * @param model
+	 * 상품문의 페이저
+	 * @author 이은지
+	 * @param pageNo(이동할 페이지 번호)
 	 * @param session
-	 * @return 결제(order) 페이지
+	 * @return HashMap<"키", 객체>
 	 */
 	//상품문의 페이저
 	@GetMapping("/detailView/moveInquiryPage")

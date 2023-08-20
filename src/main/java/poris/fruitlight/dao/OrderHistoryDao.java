@@ -23,34 +23,32 @@ public interface OrderHistoryDao {
    public List<OrderHistoryOrderList> SelectOrderHistory(Pager pager);
    public List<OrderHistoryOrderList> SearchOrdersByPname(OrderSearchParam orderSearch);
    public int SelectTotalOrderHistory(int shopperNo);
+   
    /**
-    * 작성자: 이은지
-    * 결제 시 ORDER_HISTORY에 추가
-    * @param orderHistory
+    * 결제 시 주문내역에 데이터 insert
+    * @author 이은지
+    * @param orderHistory(주문내역 DTO)
     */
    public void insertOrderHistory(OrderHistory orderHistory);
+   
    /**
-    * 작성자: 이은지
-    * 결제 시 RECEIPT_HISTORY에 추가
-    * @param receiptHistory
+    * 결제 시 영수증내역(주문 상세)에 데이터 insert
+    * @author 이은지
+    * @param receiptHistory(영수증 내역 DTO)
     */
    public void insertReceiptHistory(ReceiptHistory receiptHistory);
+   
    /**
-    * 작성자: 이은지
-    * 결제 후 사용한 쿠폰 COUPON에서 제거
-    * @param coupon
-    */
-   /*public void deleteCoupon(Coupon coupon);*/
-   /**
-    * 작성자: 이은지
-    * 결제 후 사용한 쿠폰 USED = 1로 변경
-    * @param coupon
+    * 결제 후 사용한 쿠폰의 USED를 1로 update
+    * @author 이은지
+    * @param coupon(쿠폰 DTO)
     */
    public void updateCouponUsed(Coupon coupon);
+   
    /**
-    * 작성자: 이은지
-    * 결제 후 구매한 상품 수량만큼 PRODUCT의 재고 업데이트
-    * @param orderParam
+    * 결제 후 구매한 상품 수량만큼 상품의 재고가 줄도록 update
+    * @author 이은지
+    * @param orderParam(주문 관련 DTO)
     */
    public void updateProductStock(OrderParam orderParam);
 }

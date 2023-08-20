@@ -3,7 +3,7 @@ package poris.fruitlight.dto;
 import lombok.Data;
 
 /**
- * 상품상세 -> 결제 또는 장바구니 -> 결제 DTO 객체
+ * 상품상세 -> 결제 / 장바구니 -> 결제  DTO
  * @author 이은지
  *
  */

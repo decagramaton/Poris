@@ -76,7 +76,6 @@
                         <!-- 총가격 -->
                         <div class="product-total-price">
                            <span class="total-price">${productBoard.discountPrice}</span>
-                           <!-- <span class="unit-price">(100g당 <span>1,725원</span>)</span> -->
                         </div>
                      </div>
                   </div>
@@ -559,8 +558,6 @@
                            </div>
                            <div class="return-item-content">
                               <ul>
-                                 <!-- <li>ㆍ와우멤버십 회원: 무료로 반품/교환 가능</li>
-                                 <li>ㆍ와우멤버십 회원 아닌 경우:</li> -->
                                  <li>1) [총 주문금액] - [반품 상품금액] = 19,800원 미만인 경우 반품비 5,000원</li>
                                  <li>2) [총 주문금액] - [반품 상품금액] = 19,800원 이상인 경우 반품비 2,500원</li>
                               </ul>

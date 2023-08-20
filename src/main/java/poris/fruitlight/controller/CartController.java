@@ -6,25 +6,19 @@ import java.util.Base64;
 import java.util.List;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import lombok.extern.slf4j.Slf4j;
-import oracle.net.aso.c;
 import poris.fruitlight.dto.Cart;
 import poris.fruitlight.dto.CartProduct;
 import poris.fruitlight.dto.Coupon;
 import poris.fruitlight.dto.OrderParam;
-import poris.fruitlight.dto.ProductList;
 import poris.fruitlight.dto.Shopper;
 import poris.fruitlight.service.CartService;
 import poris.fruitlight.util.AlertScript;
@@ -34,7 +28,6 @@ import poris.fruitlight.util.AlertScript;
  * @author 이은지
  *
  */
-@Slf4j
 @Controller
 public class CartController {
 	@Resource
@@ -43,12 +36,13 @@ public class CartController {
 	private Shopper loginShopper;
 	
 	/**
-	 * 
+	 * 장바구니 페이지 초기화면 출력
 	 * @param model
 	 * @return 장바구니(cart) 페이지
 	 */
 	@RequestMapping("/cart")
 	public String cart(HttpServletResponse response, HttpSession session, Model model) {
+		// Step1. Session에 있는 로그인한 회원 정보 얻기
 		loginShopper = (Shopper) session.getAttribute("ShopperInfo");
 		if(loginShopper == null) {
 			try {
@@ -57,22 +51,24 @@ public class CartController {
 				return "redirect:/main";
 			}
 		} else {
+			// Step2. 로그인한 회원의 장바구니 상품 및 쿠폰 데이터 얻기
 			List<CartProduct> listProduct = cartProductService.getCartProduct(loginShopper.getShopperNo());
+			List<Coupon> listCoupon = cartProductService.getCoupon(loginShopper.getShopperNo());
 			
+			// Step2-1. 장바구니 상품 이미지 변환
 			for(CartProduct cartProduct : listProduct) {
 				cartProduct.setBase64Img(Base64.getEncoder().encodeToString(cartProduct.getMEDIA_DATA()));
 		    }
 			
+			// Step2-2. 장바구니 정보를 JSP에 Model으로 전달
 			model.addAttribute("listProduct", listProduct);
-			
-			List<Coupon> listCoupon = cartProductService.getCoupon(loginShopper.getShopperNo());
 			model.addAttribute("listCoupon", listCoupon);
 		}
 		return "cart";
 	}
 	
 	/**
-	 * 
+	 * 장바구니 상품 개별 삭제
 	 * @param pid(삭제할 상품의 no)
 	 * @return 리다이렉트로 장바구니(cart) 페이지
 	 */
@@ -82,12 +78,13 @@ public class CartController {
 		Cart cart = new Cart();
 		cart.setSHOPPER_NO(loginShopper.getShopperNo());
 		cart.setPRODUCT_NO(pno);
+		
 		cartProductService.deleteProduct(cart);
 		return "redirect:/cart";
 	}
 	
 	/**
-	 * 
+	 * 장바구니 상품 일괄 삭제
 	 * @param request(ajax로 삭제할 상품의 no 리스트)
 	 * @return 리다이렉트로 장바구니(cart) 페이지
 	 */
@@ -98,13 +95,14 @@ public class CartController {
 			Cart cart = new Cart();
 			cart.setSHOPPER_NO(loginShopper.getShopperNo());
 			cart.setPRODUCT_NO(pno);
+			
 			cartProductService.deleteProduct(cart);
 		}
 		return "redirect:/cart";
 	}
 
 	/**
-	 * 
+	 * 장바구니 상품 수량 변경
 	 * @param cartProduct(수량 변경할 상품 객체) 
 	 * @param model
 	 * @return 장바구니(cart) 페이지
@@ -121,7 +119,7 @@ public class CartController {
 	}
 
 	/**
-	 * 
+	 * 결제하기 위해 필요한 데이터(장바구니 상품 정보, 쿠폰 정보, 주문금액 정보) 결제 controller에 전달
 	 * @param request(ajax로 삭제할 상품의 id 리스트)
 	 * @return 리다이렉트로 장바구니(cart) 페이지
 	 */
@@ -165,7 +163,7 @@ public class CartController {
 	}
 	
 	/**
-	 * 
+	 * 장바구니 상품 클릭 시 해당 게시글로 이동
 	 * @param pno(이동할 상품 번호)
 	 * @param session
 	 * @return 리다이렉트로 상품 상세(DetailView) 페이지

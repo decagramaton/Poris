@@ -48,6 +48,7 @@ public class CartServiceImpl implements CartService {
 		cartDao.updateStock(cart);
 	}
 
+	//상품게시글 번호 가져오기
 	@Override
 	public int getBoardNo(int pno) {
 		int bno = cartDao.selectFirstBnoByPno(pno);
