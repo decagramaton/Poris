@@ -35,7 +35,7 @@ public class MyPageAddressBookController {
 	private AddressBookService addrBookService;
 	
 	@RequestMapping("/mypageAddressBook")
-	public String mypageAddressBook(HttpSession session, Model model) {
+	public String mypageAddressBook(HttpSession session, Model model, HttpServletResponse response) {
 		// Step1. 회원 정보 조회 - 회원 고유번호 획득
 		Shopper shopper = (Shopper) session.getAttribute("ShopperInfo");
 		
@@ -43,7 +43,11 @@ public class MyPageAddressBookController {
 		List<AddressBook> addrBookList = addrBookService.getAddressBookList(shopper);
 		
 		if(addrBookList == null) {
-			return "addressBook";
+			try {
+				AlertScript.alertAndMovePage(response, "로그인을 해주세요", "/fruitlight/login");
+			} catch (IOException e) {
+				return "redirect:/main";
+			}
 		}
 		log.info(addrBookList.toString());
 		// Step3. 배송지 목록을 JSP으로 전달
@@ -59,14 +63,14 @@ public class MyPageAddressBookController {
 		return "redirect:/mypageAddressBook";
 	}
 	
-	@GetMapping("/mypageAddressBook/newAddressBook")
-	public String newAddressBook() {
+	@GetMapping("/mypageNewAddressBook")
+	public String mypageNewAddressBook() {
 		
-		return "newAddressBook";
+		return "mypageNewAddressBook";
 	}
 	
-	@PostMapping("/mypageAddressBook/addAddressBook")
-	public String addAddressBook(AddressBook addressBook) {
+	@PostMapping("/mypageAddAddressBook")
+	public String mypageAddAddressBook(AddressBook addressBook) {
 		log.info("addressBook :" + addressBook.toString());
 		addrBookService.createAddressBook(addressBook);
 		

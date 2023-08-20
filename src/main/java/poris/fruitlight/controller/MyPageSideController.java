@@ -19,7 +19,6 @@ import poris.fruitlight.dto.OrderHistoryOrderList;
 import poris.fruitlight.dto.OrderSearchParam;
 import poris.fruitlight.dto.Pager;
 import poris.fruitlight.dto.Shopper;
-import poris.fruitlight.service.AddressBookService;
 import poris.fruitlight.service.MyPageChangeInfoService;
 import poris.fruitlight.service.MyPageOrderedService;
 import poris.fruitlight.util.AlertScript;
@@ -33,9 +32,6 @@ public class MyPageSideController {
 	
 	@Resource
 	public MyPageOrderedService myPageOrderedService;
-	
-	@Autowired
-	private AddressBookService addrBookService;
 	
 	@RequestMapping("/mypageChangeInfo")
 	public String mypageChangeInfo(Model model, int shopperNo, HttpSession session, HttpServletResponse response) {

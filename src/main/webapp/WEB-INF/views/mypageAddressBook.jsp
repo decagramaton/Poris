@@ -17,7 +17,7 @@
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 		<script src="${pageContext.request.contextPath}/resources/javascript/header.js"></script>
-		<script src="${pageContext.request.contextPath}/resources/javascript/addressBook.js"></script>
+		<script src="${pageContext.request.contextPath}/resources/javascript/mypageAddressBook.js"></script>
 	</head>
 	<body>
 <%@ include file="/WEB-INF/views/headersimple.jsp" %>
@@ -54,7 +54,7 @@
 								</div>
 							</div>
 		            	</c:forEach>
-						<form class="addressBookNewForm" method="get" action="/fruitlight/mypageAddressBook/newAddressBook">
+						<form class="addressBookNewForm" method="get" action="/fruitlight/mypageNewAddressBook">
 						   <div class="addressbook__button-fixer">
 						       <button type="submit" class="addressbook-new-button">
 						           <i class="addressbook__icon--plus"></i>
