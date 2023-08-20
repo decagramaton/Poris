@@ -31,7 +31,7 @@
 				    	<input type="hidden" name="shopperNo" value="${ShopperInfo.shopperNo}">
 				    
 				    	<!-- 받는 사람 입력 요소 -->
-					    <div class="icon-text-field__frame-box _addressBookRecipientRoot" style="height:50px">
+					    <div class="icon-text-field__frame-box _addressBookRecipientRoot" style="height:51px">
 						    <div class="icon-text-field__icon-container" style="height:50px">
 						        <div class="icon-text-field__icon-box icon-text-field__icon-box--fix" style="height:49px">
 						            <i class="icon-text-field__icon--person"></i>
