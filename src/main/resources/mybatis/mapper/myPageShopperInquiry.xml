@@ -14,12 +14,36 @@
                and i.BOARD_NO = b.BOARD_NO
                and b.PRODUCT_NO = p.PRODUCT_NO
                and s.SHOPPER_NO = #{shopperNo}
+               and PRODUCT_NAME like '%' || #{searchKeyword} || '%'
+               order by INQUIRY_DATE desc
             )
             where rownum <= #{endRowNo}
          )
          where rnum >= #{startRowNo}
       ]]>
    </select>
+   
+   <!-- ===== 회원별 내 상품문의 목록을 검색어로 조회 ===== -->
+   <!-- <select id="selectShopperInquiryPager" parameterType="poris.fruitlight.dto.Pager" resultType="poris.fruitlight.dto.ProductInquiry">
+      <![CDATA[
+         select rnum, INQUIRY_NO, BOARD_NO, PRODUCT_NAME, INQUIRY_CONTENT, INQUIRY_DATE, EMPTANSWER, ANSWER_CONTENT, ANSWER_DATE, SHOPPER_NAME
+         from (
+            select rownum as rnum, INQUIRY_NO, BOARD_NO, PRODUCT_NAME, INQUIRY_CONTENT, INQUIRY_DATE, EMPTANSWER, ANSWER_CONTENT, ANSWER_DATE, SHOPPER_NAME
+            from (
+               select INQUIRY_NO, b.BOARD_NO, PRODUCT_NAME, INQUIRY_CONTENT, INQUIRY_DATE, EMPTANSWER, ANSWER_CONTENT, ANSWER_DATE, SHOPPER_NAME
+               from SHOPPER s, PRODUCT_INQUIRY i, PRODUCT_BOARD b, PRODUCT p
+               where s.SHOPPER_NO = i.SHOPPER_NO
+               and i.BOARD_NO = b.BOARD_NO
+               and b.PRODUCT_NO = p.PRODUCT_NO
+               and s.SHOPPER_NO = #{shopperNo}
+               and PRODUCT_NAME like '%' || #{searchKeyword} || '%'
+               order by INQUIRY_DATE desc
+            )
+            where rownum <= #{endRowNo}
+         )
+         where rnum >= #{startRowNo}
+      ]]>
+   </select> -->
    
    <!-- ==== 상품문의 페이저를 위한 총 게시글 조회 ==== -->
    <select id="countShopperInquiry" parameterType="int" resultType="int">

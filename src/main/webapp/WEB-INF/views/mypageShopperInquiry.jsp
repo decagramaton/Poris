@@ -21,7 +21,7 @@
 		<script src="${pageContext.request.contextPath}/resources/javascript/mypageChangeInfo.js"></script>
 	</head>
 	<body>
-<%@ include file="/WEB-INF/views/headersimple.jsp" %>
+		<%@ include file="/WEB-INF/views/headersimple.jsp" %>
 		<div class="container">
 			<div class="bodycontainer">
 				<%@ include file="/WEB-INF/views/mypageleftside.jsp" %>
@@ -31,9 +31,9 @@
 					</div>
 					<!-- 문의 검색 -->
 					<div class="inquiry-search">
-						<form>
+						<form method="post"action="${pageContext.request.contextPath}/mypageShopperInquiry">
 							<div class="inquiry-search-txt">
-								<input type="text" id="inquirySearchKeyword" class="inquirySearchKeyword" name="searcho" placeholder="주문한 상품을 검색할 수 있어요!">
+								<input type="text" id="inquirySearchKeyword" class="inquirySearchKeyword" name="searchKeyword" placeholder="상품명으로 검색할 수 있어요!">
 							</div>
 							<div class="inquiry-search-btn">
 								<button id="headerSearchBtn" class="headerSearchBtn" type="submit">
@@ -85,9 +85,9 @@
 							</c:if>
 							<!-- 문의글 수정 및 삭제버튼 -->
 						    <div class="inquiry-delete-btn p-3 text-right">
-								<c:if test="${productInquiry.EMPTANSWER == true}">
+								<%-- <c:if test="${productInquiry.EMPTANSWER == true}">
 							        <a href="${pageContext.request.contextPath}/mypageShopperInquiry/deleteInquiry?ino=${productInquiry.INQUIRY_NO}" class="btn btn-sm btn-outline-success">수정</a>
-							    </c:if>
+							    </c:if> --%>
 						        <a href="${pageContext.request.contextPath}/mypageShopperInquiry/deleteInquiry?ino=${productInquiry.INQUIRY_NO}" class="btn btn-sm btn-outline-danger ml-1">삭제</a>
 						    </div>
 						</div>
@@ -98,27 +98,34 @@
 					    </div>
 					</c:if>
 						<div class="inquiry-page-btns">
-							<c:if test="${productInquiryPager.groupNo > 1}">
-								<a class="page-prev inquiry-btn" href="${pageContext.request.contextPath}/mypageShopperInquiry/getShopperInquiry?pageNo=${productInquiryPager.startPagNo-1}"></a>
-							</c:if>
-								
-							<c:forEach var="i" begin="${productInquiryPager.startPageNo}" end="${productInquiryPager.endPageNo}">
-								<c:if test="${productInquiryPager.pageNo != i}">
-									<a class="page-num inquiry-btn" href="${pageContext.request.contextPath}/mypageShopperInquiry/getShopperInquiry?pageNo=${i}">${i}</a>
+							<c:if test="${productInquiryPager.searchKeyword == ''}">
+								<c:if test="${productInquiryPager.groupNo > 1}">
+									<a class="page-prev inquiry-btn" href="${pageContext.request.contextPath}/mypageShopperInquiry?pageNo=${productInquiryPager.startPagNo-1}"></a>
 								</c:if>
-								<c:if test="${productInquiryPager.pageNo == i}">
-									<a class="page-num selected inquiry-btn" href="${pageContext.request.contextPath}/mypageShopperInquiry/getShopperInquiry?pageNo=${i}">${i}</a>
+									
+								<c:forEach var="i" begin="${productInquiryPager.startPageNo}" end="${productInquiryPager.endPageNo}">
+									<c:if test="${productInquiryPager.pageNo != i}">
+										<a class="page-num inquiry-btn" href="${pageContext.request.contextPath}/mypageShopperInquiry?pageNo=${i}">${i}</a>
+									</c:if>
+									<c:if test="${productInquiryPager.pageNo == i}">
+										<a class="page-num selected inquiry-btn" href="${pageContext.request.contextPath}/mypageShopperInquiry?pageNo=${i}">${i}</a>
+									</c:if>
+								</c:forEach>
+									
+								<c:if test="${productInquiryPager.groupNo < productInquiryPager.totalGroupNo}">
+									<a class="page-next inquiry-btn" href="${pageContext.request.contextPath}/mypageShopperInquiry?pageNo=${productInquiryPager.endPageNo+1}"></a>
 								</c:if>
-							</c:forEach>
-								
-							<c:if test="${productInquiryPager.groupNo < productInquiryPager.totalGroupNo}">
-								<a class="page-next inquiry-btn" href="${pageContext.request.contextPath}/mypageShopperInquiry/getShopperInquiry?pageNo=${productInquiryPager.endPageNo+1}"></a>
 							</c:if>
+						</div>
+					</c:if>
+					<c:if test="${productInquiryPager.searchKeyword != ''}">
+						<div class="text-right mr-4">
+							<a class="btn btn-md btn-light p-2" href="${pageContext.request.contextPath}/mypageShopperInquiry">돌아가기</a>
 						</div>
 					</c:if>
 				</div>
 			</div>
 		</div>
-<%@ include file="/WEB-INF/views/footer.jsp" %>
+		<%@ include file="/WEB-INF/views/footer.jsp" %>
 	</body>
 </html>

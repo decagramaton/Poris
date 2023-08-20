@@ -101,9 +101,11 @@ public class DetailViewServiceImpl implements DetailViewService {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss"); 
 		for(ProductInquiry productInquiry : list) {
 			String strInquiryDate = sdf.format(productInquiry.getINQUIRY_DATE());
-			String strAnswerDate = sdf.format(productInquiry.getANSWER_DATE());
 			productInquiry.setStrInquiryDate(strInquiryDate);
-			productInquiry.setStrAnswerDate(strAnswerDate);
+			if(productInquiry.isEMPTANSWER() == false) {
+				String strAnswerDate = sdf.format(productInquiry.getANSWER_DATE());
+				productInquiry.setStrAnswerDate(strAnswerDate);
+			}
 		}
 		return list;
 	}
