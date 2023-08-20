@@ -92,10 +92,15 @@
 	</insert>
 	
 	<!-- 작성자: 이은지 -->
-	<delete id="deleteCoupon" parameterType="poris.fruitlight.dto.Coupon">
+	<!-- <delete id="deleteCoupon" parameterType="poris.fruitlight.dto.Coupon">
 		delete from COUPON
 		where COUPON_NO = #{COUPON_NO} and SHOPPER_NO = #{SHOPPER_NO}
-	</delete>
+	</delete> -->
+	<update id="updateCouponUsed" parameterType="poris.fruitlight.dto.Coupon">
+		update COUPON
+		set USED = 1
+		where COUPON_NO = #{COUPON_NO} and SHOPPER_NO = #{SHOPPER_NO}
+	</update>
 	
 	<!-- 작성자: 이은지 -->
 	<update id="updateProductStock" parameterType="poris.fruitlight.dto.OrderParam">

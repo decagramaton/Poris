@@ -32,4 +32,11 @@ public interface MyPageShopperInquiryService {
 	 * @param ino(삭제할 상품문의 번호)
 	 */
 	public void deleteShopperInquiry(int ino);
+	
+	/**
+	 * 
+	 * @param sno(보여줄 쿠폰 목록을 가진 현재 로그인한 회원 id)
+	 * @return List<Coupon>(보유 쿠폰 리스트)
+	 */
+	public List<Coupon> getCoupon(int sno);
 }

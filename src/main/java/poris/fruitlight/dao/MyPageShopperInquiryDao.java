@@ -20,4 +20,11 @@ public interface MyPageShopperInquiryDao {
 	public List<ProductInquiry> selectShopperInquiryPager(Pager pager);
 	public int countShopperInquiry(int sno);
 	public int deleteShopperInquiry(int ino);
+	
+	/**
+	 * 보유한 쿠폰 리스트 보여줌
+	 * @param sno
+	 * @return
+	 */
+	public List<Coupon> selectCouponBySno(int sno);
 }

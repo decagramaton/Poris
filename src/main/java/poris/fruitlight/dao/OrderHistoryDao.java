@@ -40,7 +40,13 @@ public interface OrderHistoryDao {
     * 결제 후 사용한 쿠폰 COUPON에서 제거
     * @param coupon
     */
-   public void deleteCoupon(Coupon coupon);
+   /*public void deleteCoupon(Coupon coupon);*/
+   /**
+    * 작성자: 이은지
+    * 결제 후 사용한 쿠폰 USED = 1로 변경
+    * @param coupon
+    */
+   public void updateCouponUsed(Coupon coupon);
    /**
     * 작성자: 이은지
     * 결제 후 구매한 상품 수량만큼 PRODUCT의 재고 업데이트

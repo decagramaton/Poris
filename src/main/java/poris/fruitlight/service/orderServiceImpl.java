@@ -46,7 +46,7 @@ public class orderServiceImpl implements orderService{
 
 	@Override
 	public void useCoupon(Coupon coupon) {
-		orderHistoryDao.deleteCoupon(coupon);
+		orderHistoryDao.updateCouponUsed(coupon);
 	}
 
 

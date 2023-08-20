@@ -53,7 +53,7 @@ public class MyPageShopperInquiryController {
 	   model.addAttribute("productInquiryPager", productInquiryPager);
 	   model.addAttribute("productInquiryList", productInquiryList);
 	   return "mypageShopperInquiry";
-	}
+   }
    
    /**
     * 

@@ -6,16 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import lombok.extern.slf4j.Slf4j;
-import poris.fruitlight.dao.DetailViewDao;
 import poris.fruitlight.dao.MyPageShopperInquiryDao;
-import poris.fruitlight.dto.BoardMedia;
-import poris.fruitlight.dto.Cart;
-import poris.fruitlight.dto.FoodRequiredInfo;
+import poris.fruitlight.dto.Coupon;
 import poris.fruitlight.dto.Pager;
-import poris.fruitlight.dto.Product;
-import poris.fruitlight.dto.ProductBoard;
 import poris.fruitlight.dto.ProductInquiry;
-import poris.fruitlight.dto.Review;
 
 @Slf4j
 @Service
@@ -39,5 +33,12 @@ public class MyPageShopperInquiryServiceImpl implements MyPageShopperInquiryServ
 	@Override
 	public void deleteShopperInquiry(int ino) {
 		myPageShopperInquiryDao.deleteShopperInquiry(ino);
+	}
+	
+	//쿠폰 목록 가져오기
+	@Override
+	public List<Coupon> getCoupon(int sno) {
+		List<Coupon> list = myPageShopperInquiryDao.selectCouponBySno(sno);
+		return list;
 	}
 }
