@@ -27,7 +27,7 @@
 				<%@ include file="/WEB-INF/views/mypageleftside.jsp" %>
 				<div class="content">
 					<div class="title">
-						<span>문의내역</span> <a href="${pageContext.request.contextPath}/mypageShopperCoupon" class="btn btn-sm btn-gray">쿠폰함</a>
+						<span>문의내역</span>
 					</div>
 					<!-- 문의 검색 -->
 					<div class="inquiry-search">

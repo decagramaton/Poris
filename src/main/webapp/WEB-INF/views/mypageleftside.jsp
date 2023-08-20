@@ -9,6 +9,9 @@
 				<a class="mymenu-menu-title" href="mypageOrdered">주문 내역</a>
 			</div>
 			<div class="mymenu-menu">
+				<a class="mymenu-menu-title" href="mypageShopperCoupon">내 쿠폰함</a>
+			</div>
+			<div class="mymenu-menu">
 				<a class="mymenu-menu-title" href="mypageShopperInquiry?shopperNo=${ShopperInfo.shopperNo}">상품 문의</a>
 			</div>
 			<div class="mymenu-menu">
