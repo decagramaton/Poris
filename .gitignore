@@ -1,3 +1,6 @@
 /target/
-/.classpath
-/.project
+.classpath
+.githnore
+.setting/
+.springBeans
+.project
