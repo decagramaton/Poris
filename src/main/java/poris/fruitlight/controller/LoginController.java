@@ -66,38 +66,42 @@ public class LoginController {
 			AlertScript.alertAndBackPage(response, "회원정보를 찾을 수 없습니다.");
 			session.setAttribute("Shopper", shopper);
 			return "redirect:/login";
-		} else {
-			
-			if(dbShopper.getActivate().equals("N")) {
-				return "redirect:/login";
-			}
-			
-			shopper.setShopperNo(dbShopper.getShopperNo());
-			if(shopper.getShopperAutoLogin() != null) {
-				shopperService.setShopperAutoLogin(shopper);
-			} else {
-				shopper.setShopperAutoLogin("0");
-				shopperService.setShopperAutoLogin(shopper);
-			}
-			
-			// Step4-1. 세션에 Shopper 정보 저장
-			session.setAttribute("ShopperInfo", dbShopper);
-			session.removeAttribute("Shopper");
-			
-			// Step4-2. 자동로그인이 체크되었다면, 클라이언트에게 쿠키 생성
-			if(shopper.getShopperAutoLogin().equals("0")) {
-				
-				Cookie cookie = new Cookie("ShopperID", Integer.toString(dbShopper.getShopperNo()));
-				cookie.setPath("/");
-				cookie.setMaxAge(86400);
-				cookie.setHttpOnly(true);
-				cookie.setSecure(false);
-				
-				response.addCookie(cookie);
-			}
-			
-			// Step4-4. 메인페이지로 리다이렉트
-			return "redirect:/";
 		}
+		
+		// Step4. 비활성화 회원이멘 JSP에 예외 처리 콘솔 출력
+		if(dbShopper.getActivate().equals("N")) {
+			AlertScript.alertAndBackPage(response, "탈퇴 회원.");
+			session.setAttribute("Shopper", shopper);
+			return "redirect:/login";
+		}
+		
+		
+		// Step5. 자동 로그인 체크 여부 확인
+		shopper.setShopperNo(dbShopper.getShopperNo());
+		if(shopper.getShopperAutoLogin() != null) {
+			shopperService.setShopperAutoLogin(shopper);
+		} else {
+			shopper.setShopperAutoLogin("0");
+			shopperService.setShopperAutoLogin(shopper);
+		}
+		
+		// Step6. 세션에 Shopper 정보 저장
+		session.setAttribute("ShopperInfo", dbShopper);
+		session.removeAttribute("Shopper");
+		
+		// Step7. 자동로그인이 체크되었다면, 클라이언트에게 쿠키 생성
+		if(shopper.getShopperAutoLogin().equals("0")) {
+			
+			Cookie cookie = new Cookie("ShopperID", Integer.toString(dbShopper.getShopperNo()));
+			cookie.setPath("/");
+			cookie.setMaxAge(86400);
+			cookie.setHttpOnly(true);
+			cookie.setSecure(false);
+			
+			response.addCookie(cookie);
+		}
+		
+		// Step8. 메인페이지로 리다이렉트
+		return "redirect:/";
 	}
 }

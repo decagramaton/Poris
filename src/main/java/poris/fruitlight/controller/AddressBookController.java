@@ -73,7 +73,6 @@ public class AddressBookController {
 	
 	
 	/**
-	 * DB에 배송지 추가
 	 * @author 고재승
 	 * @return 배송지 추가 페이지 이동
 	 */

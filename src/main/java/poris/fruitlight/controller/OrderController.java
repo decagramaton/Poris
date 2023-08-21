@@ -40,7 +40,13 @@ public class OrderController {
 	
 	private Shopper loginShopper;
 	
-	
+	/**
+	 * 
+	 * @param response - alert 반환
+	 * @param session - 회원 정보
+	 * @param model - 회원정보, 배송지 정보 DTO
+	 * @return
+	 */
 	@RequestMapping("/order")
 	public String DetailViewPage(HttpServletResponse response,HttpSession session, Model model) {
 		// Step1. 로그인 세션 정보 Load
@@ -106,7 +112,7 @@ public class OrderController {
 		//유저 번호
 		order.setSHOPPER_NO(loginShopper.getShopperNo());
 		//배송지 번호
-		order.setADDRESS_NO(addressNo);  //추후 수정
+		order.setADDRESS_NO(addressNo);
 		//결제 날짜
 		order.setORDER_DATE(new Date());
 		//총 상품가격
