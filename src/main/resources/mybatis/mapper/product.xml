@@ -11,6 +11,7 @@
          ))
    </select>
    
+   
    <select id="TodayDiscovery" resultType="poris.fruitlight.dto.ProductList">
       SELECT DISTINCT *
          FROM PRODUCT p, PRODUCT_BOARD b, BOARD_MEDIA m
