@@ -14,9 +14,9 @@
 			<div class="mymenu-menu">
 				<a class="mymenu-menu-title" href="mypageShopperInquiry?shopperNo=${ShopperInfo.shopperNo}">상품 문의</a>
 			</div>
-			<div class="mymenu-menu">
+			<%-- <div class="mymenu-menu">
 				<a class="mymenu-menu-title" href="mypageShopperReview?shopperNo=${ShopperInfo.shopperNo}">상품 후기</a>
-			</div>
+			</div> --%>
 			<div class="mymenu-menu">
 				<a class="mymenu-menu-title" href="mypageChangeInfo?shopperNo=${ShopperInfo.shopperNo}">내 정보 변경</a>
 			</div>
