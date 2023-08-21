@@ -18,6 +18,7 @@ import poris.fruitlight.dto.Review;
  */
 public interface DetailViewService {
 	/**
+	 * 게시글 번호에 해당하는 게시글 조회 메소드
 	 * @author 고재승
 	 * @since 2023.08.13
 	 * @param bno - 상품 게시글 번호
@@ -27,6 +28,7 @@ public interface DetailViewService {
 	
 	
 	/**
+	 * 식품 필수 표기 정보 조회 메소드
 	 * @author 고재승
 	 * @since 2023.08.16
 	 * @param bno - 상품 게시글 번호
@@ -36,6 +38,7 @@ public interface DetailViewService {
 	
 	
 	/**
+	 * 상품 상세 내용 조회 메소드
 	 * @author 고재승
 	 * @since 2023.08.16
 	 * @param boardNo - 상품 게시글 번호
@@ -44,6 +47,7 @@ public interface DetailViewService {
 	public List<BoardMedia> getProductContentList(int boardNo);
 	
 	/**
+	 * 총 리뷰 개수 조회 메소드
 	 * @author 고재승
 	 * @since 2023.08.17
 	 * @param boardNo - 상품 게시글 번호
@@ -52,6 +56,7 @@ public interface DetailViewService {
 	public int getTotalReviewStock(int boardNo);
 	
 	/**
+	 * 게시글의 리뷰 조회 메소드
 	 * @author 고재승
 	 * @since 2023.08.17
 	 * @param pager - 페이지 정보
@@ -61,6 +66,7 @@ public interface DetailViewService {
 	public List<Review> getReviewList(Pager pager, int boardNo);
 	
 	/**
+	 * 리뷰 게시글 검색 결과 조회 메소드
 	 * @author 고재승
 	 * @since 2023.08.18
 	 * @param pager - 페이지 정보
@@ -72,6 +78,7 @@ public interface DetailViewService {
 	
 	
 	/**
+	 * 베스트 리뷰 게시글 조회 결과 메소드
 	 * @author 고재승
 	 * @since 2023.08.18
 	 * @param pager - 페이지 정보
@@ -82,6 +89,7 @@ public interface DetailViewService {
 	
 	
 	/**
+	 * 최근 리뷰 게시글 조회 결과 메소드
 	 * @author 고재승
 	 * @since 2023.08.18
 	 * @param pager - 페이지 정보

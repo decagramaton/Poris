@@ -18,7 +18,11 @@ public class ShopperServiceImpl implements ShopperService{
 	ShopperDao shopperDao;
 	
 	
-	
+	/**
+	 * DB에 저장된 회원이 존재하는지 확한하는 메소드
+	 * @author 고재승
+	 * @since 2023.08.14
+	 */
 	@Override
 	public boolean isMember(Shopper shopper) {
 		

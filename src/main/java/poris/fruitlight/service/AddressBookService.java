@@ -15,6 +15,7 @@ public interface AddressBookService {
 	
 	/**
 	 * 삭제할 배송지 정보를 전달하는 메소드
+	 * @author 고재승
 	 * @param addressNo - 배송지 고유번호
 	 */
 	public void deleteAddressBook(int addressNo);
@@ -23,7 +24,7 @@ public interface AddressBookService {
 	 * 새로운 배송지를 DB에 등록하는 메소드
 	 * @author 고재승
 	 * @since 2023.08.14
-	 * @param addressBook -
+	 * @param addressBook - 배송지 DTO
 	 */
 	public void createAddressBook(AddressBook addressBook);
 }

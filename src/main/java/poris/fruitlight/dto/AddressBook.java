@@ -2,9 +2,12 @@ package poris.fruitlight.dto;
 
 import lombok.Data;
 
+/**
+ * 배송지 DB DTO
+ * @author 고재승
+ */
 @Data
 public class AddressBook {
-	// 배송지 DB DTO
 	private int addressNo;				// 배송지 고유번호(PK)
 	private int shopperNo;				// 회원 고유번호(FK)
 	private String shippingName;		// 받는 사람

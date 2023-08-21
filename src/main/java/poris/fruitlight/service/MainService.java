@@ -43,5 +43,13 @@ public interface MainService {
 	 * @param pid - 제품(상품) 고유번호
 	 */
    public int getSelectBoardNo(int pid);
+   
+   /**
+    * 동일한 상품명을 가진 상품 정보 조회 메소드
+    * @author 고재승
+    * @since 2023.08.17
+    * @param pname - 상품 이름
+    * @return 상품 DTO 리스트
+    */
    public List<ProductList> SelectListName(String pname);
 }

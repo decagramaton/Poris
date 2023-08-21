@@ -2,9 +2,13 @@ package poris.fruitlight.dto;
 
 import lombok.Data;
 
+/**
+ * 회원가입 JSP 페이지 - 회원가입 데이터를 서버에 전송하는 DTO
+ * @author KOSA
+ *
+ */
 @Data
 public class JoinParam {
-	// 회원가입 페이지 - 회원가입 데이터를 서버에 전송하는 DTO
 	private String userId;					// 유저 아이디(이메일)
 	private String userPassword;			// 유저 비밀번호
 	private String userPasswordCheck;		// 유저 비밀번호 재확인

@@ -9,7 +9,6 @@ import lombok.Data;
 /**
  * PRODUCT_INQUIRY (상품문의) 테이블 DTO
  * @author 이은지
- *
  */
 @Data
 public class ProductInquiry {

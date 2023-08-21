@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import lombok.extern.slf4j.Slf4j;
 import poris.fruitlight.dto.Shopper;
-import poris.fruitlight.service.LoginService;
 import poris.fruitlight.service.ShopperService;
 import poris.fruitlight.util.AlertScript;
 

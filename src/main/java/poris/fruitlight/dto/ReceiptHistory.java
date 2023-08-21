@@ -5,7 +5,6 @@ import lombok.Data;
 /**
  * RECEIPT_HISTORY (주문상세내역) 테이블 DTO
  * @author 이은지
- *
  */
 @Data
 public class ReceiptHistory {

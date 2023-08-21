@@ -3,9 +3,7 @@ package poris.fruitlight.dto;
 import lombok.Data;
 
 /**
- * 
  * @author 이은지
- *
  */
 @Data
 public class Product {

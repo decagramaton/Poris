@@ -10,6 +10,7 @@ public interface MyPageChangeInfoService {
 	
 	/**
 	 * 회원의 중복 ID를 검사하는 메소드
+	 * @author 고재승
 	 * @since 2023.08.17
 	 * @param shopper - 유저 정보
 	 * @return 논리값

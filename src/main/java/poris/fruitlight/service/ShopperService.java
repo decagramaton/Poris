@@ -12,7 +12,7 @@ public interface ShopperService {
 	
 	
 	/**
-	 * 
+	 * DB에 해당 회원 존재 여부 확인 메소드
 	 * @author 고재승
 	 * @param userId
 	 * @return True or False
