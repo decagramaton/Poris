@@ -52,11 +52,6 @@ public class MainServiceImpl implements MainService{
       return list;
    }
 
-	@Override
-	public List<ProductList> SelectByPno() {
-		List<ProductList> prl = productDao.TodayDiscovery();
-		return prl;
-	}
 	
 	/**
 	 * 상품 고유번호를 기준으로 게시판의 번호를 조회하는 메소드

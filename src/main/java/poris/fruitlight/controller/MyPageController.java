@@ -34,7 +34,7 @@ public class MyPageController {
 	public MyPageOrderedService myPageOrderedService;
 	
 	/**
-	 * @author 고재승, 김진성
+	 * @author 고재승
 	 * @param shopperPwd - 유효성 검사를 위한 사용자 비밀번호
 	 * @param session 
 	 * @param model - Shopper에 대한 정보(DTO)와 비밀번호 유효성 결과 값(boolean)
@@ -69,7 +69,7 @@ public class MyPageController {
 	}
 	
 	/**
-	 * @author 고재승, 김진성
+	 * @author 고재승
 	 * @param shopperId - 사용자 아이디
 	 * @param session
 	 * @param response
@@ -94,7 +94,7 @@ public class MyPageController {
 	}
 	
 	/**
-	 * @author 고재승, 김진성
+	 * @author 고재승
 	 * @param shopperTel - 사용자의 등록된 전화번호
 	 * @param session 
 	 * @param response
@@ -114,7 +114,7 @@ public class MyPageController {
 	}
 	
 	/**
-	 * @author 고재승, 김진성
+	 * @author 고재승
 	 * @param updateShopperPw - 변경할 사용자의 비밀번호
 	 * @param session
 	 * @param response
@@ -130,7 +130,7 @@ public class MyPageController {
 		
 		AlertScript.alertAndMovePage(response, "비밀번호가 변경되어 로그아웃 되었습니다.", "/fruitlight/login");
 		session.removeAttribute("ShopperInfo");
-
+		
 		return "mypageChangeInfo";
 	}
 }

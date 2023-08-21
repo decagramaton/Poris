@@ -20,7 +20,6 @@ public interface ProductDao {
    public List<ProductList> CategoryMain();
    public List<ProductList> CategorySub();
    
-   public List<ProductList> SelectListView(String pname);
    /**
     * DB에서 PRODUCT 테이블과 PRODUCT_BOARD 테이블에서 상품 번호를 기준으로 게시판 번호를 조회하는 메소드
     * @author 고재승

@@ -54,14 +54,6 @@
          ORDER BY p.PRODUCT_NO ASC
    </select>
    
-   <select id="SelectListView" parameterType="String" resultType="poris.fruitlight.dto.ProductList">
-   		SELECT DISTINCT *
-   			FROM PRODUCT p
-   			JOIN PRODUCT_BOARD b ON p.PRODUCT_NO = n.PRODUCT_NO
-   			JOIN BOARD_MEDIA m ON b.BOARD_NO = m.BOARD_NO
-         	WHERE p.PRODUCT_NAME LIKE '%' || #{searchKeyword} || '%' AND MEDIA_NAME LIKE '%list_thumbnail1%'
-   </select>
-   
    <select id="SelectDetailView" parameterType="int" resultType="int">
       	 SELECT b.BOARD_NO
          FROM PRODUCT p, PRODUCT_BOARD b
