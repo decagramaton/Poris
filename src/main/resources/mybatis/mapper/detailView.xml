@@ -18,7 +18,7 @@
 	  WHERE p.PRODUCT_NO = b.PRODUCT_NO
 	  AND b.BOARD_NO = m.BOARD_NO
 	  AND b.BOARD_NO = #{bno}
-	  AND m.MEDIA_NAME like '%main_thumbnail%'
+	  AND m.MEDIA_NAME like '%thumbnail%'
    </select>
        
     <!-- 2023.08.16 고재승 - 게시글의 상품 필수 표기 정보 조회 SQL문 -->
