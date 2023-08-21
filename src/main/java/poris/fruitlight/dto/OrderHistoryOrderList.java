@@ -7,7 +7,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import lombok.Data;
 
 /**
- * 
+ * 마이페이지(내 주문 내역)에 필요한 DTO
  * @author 김진성
  *
  */

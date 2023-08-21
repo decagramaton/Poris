@@ -19,9 +19,26 @@ import poris.fruitlight.dto.ReceiptHistory;
  */
 @Mapper
 public interface OrderHistoryDao {
-   
+   /**
+    * @author 김진성
+    * @param pager
+    * @return 주문내역 DTO
+    */
    public List<OrderHistoryOrderList> SelectOrderHistory(Pager pager);
+   
+   /**
+    * @author 김진성
+    * @param orderSearch (주문내역 내 검색된 내용)
+    * @return 주문내역 DTO
+    */
    public List<OrderHistoryOrderList> SearchOrdersByPname(OrderSearchParam orderSearch);
+   
+   /**
+    * @author 김진성
+    * @param shopperNo (회원 번호)
+    * @return 사용자가 주문한 총 주문내역 수
+    */
+ 
    public int SelectTotalOrderHistory(int shopperNo);
    
    /**
