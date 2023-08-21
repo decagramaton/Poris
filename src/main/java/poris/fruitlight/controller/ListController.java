@@ -64,7 +64,7 @@ public class ListController {
 		}
 	
 	/**
-	 * @author 김진성
+	 * @author 고재승
 	 * @param pid - 상품 고유 번호
 	 * @param session
 	 * @return 상품 상세 정보 페이지

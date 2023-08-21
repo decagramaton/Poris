@@ -25,13 +25,39 @@ import poris.fruitlight.util.AlertScript;
 
 @Slf4j
 @Controller
-public class MyPageController {
+public class MyPageChangeInfoController {
 	
 	@Resource
 	public MyPageChangeInfoService myPageChangeInfoService;
 	
 	@Resource
 	public MyPageOrderedService myPageOrderedService;
+	
+	
+	/**
+	 * @author 김진성
+	 * @param model - 사용자 정보 DTO
+	 * @param shopperNo - 사용자 고유 번호
+	 * @param session
+	 * @param response
+	 * @return 마이페이지(내정보 변경)시 나오는 비밀번호 유효성 검사 페이지
+	 */
+	@RequestMapping("/mypageChangeInfo")
+	public String mypageChangeInfo(Model model, int shopperNo, HttpSession session, HttpServletResponse response) {
+		Shopper shopper = (Shopper) session.getAttribute("ShopperInfo");
+		if(shopper == null) {
+			try {
+				AlertScript.alertAndMovePage(response, "로그인을 해주세요", "/fruitlight/login");
+			} catch (IOException e) {
+				return "redirect:/main";
+			}
+		} else {
+			Shopper shopperinfo = myPageChangeInfoService.getShopper(shopperNo);
+			model.addAttribute("mypageChangeInfo", shopperinfo);
+			
+		}
+		return "mypageChangeInfo";
+	}
 	
 	/**
 	 * @author 고재승

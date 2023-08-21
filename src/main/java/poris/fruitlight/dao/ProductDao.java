@@ -14,10 +14,34 @@ import poris.fruitlight.dto.ProductList;
  */
 @Mapper
 public interface ProductDao {
+   /**
+    * @author 김진성
+    * @return 메인 배너에 보여질 상품 목록 리스트
+    */
    public List<ProductList> MainBanner();
+   
+   /**
+    * @author 김진성
+    * @return 오늘의 발견 품목에 보여질 상품 목록 리스트
+    */
    public List<ProductList> TodayDiscovery();
+   
+   /**
+    * @author 김진성
+    * @return 오늘의 판매자 특가 품목에 보여질 상품 목록 리스트
+    */
    public List<ProductList> TodaySeller();
+   
+   /**
+    * @author 김진성
+    * @return 카테고리별 추천 상품 목록의 메인 베너에 보여질 상품 목록 리스트
+    */
    public List<ProductList> CategoryMain();
+   
+   /**
+    * @author 김진성
+    * @return 카테고리별 추천 상품 목록의 서브 품목에 보여질 상품 목록 리스트
+    */
    public List<ProductList> CategorySub();
    
    /**

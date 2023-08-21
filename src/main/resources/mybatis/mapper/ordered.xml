@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="poris.fruitlight.dao.OrderHistoryDao">
+   
+   <!-- 작성자 : 김진성 -->
+   <!-- 사용자가 주문한 품목의 수 -->
    <select id="SelectTotalOrderHistory" parameterType="int" resultType="int">
    		SELECT COUNT(*)
    		FROM ORDER_HISTORY
    		WHERE SHOPPER_NO = #{shopperNo}
    </select>
+   <!-- 작성자 : 김진성 -->
+   <!-- 사용자가 주문한 모든 상품을 Pager로 나누어 볼 수 있다. -->
    <select id="SelectOrderHistory" parameterType="Pager" resultType="poris.fruitlight.dto.OrderHistoryOrderList">
        <![CDATA[
        SELECT ORDER_NO,
@@ -45,6 +50,8 @@
           ]]>
    </select>
    
+   <!-- 작성자 : 김진성 -->
+   <!-- 사용자가 주문한 상품 중 상품 이름으로 검색된 목록만 출력 -->
    <select id="SearchOrdersByPname" parameterType="OrderSearch" resultType="poris.fruitlight.dto.OrderHistoryOrderList">
         SELECT oh.ORDER_NO as ORDER_NO,
              oh.SHOPPER_NO as SHOPPER_NO,
