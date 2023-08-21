@@ -74,7 +74,7 @@ public class MainServiceImpl implements MainService{
 
 	@Override
 	public List<ProductList> SelectListName(String pname) {
-		List<ProductList> dbResult = productDao.SelectListView(pname);
+		List<ProductList> dbResult = productDao.SearchProductsByPname(pname);
 		
 		return dbResult;
 	}

@@ -18,7 +18,7 @@ public class ListServiceImpl implements ListService{
 	private ProductDao productDao;
 
 	/**
-	 * 이름으로 검색된 내용만 나오게 함
+	 * 이름으로 검색된 내용만 가져오기
 	 */
 	@Override
 	public List<ProductList> SearchProductsByPname(String pname) {
@@ -26,13 +26,16 @@ public class ListServiceImpl implements ListService{
 	}
 
 	/**
-	 * 전체 상품을 보여주는 메소드
+	 * 전체 상품 가져오기
 	 */
 	@Override
 	public List<ProductList> SearchProducts() {
 		return productDao.SearchProducts();
 	}
-
+	
+	/**
+	 * 상품 고유 번호를 통해 그에 맞는 상품 상세 정보 페이지 가져오기
+	 */
 	@Override
 	public int getSelectBoardNo(int pid) {
 		int dbResult = productDao.SelectDetailView(pid);

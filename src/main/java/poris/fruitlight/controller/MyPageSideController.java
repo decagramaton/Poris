@@ -33,6 +33,14 @@ public class MyPageSideController {
 	@Resource
 	public MyPageOrderedService myPageOrderedService;
 	
+	/**
+	 * @author 김진성
+	 * @param model - 사용자 정보 DTO
+	 * @param shopperNo - 사용자 고유 번호
+	 * @param session
+	 * @param response
+	 * @return 마이페이지(내정보 변경)시 나오는 비밀번호 유효성 검사 페이지
+	 */
 	@RequestMapping("/mypageChangeInfo")
 	public String mypageChangeInfo(Model model, int shopperNo, HttpSession session, HttpServletResponse response) {
 		Shopper shopper = (Shopper) session.getAttribute("ShopperInfo");
@@ -50,7 +58,15 @@ public class MyPageSideController {
 		return "mypageChangeInfo";
 	}
 	
-	
+	/**
+	 * @author 김진성
+	 * @param searchKeyword - 마이페이지(내주문 내역)의 주문내역을 필터링 하기 위한 검색어
+	 * @param pageNo - 주문 내역의 페이지 번호
+	 * @param response
+	 * @param session
+	 * @param model - 주문 내역 검색어, 주문 된 상품 리스트
+	 * @return 로그인된 회원의 마이페이지(내주문 내역)
+	 */
 	@RequestMapping("/mypageOrdered")
 	public String myPageOrdered(
 			@RequestParam(name = "searcho", required = false) String searchKeyword,

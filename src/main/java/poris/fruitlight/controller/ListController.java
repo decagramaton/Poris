@@ -24,6 +24,13 @@ public class ListController {
 	@Resource
 	private ListService listService;
 	
+	/**
+	 * @author 김진성
+	 * @param searchKeyword - 검색 된 상품명(Header 상단 카테고리를 검색어로 적용)
+	 * @param sortOption - 가격 순으로 상품 목록을 나타내기 위한 param
+	 * @param model - 검색어 및 상품 목록 DTO
+	 * @return 상품 목록 페이지
+	 */
 	@RequestMapping("/list")
 		public String list(
 				@RequestParam(name = "search", required = false) String searchKeyword,
@@ -56,6 +63,12 @@ public class ListController {
 			return "list";
 		}
 	
+	/**
+	 * @author 김진성
+	 * @param pid - 상품 고유 번호
+	 * @param session
+	 * @return 상품 상세 정보 페이지
+	 */
 	@RequestMapping("/list/SelectDetailView")
 	public String moveDetailViewPage(int pid, HttpSession session) {
 		

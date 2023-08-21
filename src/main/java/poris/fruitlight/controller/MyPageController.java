@@ -33,6 +33,16 @@ public class MyPageController {
 	@Resource
 	public MyPageOrderedService myPageOrderedService;
 	
+	/**
+	 * @author 고재승, 김진성
+	 * @param shopperPwd - 유효성 검사를 위한 사용자 비밀번호
+	 * @param session 
+	 * @param model - Shopper에 대한 정보(DTO)와 비밀번호 유효성 결과 값(boolean)
+	 * @param shopperNo - 사용자 고유 번호
+	 * @param response
+	 * @return 마이 페이지 (내 정보 변경) 페이지
+	 * @throws IOException
+	 */
 	@PostMapping("/mypageChangeInfo")
 	public String checkPw(String shopperPwd, HttpSession session, Model model, int shopperNo, HttpServletResponse response) throws IOException {
 		
@@ -58,6 +68,14 @@ public class MyPageController {
 		}
 	}
 	
+	/**
+	 * @author 고재승, 김진성
+	 * @param shopperId - 사용자 아이디
+	 * @param session
+	 * @param response
+	 * @return 아이디 변경 후의 마이페이지(내 정보 변경) 
+	 * @throws IOException
+	 */
 	@PostMapping("/mypageChangeInfo/updateId")
 	public String updateId(String shopperId , HttpSession session, HttpServletResponse response) throws IOException {
 		
@@ -75,7 +93,14 @@ public class MyPageController {
 		return "mypageChangeInfo";
 	}
 	
-	
+	/**
+	 * @author 고재승, 김진성
+	 * @param shopperTel - 사용자의 등록된 전화번호
+	 * @param session 
+	 * @param response
+	 * @return 전화번호 변경 후의 마이페이지(내 정보 변경)
+	 * @throws IOException
+	 */
 	@PostMapping("/mypageChangeInfo/updateTel")
 	public String updateTel(String shopperTel , HttpSession session , HttpServletResponse response) throws IOException {
 		
@@ -88,7 +113,14 @@ public class MyPageController {
 		return "mypageChangeInfo";
 	}
 	
-	
+	/**
+	 * @author 고재승, 김진성
+	 * @param updateShopperPw - 변경할 사용자의 비밀번호
+	 * @param session
+	 * @param response
+	 * @return 비밀번호 변경 후의 마이페이지(내 정보 변경)
+	 * @throws IOException
+	 */
 	@PostMapping("/mypageChangeInfo/updatePW")
 	public String updatePW(String updateShopperPw , HttpSession session, HttpServletResponse response) throws IOException {
 		Shopper shopper = (Shopper) session.getAttribute("ShopperInfo");

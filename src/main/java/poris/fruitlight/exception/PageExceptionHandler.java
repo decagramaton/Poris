@@ -9,6 +9,12 @@ import org.springframework.web.servlet.NoHandlerFoundException;
 
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * 에러페이지를 따로 만들어 예외 처리 하기 위한 코드
+ * @author 김진성
+ * 
+ *
+ */
 @Component
 @ControllerAdvice
 @Slf4j

@@ -5,7 +5,7 @@ import org.springframework.web.multipart.MultipartFile;
 import lombok.Data;
 
 /**
- * 
+ * 메인 페이지와 상품 목록 리스트에 필요한 상품 정보 DTO
  * @author 김진성, 고재승
  *
  */
