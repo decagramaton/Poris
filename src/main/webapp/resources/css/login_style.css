@@ -173,3 +173,18 @@ footer {
     font-size: 0.85rem;
     margin-top: 20px;
 }
+
+
+.form-box {
+	border: 5px solid #95CF59;
+	margin: 30px auto;
+	max-width: 500px;
+	padding : 40px;
+}
+
+.findAccountBtn {
+	background-color: #A0DE5F;
+	color: #FFFFFF;
+	font-size: 16px;
+	font-weight: bold;
+}

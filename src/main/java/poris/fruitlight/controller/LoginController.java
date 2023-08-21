@@ -9,8 +9,10 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import lombok.extern.slf4j.Slf4j;
 import poris.fruitlight.dto.Shopper;
@@ -100,5 +102,63 @@ public class LoginController {
 			return "redirect:/";
 		}
 		return "/main";
+	}
+	
+	
+	/**
+	 * 아이디 찾기 페이지 이동
+	 * @author 고재승
+	 * @return 아이디 찾기 페이지
+	 */
+	@GetMapping("/login/findEmail")
+	public String findEmail() {
+		
+		return "findEmail";
+	}
+	
+	/**
+	 * 회원의 아이디 조회 및 응답
+	 * @param shopper - 회원 정보
+	 * @param response - 회원 아이디
+	 */
+	@PostMapping("/login/findEmail/submit")
+	@ResponseBody
+	public void findEmailSubmit(Shopper shopper, HttpServletResponse response) {
+		
+		try {
+			String resultEmail = shopperService.getSearchShopperId(shopper);
+		
+			AlertScript.alertAndMovePage(response, "아이디는 " + resultEmail + " 입니다.", "/fruitlight/login");
+		} catch (IOException e) {}
+	}
+	
+	
+	/**
+	 * 패스워드 찾기 페이지 이동
+	 * @author 고재승
+	 * @return 패스워드 찾기 페이지
+	 */
+	@GetMapping("/login/findPassword")
+	public String findPW() {
+		
+		
+		return "findPassword";
+	}
+	
+	
+	/**
+	 * 회원의 패스워드 조회 및 응답
+	 * @param shopper - 회원 정보
+	 * @param response - 회원 패스워드
+	 */
+	@PostMapping("/login/findPassword/submit")
+	@ResponseBody
+	public void findPasswordSubmit(Shopper shopper, HttpServletResponse response) {
+		
+		try {
+			String resultPassword = shopperService.getSearchShopperPassword(shopper);
+		
+			AlertScript.alertAndMovePage(response, "비밀번호는 " + resultPassword + " 입니다.", "/fruitlight/login");
+		} catch (IOException e) {}
 	}
 }

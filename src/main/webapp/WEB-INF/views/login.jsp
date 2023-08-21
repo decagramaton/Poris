@@ -63,7 +63,8 @@
 			                            <span>자동로그인</span>
 			                        </label>
 			                    </p>
-			                    <a href="#" class="idpw_search">아이디(이메일)/비밀번호 찾기</a>
+			                    <a href="/fruitlight/login/findEmail" class="idpw_search">아이디(이메일) 찾기</a>
+			                    <a href="/fruitlight/login/findPassword" class="idpw_search">비밀번호 찾기</a>
 			                </div>
 			                <button type="submit" id="login_btn">로그인</button>
 			            </fieldset>

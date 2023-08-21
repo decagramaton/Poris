@@ -86,4 +86,21 @@
 		SET ACTIVATE = 'N'
 		WHERE SHOPPER_NO = #{shopperNo}
 	</update>
+	
+	<!-- 2023.08.21 고재승 - 연락처와 일치하는 회원 ID 조회 SQL문 -->
+	<select id="selectSearchShopperEmail" parameterType="Shopper" resultType="String">
+		SELECT SHOPPER_ID
+		FROM SHOPPER
+		WHERE SHOPPER_TEL = #{shopperTel}
+			AND SHOPPER_NAME = #{shopperName}
+	</select>
+	
+	<!-- 2023.08.21 고재승 - 연락처와 일치하는 회원 ID 조회 SQL문 -->
+	<select id="selectSearchShopperPassword" parameterType="Shopper" resultType="String">
+		SELECT SHOPPER_PW
+		FROM SHOPPER
+		WHERE SHOPPER_TEL = #{shopperTel}
+			AND SHOPPER_NAME = #{shopperName}
+			AND SHOPPER_ID = #{shopperId}
+	</select>
 </mapper>

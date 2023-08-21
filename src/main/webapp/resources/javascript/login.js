@@ -77,3 +77,22 @@ function init() {
         }
     });
 }
+
+
+function findEmailOpenEvent() {
+	findEmailChild = window.open("/fruitlight/login/findEmail", "_blank","top=10, left=10, width=500, height=600, status=no, menubar=no, toolbar=no, resizable=no", true);
+}
+
+function findEmailCloseEvent() {
+	findEmailChild.close();
+}
+
+
+function findPWOpenEvent() {
+	findPWChild = window.open("/fruitlight/login/findPW", "_blank","top=10, left=10, width=500, height=600, status=no, menubar=no, toolbar=no, resizable=no", true);
+}
+
+function findPWCloseEvent() {
+	findPWChild.close();
+}
+

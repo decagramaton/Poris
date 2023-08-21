@@ -82,4 +82,20 @@ public interface ShopperDao {
 	 * @param shopper - 회원 정보
 	 */
 	public void deleteShopper(Shopper shopper);
+	
+	/**
+	 * 연락처와 실명으로 회원 아이디를 조회하는 메소드
+	 * @author 고재승
+	 * @param shopper - 회원 정보
+	 * @return - shopperId(회원 아이디)
+	 */
+	public String selectSearchShopperEmail(Shopper shopper);
+	
+	/**
+	 * 연락처와 실명으로 회원 아이디를 조회하는 메소드
+	 * @author 고재승
+	 * @param shopper - 회원 정보
+	 * @return - shopperId(회원 아이디)
+	 */
+	public String selectSearchShopperPassword(Shopper shopper);
 }

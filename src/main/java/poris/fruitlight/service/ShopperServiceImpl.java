@@ -91,4 +91,17 @@ public class ShopperServiceImpl implements ShopperService{
 	public void deleteShopper(Shopper shopper) {
 		shopperDao.deleteShopper(shopper);
 	}
+	
+	
+	@Override
+	public String getSearchShopperId(Shopper shopper) {
+		String dbShopper = shopperDao.selectSearchShopperEmail(shopper);
+		return dbShopper;
+	}
+	
+	@Override
+	public String getSearchShopperPassword(Shopper shopper) {
+		String dbShopper = shopperDao.selectSearchShopperPassword(shopper);
+		return dbShopper;
+	}
 }

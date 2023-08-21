@@ -40,4 +40,8 @@ public interface ShopperService {
 	public void setShopperAutoLogin(Shopper shopper);
 	
 	public void deleteShopper(Shopper shopper);
+	
+	public String getSearchShopperId(Shopper shopper);
+	
+	public String getSearchShopperPassword(Shopper shopper);
 }
