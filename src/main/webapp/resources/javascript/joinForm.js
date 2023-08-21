@@ -14,8 +14,6 @@
 window.onload = init;
 
 function init() {
-	console.log($("#acceptAgreement").is(":checked"));
-	
 	validationEmptyUserID = false;
 	validationPattenUserID = false;
 	validationEmptyUserPW = false;
@@ -30,6 +28,7 @@ function init() {
     $("#user_id").keyup(checkPattenUserID);
 
     $("#user_pw").click(checkEmptyPassword);
+    $("#user_pw").keyup(checkEmptyPassword);
     $("#user_pw").on("blur",checkEmptyUserID);
     $("#user_pw").keyup(checkPattenPassword);
     
@@ -189,8 +188,14 @@ function checkValidation() {
 		validationAcceptAgreement = false;
 	}
 	
-	console.log($("#acceptAgreement").is(":checked"));
-	console.log(validationAcceptAgreement);
+	console.log("validationEmptyUserID : " + validationEmptyUserID);
+	console.log("validationPattenUserID : " + validationPattenUserID);
+	console.log("validationEmptyUserPW : " + validationEmptyUserPW);
+	console.log("validationPattenUserPW : " + validationPattenUserPW);
+	console.log("validationEmptyAgainUserPW : " + validationEmptyAgainUserPW);
+	console.log("validationPattenUserName : " + validationPattenUserName);
+	console.log("validationEmptyUserTel : " + validationEmptyUserTel);
+	console.log("validationAcceptAgreement : " + validationAcceptAgreement);
 
     // 유효성 검사에서 실패시 form의 제출기능 비활성화
 	if(validationEmptyUserID && validationPattenUserID && validationEmptyUserPW && validationPattenUserPW && validationEmptyAgainUserPW && validationPattenUserName && validationEmptyUserTel && validationAcceptAgreement) {
