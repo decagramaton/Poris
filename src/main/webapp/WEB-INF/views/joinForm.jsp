@@ -80,7 +80,7 @@
 										</ul>
 									</div>
 									<div class="confirm">			
-										<label for="accept_agreement_1">						
+										<label for="acceptAgreement">						
 											<input type="checkbox" name="acceptAgreement" value="Y" id="acceptAgreement">
 											[필수] 개인정보수집 이용.동의에 동의합니다.
 										</label>
