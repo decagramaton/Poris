@@ -35,11 +35,13 @@ public class MyPageAddressBookController {
 	private AddressBookService addrBookService;
 	
 	/**
-	 * @author 김진성
-	 * @param session
-	 * @param model - (받는 사람, 받을 주소, 연락처, 배송 요청사항) DTO
-	 * @param response - 쿠키를 응답으로 전송하기 위해 사용
-	 * @return 마이페이지 (배송지 정보) 페이지 이동
+	 * 회원의 배송지 목록 출력
+	 * @author 고재승
+	 * @since 2023.08.16
+	 * @param session - 회원 정보 얻기
+	 * @param model - 배송지 주소 DTO 리스트
+	 * @param response - Alert 응답
+	 * @return - 메인 페이지 이동
 	 */
 	@RequestMapping("/mypageAddressBook")
 	public String mypageAddressBook(HttpSession session, Model model, HttpServletResponse response) {
@@ -56,42 +58,50 @@ public class MyPageAddressBookController {
 				return "redirect:/main";
 			}
 		}
-		log.info(addrBookList.toString());
 		// Step3. 배송지 목록을 JSP으로 전달
 		model.addAttribute("addrBookList", addrBookList);
 		
 		return "mypageAddressBook";
 	}
 	
+
+	
 	/**
-	 * @author 김진성
-	 * @param addressNo - 배송지 번호
-	 * @return 마이페이지 (배송지 정보) 페이지 이동
+	 * 회원  배송지 삭제
+	 * @author 고재승
+	 * @since 2023.08.18
+	 * @param addressNo
+	 * @return
 	 */
 	@GetMapping("/mypageAddressBook/deleteAddressBook")
 	public String deleteAddressBook(int addressNo) {
 		addrBookService.deleteAddressBook(addressNo);
-		log.info("실행");
 		return "redirect:/mypageAddressBook";
 	}
 	
+
 	/**
-	 * @author 김진성
-	 * @return 마이페이지 (배송지 정보) - 배송지 추가 페이지
+	 * 새 배송지 작성 페이지 이동
+	 * @author 고재승
+	 * @since 2023.08.16
+	 * @return 
 	 */
 	@GetMapping("/mypageNewAddressBook")
 	public String mypageNewAddressBook() {
 		
 		return "mypageNewAddressBook";
 	}
+
 	
 	/**
-	 * @author 김진성
-	 * @return 마이페이지 (배송지 정보) 페이지 이동
+	 * 새 배송지 DB 추가
+	 * @author 고재승
+	 * @since 2023.08.18
+	 * @param addressBook
+	 * @return
 	 */
 	@PostMapping("/mypageAddAddressBook")
 	public String mypageAddAddressBook(AddressBook addressBook) {
-		log.info("addressBook :" + addressBook.toString());
 		addrBookService.createAddressBook(addressBook);
 		
 		return "redirect:/mypageAddressBook";

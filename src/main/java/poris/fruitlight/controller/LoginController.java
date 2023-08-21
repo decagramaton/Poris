@@ -66,12 +66,14 @@ public class LoginController {
 			AlertScript.alertAndBackPage(response, "회원정보를 찾을 수 없습니다.");
 			session.setAttribute("Shopper", shopper);
 			return "redirect:/login";
+		}
+		
+		// Step4. 비활성화 회원이면 JSP에 예외 처리 콘솔 출력
+		if(dbShopper.getActivate().equals("N")) {
+			AlertScript.alertAndBackPage(response, "탈퇴 회원입니다. 다시 로그인해주세요");
 		} else {
 			
-			if(dbShopper.getActivate().equals("N")) {
-				return "redirect:/login";
-			}
-			
+			// Step5. 자동 로그인 체크 여부 확인
 			shopper.setShopperNo(dbShopper.getShopperNo());
 			if(shopper.getShopperAutoLogin() != null) {
 				shopperService.setShopperAutoLogin(shopper);
@@ -80,11 +82,11 @@ public class LoginController {
 				shopperService.setShopperAutoLogin(shopper);
 			}
 			
-			// Step4-1. 세션에 Shopper 정보 저장
+			// Step6. 세션에 Shopper 정보 저장
 			session.setAttribute("ShopperInfo", dbShopper);
 			session.removeAttribute("Shopper");
 			
-			// Step4-2. 자동로그인이 체크되었다면, 클라이언트에게 쿠키 생성
+			// Step7. 자동로그인이 체크되었다면, 클라이언트에게 쿠키 생성
 			if(shopper.getShopperAutoLogin().equals("0")) {
 				
 				Cookie cookie = new Cookie("ShopperID", Integer.toString(dbShopper.getShopperNo()));
@@ -95,9 +97,9 @@ public class LoginController {
 				
 				response.addCookie(cookie);
 			}
-			
-			// Step4-4. 메인페이지로 리다이렉트
+			// Step8. 메인페이지로 리다이렉트
 			return "redirect:/";
 		}
+		return "/main";
 	}
 }
