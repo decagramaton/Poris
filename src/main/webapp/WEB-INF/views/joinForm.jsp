@@ -20,7 +20,7 @@
 <body>
 	<div class="container">
 	    <header class="row" style="margin:100 auto;">
-	        <h1 class="col" style="margin:0 auto;"><a href="main"><img src="${pageContext.request.contextPath}/resources/images/fruitlight_logo.png"></a></h1>
+	        <h1 class="col" style="margin:0 auto;"><a href="main"><img src="${pageContext.request.contextPath}/resources/images/fruitlight_logo_new.png"></a></h1>
 	    </header>
 	    <div class="row" style="float: none;">
 	    	<div class="col">
