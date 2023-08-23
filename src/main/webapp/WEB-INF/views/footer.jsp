@@ -3,7 +3,7 @@
 		<div class="footerWrapper">
 			<div class="footerContainer container">
 				<div class="footerLayer1">
-					<img class="footerLogo" src="${pageContext.request.contextPath}/resources/images/footerlogo2.png" width="250" height="85"/>
+					<img class="footerLogo" src="${pageContext.request.contextPath}/resources/images/fruitlight_logo_footer.png" width="250" height="85"/>
 				</div>
 				<div class="footerLayer2">
 					<h4>고객 센터</h4>
