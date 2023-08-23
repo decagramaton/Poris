@@ -59,11 +59,11 @@ function init() {
         if(isVisualization == true) {
             isVisualization = false;
             $('.pw_show_hide').css('background-position','-126px 0');
-            $('input[name=userPw]').prop("type","text");
+            $('input[name=shopperPw]').prop("type","text");
         } else {
             isVisualization = true;
             $('.pw_show_hide').css('background-position','-105px 0');
-            $('input[name=userPw]').prop("type","password");
+            $('input[name=shopperPw]').prop("type","password");
         }
     });
 
