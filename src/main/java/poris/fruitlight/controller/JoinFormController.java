@@ -22,7 +22,7 @@ public class JoinFormController {
 	private ShopperService shopperService;
 	
 	@RequestMapping("/joinForm")
-	public String MainPage() {
+	public String joinForm() {
 		return "joinForm";
 	}
 	

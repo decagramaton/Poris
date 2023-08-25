@@ -33,7 +33,7 @@ public class LoginController {
 	 * @return 로그인 페이지 이동
 	 */
 	@RequestMapping("/login")
-	public String MainPage(HttpSession session) {
+	public String login(HttpSession session) {
 		
 		if(session.getAttribute("ShopperInfo") != null) {
 			return "redirect:/main";
