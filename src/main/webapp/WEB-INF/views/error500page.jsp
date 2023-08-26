@@ -22,7 +22,7 @@
 	<div id="wrapper" class="wrapper">
         <div id="cnts" class="cnts">
             <h1 id="ErrorMessage" class="ErrorMessage">500 내부 서버에 에러가 발생했습니다.</h1>
-            <p id="ErrorMessageInfo" class="ErrorMessageInfo">코드 고치라우</p>
+            <p id="ErrorMessageInfo" class="ErrorMessageInfo">홈페이지에 문제가 발생하였습니다.</p>
             <p class="bt">
                 <a href="javascript:history.back();">
                 	<img src="https://ssl.nexon.com/S2/p3/etc/2016/bt_prev.gif" width="175" height="48">
